@@ -369,9 +369,13 @@ def main():
         layout="wide"
     )
     
-    # Initialize session state for tracking analysis completion
+    # Initialize session state
     if 'analysis_completed' not in st.session_state:
         st.session_state.analysis_completed = False
+    if 'current_file_hash' not in st.session_state:
+        st.session_state.current_file_hash = None
+    if 'analysis_results' not in st.session_state:
+        st.session_state.analysis_results = None
     
     # Add custom CSS for better formatting
     st.markdown("""
@@ -575,96 +579,136 @@ def main():
     # File upload
     uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
     
-    if uploaded_file is not None and not st.session_state.analysis_completed:
-        try:
-            # Save uploaded file
-            input_file = save_uploaded_file(uploaded_file)
-            logger.info(f"File uploaded and saved: {input_file}")
-            
-            # Initialize components
-            component_analyzer, lca_analyzer, solutions_generator = initialize_components()
-            logger.info("Components initialized successfully")
-            
-            # Create step display
-            steps = {
-                "Component Analysis": False,
-                "LCA Analysis": False,
-                "Sustainable Solutions": False,
-                "Visualization Generation": False
-            }
-            
-            # Step 1: Component Analysis
-            with st.container():
-                st.markdown("### Step 1/4: Component Analysis")
-                st.markdown("Analyzing components from the input file...")
-                component_results = component_analyzer.analyze_ecu_components(input_file)
-                component_analyzer.save_analysis(component_results, "output/component_analysis.json")
-                steps["Component Analysis"] = True
-                st.success("✓ Component analysis completed")
-            
-            # Step 2: LCA Analysis
-            with st.container():
-                st.markdown("### Step 2/4: LCA Analysis")
-                st.markdown("Performing LCA analysis for each life cycle phase...")
-                lca_results = {}
-                phases = ['production', 'distribution', 'use', 'end_of_life']
+    if uploaded_file is not None:
+        import hashlib
+        
+        # Calculate hash of the uploaded file content
+        file_content = uploaded_file.getvalue()
+        file_hash = hashlib.md5(file_content).hexdigest()
+        
+        # Check if this is a new file or the analysis is already completed
+        if st.session_state.current_file_hash != file_hash:
+            # New file uploaded, reset session state
+            st.session_state.analysis_completed = False
+            st.session_state.current_file_hash = file_hash
+            st.session_state.analysis_results = None
+            logger.info(f"New file uploaded with hash: {file_hash}")
+        
+        # Only run analysis if not already completed for this file
+        if not st.session_state.analysis_completed:
+            try:
+                # Save uploaded file
+                input_file = save_uploaded_file(uploaded_file)
+                logger.info(f"File uploaded and saved: {input_file}")
                 
-                for phase in phases:
-                    st.markdown(f"Analyzing {phase} phase...")
-                    if phase == 'production':
-                        lca_results[phase] = lca_analyzer.analyze_production_phase(component_results)
-                    elif phase == 'distribution':
-                        lca_results[phase] = lca_analyzer.analyze_distribution_phase(component_results)
-                    elif phase == 'use':
-                        lca_results[phase] = lca_analyzer.analyze_use_phase(component_results)
-                    elif phase == 'end_of_life':
-                        lca_results[phase] = lca_analyzer.analyze_end_of_life_phase(component_results)
+                # Initialize components
+                component_analyzer, lca_analyzer, solutions_generator = initialize_components()
+                logger.info("Components initialized successfully")
                 
-                final_report = lca_analyzer.generate_comprehensive_report(lca_results, component_results)
-                with open("output/llm_based_lca_analysis.json", 'w') as f:
-                    json.dump({"lca_report": final_report}, f, indent=2)
-                steps["LCA Analysis"] = True
-                st.success("✓ LCA analysis completed")
-            
-            # Step 3: Generate Sustainable Solutions
-            with st.container():
-                st.markdown("### Step 3/4: Sustainable Solutions")
-                st.markdown("Generating sustainable solutions based on LCA results...")
-                solutions_generator.generate_sustainable_solutions(
-                    lca_report_path="output/llm_based_lca_analysis.json",
-                    output_path="output/sustainable_solutions_report.txt"
-                )
-                steps["Sustainable Solutions"] = True
-                st.success("✓ Sustainable solutions generated")
-            
-            # Step 4: Generate Visualizations
-            with st.container():
-                st.markdown("### Step 4/4: Visualization Generation")
-                st.markdown("Creating visualizations for LCA and sustainable solutions...")
-                steps["Visualization Generation"] = True
-                st.success("✓ Visualizations generated")
-            
-            # Display results
-            st.success("Analysis completed successfully!")
-            logger.info("Analysis completed successfully")
-            
-            # Set analysis as completed
-            st.session_state.analysis_completed = True
-            
+                # Create step display
+                steps = {
+                    "Component Analysis": False,
+                    "LCA Analysis": False,
+                    "Sustainable Solutions": False,
+                    "Visualization Generation": False
+                }
+                
+                # Step 1: Component Analysis
+                with st.container():
+                    st.markdown("### Step 1/4: Component Analysis")
+                    st.markdown("Analyzing components from the input file...")
+                    component_results = component_analyzer.analyze_ecu_components(input_file)
+                    component_analyzer.save_analysis(component_results, "output/component_analysis.json")
+                    steps["Component Analysis"] = True
+                    st.success("✓ Component analysis completed")
+                
+                # Step 2: LCA Analysis
+                with st.container():
+                    st.markdown("### Step 2/4: LCA Analysis")
+                    st.markdown("Performing LCA analysis for each life cycle phase...")
+                    lca_results = {}
+                    phases = ['production', 'distribution', 'use', 'end_of_life']
+                    
+                    for phase in phases:
+                        st.markdown(f"Analyzing {phase} phase...")
+                        if phase == 'production':
+                            lca_results[phase] = lca_analyzer.analyze_production_phase(component_results)
+                        elif phase == 'distribution':
+                            lca_results[phase] = lca_analyzer.analyze_distribution_phase(component_results)
+                        elif phase == 'use':
+                            lca_results[phase] = lca_analyzer.analyze_use_phase(component_results)
+                        elif phase == 'end_of_life':
+                            lca_results[phase] = lca_analyzer.analyze_end_of_life_phase(component_results)
+                    
+                    final_report = lca_analyzer.generate_comprehensive_report(lca_results, component_results)
+                    with open("output/llm_based_lca_analysis.json", 'w') as f:
+                        json.dump({"lca_report": final_report}, f, indent=2)
+                    steps["LCA Analysis"] = True
+                    st.success("✓ LCA analysis completed")
+                
+                # Step 3: Generate Sustainable Solutions
+                with st.container():
+                    st.markdown("### Step 3/4: Sustainable Solutions")
+                    st.markdown("Generating sustainable solutions based on LCA results...")
+                    solutions_generator.generate_sustainable_solutions(
+                        lca_report_path="output/llm_based_lca_analysis.json",
+                        output_path="output/sustainable_solutions_report.txt"
+                    )
+                    steps["Sustainable Solutions"] = True
+                    st.success("✓ Sustainable solutions generated")
+                
+                # Step 4: Generate Visualizations
+                with st.container():
+                    st.markdown("### Step 4/4: Visualization Generation")
+                    st.markdown("Creating visualizations for LCA and sustainable solutions...")
+                    steps["Visualization Generation"] = True
+                    st.success("✓ Visualizations generated")
+                
+                # Mark analysis as completed
+                st.session_state.analysis_completed = True
+                st.session_state.analysis_results = "completed"
+                
+                # Display success message
+                st.success("Analysis completed successfully!")
+                logger.info("Analysis completed successfully")
+                
+                # Clean up temporary file
+                try:
+                    Path(input_file).unlink(missing_ok=True)
+                    logger.info("Temporary file cleaned up")
+                except Exception as e:
+                    logger.error(f"Error cleaning up temporary file: {str(e)}")
+                
+            except Exception as e:
+                error_msg = f"An error occurred during analysis: {str(e)}"
+                st.error(error_msg)
+                logger.error(error_msg)
+                # Reset session state on error so user can try again
+                st.session_state.analysis_completed = False
+                st.session_state.analysis_results = None
+        
+        # Display results if analysis is completed
+        if st.session_state.analysis_completed:
             # Create tabs for different reports
             tab1, tab2, tab3 = st.tabs(["📊 LCA Report", "🌱 Sustainable Solutions", "📈 Impact Visualization"])
             
             with tab1:
                 # Load and display LCA report
-                with open("output/llm_based_lca_analysis.json", 'r') as f:
-                    lca_data = json.load(f)
-                format_lca_report(lca_data)
+                try:
+                    with open("output/llm_based_lca_analysis.json", 'r') as f:
+                        lca_data = json.load(f)
+                    format_lca_report(lca_data)
+                except FileNotFoundError:
+                    st.error("LCA report file not found. Please run the analysis again.")
             
             with tab2:
                 # Load and display sustainable solutions report
-                with open("output/sustainable_solutions_report.txt", 'r') as f:
-                    solutions_report = f.read()
-                format_solutions_report(solutions_report)
+                try:
+                    with open("output/sustainable_solutions_report.txt", 'r') as f:
+                        solutions_report = f.read()
+                    format_solutions_report(solutions_report)
+                except FileNotFoundError:
+                    st.error("Sustainable solutions report file not found. Please run the analysis again.")
             
             with tab3:
                 # Create sub-tabs for different visualizations
@@ -689,23 +733,13 @@ def main():
                     for name, html_content in solutions_viz.items():
                         st.markdown(f"### {name.replace('_', ' ').title()}")
                         st.components.v1.html(f'<div style="overflow-x:auto; width:100%; max-width:1200px; min-width:700px; min-height:700px;">{html_content}</div>', height=700, scrolling=True)
-            
-        except Exception as e:
-            error_msg = f"An error occurred during analysis: {str(e)}"
-            st.error(error_msg)
-            logger.error(error_msg)
-        
-        finally:
-            # Clean up temporary file only after all processing is complete
-            if 'input_file' in locals():
-                try:
-                    Path(input_file).unlink(missing_ok=True)
-                    logger.info("Temporary file cleaned up")
-                except Exception as e:
-                    logger.error(f"Error cleaning up temporary file: {str(e)}")
     
-    elif st.session_state.analysis_completed:
-        st.info("Analysis has already been completed. Please refresh the page to start a new analysis.")
+    else:
+        # Reset session state when no file is uploaded
+        if st.session_state.analysis_completed:
+            st.session_state.analysis_completed = False
+            st.session_state.current_file_hash = None
+            st.session_state.analysis_results = None
 
 if __name__ == "__main__":
     main() 
