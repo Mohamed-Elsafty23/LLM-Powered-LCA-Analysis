@@ -299,6 +299,10 @@ class SustainableSolutionsGenerator:
         return self.vector_search.search(query, top_k)
 
     def analyze_paper(self, paper: Dict[str, Any], lca_report: Dict[str, Any], api_client: APIClient) -> Dict[str, Any]:
+        # save paper_content to a json file
+        # with open('paper_content.json', 'w', encoding='utf-8') as f:
+        #     json.dump(paper, f, indent=2)
+        
         """
         Analyze a single paper to extract sustainable solutions.
         
@@ -311,11 +315,16 @@ class SustainableSolutionsGenerator:
             Dict: Analysis results with sustainable solutions
         """
         # Extract paper ID and content
-        paper_id = list(paper.keys())[0]
-        paper_content = paper[paper_id]
+        # paper_id = list(paper.keys())[0]
+        paper_content = paper
         
         # Get paper citation from metadata
-        citation = paper_content.get('paper_metadata', {}).get('citation', '')
+        citation = paper_content.get('paper_metadata', {}).get('citation', '') 
+        title = paper_content.get('paper_metadata', {}).get('title', '')
+        doi = paper_content.get('paper_metadata', {}).get('doi', '')
+        
+        print(f"Citation: {citation} and DOI url: https://doi.org/{doi}")
+
         if not citation or citation == 'Not available':
             return None
         
@@ -341,7 +350,7 @@ class SustainableSolutionsGenerator:
            - Provide implementation feasibility based on the paper's technical details
            - Include any specific parameters, requirements, or conditions mentioned
            - Include any numerical improvements, calculations, or metrics that show the potential impact
-        3. Always include the paper citation: {citation}
+        3. Always include the paper citation: title: {title} and with DOI link url: "https://doi.org/{doi}" if available.
         4. Focus only on solutions that are:
            - Technically feasible based on the paper's evidence
            - Directly relevant to the specific environmental impacts in the LCA report
@@ -353,7 +362,7 @@ class SustainableSolutionsGenerator:
         - Technical implementation details
         - Numerical improvements and calculations
         - Feasibility assessment
-        - Paper citation
+        - Paper citation title with DOI link 	
         """
 
         response = api_client.client.chat.completions.create(
@@ -459,14 +468,22 @@ class SustainableSolutionsGenerator:
            - Environmental Impacts and Solutions (organized by life cycle phase)
            - Prioritization of Solutions
            - Conclusion
-           - References (only include papers that were actually used)
+           - References (only include papers that were actually used) : use citation title and DOI link if available.
 
         Format the response in a clear, readable way that emphasizes:
         - Environmental impacts and their solutions
-        - Technical details and implementation steps
+        - Technical details and implementation steps 
         - Numerical improvements and calculations
-        - Paper citations
+        - Paper citations with DOI link if available
         - Priority and feasibility of each solution
+        
+        Feel free to include any other relevant information that would help understand and implement the solutions, such as:
+        - Cost considerations and economic feasibility
+        - Social impacts and stakeholder considerations
+        - Regulatory requirements and compliance needs
+        - Case studies and real-world examples
+        - Risk factors and mitigation strategies
+        - Long-term sustainability implications
         """
 
         response = self.api_clients[0].client.chat.completions.create(

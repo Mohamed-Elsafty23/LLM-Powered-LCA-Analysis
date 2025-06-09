@@ -282,22 +282,16 @@ def format_solutions_report(report_text):
         return sections
 
     def format_references(section):
-        """Format the references section with proper list formatting."""
-        # Extract the title and content
-        lines = section.split('\n')
-        title = lines[0]
-        content = '\n'.join(lines[1:])
-        
+        """Format the references section with proper citations."""
         # Display the title
-        st.markdown(title, unsafe_allow_html=True)
+        st.markdown("**References**")
         
-        # Split references by citation number pattern [number]
-        references = re.split(r'\[\d+\]', content)
-        references = [ref.strip() for ref in references if ref.strip()]
-        
-        # Display each reference as a list item
-        for i, ref in enumerate(references, 1):
-            st.markdown(f"{i}. {ref}", unsafe_allow_html=True)
+        # Split the section into lines and process each reference
+        lines = section.split('\n')
+        for line in lines:
+            if line.strip() and not line.startswith('**References**'):
+                # Add a new line before each reference
+                st.markdown("\n" + line.strip())
 
     def format_section(section):
         """Format a section with appropriate styling."""
@@ -650,10 +644,22 @@ def main():
                 with st.container():
                     st.markdown("### Step 3/4: Sustainable Solutions")
                     st.markdown("Generating sustainable solutions based on LCA results...")
-                    solutions_generator.generate_sustainable_solutions(
+                    
+                    # Generate sustainable solutions and get retrieved papers
+                    retrieved_papers = solutions_generator.generate_sustainable_solutions(
                         lca_report_path="output/llm_based_lca_analysis.json",
                         output_path="output/sustainable_solutions_report.txt"
                     )
+                    
+                    # Store retrieved papers in output folder if they exist
+                    if retrieved_papers:
+                        try:
+                            with open("output/retrieved_papers.json", 'w') as f:
+                                json.dump(retrieved_papers, f, indent=2)
+                            logger.info(f"Retrieved papers saved to output/retrieved_papers.json")
+                        except Exception as e:
+                            logger.error(f"Error saving retrieved papers: {str(e)}")
+                    
                     steps["Sustainable Solutions"] = True
                     st.success("✓ Sustainable solutions generated")
                 
@@ -690,7 +696,7 @@ def main():
         # Display results if analysis is completed
         if st.session_state.analysis_completed:
             # Create tabs for different reports
-            tab1, tab2, tab3 = st.tabs(["📊 LCA Report", "🌱 Sustainable Solutions", "📈 Impact Visualization"])
+            tab1, tab2, tab3 = st.tabs(["📊 LCA Report", "🌱 Sustainable Solutions", "📈 Visualization"])
             
             with tab1:
                 # Load and display LCA report

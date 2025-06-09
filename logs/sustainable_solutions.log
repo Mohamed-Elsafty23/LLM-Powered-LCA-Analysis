@@ -1,0 +1,102 @@
+2025-06-09 17:49:48,549 - INFO - Vector index size: 125
+2025-06-09 17:49:48,549 - INFO - Available metadata entries: 125
+2025-06-09 17:49:48,550 - INFO - Initialized VectorSearch
+2025-06-09 17:49:48,550 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 17:49:59,558 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 17:49:59,569 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 equivalent") AND ("production" OR "manufacturing" OR "distribution" OR "use" OR "end-of-life") AND ("injection molding" OR "transportation" OR "packaging" OR "recycling" OR "incineration") AND ("energy efficiency" OR "material waste reduction" OR "logistics optimization" OR "recycling strategies")
+2025-06-09 17:49:59,964 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 17:50:00,003 - INFO - Found 5 relevant papers
+2025-06-09 17:50:00,006 - INFO - Saved retrieved papers to output/retrieved_papers.json
+2025-06-09 18:11:19,137 - INFO - Vector index size: 125
+2025-06-09 18:11:19,138 - INFO - Available metadata entries: 125
+2025-06-09 18:11:19,138 - INFO - Initialized VectorSearch
+2025-06-09 18:11:19,138 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:11:32,214 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:11:32,217 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 equivalent") AND ("production phase" OR "manufacturing processes" OR "injection molding") AND ("distribution phase" OR "transportation" OR "packaging") AND ("use phase" OR "energy efficiency" OR "operating hours") AND ("end-of-life phase" OR "recycling" OR "disposal methods") AND ("life cycle assessment" OR "LCA" OR "sustainability") AND ("optimization" OR "improvement" OR "reduction of environmental impacts")
+2025-06-09 18:11:32,608 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:11:32,644 - INFO - Found 5 relevant papers
+2025-06-09 18:13:35,579 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:13:35,580 - INFO - Generated final report
+2025-06-09 18:13:35,581 - INFO - Successfully generated sustainable solutions report at output/sustainable_solutions_report.txt
+2025-06-09 18:17:03,154 - INFO - Vector index size: 125
+2025-06-09 18:17:03,155 - INFO - Available metadata entries: 125
+2025-06-09 18:17:03,155 - INFO - Initialized VectorSearch
+2025-06-09 18:17:03,156 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:17:15,851 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:17:15,854 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 eq") AND ("production phase" OR "manufacturing processes" OR "injection molding") AND ("distribution phase" OR "transportation" OR "packaging") AND ("use phase" OR "energy efficiency" OR "operating hours") AND ("end-of-life phase" OR "recycling" OR "disposal methods") AND ("life cycle assessment" OR "LCA" OR "sustainability") AND ("material extraction" OR "manufacturing optimization" OR "energy-efficient design")
+2025-06-09 18:17:16,284 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:17:16,317 - INFO - Found 5 relevant papers
+2025-06-09 18:20:55,233 - INFO - Vector index size: 125
+2025-06-09 18:20:55,233 - INFO - Available metadata entries: 125
+2025-06-09 18:20:55,233 - INFO - Initialized VectorSearch
+2025-06-09 18:20:55,234 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:21:07,189 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:21:07,192 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 eq") AND ("production" OR "manufacturing" OR "distribution" OR "use" OR "end-of-life") AND ("injection molding" OR "transportation" OR "packaging" OR "recycling" OR "incineration") AND ("energy efficiency" OR "material waste reduction" OR "logistics optimization" OR "recycling strategies") AND ("life cycle assessment" OR "LCA" OR "sustainability")
+2025-06-09 18:21:10,587 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:21:10,626 - INFO - Found 5 relevant papers
+2025-06-09 18:23:24,895 - INFO - Vector index size: 125
+2025-06-09 18:23:24,896 - INFO - Available metadata entries: 125
+2025-06-09 18:23:24,896 - INFO - Initialized VectorSearch
+2025-06-09 18:23:24,896 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:23:43,928 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:23:43,931 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 eq") AND ("production" OR "manufacturing" OR "distribution" OR "use" OR "end-of-life") AND ("injection molding" OR "transportation" OR "packaging" OR "recycling" OR "incineration") AND ("energy efficiency" OR "material waste reduction" OR "alternative transportation modes" OR "effective recycling strategies")
+2025-06-09 18:23:44,529 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:23:44,560 - INFO - Found 5 relevant papers
+2025-06-09 18:26:05,539 - INFO - Vector index size: 125
+2025-06-09 18:26:05,539 - INFO - Available metadata entries: 125
+2025-06-09 18:26:05,540 - INFO - Initialized VectorSearch
+2025-06-09 18:26:05,540 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:26:16,263 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:26:16,266 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 equivalent") AND ("production phase" OR "use phase" OR "distribution phase" OR "end-of-life phase") AND ("injection molding" OR "transportation" OR "packaging" OR "recycling" OR "incineration" OR "energy efficiency") AND ("life cycle assessment" OR "sustainability" OR "environmental impact reduction")
+2025-06-09 18:26:16,698 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:26:16,732 - INFO - Found 5 relevant papers
+2025-06-09 18:28:40,314 - INFO - Vector index size: 125
+2025-06-09 18:28:40,315 - INFO - Available metadata entries: 125
+2025-06-09 18:28:40,315 - INFO - Initialized VectorSearch
+2025-06-09 18:28:40,315 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:28:51,888 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:28:51,895 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate") AND ("injection molding" OR "energy consumption" OR "transportation" OR "packaging") AND ("greenhouse gas emissions" OR "CO2 eq" OR "energy efficiency") AND ("production phase" OR "use phase" OR "distribution phase") AND ("material extraction" OR "manufacturing processes" OR "recycling" OR "disposal methods") AND ("life cycle assessment" OR "LCA" OR "sustainability") AND ("energy-efficient design" OR "optimized manufacturing" OR "alternative transportation" OR "waste reduction")
+2025-06-09 18:28:52,389 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:28:52,427 - INFO - Found 5 relevant papers
+2025-06-09 18:31:51,001 - INFO - Vector index size: 125
+2025-06-09 18:31:51,002 - INFO - Available metadata entries: 125
+2025-06-09 18:31:51,002 - INFO - Initialized VectorSearch
+2025-06-09 18:31:51,003 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:32:03,380 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:32:03,393 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 eq") AND ("production" OR "manufacturing" OR "distribution" OR "transportation" OR "use" OR "end-of-life") AND ("injection molding" OR "recycling" OR "incineration" OR "e-waste processing") AND ("life cycle assessment" OR "LCA" OR "sustainability" OR "environmental impact") AND ("energy efficiency" OR "material waste reduction" OR "logistics optimization" OR "recycling strategies")
+2025-06-09 18:32:03,878 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:32:03,930 - INFO - Found 5 relevant papers
+2025-06-09 18:33:01,848 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:33:01,852 - INFO - Analyzed paper with similarity score: 0.709858238697052
+2025-06-09 18:33:23,257 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:33:23,261 - INFO - Analyzed paper with similarity score: 0.7181802988052368
+2025-06-09 18:34:14,476 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:34:14,480 - INFO - Analyzed paper with similarity score: 0.7081909775733948
+2025-06-09 18:34:31,266 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:34:31,269 - INFO - Analyzed paper with similarity score: 0.7080308198928833
+2025-06-09 18:35:21,713 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:35:21,714 - INFO - Analyzed paper with similarity score: 0.7044069766998291
+2025-06-09 18:37:25,920 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:37:25,923 - INFO - Generated final report
+2025-06-09 18:37:25,925 - INFO - Successfully generated sustainable solutions report at output/sustainable_solutions_report.txt
+2025-06-09 18:43:52,123 - INFO - Vector index size: 125
+2025-06-09 18:43:52,124 - INFO - Available metadata entries: 125
+2025-06-09 18:43:52,124 - INFO - Initialized VectorSearch
+2025-06-09 18:43:52,125 - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 18:44:03,308 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:44:03,311 - INFO - Generated query: ("Electronic Control Unit" OR "ECU") AND ("PBT" OR "Polybutylene Terephthalate" OR "metals" OR "plastics" OR "PCB") AND ("energy consumption" OR "greenhouse gas emissions" OR "CO2 eq") AND ("production" OR "distribution" OR "use" OR "end-of-life") AND ("injection molding" OR "transportation" OR "packaging" OR "recycling" OR "incineration") AND ("energy efficiency" OR "material waste reduction" OR "logistics optimization" OR "recycling strategies") AND ("life cycle assessment" OR "LCA" OR "sustainability")
+2025-06-09 18:44:03,706 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 18:44:03,742 - INFO - Found 5 relevant papers
+2025-06-09 18:45:00,636 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:45:00,638 - INFO - Analyzed paper with similarity score: 0.7146134376525879
+2025-06-09 18:45:07,948 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:45:07,949 - INFO - Analyzed paper with similarity score: 0.7065381407737732
+2025-06-09 18:46:10,389 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:46:10,393 - INFO - Analyzed paper with similarity score: 0.7028838992118835
+2025-06-09 18:46:33,613 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:46:33,615 - INFO - Analyzed paper with similarity score: 0.7028632164001465
+2025-06-09 18:47:17,559 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:47:17,560 - INFO - Analyzed paper with similarity score: 0.7021268606185913
+2025-06-09 18:49:02,247 - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 18:49:02,252 - INFO - Generated final report
+2025-06-09 18:49:02,256 - INFO - Successfully generated sustainable solutions report at output/sustainable_solutions_report.txt

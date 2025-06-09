@@ -1,0 +1,79 @@
+{
+  "paper_metadata": {
+    "title": "Towards Sustainable Temperature Sensor Production through CO2-Derived Polycarbonate-Based Composites",
+    "doi": "10.3390/polym16131948",
+    "citation": "Mart\u00edn-Ayerdi, A.; Rubio-Pe\u00f1a, L.; Pe\u02c7rinka, N.; Oyarzabal, I.; Vilas, J.L.; Costa, P.; Lanceros-M\u00e9ndez, S. Polymers 2024, 16, 1948.",
+    "abstract": "The steep increase in carbon dioxide (CO2) emissions has created great concern due to its role in the greenhouse effect and global warming. One approach to mitigate CO2 levels involves its application in specific technologies. In this context, CO2 can be used for a more sustainable synthesis of polycarbonates (CO2-PCs). In this research, CO2-PC films and composites with multiwalled carbon nanotubes (MWCNTs, ranging from 0.2 to 7.0 wt.%) have been prepared to achieve more sustainable multifunctional sensing devices."
+  },
+  "research_information": {
+    "objectives": "The objective of this research is to develop a more sustainable approach to produce polymer-based temperature sensors by employing CO2-derived polycarbonate (PCC)/multiwalled carbon nanotube (MWCNT) composites.",
+    "methodology": "The methodology involves the preparation of PCC/MWCNT composites through a solvent casting process, followed by characterization of their morphological, thermal, mechanical, and electrical properties.",
+    "key_findings": "The key findings include the achievement of a percolation threshold at 0.1 wt.% MWCNTs, a maximum electrical conductivity of 0.107 S\u00b7m\u22121 for the composite containing 1.5 wt.% MWCNTs, and a thermoresistive sensitivity of 1.3\u00d710\u22124 \u00b0C\u22121 for the composite containing 3.0 wt.% MWCNTs.",
+    "limitations": "The limitations of this study include the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+    "research_questions": "The research questions addressed in this study include the potential of CO2-derived PCC/MWCNT composites as temperature sensors and the effect of MWCNT content on the properties of the composites.",
+    "hypotheses": "The hypothesis of this study is that CO2-derived PCC/MWCNT composites can be used as sustainable temperature sensors with suitable electrical conductivity and thermoresistive properties.",
+    "assumptions": "The assumptions of this study include the assumption that the use of CO2-derived PCC can reduce the environmental impact of polymer-based electronic systems.",
+    "scope": "The scope of this study is to investigate the potential of CO2-derived PCC/MWCNT composites as sustainable temperature sensors."
+  },
+  "technical_parameters": {
+    "measurements": "The measurements include the thickness of the films (154 \u00b1 27 \u00b5m), the density of the PCC material (1.10 g\u00b7cm\u22123), and the onset estimate decomposition temperature (250\u00b0C).",
+    "specifications": "The specifications include the use of commercial QPAC\u00ae130 poly(cyclohexene carbonate) PCC, multiwalled carbon nanotubes (MWCNTs) with reference NC7000 \u2122, and dichloromethane (DCM) as the solvent.",
+    "performance_metrics": "The performance metrics include the electrical conductivity, percolation threshold, and thermoresistive sensitivity of the composites.",
+    "experimental_conditions": "The experimental conditions include the use of a Dr. Blade to produce the films, a temperature range of 25\u00b0C to 800\u00b0C for thermogravimetric analysis, and a heating rate of 10\u00b0C\u00b7min\u22121.",
+    "materials": "The materials used include PCC, MWCNTs, and DCM.",
+    "processes": "The processes used include solvent casting, ultrasound treatment, and thermal characterization.",
+    "equipment": "The equipment used includes a Hitachi S-4800 Scanning Electron Microscope, a Nicolet Nexus FTIR spectrophotometer, and a Mettler Toledo TGA/SDTA851e thermobalance.",
+    "quality_parameters": "The quality parameters include the morphology, thermal stability, mechanical properties, and electrical conductivity of the composites."
+  },
+  "environmental_aspects": {
+    "life_cycle_phases": "The life cycle phases considered include the production of CO2-derived PCC, the preparation of PCC/MWCNT composites, and the use of these composites as temperature sensors.",
+    "environmental_impacts": "The environmental impacts considered include the reduction of CO2 emissions through the use of CO2-derived PCC and the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+    "resource_consumption": "The resource consumption considered includes the use of CO2, PCC, MWCNTs, and DCM.",
+    "emissions_data": "The emissions data considered includes the reduction of CO2 emissions through the use of CO2-derived PCC.",
+    "environmental_indicators": "The environmental indicators considered include the thermoresistive sensitivity and electrical conductivity of the composites.",
+    "impact_categories": "The impact categories considered include the greenhouse effect and global warming.",
+    "environmental_standards": "The environmental standards considered include the use of sustainable materials and the reduction of CO2 emissions.",
+    "mitigation_measures": "The mitigation measures considered include the use of CO2-derived PCC and the optimization of the MWCNT content to minimize agglomeration."
+  },
+  "economic_aspects": {
+    "costs": "The costs considered include the cost of PCC, MWCNTs, and DCM.",
+    "economic_indicators": "The economic indicators considered include the cost-effectiveness of using CO2-derived PCC and the potential market demand for sustainable temperature sensors.",
+    "market_analysis": "The market analysis considered includes the potential market demand for sustainable temperature sensors and the competitiveness of CO2-derived PCC/MWCNT composites.",
+    "financial_implications": "The financial implications considered include the potential cost savings through the use of CO2-derived PCC and the potential revenue streams from the sale of sustainable temperature sensors.",
+    "investment_requirements": "The investment requirements considered include the cost of equipment, materials, and labor required to produce CO2-derived PCC/MWCNT composites.",
+    "operational_costs": "The operational costs considered include the cost of energy, maintenance, and repair required to produce and use CO2-derived PCC/MWCNT composites.",
+    "revenue_streams": "The revenue streams considered include the potential sales of sustainable temperature sensors and the potential licensing of CO2-derived PCC/MWCNT composite technology.",
+    "economic_feasibility": "The economic feasibility considered includes the potential cost-effectiveness of using CO2-derived PCC and the potential market demand for sustainable temperature sensors."
+  },
+  "sustainability_considerations": {
+    "environmental_impacts": "The environmental impacts considered include the reduction of CO2 emissions through the use of CO2-derived PCC and the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+    "social_aspects": "The social aspects considered include the potential benefits of using sustainable materials and the potential impact on employment and local communities.",
+    "circular_economy_elements": "The circular economy elements considered include the use of CO2-derived PCC and the potential for recycling and reuse of MWCNTs.",
+    "sustainability_metrics": "The sustainability metrics considered include the thermoresistive sensitivity and electrical conductivity of the composites.",
+    "sustainable_practices": "The sustainable practices considered include the use of sustainable materials, the reduction of CO2 emissions, and the optimization of the MWCNT content to minimize agglomeration.",
+    "sustainability_goals": "The sustainability goals considered include the reduction of CO2 emissions and the development of sustainable temperature sensors.",
+    "stakeholder_engagement": "The stakeholder engagement considered includes the potential involvement of industry partners, government agencies, and local communities in the development and implementation of CO2-derived PCC/MWCNT composites.",
+    "sustainability_challenges": "The sustainability challenges considered include the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites and the need for further research and development to optimize the properties of CO2-derived PCC/MWCNT composites."
+  },
+  "additional_information": {
+    "tables": "The tables include the summary of the temperatures of the main thermal events and the mechanical properties of the composites.",
+    "figures": "The figures include the SEM images of the PCC matrix and MWCNTs, the infrared spectra of pristine PCC and PCC/MWCNT composites, and the thermoresistance response for the composite containing 3.0% wt. MWCNTs.",
+    "equations": "The equations include the calculation of the electrical conductivity and the thermoresistive sensitivity.",
+    "important_notes": "The important notes include the potential benefits of using sustainable materials and the potential impact on employment and local communities.",
+    "recommendations": "The recommendations include the use of CO2-derived PCC and the optimization of the MWCNT content to minimize agglomeration.",
+    "future_work": "The future work includes the potential development of new sustainable materials and the optimization of the properties of CO2-derived PCC/MWCNT composites.",
+    "case_studies": "The case studies include the potential application of CO2-derived PCC/MWCNT composites in temperature sensing devices.",
+    "best_practices": "The best practices include the use of sustainable materials, the reduction of CO2 emissions, and the optimization of the MWCNT content to minimize agglomeration."
+  },
+  "other_significant_information": {
+    "regulatory_compliance": "The regulatory compliance considered includes the use of sustainable materials and the reduction of CO2 emissions.",
+    "industry_standards": "The industry standards considered include the use of sustainable materials and the optimization of the MWCNT content to minimize agglomeration.",
+    "innovation_aspects": "The innovation aspects considered include the development of new sustainable materials and the optimization of the properties of CO2-derived PCC/MWCNT composites.",
+    "risk_assessment": "The risk assessment considered includes the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+    "quality_assurance": "The quality assurance considered includes the use of sustainable materials, the reduction of CO2 emissions, and the optimization of the MWCNT content to minimize agglomeration.",
+    "implementation_details": "The implementation details considered include the potential application of CO2-derived PCC/MWCNT composites in temperature sensing devices.",
+    "maintenance_requirements": "The maintenance requirements considered include the potential need for regular maintenance and repair of CO2-derived PCC/MWCNT composite-based temperature sensors.",
+    "safety_considerations": "The safety considerations considered include the potential risks associated with the use of MWCNTs and the need for proper handling and disposal procedures."
+  },
+  "similarity_score": 0.6956167817115784
+}

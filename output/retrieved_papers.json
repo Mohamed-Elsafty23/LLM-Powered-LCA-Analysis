@@ -1,0 +1,766 @@
+[
+  {
+    "paper_metadata": {
+      "title": "Thermoplastic Electromagnetic Shielding Materials from the Integral Recycling of Waste from Electronic Equipment",
+      "doi": "10.3390/polym15193859",
+      "citation": "Aradoaei, M.; Ciobanu, R.C.; Schreiner, C.; Ursan, A.G.; Hitruc, E.G.; Aflori, M. Thermoplastic Electromagnetic Shielding Materials from the Integral Recycling of Waste from Electronic Equipment. Polymers 2023, 15, 3859.",
+      "abstract": "The European Green Deal\u2019s goals are anticipated to be fulfilled in large part thanks to the New Circular Economy Action Plan. It is believed that recycling materials will have a significant positive impact on the environment, particularly in terms of reducing greenhouse gas emissions and the impacts this will have on preventing climate change."
+    },
+    "research_information": {
+      "objectives": "The goal of this paper is to characterize and obtain composite materials using an injection process with a matrix of LDPE, PP, and HDPE, with up to a 10% addition of nonmetallic powders from PCBs and electronic parts from an integrated process of WEEE recycling.",
+      "methodology": "The integral recycling of WEEE was performed in two stages: obtaining powder from thermoset components of WEEE and manufacturing composites made of recycled LDPE, HDPE, and PP from WEEE with up to a 10% addition of non-metallic powder.",
+      "key_findings": "The composites presented relevant thermal, electrical, and mechanical properties, and may be further tested for applications in electromagnetic shielding at frequencies above 1 kHz, or for electromagnetic interference/electromagnetic compatibility (EMI/EMC and ESD) applications at lower frequencies.",
+      "limitations": "The study has some limitations, including the use of a specific type of WEEE and the need for further research on the scalability of the process.",
+      "research_questions": "The research questions addressed in this study include the characterization of composite materials obtained from the integral recycling of WEEE and the evaluation of their potential applications in electromagnetic shielding and EMI/EMC.",
+      "hypotheses": "The hypotheses of this study include the assumption that the integral recycling of WEEE can produce composite materials with relevant thermal, electrical, and mechanical properties, and that these materials can be used in electromagnetic shielding and EMI/EMC applications.",
+      "assumptions": "The assumptions of this study include the assumption that the WEEE used in this study is representative of the wider range of WEEE, and that the results of this study can be generalized to other types of WEEE.",
+      "scope": "The scope of this study includes the characterization of composite materials obtained from the integral recycling of WEEE and the evaluation of their potential applications in electromagnetic shielding and EMI/EMC."
+    },
+    "technical_parameters": {
+      "measurements": {
+        "units": "mm, g, MPa, GPa, %",
+        "uncertainty": "\u00b10.1 mg, \u00b10.2 mg, \u00b10.5%",
+        "context": "The measurements were taken using a XS204 Analytical Balance and a Dr. Boy 35A laboratory micro-extruder."
+      },
+      "specifications": {
+        "equipment": "Dr. Boy 35A laboratory micro-extruder, XS204 Analytical Balance, X-ray diffractometer type D8 Advance",
+        "software": "Auriga Smart SEM V05.04 Workstation Manual, WinDETA/WinFIT"
+      },
+      "performance_metrics": {
+        "values": "12.9 MPa, 0.16 GPa, 351.1%",
+        "conditions": "The performance metrics were measured at room temperature and atmospheric pressure."
+      },
+      "experimental_conditions": {
+        "setup": "The experimental setup consisted of a Dr. Boy 35A laboratory micro-extruder and a XS204 Analytical Balance.",
+        "temperature": "25.2 \u00b0C",
+        "pressure": "Atmospheric pressure"
+      },
+      "materials": {
+        "properties": "Thermal, electrical, and mechanical properties",
+        "characteristics": "The materials used in this study were LDPE, HDPE, and PP, with up to a 10% addition of non-metallic powder from WEEE."
+      },
+      "processes": {
+        "parameters": "Temperature, pressure, and time",
+        "conditions": "The processes were performed at room temperature and atmospheric pressure."
+      },
+      "equipment": {
+        "specifications": "Dr. Boy 35A laboratory micro-extruder, XS204 Analytical Balance, X-ray diffractometer type D8 Advance",
+        "usage": "The equipment was used to manufacture and characterize the composite materials."
+      },
+      "quality_parameters": {
+        "standards": "ASTM E-1461:2007",
+        "requirements": "The quality parameters were measured according to the ASTM E-1461:2007 standard."
+      }
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": {
+        "description": "The life cycle phases of the composite materials include the production of the raw materials, the manufacturing of the composite materials, and the end-of-life disposal or recycling of the materials."
+      },
+      "environmental_impacts": {
+        "values": "400 million tonnes per year",
+        "units": "tonnes per year",
+        "context": "The environmental impacts of the composite materials include the reduction of greenhouse gas emissions and the prevention of climate change."
+      },
+      "resource_consumption": {
+        "quantities": "Up to 10% addition of non-metallic powder from WEEE",
+        "context": "The resource consumption of the composite materials includes the use of WEEE as a raw material."
+      },
+      "emissions_data": {
+        "types": "Greenhouse gas emissions",
+        "amounts": "400 million tonnes per year",
+        "context": "The emissions data of the composite materials include the reduction of greenhouse gas emissions."
+      },
+      "environmental_indicators": {
+        "measurements": "The environmental indicators were measured using the XS204 Analytical Balance and the X-ray diffractometer type D8 Advance.",
+        "context": "The environmental indicators include the thermal, electrical, and mechanical properties of the composite materials."
+      },
+      "impact_categories": {
+        "assessment_methods": "The impact categories were assessed using the life cycle assessment (LCA) method.",
+        "context": "The impact categories include the environmental impacts of the composite materials, such as the reduction of greenhouse gas emissions and the prevention of climate change."
+      },
+      "environmental_standards": {
+        "compliance_details": "The environmental standards were complied with according to the ASTM E-1461:2007 standard.",
+        "context": "The environmental standards include the requirements for the production and disposal of the composite materials."
+      },
+      "mitigation_measures": {
+        "implementation_details": "The mitigation measures were implemented according to the life cycle assessment (LCA) method.",
+        "context": "The mitigation measures include the reduction of greenhouse gas emissions and the prevention of climate change."
+      }
+    },
+    "economic_aspects": {
+      "costs": {
+        "types": "Production costs, disposal costs",
+        "values": "Not specified",
+        "context": "The costs of the composite materials include the production costs and the disposal costs."
+      },
+      "economic_indicators": {
+        "calculations": "The economic indicators were calculated using the life cycle assessment (LCA) method.",
+        "context": "The economic indicators include the cost-benefit analysis of the composite materials."
+      },
+      "market_analysis": {
+        "trends": "The market trends of the composite materials include the increasing demand for sustainable and environmentally friendly materials.",
+        "data": "Not specified",
+        "context": "The market analysis of the composite materials includes the evaluation of the market trends and the competition."
+      },
+      "financial_implications": {
+        "analysis": "The financial implications of the composite materials were analyzed using the life cycle assessment (LCA) method.",
+        "context": "The financial implications include the cost-benefit analysis of the composite materials."
+      },
+      "investment_requirements": {
+        "breakdown": "Not specified",
+        "context": "The investment requirements of the composite materials include the initial investment and the ongoing costs."
+      },
+      "operational_costs": {
+        "categories": "Not specified",
+        "context": "The operational costs of the composite materials include the production costs and the disposal costs."
+      },
+      "revenue_streams": {
+        "projections": "Not specified",
+        "context": "The revenue streams of the composite materials include the sales revenue and the revenue from the disposal of the materials."
+      },
+      "economic_feasibility": {
+        "analysis": "The economic feasibility of the composite materials was analyzed using the life cycle assessment (LCA) method.",
+        "context": "The economic feasibility includes the evaluation of the cost-benefit analysis of the composite materials."
+      }
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": {
+        "assessments": "The environmental impacts of the composite materials were assessed using the life cycle assessment (LCA) method.",
+        "context": "The environmental impacts include the reduction of greenhouse gas emissions and the prevention of climate change."
+      },
+      "social_aspects": {
+        "stakeholder_impacts": "The social aspects of the composite materials include the impacts on the stakeholders, such as the employees, customers, and the community.",
+        "context": "The social aspects include the evaluation of the social impacts of the composite materials."
+      },
+      "circular_economy_elements": {
+        "implementation_details": "The circular economy elements were implemented according to the life cycle assessment (LCA) method.",
+        "context": "The circular economy elements include the design of the composite materials for recyclability and reusability."
+      },
+      "sustainability_metrics": {
+        "values": "Not specified",
+        "context": "The sustainability metrics include the evaluation of the environmental, social, and economic impacts of the composite materials."
+      },
+      "sustainable_practices": {
+        "examples": "The sustainable practices of the composite materials include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The sustainable practices include the evaluation of the sustainability of the composite materials."
+      },
+      "sustainability_goals": {
+        "targets": "The sustainability goals of the composite materials include the reduction of greenhouse gas emissions, the prevention of climate change, and the promotion of sustainable development.",
+        "context": "The sustainability goals include the evaluation of the sustainability of the composite materials."
+      },
+      "stakeholder_engagement": {
+        "strategies": "The stakeholder engagement strategies of the composite materials include the communication with the stakeholders, the evaluation of the stakeholder impacts, and the implementation of stakeholder engagement plans.",
+        "context": "The stakeholder engagement includes the evaluation of the social impacts of the composite materials."
+      },
+      "sustainability_challenges": {
+        "solutions": "The sustainability challenges of the composite materials include the reduction of greenhouse gas emissions, the prevention of climate change, and the promotion of sustainable development.",
+        "context": "The sustainability challenges include the evaluation of the sustainability of the composite materials."
+      }
+    },
+    "additional_information": {
+      "tables": {
+        "content": "The tables include the results of the measurements, the specifications of the equipment, and the calculations of the economic indicators.",
+        "context": "The tables provide additional information on the composite materials."
+      },
+      "figures": {
+        "descriptions": "The figures include the diagrams of the experimental setup, the graphs of the results, and the images of the composite materials.",
+        "context": "The figures provide visual representations of the composite materials and the experimental setup."
+      },
+      "equations": {
+        "explanations": "The equations include the calculations of the thermal diffusivity, the specific heat, and the thermal conductivity.",
+        "context": "The equations provide the mathematical models used to analyze the composite materials."
+      },
+      "important_notes": {
+        "context": "The important notes include the assumptions, limitations, and uncertainties of the study.",
+        "notes": "The study has some limitations, including the use of a specific type of WEEE and the need for further research on the scalability of the process."
+      },
+      "recommendations": {
+        "rationale": "The recommendations include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The recommendations provide guidance on the sustainable production and disposal of the composite materials."
+      },
+      "future_work": {
+        "priorities": "The future work priorities include the development of new composite materials, the improvement of the manufacturing process, and the evaluation of the environmental impacts.",
+        "context": "The future work priorities include the continuation of the research on the composite materials."
+      },
+      "case_studies": {
+        "outcomes": "The case studies include the evaluation of the composite materials in different applications, such as electromagnetic shielding and EMI/EMC.",
+        "context": "The case studies provide examples of the use of the composite materials in different contexts."
+      },
+      "best_practices": {
+        "examples": "The best practices include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The best practices provide guidance on the sustainable production and disposal of the composite materials."
+      }
+    },
+    "other_significant_information": {
+      "regulatory_compliance": {
+        "requirements": "The regulatory compliance requirements include the compliance with the ASTM E-1461:2007 standard.",
+        "context": "The regulatory compliance includes the evaluation of the compliance of the composite materials with the relevant regulations."
+      },
+      "industry_standards": {
+        "specifications": "The industry standards specifications include the ASTM E-1461:2007 standard.",
+        "context": "The industry standards include the evaluation of the compliance of the composite materials with the relevant industry standards."
+      },
+      "innovation_aspects": {
+        "details": "The innovation aspects of the composite materials include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The innovation aspects include the evaluation of the innovative characteristics of the composite materials."
+      },
+      "risk_assessment": {
+        "mitigation": "The risk assessment mitigation strategies include the evaluation of the risks and the implementation of risk reduction measures.",
+        "context": "The risk assessment includes the evaluation of the risks associated with the composite materials."
+      },
+      "quality_assurance": {
+        "procedures": "The quality assurance procedures include the evaluation of the quality of the composite materials and the implementation of quality control measures.",
+        "context": "The quality assurance includes the evaluation of the quality of the composite materials."
+      },
+      "implementation_details": {
+        "steps": "The implementation details steps include the development of new composite materials, the improvement of the manufacturing process, and the evaluation of the environmental impacts.",
+        "context": "The implementation details include the evaluation of the implementation of the composite materials in different contexts."
+      },
+      "maintenance_requirements": {
+        "schedule": "The maintenance requirements schedule includes the regular evaluation of the composite materials and the implementation of maintenance measures.",
+        "context": "The maintenance requirements include the evaluation of the maintenance needs of the composite materials."
+      },
+      "safety_considerations": {
+        "protocols": "The safety considerations protocols include the evaluation of the safety risks and the implementation of safety measures.",
+        "context": "The safety considerations include the evaluation of the safety of the composite materials."
+      }
+    },
+    "similarity_score": 0.703241765499115
+  },
+  {
+    "paper_metadata": {
+      "title": "An ethyl cellulose novel biodegradable \ufb02exible substrate material for sustainable screen-printing",
+      "doi": "10.1039/d4ra02993c",
+      "citation": "RSC Adv., 2024, 14, 18103\u201318108",
+      "abstract": "This paper introduces an innovative solution to reduce plastic dependence in \ufb02exible electronics: a biodegradable, water-resistant, and \ufb02exible cellulose-based substrate for crafting electrochemical printed platforms."
+    },
+    "research_information": {
+      "objectives": "The objective of this study is to evaluate the performance of carbon-based screen-printed electrodes (SPEs) fabricated on conventional PET, recycled PET (r-PET), and ethyl cellulose (EC)-based materials.",
+      "methodology": "The study uses a combination of experimental and analytical methods, including electrochemical characterization, UV-vis spectroscopy, FTIR-ATR characterization, and optical microscopy.",
+      "key_findings": "The results show that EC-SPEs exhibit comparable analytical performance to both P-SPEs and rP-SPEs, with similar limits of detection (LOD), limits of quanti\ufb01cation (LOQ), and reproducibility values for all the analytes tested.",
+      "limitations": "The study notes that the production process for EC-based substrates occurs at low temperatures and allows for standardization and scalability, but the material's biodegradability may be affected by environmental conditions.",
+      "research_questions": "The study aims to answer the question of whether EC-based substrates can be used as a sustainable alternative to traditional PET substrates in screen-printed electrodes.",
+      "hypotheses": "The study hypothesizes that EC-SPEs will exhibit comparable analytical performance to P-SPEs and rP-SPEs.",
+      "assumptions": "The study assumes that the EC-based substrate will be biodegradable and water-resistant.",
+      "scope": "The study focuses on the development and characterization of EC-based substrates for screen-printed electrodes."
+    },
+    "technical_parameters": {
+      "measurements": {
+        "units": "cm",
+        "uncertainty": "\u00b10.01 cm",
+        "context": "The geometric area of the working electrode (WE) is approximately 0.07 cm^2."
+      },
+      "specifications": {
+        "description": "The EC substrate is prepared at room temperature via a solvent casting method from a 10% w ethanol-based dispersion.",
+        "parameters": {
+          "temperature": "room temperature",
+          "concentration": "10% w"
+        }
+      },
+      "performance_metrics": {
+        "values": {
+          "LOD": "comparable to P-SPEs and rP-SPEs",
+          "LOQ": "comparable to P-SPEs and rP-SPEs",
+          "reproducibility": "10% for EC-SPEs, 11% for rP-SPEs, and 10% for P-SPEs"
+        },
+        "conditions": {
+          "analytes": "ferro-ferricyanide, hexaammineruthenium chloride, uric acid, and hydroquinone"
+        }
+      },
+      "experimental_conditions": {
+        "setup": "The in-house production of SPEs was conducted using a 245 DEK high-performance, multi-purpose, precision screen-printing machine.",
+        "parameters": {
+          "temperature": "80 \u00b0C",
+          "time": "180 s"
+        }
+      },
+      "materials": {
+        "properties": {
+          "biodegradability": "biodegradable",
+          "water_resistance": "water-resistant"
+        },
+        "characteristics": {
+          "roughness": "comparable to commercial PET"
+        }
+      },
+      "processes": {
+        "parameters": {
+          "temperature": "room temperature",
+          "concentration": "10% w"
+        },
+        "conditions": {
+          "solvent": "ethanol"
+        }
+      },
+      "equipment": {
+        "specifications": {
+          "description": "A 245 DEK high-performance, multi-purpose, precision screen-printing machine was used for the in-house production of SPEs."
+        },
+        "usage": {
+          "purpose": "screen-printing"
+        }
+      },
+      "quality_parameters": {
+        "standards": {
+          "description": "The study uses standard analytical methods, including electrochemical characterization and UV-vis spectroscopy."
+        },
+        "requirements": {
+          "description": "The study requires the EC-based substrate to be biodegradable and water-resistant."
+        }
+      }
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": {
+        "description": "The study focuses on the development and characterization of EC-based substrates for screen-printed electrodes, with a view to reducing plastic dependence in \ufb02exible electronics."
+      },
+      "environmental_impacts": {
+        "values": {
+          "biodegradability": "biodegradable"
+        },
+        "units": {
+          "time": "years"
+        }
+      },
+      "resource_consumption": {
+        "quantities": {
+          "energy": "low-energy requirements"
+        },
+        "context": "The production process for EC-based substrates occurs at low temperatures and allows for standardization and scalability."
+      },
+      "emissions_data": {
+        "types": {
+          "description": "The study does not provide explicit emissions data, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics."
+        }
+      },
+      "environmental_indicators": {
+        "measurements": {
+          "units": "cm",
+          "uncertainty": "\u00b10.01 cm",
+          "context": "The geometric area of the working electrode (WE) is approximately 0.07 cm^2."
+        }
+      },
+      "impact_categories": {
+        "assessment_methods": {
+          "description": "The study uses a combination of experimental and analytical methods, including electrochemical characterization, UV-vis spectroscopy, FTIR-ATR characterization, and optical microscopy."
+        }
+      },
+      "environmental_standards": {
+        "compliance_details": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, in line with the European Union's 'European Strategy for Plastics in a Circular Economy'."
+        }
+      },
+      "mitigation_measures": {
+        "implementation_details": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes."
+        }
+      }
+    },
+    "economic_aspects": {
+      "costs": {
+        "types": {
+          "description": "The study notes that the production process for EC-based substrates occurs at low temperatures and allows for standardization and scalability, which could reduce costs."
+        },
+        "values": {
+          "energy": "low-energy requirements"
+        }
+      },
+      "economic_indicators": {
+        "calculations": {
+          "description": "The study does not provide explicit economic indicators, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics."
+        }
+      },
+      "market_analysis": {
+        "trends": {
+          "description": "The study notes that screen printing has emerged as a prominent method for producing \ufb02exible electronics, owing to its versatility across various substrates, cost-e\ufb00ectiveness, and scalability for large-scale manufacturing."
+        },
+        "data": {
+          "description": "The study does not provide explicit market data, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics."
+        }
+      },
+      "financial_implications": {
+        "analysis": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could have financial implications for the industry."
+        }
+      },
+      "investment_requirements": {
+        "breakdown": {
+          "description": "The study does not provide explicit investment requirements, but notes that the production process for EC-based substrates occurs at low temperatures and allows for standardization and scalability."
+        }
+      },
+      "operational_costs": {
+        "categories": {
+          "description": "The study notes that the production process for EC-based substrates occurs at low temperatures and allows for standardization and scalability, which could reduce operational costs."
+        }
+      },
+      "revenue_streams": {
+        "projections": {
+          "description": "The study does not provide explicit revenue projections, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics."
+        }
+      },
+      "economic_feasibility": {
+        "analysis": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could have economic implications for the industry."
+        }
+      }
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": {
+        "assessments": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could have environmental implications."
+        }
+      },
+      "social_aspects": {
+        "stakeholder_impacts": {
+          "description": "The study does not provide explicit social aspects, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could have social implications."
+        }
+      },
+      "circular_economy_elements": {
+        "implementation_details": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes, which could contribute to a circular economy."
+        }
+      },
+      "sustainability_metrics": {
+        "values": {
+          "biodegradability": "biodegradable"
+        },
+        "context": "The study focuses on the development and characterization of EC-based substrates for screen-printed electrodes, with a view to reducing plastic dependence in \ufb02exible electronics."
+      },
+      "sustainable_practices": {
+        "examples": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes."
+        }
+      },
+      "sustainability_goals": {
+        "targets": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could contribute to sustainability goals."
+        }
+      },
+      "stakeholder_engagement": {
+        "strategies": {
+          "description": "The study does not provide explicit stakeholder engagement strategies, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics."
+        }
+      },
+      "sustainability_challenges": {
+        "solutions": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes, which could address sustainability challenges."
+        }
+      }
+    },
+    "additional_information": {
+      "tables": {
+        "content": {
+          "description": "The study includes several tables, including Table 1, which provides FTIR spectra features, and Table 2, which compares the electrochemical parameters of P-SPE, rP-SPE, and EC-SPE."
+        },
+        "context": "The tables provide additional information on the characterization and performance of the EC-based substrates."
+      },
+      "figures": {
+        "descriptions": {
+          "description": "The study includes several figures, including Fig. 1, which outlines the main steps of the fabrication of the EC-SPEs, and Fig. 2, which shows the EC water stability."
+        },
+        "context": "The figures provide visual representations of the study's findings and methods."
+      },
+      "equations": {
+        "explanations": {
+          "description": "The study uses several equations, including the Randless Sevcik equation, to estimate the di\ufb00usion coe\ufb03cient (D0) of the redox probe."
+        }
+      },
+      "important_notes": {
+        "context": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could have significant implications for the industry."
+        }
+      },
+      "recommendations": {
+        "rationale": {
+          "description": "The study recommends the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes, based on their biodegradability, water resistance, and comparable analytical performance."
+        }
+      },
+      "future_work": {
+        "priorities": {
+          "description": "The study suggests that future work could focus on further developing and characterizing EC-based substrates for screen-printed electrodes, as well as exploring their potential applications in other fields."
+        }
+      },
+      "case_studies": {
+        "outcomes": {
+          "description": "The study does not provide explicit case studies, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could have significant implications for the industry."
+        }
+      },
+      "best_practices": {
+        "examples": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes, which could contribute to best practices in the field."
+        }
+      }
+    },
+    "other_significant_information": {
+      "regulatory_compliance": {
+        "requirements": {
+          "description": "The study notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could contribute to regulatory compliance with the European Union's 'European Strategy for Plastics in a Circular Economy'."
+        }
+      },
+      "industry_standards": {
+        "specifications": {
+          "description": "The study does not provide explicit industry standards, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could contribute to industry standards."
+        }
+      },
+      "innovation_aspects": {
+        "details": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes, which could contribute to innovation in the field."
+        }
+      },
+      "risk_assessment": {
+        "mitigation": {
+          "description": "The study does not provide explicit risk assessment, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could mitigate risks associated with traditional PET substrates."
+        }
+      },
+      "quality_assurance": {
+        "procedures": {
+          "description": "The study uses standard analytical methods, including electrochemical characterization and UV-vis spectroscopy, to ensure quality assurance."
+        }
+      },
+      "implementation_details": {
+        "steps": {
+          "description": "The study proposes the use of EC-based substrates as a sustainable alternative to traditional PET substrates in screen-printed electrodes, which could involve several implementation steps, including material development, characterization, and testing."
+        }
+      },
+      "maintenance_requirements": {
+        "schedule": {
+          "description": "The study does not provide explicit maintenance requirements, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could contribute to maintenance requirements."
+        }
+      },
+      "safety_considerations": {
+        "protocols": {
+          "description": "The study does not provide explicit safety considerations, but notes that the use of EC-based substrates could reduce plastic dependence in \ufb02exible electronics, which could contribute to safety protocols."
+        }
+      }
+    },
+    "similarity_score": 0.7032021284103394
+  },
+  {
+    "paper_metadata": {
+      "title": "High versatility of polyethylene terephthalate (PET) waste for the development of batteries, biosensing and gas sensing devices",
+      "doi": "10.1016/j.chemosphere.2024.142314",
+      "citation": "V. Galstyan, P. D'Angelo, G. Tarabella, D. Vurro, T. Djenizian, Chemosphere 359 (2024) 142314",
+      "abstract": "Continuously growing adoption of electronic devices in energy storage, human health and environmental monitoring systems increases demand for cost-effective, lightweight, comfortable, and highly efficient functional structures. In this regard, the recycling and reuse of polyethylene terephthalate (PET) waste in the aforementioned fields due to its excellent mechanical properties and chemical resistance is an effective solution to reduce plastic waste."
+    },
+    "research_information": {
+      "objectives": "The main objective of this research is to review recent advances in synthesis procedures and research studies on the integration of PET into energy storage (Li-ion batteries) and the detection of gaseous and biological species.",
+      "methodology": "The researchers reviewed various studies on the recycling and reuse of PET waste in energy storage and sensing devices, and discussed the operating principles of such systems and the role of recycled PET for various types of architectures.",
+      "key_findings": "The findings indicate that PET waste can be used as an electrode material or separator in Li-ion batteries, and as a substrate or sensing material in biosensors and gas sensors.",
+      "research_questions": "The researchers investigated the potential of PET waste in green energy storage devices, and the tuneable features of recycled PET for the development of bio and gas sensors.",
+      "hypotheses": "The researchers hypothesized that the recycling and reuse of PET waste can reduce plastic waste and provide a cost-effective solution for energy storage and sensing devices.",
+      "assumptions": "The researchers assumed that the mechanical and chemical properties of PET make it a suitable material for energy storage and sensing devices.",
+      "scope": "The scope of this research is to explore the potential of PET waste in energy storage and sensing devices, and to discuss the challenges and opportunities in this field."
+    },
+    "technical_parameters": {
+      "measurements": "The researchers measured the thermal, mechanical, and rheological properties of PET, and the ionic conductivity, permeability, and absorption of electrolytes in PET-based separators.",
+      "specifications": "The researchers discussed the specifications of PET-based components for advanced electrodes, including the use of PET as a substrate or active material.",
+      "performance_metrics": "The researchers evaluated the performance of PET-based electrodes and separators in Li-ion batteries, and the sensitivity and selectivity of PET-based biosensors and gas sensors.",
+      "experimental_conditions": "The researchers discussed the experimental conditions for the synthesis and characterization of PET-based materials, including the use of various solvents, temperatures, and pressures.",
+      "materials": "The researchers used PET waste as the primary material, and discussed the use of other materials such as graphene, carbon nanotubes, and metal oxides as additives or components.",
+      "processes": "The researchers discussed various processes for the recycling and reuse of PET waste, including mechanical and chemical recycling, and the use of enzymatic recycling.",
+      "equipment": "The researchers used various equipment such as scanning electron microscopes, transmission electron microscopes, and X-ray diffraction spectrometers to characterize the properties of PET-based materials.",
+      "quality_parameters": "The researchers evaluated the quality of PET-based materials in terms of their mechanical, thermal, and electrical properties."
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": "The researchers discussed the life cycle phases of PET, including production, use, and disposal, and the potential environmental impacts of PET waste.",
+      "environmental_impacts": "The researchers noted that PET waste can cause environmental pollution and harm to human health, and that the recycling and reuse of PET waste can reduce these impacts.",
+      "resource_consumption": "The researchers discussed the resource consumption associated with the production and use of PET, including energy, water, and raw materials.",
+      "emissions_data": "The researchers noted that the production and use of PET can result in emissions of greenhouse gases and other pollutants.",
+      "environmental_indicators": "The researchers used various environmental indicators such as the carbon footprint and water footprint to evaluate the environmental impacts of PET waste.",
+      "impact_categories": "The researchers discussed the impact categories associated with PET waste, including climate change, human health, and ecosystem degradation.",
+      "mitigation_measures": "The researchers discussed various mitigation measures to reduce the environmental impacts of PET waste, including recycling, reuse, and proper disposal."
+    },
+    "economic_aspects": {
+      "costs": "The researchers noted that the recycling and reuse of PET waste can reduce costs associated with the production and disposal of PET.",
+      "economic_indicators": "The researchers used various economic indicators such as the cost-benefit analysis to evaluate the economic feasibility of recycling and reusing PET waste.",
+      "market_analysis": "The researchers discussed the market trends and demand for PET waste, and the potential for the development of new products and technologies.",
+      "financial_implications": "The researchers noted that the recycling and reuse of PET waste can have significant financial implications, including cost savings and revenue generation.",
+      "investment_requirements": "The researchers discussed the investment requirements for the development of new technologies and infrastructure for the recycling and reuse of PET waste.",
+      "operational_costs": "The researchers noted that the operational costs associated with the recycling and reuse of PET waste can be reduced through the use of efficient technologies and processes.",
+      "revenue_streams": "The researchers discussed the potential revenue streams associated with the recycling and reuse of PET waste, including the sale of recycled materials and products.",
+      "economic_feasibility": "The researchers evaluated the economic feasibility of recycling and reusing PET waste, and noted that it can be a cost-effective and profitable solution."
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": "The researchers noted that the recycling and reuse of PET waste can reduce environmental impacts, including pollution and greenhouse gas emissions.",
+      "social_aspects": "The researchers discussed the social aspects of PET waste, including the impact on human health and the potential for job creation and economic development.",
+      "circular_economy_elements": "The researchers discussed the circular economy elements associated with the recycling and reuse of PET waste, including the use of recycled materials and the reduction of waste.",
+      "sustainability_metrics": "The researchers used various sustainability metrics such as the circularity index to evaluate the sustainability of recycling and reusing PET waste.",
+      "sustainable_practices": "The researchers discussed various sustainable practices associated with the recycling and reuse of PET waste, including the use of renewable energy and the reduction of water consumption.",
+      "sustainability_goals": "The researchers noted that the recycling and reuse of PET waste can contribute to the achievement of sustainability goals, including the reduction of greenhouse gas emissions and the conservation of natural resources.",
+      "stakeholder_engagement": "The researchers discussed the importance of stakeholder engagement in the development of sustainable solutions for PET waste, including the involvement of governments, industries, and communities."
+    },
+    "additional_information": {
+      "tables": "The researchers included several tables in the paper, including Table 1, which lists energy storage devices where recycled PET can be used as an electrode material or separator, and Table 2, which lists biosensor devices that used PET as a substrate or sensing material.",
+      "figures": "The researchers included several figures in the paper, including Figure 1, which shows the schematic representation of PET polymerization mechanism, and Figure 2, which shows the SEM images of the RPET composites with various GNP loadings.",
+      "equations": "The researchers included several equations in the paper, including Equation (1), which shows the redox reaction between the inserted lithium ions and the ester groups on the PET chain.",
+      "case_studies": "The researchers included several case studies in the paper, including the use of recycled PET waste in the production of Li-ion batteries and biosensors.",
+      "best_practices": "The researchers discussed various best practices associated with the recycling and reuse of PET waste, including the use of efficient technologies and processes, and the promotion of sustainable practices and stakeholder engagement."
+    },
+    "other_significant_information": {
+      "regulatory_compliance": "The researchers noted that the recycling and reuse of PET waste must comply with environmental regulations and standards.",
+      "industry_standards": "The researchers discussed the industry standards associated with the recycling and reuse of PET waste, including the use of recycled materials and the reduction of waste.",
+      "innovation_aspects": "The researchers noted that the recycling and reuse of PET waste can drive innovation and the development of new products and technologies.",
+      "quality_assurance": "The researchers noted that quality assurance is essential for the recycling and reuse of PET waste, including the use of efficient technologies and processes, and the promotion of sustainable practices and stakeholder engagement.",
+      "implementation_details": "The researchers discussed the implementation details associated with the recycling and reuse of PET waste, including the development of new technologies and infrastructure, and the promotion of sustainable practices and stakeholder engagement.",
+      "safety_considerations": "The researchers discussed the safety considerations associated with the recycling and reuse of PET waste, including the potential for environmental and health impacts, and the need for proper handling and disposal of hazardous materials."
+    },
+    "similarity_score": 0.6977389454841614
+  },
+  {
+    "paper_metadata": {
+      "title": "Towards Sustainable Temperature Sensor Production through CO2-Derived Polycarbonate-Based Composites",
+      "doi": "10.3390/polym16131948",
+      "citation": "Mart\u00edn-Ayerdi, A.; Rubio-Pe\u00f1a, L.; Pe\u02c7rinka, N.; Oyarzabal, I.; Vilas, J.L.; Costa, P.; Lanceros-M\u00e9ndez, S. Polymers 2024, 16, 1948.",
+      "abstract": "The steep increase in carbon dioxide (CO2) emissions has created great concern due to its role in the greenhouse effect and global warming. One approach to mitigate CO2 levels involves its application in specific technologies. In this context, CO2 can be used for a more sustainable synthesis of polycarbonates (CO2-PCs). In this research, CO2-PC films and composites with multiwalled carbon nanotubes (MWCNTs, ranging from 0.2 to 7.0 wt.%) have been prepared to achieve more sustainable multifunctional sensing devices."
+    },
+    "research_information": {
+      "objectives": "The objective of this research is to develop a more sustainable approach to produce polymer-based temperature sensors by employing CO2-derived polycarbonate (PCC)/multiwalled carbon nanotube (MWCNT) composites.",
+      "methodology": "The methodology involves the preparation of PCC/MWCNT composites through a solvent casting process, followed by characterization of their morphological, thermal, mechanical, and electrical properties.",
+      "key_findings": "The key findings include the achievement of a percolation threshold at 0.1 wt.% MWCNTs, a maximum electrical conductivity of 0.107 S\u00b7m\u22121 for the composite containing 1.5 wt.% MWCNTs, and a thermoresistive sensitivity of 1.3\u00d710\u22124 \u00b0C\u22121 for the composite containing 3.0 wt.% MWCNTs.",
+      "limitations": "The limitations of this study include the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+      "research_questions": "The research questions addressed in this study include the potential of CO2-derived PCC/MWCNT composites as temperature sensors and the effect of MWCNT content on the properties of the composites.",
+      "hypotheses": "The hypothesis of this study is that CO2-derived PCC/MWCNT composites can be used as sustainable temperature sensors with suitable electrical conductivity and thermoresistive properties.",
+      "assumptions": "The assumptions of this study include the assumption that the use of CO2-derived PCC can reduce the environmental impact of polymer-based electronic systems.",
+      "scope": "The scope of this study is to investigate the potential of CO2-derived PCC/MWCNT composites as sustainable temperature sensors."
+    },
+    "technical_parameters": {
+      "measurements": "The measurements include the thickness of the films (154 \u00b1 27 \u00b5m), the density of the PCC material (1.10 g\u00b7cm\u22123), and the onset estimate decomposition temperature (250\u00b0C).",
+      "specifications": "The specifications include the use of commercial QPAC\u00ae130 poly(cyclohexene carbonate) PCC, multiwalled carbon nanotubes (MWCNTs) with reference NC7000 \u2122, and dichloromethane (DCM) as the solvent.",
+      "performance_metrics": "The performance metrics include the electrical conductivity, percolation threshold, and thermoresistive sensitivity of the composites.",
+      "experimental_conditions": "The experimental conditions include the use of a Dr. Blade to produce the films, a temperature range of 25\u00b0C to 800\u00b0C for thermogravimetric analysis, and a heating rate of 10\u00b0C\u00b7min\u22121.",
+      "materials": "The materials used include PCC, MWCNTs, and DCM.",
+      "processes": "The processes used include solvent casting, ultrasound treatment, and thermal characterization.",
+      "equipment": "The equipment used includes a Hitachi S-4800 Scanning Electron Microscope, a Nicolet Nexus FTIR spectrophotometer, and a Mettler Toledo TGA/SDTA851e thermobalance.",
+      "quality_parameters": "The quality parameters include the morphology, thermal stability, mechanical properties, and electrical conductivity of the composites."
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": "The life cycle phases considered include the production of CO2-derived PCC, the preparation of PCC/MWCNT composites, and the use of these composites as temperature sensors.",
+      "environmental_impacts": "The environmental impacts considered include the reduction of CO2 emissions through the use of CO2-derived PCC and the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+      "resource_consumption": "The resource consumption considered includes the use of CO2, PCC, MWCNTs, and DCM.",
+      "emissions_data": "The emissions data considered includes the reduction of CO2 emissions through the use of CO2-derived PCC.",
+      "environmental_indicators": "The environmental indicators considered include the thermoresistive sensitivity and electrical conductivity of the composites.",
+      "impact_categories": "The impact categories considered include the greenhouse effect and global warming.",
+      "environmental_standards": "The environmental standards considered include the use of sustainable materials and the reduction of CO2 emissions.",
+      "mitigation_measures": "The mitigation measures considered include the use of CO2-derived PCC and the optimization of the MWCNT content to minimize agglomeration."
+    },
+    "economic_aspects": {
+      "costs": "The costs considered include the cost of PCC, MWCNTs, and DCM.",
+      "economic_indicators": "The economic indicators considered include the cost-effectiveness of using CO2-derived PCC and the potential market demand for sustainable temperature sensors.",
+      "market_analysis": "The market analysis considered includes the potential market demand for sustainable temperature sensors and the competitiveness of CO2-derived PCC/MWCNT composites.",
+      "financial_implications": "The financial implications considered include the potential cost savings through the use of CO2-derived PCC and the potential revenue streams from the sale of sustainable temperature sensors.",
+      "investment_requirements": "The investment requirements considered include the cost of equipment, materials, and labor required to produce CO2-derived PCC/MWCNT composites.",
+      "operational_costs": "The operational costs considered include the cost of energy, maintenance, and repair required to produce and use CO2-derived PCC/MWCNT composites.",
+      "revenue_streams": "The revenue streams considered include the potential sales of sustainable temperature sensors and the potential licensing of CO2-derived PCC/MWCNT composite technology.",
+      "economic_feasibility": "The economic feasibility considered includes the potential cost-effectiveness of using CO2-derived PCC and the potential market demand for sustainable temperature sensors."
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": "The environmental impacts considered include the reduction of CO2 emissions through the use of CO2-derived PCC and the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+      "social_aspects": "The social aspects considered include the potential benefits of using sustainable materials and the potential impact on employment and local communities.",
+      "circular_economy_elements": "The circular economy elements considered include the use of CO2-derived PCC and the potential for recycling and reuse of MWCNTs.",
+      "sustainability_metrics": "The sustainability metrics considered include the thermoresistive sensitivity and electrical conductivity of the composites.",
+      "sustainable_practices": "The sustainable practices considered include the use of sustainable materials, the reduction of CO2 emissions, and the optimization of the MWCNT content to minimize agglomeration.",
+      "sustainability_goals": "The sustainability goals considered include the reduction of CO2 emissions and the development of sustainable temperature sensors.",
+      "stakeholder_engagement": "The stakeholder engagement considered includes the potential involvement of industry partners, government agencies, and local communities in the development and implementation of CO2-derived PCC/MWCNT composites.",
+      "sustainability_challenges": "The sustainability challenges considered include the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites and the need for further research and development to optimize the properties of CO2-derived PCC/MWCNT composites."
+    },
+    "additional_information": {
+      "tables": "The tables include the summary of the temperatures of the main thermal events and the mechanical properties of the composites.",
+      "figures": "The figures include the SEM images of the PCC matrix and MWCNTs, the infrared spectra of pristine PCC and PCC/MWCNT composites, and the thermoresistance response for the composite containing 3.0% wt. MWCNTs.",
+      "equations": "The equations include the calculation of the electrical conductivity and the thermoresistive sensitivity.",
+      "important_notes": "The important notes include the potential benefits of using sustainable materials and the potential impact on employment and local communities.",
+      "recommendations": "The recommendations include the use of CO2-derived PCC and the optimization of the MWCNT content to minimize agglomeration.",
+      "future_work": "The future work includes the potential development of new sustainable materials and the optimization of the properties of CO2-derived PCC/MWCNT composites.",
+      "case_studies": "The case studies include the potential application of CO2-derived PCC/MWCNT composites in temperature sensing devices.",
+      "best_practices": "The best practices include the use of sustainable materials, the reduction of CO2 emissions, and the optimization of the MWCNT content to minimize agglomeration."
+    },
+    "other_significant_information": {
+      "regulatory_compliance": "The regulatory compliance considered includes the use of sustainable materials and the reduction of CO2 emissions.",
+      "industry_standards": "The industry standards considered include the use of sustainable materials and the optimization of the MWCNT content to minimize agglomeration.",
+      "innovation_aspects": "The innovation aspects considered include the development of new sustainable materials and the optimization of the properties of CO2-derived PCC/MWCNT composites.",
+      "risk_assessment": "The risk assessment considered includes the potential negative impact of MWCNT agglomeration on the mechanical properties of the composites.",
+      "quality_assurance": "The quality assurance considered includes the use of sustainable materials, the reduction of CO2 emissions, and the optimization of the MWCNT content to minimize agglomeration.",
+      "implementation_details": "The implementation details considered include the potential application of CO2-derived PCC/MWCNT composites in temperature sensing devices.",
+      "maintenance_requirements": "The maintenance requirements considered include the potential need for regular maintenance and repair of CO2-derived PCC/MWCNT composite-based temperature sensors.",
+      "safety_considerations": "The safety considerations considered include the potential risks associated with the use of MWCNTs and the need for proper handling and disposal procedures."
+    },
+    "similarity_score": 0.6900036931037903
+  },
+  {
+    "paper_metadata": {
+      "title": "Switchable Heat Pipes for Eco-Friendly Battery Cooling in Electric Vehicles: A Life Cycle Assessment",
+      "doi": "10.3390/en17040938",
+      "citation": "Illner, M.; Th\u00fcsing, K.; Salles, A.; Trettenhann, A.; Albrecht, S.; Winkler, M. Switchable Heat Pipes for Eco-Friendly Battery Cooling in Electric Vehicles: A Life Cycle Assessment. Energies 2024, 17, 938.",
+      "abstract": "Battery thermal management systems (BTMSs) ensure that lithium-ion batteries (LIBs) in electric vehicles (EVs) are operated in an optimal temperature range to achieve high performance and reduce risks. A conventional BTMS operates either as an active system that uses forced air, water or immersion cooling, or as a complete passive system without any temperature control. Passive systems function without any active energy supply and are therefore economically and environmentally advantageous. However, today\u2019s passive BTMSs have limited cooling performance, which additionally cannot be controlled."
+    },
+    "research_information": {
+      "objectives": "The objective of this study is to investigate the environmental impacts of a novel passive and a conventional active battery thermal management system (BTMS) of electric vehicles (EVs) using a life cycle assessment (LCA).",
+      "methodology": "The LCA was conducted using the LCA for Experts software and the corresponding databases, with a cradle-to-cradle approach, considering the production phase, use phase, and end-of-life phase.",
+      "key_findings": "The results show that the passive system for battery cooling has a significantly lower impact than the active system in almost all environmental impact categories (EF 3.1).",
+      "limitations": "The assumptions of the active BTMS were very conservative, and the LCA was based on many assumptions and some aspects had to be neglected due to a lack of information.",
+      "research_questions": "The study aims to answer the question whether the innovative passive cooling system with heat pipes has the potential to be more environmentally friendly than the conventional active cooling system.",
+      "hypotheses": "It is hypothesized that the passive system with heat pipes will have a lower environmental impact than the active system.",
+      "assumptions": "The assumptions include a mileage of 150,000 km, an energy consumption of 18 kWh/100 km, and a recycling rate of 95% for the cooling plate.",
+      "scope": "The scope of the study is to evaluate the environmental impacts of the passive and active BTMSs using a life cycle assessment."
+    },
+    "technical_parameters": {
+      "measurements": "The thermal resistance of the heat-pipe-based thermal switch was measured, with a switching factor of ca. 50 achieved.",
+      "specifications": "The heat pipe has an outer diameter of 10 mm, a length of 40 cm, and a vertical orientation with the evaporator at the bottom.",
+      "performance_metrics": "The cooling performance of the passive cooling plate depends on the air flow caused by driving, with a maximum cooling power of up to 5 kW.",
+      "experimental_conditions": "The experiment was conducted with a constant heat power of 10 W on the heat pipe evaporator and a cooling water temperature of 20\u00b0C.",
+      "materials": "The heat pipe is made of copper, with water as the working fluid and TAPSO-34 as the adsorbent.",
+      "processes": "The heat pipe works by desorbing the working fluid when the temperature exceeds the switching temperature, enabling latent heat transport.",
+      "equipment": "The equipment used includes a heat pipe, a cooling plate, and a vacuum pump.",
+      "quality_parameters": "The quality parameters include the thermal resistance, switching factor, and cooling power."
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": "The life cycle phases considered include production, use, and end-of-life.",
+      "environmental_impacts": "The environmental impacts considered include climate change, resource use, and human toxicity.",
+      "resource_consumption": "The resource consumption includes energy consumption, water consumption, and material consumption.",
+      "emissions_data": "The emissions data include greenhouse gas emissions, particulate matter, and other pollutants.",
+      "environmental_indicators": "The environmental indicators include the Environmental Footprint (EF) 3.1 impact categories.",
+      "impact_categories": "The impact categories include climate change, resource use, and human toxicity.",
+      "environmental_standards": "The environmental standards include the ISO 14040 and 14044 standards for life cycle assessment.",
+      "mitigation_measures": "The mitigation measures include improving the recycling rate of the copper and using alternative materials."
+    },
+    "economic_aspects": {
+      "costs": "The costs include the production costs, energy costs, and maintenance costs.",
+      "economic_indicators": "The economic indicators include the cost-benefit analysis and the return on investment.",
+      "market_analysis": "The market analysis includes the demand for electric vehicles and the competition in the market.",
+      "financial_implications": "The financial implications include the investment requirements and the revenue streams.",
+      "investment_requirements": "The investment requirements include the initial investment and the ongoing expenses.",
+      "operational_costs": "The operational costs include the energy costs, maintenance costs, and other expenses.",
+      "revenue_streams": "The revenue streams include the sales revenue and the revenue from recycling.",
+      "economic_feasibility": "The economic feasibility includes the cost-benefit analysis and the return on investment."
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": "The environmental impacts include climate change, resource use, and human toxicity.",
+      "social_aspects": "The social aspects include the employment opportunities, health impacts, and social acceptance.",
+      "circular_economy_elements": "The circular economy elements include the recycling rate, material efficiency, and waste reduction.",
+      "sustainability_metrics": "The sustainability metrics include the Environmental Footprint (EF) 3.1 impact categories.",
+      "sustainable_practices": "The sustainable practices include the use of renewable energy, reduction of waste, and sustainable materials.",
+      "sustainability_goals": "The sustainability goals include reducing greenhouse gas emissions, improving resource efficiency, and promoting sustainable development.",
+      "stakeholder_engagement": "The stakeholder engagement includes the involvement of stakeholders in the decision-making process.",
+      "sustainability_challenges": "The sustainability challenges include the lack of recycling infrastructure, high energy costs, and limited availability of sustainable materials."
+    },
+    "additional_information": {
+      "tables": "The tables include the mass flows, energy flows, and LCA results.",
+      "figures": "The figures include the thermal resistance of the heat-pipe-based thermal switch, the LCA results, and the system boundary.",
+      "equations": "The equations include the calculation of the thermal resistance and the switching factor.",
+      "important_notes": "The important notes include the assumptions, limitations, and uncertainties of the study.",
+      "recommendations": "The recommendations include improving the recycling rate of the copper and using alternative materials.",
+      "future_work": "The future work includes the experimental validation of the passive BTMS and the development of new materials and technologies.",
+      "case_studies": "The case studies include the application of the passive BTMS in electric vehicles.",
+      "best_practices": "The best practices include the use of sustainable materials, reduction of waste, and promotion of recycling."
+    },
+    "other_significant_information": {
+      "regulatory_compliance": "The regulatory compliance includes the adherence to the ISO 14040 and 14044 standards for life cycle assessment.",
+      "industry_standards": "The industry standards include the standards for electric vehicles and battery thermal management systems.",
+      "innovation_aspects": "The innovation aspects include the development of new materials and technologies for passive BTMS.",
+      "risk_assessment": "The risk assessment includes the evaluation of the risks associated with the use of passive BTMS.",
+      "quality_assurance": "The quality assurance includes the testing and validation of the passive BTMS.",
+      "implementation_details": "The implementation details include the installation and maintenance of the passive BTMS.",
+      "maintenance_requirements": "The maintenance requirements include the regular inspection and maintenance of the passive BTMS.",
+      "safety_considerations": "The safety considerations include the evaluation of the safety risks associated with the use of passive BTMS."
+    },
+    "similarity_score": 0.687018096446991
+  }
+]
