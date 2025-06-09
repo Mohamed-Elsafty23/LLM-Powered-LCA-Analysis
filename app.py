@@ -60,7 +60,8 @@ def get_api_keys():
             if 'PRIMARY_API_KEY' in st.secrets:
                 primary_key = st.secrets['PRIMARY_API_KEY']
             if 'SECONDARY_API_KEY' in st.secrets:
-                secondary_key = st.secrets['SECONDARY_API_KEY']
+                secondary_key = st.secrets['SECONDARY_API_KEY']  
+                
             if 'BASE_URL' in st.secrets:
                 base_url = st.secrets['BASE_URL']
         
