@@ -667,6 +667,25 @@ def main():
                 with st.container():
                     st.markdown("### Step 4/4: Visualization Generation")
                     st.markdown("Creating visualizations for LCA and sustainable solutions...")
+                    
+                    # Create LCA visualizations
+                    try:
+                        lca_visualizations, lca_saved_files = create_lca_visualizations("output/llm_based_lca_analysis.json")
+                        logger.info("LCA visualizations created successfully")
+                    except Exception as e:
+                        logger.error(f"Error creating LCA visualizations: {str(e)}")
+                        lca_visualizations = {}
+                        lca_saved_files = []
+                    
+                    # Create sustainable solutions visualizations
+                    try:
+                        solutions_visualizations, solutions_saved_files = create_solutions_visualizations("output/sustainable_solutions_report.txt")
+                        logger.info("Sustainable solutions visualizations created successfully")
+                    except Exception as e:
+                        logger.error(f"Error creating sustainable solutions visualizations: {str(e)}")
+                        solutions_visualizations = {}
+                        solutions_saved_files = []
+                    
                     steps["Visualization Generation"] = True
                     st.success("✓ Visualizations generated")
                 
