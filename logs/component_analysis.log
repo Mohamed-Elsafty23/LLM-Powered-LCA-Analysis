@@ -1767,3 +1767,23 @@
 2025-06-09 17:27:14,606 - __main__ - INFO - Analysis completed successfully
 2025-06-09 17:27:14,608 - __main__ - INFO - Temporary file cleaned up
 2025-06-09 17:27:14,712 - __main__ - ERROR - Error loading retrieved papers: [Errno 2] No such file or directory: 'output/retrieved_papers.json'
+2025-06-09 19:25:27,947 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-06-09 19:25:28,126 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+2025-06-09 19:25:28,141 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-06-09 19:25:43,902 - __main__ - INFO - New file uploaded with hash: d41d8cd98f00b204e9800998ecf8427e
+2025-06-09 19:25:43,904 - __main__ - INFO - File uploaded and saved: temp_input.txt
+2025-06-09 19:25:46,022 - root - INFO - Vector index size: 125
+2025-06-09 19:25:46,022 - root - INFO - Available metadata entries: 125
+2025-06-09 19:25:46,023 - root - INFO - Initialized VectorSearch
+2025-06-09 19:25:46,023 - root - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 19:25:46,023 - __main__ - INFO - Components initialized successfully
+2025-06-09 19:26:03,886 - __main__ - INFO - New file uploaded with hash: fdd82d479489b4646c34c2d478bb0ea0
+2025-06-09 19:26:03,889 - __main__ - INFO - File uploaded and saved: temp_input.txt
+2025-06-09 19:26:05,901 - root - INFO - Vector index size: 125
+2025-06-09 19:26:05,902 - root - INFO - Available metadata entries: 125
+2025-06-09 19:26:05,902 - root - INFO - Initialized VectorSearch
+2025-06-09 19:26:05,903 - root - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 19:26:05,903 - __main__ - INFO - Components initialized successfully
+2025-06-09 19:26:13,910 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 19:26:29,567 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 19:26:46,728 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"

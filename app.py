@@ -737,7 +737,7 @@ def main():
             
             with tab3:
                 # Create sub-tabs for different visualizations
-                viz_tab1, viz_tab2 = st.tabs(["LCA Visualizations", "Sustainable Solutions Visualizations"])
+                viz_tab1, viz_tab2 = st.tabs(["📊 LCA Visualizations", "🌱 Sustainable Solutions Visualizations"])
                 
                 with viz_tab1:
                     st.subheader("LCA Analysis Visualizations")
@@ -747,7 +747,23 @@ def main():
                     # Display visualizations
                     for name, html_content in lca_viz.items():
                         st.markdown(f"### {name.replace('_', ' ').title()}")
-                        st.components.v1.html(f'<div style="overflow-x:auto; width:100%; max-width:1200px; min-width:700px; min-height:700px;">{html_content}</div>', height=700, scrolling=True)
+                        st.components.v1.html(
+                            f'''
+                            <div style="
+                                width: 100%;
+                                height: 800px;
+                                overflow: auto;
+                                border: 1px solid #ddd;
+                                border-radius: 5px;
+                                padding: 10px;
+                                margin: 10px 0;
+                            ">
+                                {html_content}
+                            </div>
+                            ''',
+                            height=800,
+                            scrolling=True
+                        )
                 
                 with viz_tab2:
                     st.subheader("Sustainable Solutions Visualizations")
@@ -757,8 +773,23 @@ def main():
                     # Display visualizations
                     for name, html_content in solutions_viz.items():
                         st.markdown(f"### {name.replace('_', ' ').title()}")
-                        st.components.v1.html(f'<div style="overflow-x:auto; width:100%; max-width:1200px; min-width:700px; min-height:700px;">{html_content}</div>', height=700, scrolling=True)
-    
+                        st.components.v1.html(
+                            f'''
+                            <div style="
+                                width: 100%;
+                                height: 800px;
+                                overflow: auto;
+                                border: 1px solid #ddd;
+                                border-radius: 5px;
+                                padding: 10px;
+                                margin: 10px 0;
+                            ">
+                                {html_content}
+                            </div>
+                            ''',
+                            height=800,
+                            scrolling=True
+                        )
     else:
         # Reset session state when no file is uploaded
         if st.session_state.analysis_completed:
