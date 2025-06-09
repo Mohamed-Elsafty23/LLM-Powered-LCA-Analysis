@@ -1787,3 +1787,131 @@
 2025-06-09 19:26:13,910 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
 2025-06-09 19:26:29,567 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
 2025-06-09 19:26:46,728 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:38:30,883 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-06-09 22:38:30,954 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+2025-06-09 22:38:30,963 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-06-09 22:40:08,915 - __main__ - INFO - New file uploaded with hash: df3ab3460344517983c964582925227e
+2025-06-09 22:40:08,916 - __main__ - INFO - File uploaded and saved: temp_input.txt
+2025-06-09 22:40:10,926 - root - INFO - Vector index size: 125
+2025-06-09 22:40:10,927 - root - INFO - Available metadata entries: 125
+2025-06-09 22:40:10,928 - root - INFO - Initialized VectorSearch
+2025-06-09 22:40:10,928 - root - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 22:40:10,929 - __main__ - INFO - Components initialized successfully
+2025-06-09 22:40:20,491 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:40:35,717 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:40:47,601 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:40:59,159 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:41:01,161 - component_analyzer - INFO - Analyzing ECU component: ECU Housing
+2025-06-09 22:41:31,175 - openai._base_client - INFO - Retrying request to /chat/completions in 0.489377 seconds
+2025-06-09 22:42:01,786 - openai._base_client - INFO - Retrying request to /chat/completions in 0.767223 seconds
+2025-06-09 22:44:15,293 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-06-09 22:44:15,319 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+2025-06-09 22:44:15,325 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-06-09 22:44:21,971 - __main__ - INFO - New file uploaded with hash: 224a6d71837a461e644f59ca4858cabb
+2025-06-09 22:44:21,974 - __main__ - INFO - File uploaded and saved: temp_input.txt
+2025-06-09 22:44:23,778 - root - INFO - Vector index size: 125
+2025-06-09 22:44:23,779 - root - INFO - Available metadata entries: 125
+2025-06-09 22:44:23,779 - root - INFO - Initialized VectorSearch
+2025-06-09 22:44:23,779 - root - INFO - Initialized SustainableSolutionsGenerator
+2025-06-09 22:44:23,780 - __main__ - INFO - Components initialized successfully
+2025-06-09 22:44:31,738 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:44:39,472 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:44:49,370 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:44:59,830 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:45:01,834 - component_analyzer - INFO - Analyzing ECU component: ECU Housing
+2025-06-09 22:45:17,692 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:45:19,694 - component_analyzer - INFO - Analyzing ECU component: Microcontroller
+2025-06-09 22:45:31,672 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:45:33,676 - component_analyzer - INFO - Analyzing ECU component: Power Supply
+2025-06-09 22:45:54,496 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:13,610 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:13,614 - component_analyzer - INFO - Cleaning data for component: ECU Housing
+2025-06-09 22:46:19,263 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:21,266 - component_analyzer - INFO - Cleaning data for component: Microcontroller
+2025-06-09 22:46:29,410 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:31,412 - component_analyzer - INFO - Cleaning data for component: Power Supply
+2025-06-09 22:46:39,129 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:41,133 - component_analyzer - INFO - Cleaning data for component: ecu_overall
+2025-06-09 22:46:41,643 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:43,650 - component_analyzer - INFO - Analysis results saved to output/component_analysis.json
+2025-06-09 22:46:43,653 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:46:54,203 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:46:54,204 - lca_implementation - INFO - API request successful
+2025-06-09 22:46:54,204 - lca_implementation - INFO - Production phase analysis completed successfully
+2025-06-09 22:46:54,206 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:47:01,647 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:47:01,650 - lca_implementation - INFO - API request successful
+2025-06-09 22:47:01,652 - lca_implementation - INFO - Distribution phase analysis completed successfully
+2025-06-09 22:47:01,654 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:47:12,227 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:47:12,231 - lca_implementation - INFO - API request successful
+2025-06-09 22:47:12,232 - lca_implementation - INFO - Use phase analysis completed successfully
+2025-06-09 22:47:12,235 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:47:20,472 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:47:20,473 - lca_implementation - INFO - API request successful
+2025-06-09 22:47:20,474 - lca_implementation - INFO - End-of-life phase analysis completed successfully
+2025-06-09 22:47:20,474 - lca_implementation - INFO - Generating executive_summary section...
+2025-06-09 22:47:20,475 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:47:45,469 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:47:45,470 - lca_implementation - INFO - API request successful
+2025-06-09 22:47:45,471 - lca_implementation - INFO - executive_summary section generated successfully
+2025-06-09 22:47:47,472 - lca_implementation - INFO - Generating methodology section...
+2025-06-09 22:47:47,472 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:48:25,126 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:48:25,129 - lca_implementation - INFO - API request successful
+2025-06-09 22:48:25,131 - lca_implementation - INFO - methodology section generated successfully
+2025-06-09 22:48:27,132 - lca_implementation - INFO - Generating impact_assessment section...
+2025-06-09 22:48:27,133 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:50:39,237 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:50:39,239 - lca_implementation - INFO - API request successful
+2025-06-09 22:50:39,239 - lca_implementation - INFO - impact_assessment section generated successfully
+2025-06-09 22:50:41,240 - lca_implementation - INFO - Generating hotspot_analysis section...
+2025-06-09 22:50:41,242 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:51:16,225 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:51:16,226 - lca_implementation - INFO - API request successful
+2025-06-09 22:51:16,226 - lca_implementation - INFO - hotspot_analysis section generated successfully
+2025-06-09 22:51:18,228 - lca_implementation - INFO - Generating conclusions section...
+2025-06-09 22:51:18,229 - lca_implementation - INFO - Making API request with key ending in ...369f (attempt 1/5)
+2025-06-09 22:51:58,978 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:51:58,981 - lca_implementation - INFO - API request successful
+2025-06-09 22:51:58,982 - lca_implementation - INFO - conclusions section generated successfully
+2025-06-09 22:52:00,984 - lca_implementation - INFO - Comprehensive report generated successfully
+2025-06-09 22:52:12,953 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:52:12,956 - root - INFO - Generated query: ("automotive Electronic Control Units" OR "ECUs") AND ("plastic" OR "metal" OR "silicon" OR "copper") AND ("energy consumption" OR "CO2 emissions" OR "material impacts") AND ("production phase" OR "use phase" OR "end-of-life phase") AND ("manufacturing processes" OR "material extraction" OR "recycling" OR "disposal") AND ("life cycle assessment" OR "sustainability" OR "environmental impacts") AND ("microcontroller" OR "power supply" OR "ECU housing") AND ("cradle-to-grave" OR "life cycle analysis")
+2025-06-09 22:52:13,405 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/embeddings "HTTP/1.1 200 OK"
+2025-06-09 22:52:13,473 - root - INFO - Found 5 relevant papers
+2025-06-09 22:53:19,312 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:53:19,316 - root - INFO - Analyzed paper with similarity score: 0.7127352952957153
+2025-06-09 22:53:26,983 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:53:26,986 - root - INFO - Analyzed paper with similarity score: 0.7081137895584106
+2025-06-09 22:54:51,707 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:54:51,707 - root - INFO - Analyzed paper with similarity score: 0.7042054533958435
+2025-06-09 22:55:05,944 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:55:05,945 - root - INFO - Analyzed paper with similarity score: 0.7063535451889038
+2025-06-09 22:55:54,899 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:55:54,903 - root - INFO - Analyzed paper with similarity score: 0.6976349949836731
+2025-06-09 22:58:29,396 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:58:29,400 - root - INFO - Generated final report
+2025-06-09 22:58:29,776 - root - INFO - Successfully generated sustainable solutions report at output/sustainable_solutions_report.txt
+2025-06-09 22:58:37,635 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:58:39,951 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:59:04,259 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:59:11,138 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:59:27,221 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:59:29,921 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:59:45,795 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 22:59:47,354 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:02,530 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:04,109 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:19,941 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:20,054 - __main__ - INFO - LCA visualizations created successfully
+2025-06-09 23:00:26,199 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:30,478 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:35,199 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:40,179 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:45,267 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:48,434 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:52,380 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-09 23:00:52,566 - __main__ - INFO - Sustainable solutions visualizations created successfully
+2025-06-09 23:00:52,567 - __main__ - INFO - Analysis completed successfully
+2025-06-09 23:00:52,568 - __main__ - INFO - Temporary file cleaned up
