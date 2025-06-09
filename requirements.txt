@@ -7,3 +7,5 @@ pathlib
 pandas
 plotly
 kaleido
+faiss-cpu
+asyncio
