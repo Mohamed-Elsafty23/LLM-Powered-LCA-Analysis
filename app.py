@@ -21,6 +21,14 @@ from lca_visualizations import create_all_visualizations as create_lca_visualiza
 from sustainable_solutions_visualizations import create_all_visualizations as create_solutions_visualizations, get_latest_visualizations as get_latest_solutions_visualizations
 import re
 
+# Initialize session state variables
+if 'analysis_completed' not in st.session_state:
+    st.session_state.analysis_completed = False
+if 'current_file' not in st.session_state:
+    st.session_state.current_file = None
+if 'analysis_started' not in st.session_state:
+    st.session_state.analysis_started = False
+
 # Suppress Faiss GPU warning
 warnings.filterwarnings('ignore', message='.*Failed to load GPU Faiss.*')
 
@@ -568,13 +576,27 @@ def main():
     Upload a text file containing component data to begin the analysis.
     """)
     
+    # Add a reset button if analysis is completed
+    if st.session_state.analysis_completed:
+        if st.button("Start New Analysis"):
+            st.session_state.analysis_completed = False
+            st.session_state.current_file = None
+            st.session_state.analysis_started = False
+            st.experimental_rerun()
+    
     # File upload
     uploaded_file = st.file_uploader("Upload your input file", type=['txt'])
     
-    if uploaded_file is not None:
+    # Check if a new file is uploaded and analysis hasn't started
+    if uploaded_file is not None and not st.session_state.analysis_started:
+        st.session_state.current_file = uploaded_file
+        st.session_state.analysis_started = True
+    
+    # Only proceed with analysis if we have a current file and analysis hasn't completed
+    if st.session_state.current_file is not None and not st.session_state.analysis_completed:
         try:
             # Save uploaded file
-            input_file = save_uploaded_file(uploaded_file)
+            input_file = save_uploaded_file(st.session_state.current_file)
             logger.info(f"File uploaded and saved: {input_file}")
             
             # Initialize components
@@ -640,6 +662,9 @@ def main():
                 steps["Visualization Generation"] = True
                 st.success("✓ Visualizations generated")
             
+            # Mark analysis as completed
+            st.session_state.analysis_completed = True
+            
             # Display results
             st.success("Analysis completed successfully!")
             logger.info("Analysis completed successfully")
@@ -687,6 +712,9 @@ def main():
             error_msg = f"An error occurred during analysis: {str(e)}"
             st.error(error_msg)
             logger.error(error_msg)
+            # Reset analysis state on error
+            st.session_state.analysis_completed = False
+            st.session_state.analysis_started = False
         
         finally:
             # Clean up temporary file only after all processing is complete
