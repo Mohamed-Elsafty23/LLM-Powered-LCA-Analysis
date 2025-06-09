@@ -47,6 +47,32 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+def get_api_keys():
+    """Get API keys from either config file or Streamlit secrets."""
+    try:
+        # First try to get from config file
+        primary_key = PRIMARY_API_KEY
+        secondary_key = SECONDARY_API_KEY
+        base_url = BASE_URL
+        
+        # If any of the keys are None or empty, try to get from Streamlit secrets
+        if not primary_key or not secondary_key:
+            if 'PRIMARY_API_KEY' in st.secrets:
+                primary_key = st.secrets['PRIMARY_API_KEY']
+            if 'SECONDARY_API_KEY' in st.secrets:
+                secondary_key = st.secrets['SECONDARY_API_KEY']
+            if 'BASE_URL' in st.secrets:
+                base_url = st.secrets['BASE_URL']
+        
+        # Validate that we have the required keys
+        if not primary_key or not secondary_key:
+            raise ValueError("API keys not found in either config file or Streamlit secrets")
+        
+        return primary_key, secondary_key, base_url
+    except Exception as e:
+        logger.error(f"Error getting API keys: {str(e)}")
+        raise
+
 def get_download_link(val, filename):
     """Generate a download link for a file."""
     b64 = base64.b64encode(val)  # val looks like b'...'
@@ -73,41 +99,46 @@ def create_impact_chart(lca_results):
 
 def initialize_components():
     """Initialize all required components for the analysis."""
-    api_keys = [PRIMARY_API_KEY, SECONDARY_API_KEY]
-    base_url = BASE_URL
-    
-    # Initialize component analyzer
-    component_analyzer = ComponentAnalyzer(
-        api_key=PRIMARY_API_KEY,
-        base_url=base_url
-    )
-    
-    # Initialize LCA analyzer
-    lca_analyzer = LLMBasedLCAAnalyzer(
-        api_keys=api_keys,
-        base_url=base_url
-    )
-    
-    # Initialize sustainable solutions generator
-    api_configs = [
-        {
-            "api_key": PRIMARY_API_KEY,
-            "base_url": base_url,
-            "model": "llama-3.3-70b-instruct"
-        },
-        {
-            "api_key": SECONDARY_API_KEY,
-            "base_url": base_url,
-            "model": "llama-3.3-70b-instruct"
-        }
-    ]
-    
-    solutions_generator = SustainableSolutionsGenerator(
-        vector_db_path="vector_db",
-        api_configs=api_configs
-    )
-    
-    return component_analyzer, lca_analyzer, solutions_generator
+    try:
+        # Get API keys from either source
+        primary_key, secondary_key, base_url = get_api_keys()
+        api_keys = [primary_key, secondary_key]
+        
+        # Initialize component analyzer
+        component_analyzer = ComponentAnalyzer(
+            api_key=primary_key,
+            base_url=base_url
+        )
+        
+        # Initialize LCA analyzer
+        lca_analyzer = LLMBasedLCAAnalyzer(
+            api_keys=api_keys,
+            base_url=base_url
+        )
+        
+        # Initialize sustainable solutions generator
+        api_configs = [
+            {
+                "api_key": primary_key,
+                "base_url": base_url,
+                "model": "llama-3.3-70b-instruct"
+            },
+            {
+                "api_key": secondary_key,
+                "base_url": base_url,
+                "model": "llama-3.3-70b-instruct"
+            }
+        ]
+        
+        solutions_generator = SustainableSolutionsGenerator(
+            vector_db_path="vector_db",
+            api_configs=api_configs
+        )
+        
+        return component_analyzer, lca_analyzer, solutions_generator
+    except Exception as e:
+        logger.error(f"Error initializing components: {str(e)}")
+        raise
 
 def save_uploaded_file(uploaded_file):
     """Save the uploaded file to a temporary location."""
