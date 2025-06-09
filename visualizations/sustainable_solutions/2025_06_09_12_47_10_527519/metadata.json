@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-06-09T12:47:49.485213",
+  "source_file": "output/sustainable_solutions_report.txt",
+  "visualizations": [
+    {
+      "name": "Environmental Impact by Life Cycle Phase",
+      "html_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Environmental Impact by Life Cycle Phase.html",
+      "png_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Environmental Impact by Life Cycle Phase.png"
+    },
+    {
+      "name": "Key Hotspots in Production Phase",
+      "html_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Key Hotspots in Production Phase.html",
+      "png_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Key Hotspots in Production Phase.png"
+    },
+    {
+      "name": "Energy Consumption in Use Phase",
+      "html_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Energy Consumption in Use Phase.html",
+      "png_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Energy Consumption in Use Phase.png"
+    },
+    {
+      "name": "Recycling vs Disposal Impact in End-of-Life Phase",
+      "html_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Recycling vs Disposal Impact in End-of-Life Phase.html",
+      "png_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Recycling vs Disposal Impact in End-of-Life Phase.png"
+    },
+    {
+      "name": "Prioritized Solutions",
+      "html_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Prioritized Solutions.html",
+      "png_path": "visualizations\\sustainable_solutions\\2025_06_09_12_47_10_527519\\Prioritized Solutions.png"
+    }
+  ]
+}

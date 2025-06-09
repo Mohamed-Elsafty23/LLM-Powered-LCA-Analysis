@@ -1,0 +1,9 @@
+streamlit
+openai
+numpy
+tenacity
+python-dotenv
+pathlib
+pandas
+plotly
+kaleido

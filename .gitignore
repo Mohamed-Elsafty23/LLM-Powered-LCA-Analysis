@@ -1,0 +1,6 @@
+.env
+temp/
+api_test.py 
+Literature_papers/
+IFIP_PLM25_ECU_LCA.txt
+IFIP_PLM25_ECU_LCA.pdf
