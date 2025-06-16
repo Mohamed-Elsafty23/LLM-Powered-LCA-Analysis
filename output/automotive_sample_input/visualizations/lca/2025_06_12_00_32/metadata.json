@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-06-12T00:34:11.219894",
+  "source_file": "output/automotive_sample_input/llm_based_lca_analysis.json",
+  "output_folder": "output\\automotive_sample_input",
+  "visualizations": [
+    {
+      "name": "Production Phase Material Composition",
+      "html_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Production Phase Material Composition.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Production Phase Material Composition.png"
+    },
+    {
+      "name": "Energy Consumption by Phase",
+      "html_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Energy Consumption by Phase.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Energy Consumption by Phase.png"
+    },
+    {
+      "name": "Recycling Rates by Material",
+      "html_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Recycling Rates by Material.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Recycling Rates by Material.png"
+    },
+    {
+      "name": "Distribution Transportation Parameters",
+      "html_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Distribution Transportation Parameters.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Distribution Transportation Parameters.png"
+    },
+    {
+      "name": "Use Phase Power Consumption",
+      "html_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Use Phase Power Consumption.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\lca\\2025_06_12_00_32\\Use Phase Power Consumption.png"
+    }
+  ]
+}

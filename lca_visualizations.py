@@ -8,26 +8,141 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 import datetime
+import time
+import logging
+from tenacity import retry, stop_after_attempt, wait_exponential
+from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
 
 # Load environment variables
 load_dotenv()
 
-def get_llm_client():
-    """Initialize and return OpenAI client."""
-    return OpenAI(
-        api_key=os.getenv("PRIMARY_API_KEY"),
-        base_url=os.getenv("BASE_URL")
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+class LCAVisualizationManager:
+    def __init__(self, api_keys=None, base_url=None):
+        """Initialize the visualization manager with multiple API keys."""
+        if api_keys is None:
+            api_keys = [PRIMARY_API_KEY, SECONDARY_API_KEY]
+        elif isinstance(api_keys, str):
+            api_keys = [api_keys]
+            
+        if base_url is None:
+            base_url = BASE_URL
+            
+        self.api_keys = [key for key in api_keys if key]  # Filter out None/empty keys
+        self.base_url = base_url
+        self.current_client_index = 0
+        
+        # Create clients for each API key
+        self.clients = []
+        for api_key in self.api_keys:
+            client = OpenAI(
+                api_key=api_key,
+                base_url=base_url,
+                timeout=180.0  # Increase timeout to 180 seconds
+            )
+            self.clients.append(client)
+            
+        if not self.clients:
+            raise ValueError("No valid API keys provided")
+            
+        logger.info(f"Initialized LCAVisualizationManager with {len(self.clients)} API clients")
+
+    def _get_next_client(self):
+        """Get the next available client in rotation."""
+        client = self.clients[self.current_client_index]
+        self.current_client_index = (self.current_client_index + 1) % len(self.clients)
+        return client
+
+    def _make_api_request(self, messages, model="qwen2.5-coder-32b-instruct", **kwargs):
+        """Make API request with multiple client fallback logic."""
+        last_exception = None
+        
+        # Try each client once
+        for attempt in range(len(self.clients)):
+            client = self._get_next_client()
+            client_index = (self.current_client_index - 1) % len(self.clients)
+            
+            try:
+                logger.debug(f"Attempting request with client {client_index + 1}/{len(self.clients)}")
+                response = client.chat.completions.create(
+                    messages=messages,
+                    model=model,
+                    **kwargs
+                )
+                logger.debug(f"Request successful with client {client_index + 1}")
+                return response
+                
+            except Exception as e:
+                last_exception = e
+                logger.warning(f"Request failed with client {client_index + 1}: {str(e)}")
+                if attempt < len(self.clients) - 1:
+                    logger.info(f"Trying next client...")
+                    time.sleep(2)  # Brief delay before trying next client
+                continue
+        
+        # If all clients failed, use retry logic with exponential backoff
+        logger.warning("All clients failed on first attempt. Retrying with exponential backoff...")
+        return self._make_api_request_with_retry(messages, model, **kwargs)
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=2, min=4, max=20),
+        reraise=True
     )
+    def _make_api_request_with_retry(self, messages, model="qwen2.5-coder-32b-instruct", **kwargs):
+        """Make API request with retry logic and client rotation."""
+        client = self._get_next_client()
+        client_index = (self.current_client_index - 1) % len(self.clients)
+        
+        try:
+            logger.debug(f"Retry attempt with client {client_index + 1}/{len(self.clients)}")
+            response = client.chat.completions.create(
+                messages=messages,
+                model=model,
+                **kwargs
+            )
+            return response
+        except Exception as e:
+            logger.warning(f"Retry failed with client {client_index + 1}: {str(e)}")
+            raise
+
+# Create global instance
+_viz_manager = None
+
+def get_llm_client():
+    """Initialize and return OpenAI client (legacy function for backward compatibility)."""
+    global _viz_manager
+    if _viz_manager is None:
+        _viz_manager = LCAVisualizationManager()
+    return _viz_manager.clients[0]  # Return first client for backward compatibility
+
+def get_viz_manager():
+    """Get or create the visualization manager."""
+    global _viz_manager
+    if _viz_manager is None:
+        _viz_manager = LCAVisualizationManager()
+    return _viz_manager
 
 def analyze_lca_data(lca_data):
     """Use LLM to analyze LCA data and suggest visualizations."""
-    client = get_llm_client()
+    viz_manager = get_viz_manager()
     
     prompt = f"""
-    Analyze this LCA data and suggest appropriate visualizations. For each visualization:
-    1. Identify the relevant data fields
-    2. Suggest the best chart type
-    3. Provide the data structure needed
+    Analyze this LCA data and suggest appropriate visualizations based ONLY on the data present in the input.
+    
+    CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
+    - Only suggest visualizations for data fields that are explicitly present in the LCA data below
+    - Do NOT suggest visualizations for data that might typically be in LCA reports but is missing from this input
+    - Do NOT assume the presence of standard LCA categories if they are not in the provided data
+    - Base suggestions strictly on the actual structure and content of the provided data
+    
+    For each visualization:
+    1. Identify the relevant data fields that are actually present in the input data
+    2. Suggest the best chart type based on the available data structure
+    3. Provide the data structure needed based on what is actually available
     
     LCA Data:
     {json.dumps(lca_data, indent=2)}
@@ -37,7 +152,7 @@ def analyze_lca_data(lca_data):
         "visualizations": [
             {{
                 "name": "string",
-                "type": "string",
+                "type": "string", 
                 "data_fields": ["string"],
                 "chart_type": "string",
                 "description": "string"
@@ -46,14 +161,15 @@ def analyze_lca_data(lca_data):
     }}
     
     IMPORTANT: Your response must be valid JSON. Do not include any additional text or explanation.
+    Only suggest visualizations for data that is explicitly present in the input above.
     """
     
-    response = client.chat.completions.create(
-        model="qwen2.5-coder-32b-instruct",
+    response = viz_manager._make_api_request(
         messages=[
             {"role": "system", "content": "You are a data visualization expert. Return only valid JSON."},
             {"role": "user", "content": prompt}
         ],
+        model="qwen2.5-coder-32b-instruct",
         temperature=0.7,
         response_format={"type": "json_object"}
     )
@@ -67,10 +183,17 @@ def analyze_lca_data(lca_data):
 
 def extract_data_for_visualization(lca_data, visualization_spec):
     """Extract data for a specific visualization based on LLM suggestions."""
-    client = get_llm_client()
+    viz_manager = get_viz_manager()
     
     prompt = f"""
-    Extract the necessary data for this visualization from the LCA data.
+    Extract the necessary data for this visualization from the LCA data provided below.
+    
+    CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
+    - Extract ONLY data that is explicitly present in the LCA data below
+    - Do NOT add or assume any data that is not explicitly provided
+    - Do NOT fill in missing data with typical LCA values
+    - If the required data for the visualization is not present, return an empty object
+    - Base extraction strictly on the actual content of the provided LCA data
     
     Visualization Spec:
     {json.dumps(visualization_spec, indent=2)}
@@ -79,16 +202,17 @@ def extract_data_for_visualization(lca_data, visualization_spec):
     {json.dumps(lca_data, indent=2)}
     
     Return a JSON object with the extracted data in a format suitable for the specified chart type.
+    Only include data that is explicitly present in the LCA data above.
     
     IMPORTANT: Your response must be valid JSON. Do not include any additional text or explanation.
     """
     
-    response = client.chat.completions.create(
-        model="qwen2.5-coder-32b-instruct",
+    response = viz_manager._make_api_request(
         messages=[
             {"role": "system", "content": "You are a data extraction expert. Return only valid JSON."},
             {"role": "user", "content": prompt}
         ],
+        model="qwen2.5-coder-32b-instruct",
         temperature=0.7,
         response_format={"type": "json_object"}
     )
@@ -102,10 +226,9 @@ def extract_data_for_visualization(lca_data, visualization_spec):
 
 def create_visualization(data, viz_type, name):
     """Create a visualization using LLM."""
+    viz_manager = get_viz_manager()
     code = None  # Initialize code variable
     try:
-        # Initialize client
-        client = get_llm_client()
         
         # Map visualization type to chart type
         chart_type = viz_type.lower()
@@ -188,7 +311,7 @@ fig.update_traces(
 Return ONLY the executable Python code without any function definitions, markdown formatting, comments, or explanations."""
 
         # Get response from LLM
-        response = client.chat.completions.create(
+        response = viz_manager._make_api_request(
             messages=[
                 {"role": "system", "content": "You are a data visualization expert. Return only executable Python code that creates a Plotly visualization. Do not return function definitions or JSON."},
                 {"role": "user", "content": prompt}
@@ -227,24 +350,26 @@ Return ONLY the executable Python code without any function definitions, markdow
             print(f"Generated code: {code}")
         raise
 
-def ensure_visualization_dir():
-    """Ensure the visualization directory exists and maintain only three most recent versions."""
-    base_dir = Path("visualizations")
-    lca_dir = base_dir / "lca"
+def ensure_visualization_dir(output_folder=None):
+    """Ensure the visualization directory exists in the project-specific output folder."""
+    if output_folder:
+        # Use project-specific folder structure
+        viz_dir = Path(output_folder) / "visualizations" / "lca"
+    else:
+        # Fallback to default structure
+        viz_dir = Path("visualizations") / "lca"
     
-    # Create base directory if it doesn't exist
-    lca_dir.mkdir(parents=True, exist_ok=True)
+    # Create directory if it doesn't exist
+    viz_dir.mkdir(parents=True, exist_ok=True)
     
-    # Create timestamped directory for this run (add microseconds for uniqueness)
+    # Create timestamped subdirectory for this run
     timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M")
-    current_run_dir = lca_dir / timestamp
+    current_run_dir = viz_dir / timestamp
     current_run_dir.mkdir(exist_ok=True)
     
-    # Re-list all timestamped directories after creating the new one
-    timestamp_dirs = [d for d in lca_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
-    # Sort directories by name (newest first)
+    # Clean up old directories (keep only 3 most recent)
+    timestamp_dirs = [d for d in viz_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
     timestamp_dirs.sort(key=lambda x: x.name, reverse=True)
-    # Remove old directories if more than 3 exist
     for old_dir in timestamp_dirs[3:]:
         import shutil
         shutil.rmtree(old_dir)
@@ -265,19 +390,31 @@ def save_visualization(fig, name, viz_dir):
     
     return str(html_path), str(png_path)
 
-def get_latest_visualizations():
-    """Get the latest visualizations from the current directory."""
-    current_dir = Path("visualizations/lca/current")
-    if not current_dir.exists():
+def get_latest_visualizations(output_folder=None):
+    """Get the latest visualizations from the specified output folder."""
+    if output_folder:
+        # Use project-specific folder structure
+        viz_base_dir = Path(output_folder) / "visualizations" / "lca"
+    else:
+        # Fallback to default structure
+        viz_base_dir = Path("visualizations") / "lca"
+    
+    if not viz_base_dir.exists():
         return {}
     
+    # Get the most recent timestamped directory
+    timestamp_dirs = [d for d in viz_base_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
+    if not timestamp_dirs:
+        return {}
+    
+    latest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
+    
     visualizations = {}
-    for html_file in current_dir.glob("*.html"):
+    for html_file in latest_dir.glob("*.html"):
         try:
-            fig = go.Figure()
-            fig.add_trace(go.Scatter(x=[0], y=[0], mode='markers'))
-            fig.update_layout(title=html_file.stem)
-            visualizations[html_file.stem] = fig
+            with open(html_file, 'r', encoding='utf-8') as f:
+                html_content = f.read()
+            visualizations[html_file.stem] = html_content
         except Exception as e:
             print(f"Error loading visualization {html_file.name}: {e}")
     
@@ -286,8 +423,17 @@ def get_latest_visualizations():
 def create_all_visualizations(file_path="output/llm_based_lca_analysis.json"):
     """Create and return all visualizations based on LLM analysis."""
     try:
+        # Extract output folder from file path
+        file_path_obj = Path(file_path)
+        if len(file_path_obj.parts) >= 2 and file_path_obj.parts[0] == "output":
+            # If file is in output/project_name/ structure
+            output_folder = file_path_obj.parent
+        else:
+            # Fallback to default
+            output_folder = Path("output/automotive_sample")
+        
         # Ensure visualization directory exists
-        viz_dir = ensure_visualization_dir()
+        viz_dir = ensure_visualization_dir(str(output_folder))
         
         # Load LCA data
         with open(file_path, 'r') as f:
@@ -328,6 +474,7 @@ def create_all_visualizations(file_path="output/llm_based_lca_analysis.json"):
         metadata = {
             'timestamp': datetime.datetime.now().isoformat(),
             'source_file': file_path,
+            'output_folder': str(output_folder),
             'visualizations': saved_files
         }
         

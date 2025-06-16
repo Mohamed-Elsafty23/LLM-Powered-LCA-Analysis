@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-06-12T00:34:38.625016",
+  "source_file": "output/automotive_sample_input/sustainable_solutions_report.txt",
+  "output_folder": "output\\automotive_sample_input",
+  "visualizations": [
+    {
+      "name": "Energy Consumption in Production Phase",
+      "html_path": "output\\automotive_sample_input\\visualizations\\sustainable_solutions\\2025_06_12_00_34\\Energy Consumption in Production Phase.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\sustainable_solutions\\2025_06_12_00_34\\Energy Consumption in Production Phase.png"
+    },
+    {
+      "name": "Recycling Potentials in End-of-Life Phase",
+      "html_path": "output\\automotive_sample_input\\visualizations\\sustainable_solutions\\2025_06_12_00_34\\Recycling Potentials in End-of-Life Phase.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\sustainable_solutions\\2025_06_12_00_34\\Recycling Potentials in End-of-Life Phase.png"
+    },
+    {
+      "name": "Energy Consumption in Use Phase",
+      "html_path": "output\\automotive_sample_input\\visualizations\\sustainable_solutions\\2025_06_12_00_34\\Energy Consumption in Use Phase.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\sustainable_solutions\\2025_06_12_00_34\\Energy Consumption in Use Phase.png"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from datetime import datetime
 import re
+from tenacity import retry, stop_after_attempt, wait_exponential
 from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
 
 # Configure logging
@@ -21,33 +22,27 @@ logger = logging.getLogger(__name__)
 
 class LLMBasedLCAAnalyzer:
     def __init__(self, api_keys: List[str], base_url: str, model: str = "llama-3.3-70b-instruct"):
-        """Initialize the LLM-based LCA analyzer."""
-        self.api_keys = api_keys
-        self.current_key_index = 0
+        """Initialize the LLM-based LCA analyzer with multiple API keys."""
+        self.api_keys = [key for key in api_keys if key]  # Filter out None/empty keys
         self.base_url = base_url
         self.model = model
+        self.current_client_index = 0
+        self.output_folder = None  # Will be set when processing files
         
-        # Increase timeout to 180 seconds
-        self.request_timeout = 180.0
-        
-        # Initialize rate limiting tracking
-        self.rate_limits = {
-            key: {
-                "requests": 0,
-                "last_reset": datetime.now(),
-                "errors": 0,
-                "consecutive_failures": 0
-            } for key in api_keys
-        }
-        
-        # Initialize clients for each API key
-        self.clients = {
-            key: OpenAI(
-                api_key=key,
+        # Create clients for each API key
+        self.clients = []
+        for api_key in self.api_keys:
+            client = OpenAI(
+                api_key=api_key,
                 base_url=base_url,
-                timeout=self.request_timeout
-            ) for key in api_keys
-        }
+                timeout=180.0  # Increase timeout to 180 seconds
+            )
+            self.clients.append(client)
+            
+        if not self.clients:
+            raise ValueError("No valid API keys provided")
+            
+        logger.info(f"Initialized LLMBasedLCAAnalyzer with {len(self.clients)} API clients")
         
         # System prompt for LCA analysis following the paper's methodology
         self.system_prompt = """You are an expert Life Cycle Assessment (LCA) analyst specializing in automotive Electronic Control Units (ECUs).
@@ -59,109 +54,113 @@ Your expertise includes:
 - ECU production, use, distribution, and end-of-life phases
 - Mathematical modeling of environmental impacts
 - Quantitative LCA calculations and carbon footprint analysis
-        
-        CRITICAL REQUIREMENTS:
-1. Provide QUANTITATIVE results with specific values and units (kg CO2 eq, kWh, etc.)
-2. Follow cradle-to-grave LCA methodology (Production → Distribution → Use → End-of-Life)
-3. Calculate percentage breakdowns for each phase contribution
-4. Use mathematical formulas for energy consumption and environmental impacts
-5. Provide detailed component-level analysis with specific impact values
-6. Structure responses as valid JSON with numerical data
-7. Base calculations on provided component data and engineering principles
-8. Do NOT use placeholder values - calculate realistic estimates based on component specifications
-9. Follow the same analytical approach as automotive LCA research papers
-10. Provide multiple usage scenarios (low, default, high) where applicable"""
 
-        # Initialize OpenAI client
-        self.client = OpenAI(
-            api_key=PRIMARY_API_KEY,
-            base_url=BASE_URL
-        )
+CRITICAL REQUIREMENTS:
+1. You are calculating BASELINE/CURRENT environmental impacts - NOT improvements or reductions
+2. Your analysis represents the environmental burden of the system as it currently exists
+3. ONLY work with data that is explicitly provided in the component data
+4. Do NOT make assumptions about missing data or fill in gaps with estimates
+5. Do NOT hallucinate or invent quantitative values
+6. If specific quantitative data (weights, energy consumption, materials) is provided, use it for calculations
+7. If quantitative data is NOT provided, acknowledge the limitation and work qualitatively
+8. Structure responses as valid JSON with only the data that can be supported by the input
+9. Base calculations ONLY on explicitly provided component data and specifications
+10. Do NOT use industry standard estimates unless they are directly supported by provided data
+11. Follow the same analytical approach as automotive LCA research papers
+12. When quantitative data is available, provide specific values and units (kg CO2 eq, kWh, etc.)
+13. When quantitative data is NOT available, provide qualitative assessments only
+14. Always indicate data limitations and what additional information would be needed for complete analysis
+15. All calculated values represent CURRENT environmental burdens that need to be reduced through improvements"""
 
-    def _get_best_api_key(self) -> str:
-        """Get the best available API key."""
-        current_time = datetime.now()
+    def get_output_folder_from_component_file(self, component_file: str) -> str:
+        """
+        Get the output folder based on the component analysis file path.
         
-        # Reset old counters
-        for key in self.api_keys:
-            rate_limit = self.rate_limits[key]
-            if (current_time - rate_limit["last_reset"]).total_seconds() > 1800:
-                rate_limit["requests"] = 0
-                rate_limit["errors"] = 0
-                rate_limit["consecutive_failures"] = 0
-                rate_limit["last_reset"] = current_time
-        
-        # Find best key
-        best_key = None
-        best_score = float('-inf')
-        
-        for key in self.api_keys:
-            rate_limit = self.rate_limits[key]
-            if rate_limit["consecutive_failures"] >= 3:
-                continue
+        Args:
+            component_file: Path to the component analysis file
             
-            score = 100 - (rate_limit["errors"] * 10) - (rate_limit["consecutive_failures"] * 20)
-            if score > best_score:
-                best_score = score
-                best_key = key
+        Returns:
+            str: Output folder path
+        """
+        if not component_file:
+            return "output/automotive_sample"
         
-        if best_key is None:
-            best_key = min(self.api_keys, key=lambda k: self.rate_limits[k]["consecutive_failures"])
-            self.rate_limits[best_key]["consecutive_failures"] = 0
+        # Extract folder from component file path
+        component_path = Path(component_file)
+        if component_path.parent.name == "output":
+            # If component file is in output/project_name/component_analysis.json
+            if len(component_path.parts) >= 2:
+                project_folder = component_path.parent
+                return str(project_folder)
         
-        return best_key
+        # Fallback: extract from filename if it follows pattern
+        folder_name = component_path.parent.name if component_path.parent.name != "output" else component_path.stem.replace("_component_analysis", "")
+        return f"output/{folder_name}"
 
-    def _make_robust_api_request(self, messages: List[Dict[str, str]], max_retries: int = 5) -> Dict[str, Any]:
-        """Make API request with enhanced reliability."""
+    def _get_next_client(self):
+        """Get the next available client in rotation."""
+        client = self.clients[self.current_client_index]
+        self.current_client_index = (self.current_client_index + 1) % len(self.clients)
+        return client
+
+    def _make_api_request(self, messages: List[Dict[str, str]]) -> Dict[str, Any]:
+        """Make API request with multiple client fallback logic."""
+        last_exception = None
         
-        total_attempts = 0
-        max_total_attempts = len(self.api_keys) * max_retries
-        
-        while total_attempts < max_total_attempts:
-            # Cycle through API keys
-            api_key = self.api_keys[total_attempts % len(self.api_keys)]
-            attempt = (total_attempts // len(self.api_keys)) + 1
+        # Try each client once
+        for attempt in range(len(self.clients)):
+            client = self._get_next_client()
+            client_index = (self.current_client_index - 1) % len(self.clients)
             
             try:
-                client = self.clients[api_key]
-                self.rate_limits[api_key]["requests"] += 1
-                
-                logger.info(f"Making API request with key ending in ...{api_key[-4:]} (attempt {attempt}/{max_retries})")
-                
-                # Add exponential backoff between retries with longer initial wait
-                if total_attempts > 0:
-                    backoff_time = min(5 * (2 ** (total_attempts // len(self.api_keys))), 60)  # Start with 5s, cap at 60s
-                    logger.info(f"Waiting {backoff_time} seconds before retry...")
-                    time.sleep(backoff_time)
-                
+                logger.debug(f"Attempting request with client {client_index + 1}/{len(self.clients)}")
                 response = client.chat.completions.create(
                     messages=messages,
                     model=self.model,
                     response_format={"type": "json_object"},
-                    temperature=0.1,
-                    timeout=self.request_timeout
+                    temperature=0.1
                 )
-                
-                self.rate_limits[api_key]["consecutive_failures"] = 0
-                logger.info("API request successful")
+                logger.debug(f"Request successful with client {client_index + 1}")
                 return response
                 
             except Exception as e:
-                error_msg = str(e)
-                self.rate_limits[api_key]["errors"] += 1
-                self.rate_limits[api_key]["consecutive_failures"] += 1
-                
-                logger.warning(f"API request failed with key ...{api_key[-4:]} (attempt {attempt}): {error_msg}")
-                
-                # If it's a timeout error, try next key immediately
-                if "timeout" in error_msg.lower():
-                    logger.info("Timeout detected, switching API key...")
-                    time.sleep(2)  # Increased delay before switching keys
-                
-                total_attempts += 1
+                last_exception = e
+                logger.warning(f"Request failed with client {client_index + 1}: {str(e)}")
+                if attempt < len(self.clients) - 1:
+                    logger.info(f"Trying next client...")
+                    time.sleep(2)  # Brief delay before trying next client
+                continue
         
-        logger.error(f"All API request attempts failed across all keys after {max_total_attempts} total attempts")
-        raise Exception("All API requests failed - check network and API status")
+        # If all clients failed, use retry logic with exponential backoff
+        logger.warning("All clients failed on first attempt. Retrying with exponential backoff...")
+        return self._make_api_request_with_retry(messages)
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=2, min=4, max=20),
+        reraise=True
+    )
+    def _make_api_request_with_retry(self, messages: List[Dict[str, str]]) -> Dict[str, Any]:
+        """Make API request with retry logic and client rotation."""
+        client = self._get_next_client()
+        client_index = (self.current_client_index - 1) % len(self.clients)
+        
+        try:
+            logger.debug(f"Retry attempt with client {client_index + 1}/{len(self.clients)}")
+            response = client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                response_format={"type": "json_object"},
+                temperature=0.1
+            )
+            return response
+        except Exception as e:
+            logger.warning(f"Retry failed with client {client_index + 1}: {str(e)}")
+            raise
+
+    def _make_robust_api_request(self, messages: List[Dict[str, str]], max_retries: int = 5) -> Dict[str, Any]:
+        """Legacy method for backward compatibility - now uses the new approach."""
+        return self._make_api_request(messages)
 
     def analyze_production_phase(self, component_data: Dict[str, Any]) -> Dict[str, Any]:
         """Analyze production phase with flexible data handling."""
@@ -170,33 +169,37 @@ Your expertise includes:
 
 Component Data: {json.dumps(component_data, indent=2)}
 
-TASK: Perform production phase LCA analysis based on whatever data is available.
+TASK: Perform production phase LCA analysis STRICTLY based on the data provided above.
 
 ANALYSIS REQUIREMENTS:
-1. Material impacts - analyze any materials mentioned in the data
-2. Manufacturing process impacts - analyze any processes mentioned
-3. Total production impact estimate
+1. Material impacts - analyze ONLY materials explicitly mentioned in the provided data
+2. Manufacturing process impacts - analyze ONLY processes explicitly mentioned in the provided data
+3. Total production impact estimate - provide ONLY if sufficient data is available in the input
 
-IMPORTANT INSTRUCTIONS:
-- Work ONLY with data that is actually present in the component data
+CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
+- Work EXCLUSIVELY with data that is explicitly present in the component data above
 - Do NOT make assumptions about missing data
-- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields
-- Only include information that is explicitly present in the input data
-- Focus on quantifiable data where available in the input
-- If weight/size data is available in input, use it for calculations
-- If energy consumption data is available in input, convert to environmental impacts
-- Include any other important LCA-relevant information found in the data that wasn't specifically mentioned in these instructions
-- Provide realistic estimates based on automotive industry standards only when actual data supports calculations
+- Do NOT add information not found in the provided component data
+- Do NOT use industry standards or typical values unless they are explicitly provided in the input data
+- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields entirely
+- If weight/size data is explicitly provided in the input, use it for calculations
+- If energy consumption data is explicitly provided in the input, convert to environmental impacts
+- If materials are explicitly named in the input, analyze their impacts
+- If manufacturing processes are explicitly described in the input, analyze their impacts
+- If insufficient data is provided for quantitative analysis, provide qualitative assessment only
+- Always indicate what data limitations prevent more detailed analysis
 
+OUTPUT FORMAT:
 Return JSON with material_impacts, manufacturing_processes, and total_production_impact objects.
-Only include fields that have actual data - omit empty or unknown fields completely."""
+Only include fields that have actual data from the input - omit empty or unknown fields completely.
+Include a "data_limitations" field listing what additional information would be needed for more complete analysis."""
 
             messages = [
                 {"role": "system", "content": self.system_prompt},
                 {"role": "user", "content": prompt}
             ]
             
-            response = self._make_robust_api_request(messages)
+            response = self._make_api_request(messages)
             content = response.choices[0].message.content
             
             try:
@@ -218,33 +221,37 @@ Only include fields that have actual data - omit empty or unknown fields complet
 
             Component Data: {json.dumps(component_data, indent=2)}
             
-TASK: Perform use phase LCA analysis based on whatever data is available.
+TASK: Perform use phase LCA analysis STRICTLY based on the data provided above.
 
 ANALYSIS REQUIREMENTS:
-1. Energy consumption analysis - analyze any power/energy data mentioned
-2. Usage scenarios - provide multiple scenarios if possible
-3. Total use impact estimate
+1. Energy consumption analysis - analyze ONLY power/energy data explicitly mentioned in the provided data
+2. Usage scenarios - provide scenarios ONLY if usage data is explicitly provided in the input
+3. Total use impact estimate - provide ONLY if sufficient data is available in the input
 
-IMPORTANT INSTRUCTIONS:
-- Work ONLY with data that is actually present in the component data
+CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
+- Work EXCLUSIVELY with data that is explicitly present in the component data above
 - Do NOT make assumptions about missing data
-- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields
-- Only include information that is explicitly present in the input data
-- If power consumption data is available in input, use it for calculations
-- Consider multiple usage scenarios if possible based on available data
-- If weight data is available in input, consider weight-related energy impacts
-- Focus on operational impacts and energy consumption found in the input
-- Include any other important LCA-relevant information found in the data that wasn't specifically mentioned in these instructions
+- Do NOT add information not found in the provided component data
+- Do NOT use industry standards or typical values unless they are explicitly provided in the input data
+- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields entirely
+- If power consumption data is explicitly provided in the input, use it for calculations
+- If usage scenarios are explicitly described in the input, analyze them
+- If weight data is explicitly provided in the input, consider weight-related energy impacts only if correlation is explicitly mentioned
+- If operating conditions are explicitly described in the input, analyze their impacts
+- If insufficient data is provided for quantitative analysis, provide qualitative assessment only
+- Always indicate what data limitations prevent more detailed analysis
 
+OUTPUT FORMAT:
 Return JSON with energy_consumption_analysis, usage_scenarios, and total_use_impact.
-Only include fields that have actual data - omit empty or unknown fields completely."""
+Only include fields that have actual data from the input - omit empty or unknown fields completely.
+Include a "data_limitations" field listing what additional information would be needed for more complete analysis."""
 
             messages = [
                 {"role": "system", "content": self.system_prompt},
                 {"role": "user", "content": prompt}
             ]
             
-            response = self._make_robust_api_request(messages)
+            response = self._make_api_request(messages)
             content = response.choices[0].message.content
             
             try:
@@ -266,33 +273,37 @@ Only include fields that have actual data - omit empty or unknown fields complet
 
             Component Data: {json.dumps(component_data, indent=2)}
             
-TASK: Perform distribution phase LCA analysis based on whatever data is available.
+TASK: Perform distribution phase LCA analysis STRICTLY based on the data provided above.
 
 ANALYSIS REQUIREMENTS:
-1. Transportation analysis - analyze any transportation/logistics data mentioned
-2. Packaging impacts - analyze any packaging data mentioned
-3. Total distribution impact estimate
+1. Transportation analysis - analyze ONLY transportation/logistics data explicitly mentioned in the provided data
+2. Packaging impacts - analyze ONLY packaging data explicitly mentioned in the provided data
+3. Total distribution impact estimate - provide ONLY if sufficient data is available in the input
 
-IMPORTANT INSTRUCTIONS:
-- Work ONLY with data that is actually present in the component data
+CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
+- Work EXCLUSIVELY with data that is explicitly present in the component data above
 - Do NOT make assumptions about missing data
-- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields
-- Only include information that is explicitly present in the input data
-- If transportation distance/method data is available in input, use it for calculations
-- If packaging materials are mentioned in input, analyze their impacts
-- If weight data is available in input, use it for transportation impact calculations
-- Focus on transportation and packaging impacts found in the input
-- Include any other important LCA-relevant information found in the data that wasn't specifically mentioned in these instructions
+- Do NOT add information not found in the provided component data
+- Do NOT use industry standards or typical values unless they are explicitly provided in the input data
+- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields entirely
+- If transportation distance/method data is explicitly provided in the input, use it for calculations
+- If packaging materials are explicitly mentioned in the input, analyze their impacts
+- If weight data is explicitly provided in the input, use it for transportation impact calculations only if transportation method is also provided
+- If distribution logistics are explicitly described in the input, analyze their impacts
+- If insufficient data is provided for quantitative analysis, provide qualitative assessment only
+- Always indicate what data limitations prevent more detailed analysis
 
+OUTPUT FORMAT:
 Return JSON with transportation_analysis, packaging_impacts, and total_distribution_impact.
-Only include fields that have actual data - omit empty or unknown fields completely."""
+Only include fields that have actual data from the input - omit empty or unknown fields completely.
+Include a "data_limitations" field listing what additional information would be needed for more complete analysis."""
 
             messages = [
                 {"role": "system", "content": self.system_prompt},
                 {"role": "user", "content": prompt}
             ]
             
-            response = self._make_robust_api_request(messages)
+            response = self._make_api_request(messages)
             content = response.choices[0].message.content
             
             try:
@@ -314,33 +325,36 @@ Only include fields that have actual data - omit empty or unknown fields complet
 
             Component Data: {json.dumps(component_data, indent=2)}
             
-TASK: Perform end-of-life phase LCA analysis based on whatever data is available.
+TASK: Perform end-of-life phase LCA analysis STRICTLY based on the data provided above.
 
 ANALYSIS REQUIREMENTS:
-1. Recycling analysis - analyze any recycling/end-of-life data mentioned
-2. Disposal impacts - analyze disposal methods mentioned
-3. Total end-of-life impact estimate
+1. Recycling analysis - analyze ONLY recycling/end-of-life data explicitly mentioned in the provided data
+2. Disposal impacts - analyze ONLY disposal methods explicitly mentioned in the provided data
+3. Total end-of-life impact estimate - provide ONLY if sufficient data is available in the input
 
-IMPORTANT INSTRUCTIONS:
-- Work ONLY with data that is actually present in the component data
+CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
+- Work EXCLUSIVELY with data that is explicitly present in the component data above
 - Do NOT make assumptions about missing data
-- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields
-- Only include information that is explicitly present in the input data
-- If recycling rates/methods are mentioned in input, use them for calculations
-- If materials are mentioned in input, consider their recyclability
-- Focus on recycling potential and disposal impacts found in the input
-- Consider both benefits (avoided impacts) and costs (disposal impacts) based on available data
-- Include any other important LCA-relevant information found in the data that wasn't specifically mentioned in these instructions
+- Do NOT add information not found in the provided component data
+- Do NOT use industry standards or typical values unless they are explicitly provided in the input data
+- Do NOT include fields like "not specified", "not available", or "not mentioned" - simply omit those fields entirely
+- If recycling rates/methods are explicitly mentioned in the input, use them for calculations
+- If materials are explicitly mentioned in the input, analyze their recyclability only if recycling information is also provided
+- If disposal methods are explicitly described in the input, analyze their impacts
+- If insufficient data is provided for quantitative analysis, provide qualitative assessment only
+- Always indicate what data limitations prevent more detailed analysis
 
+OUTPUT FORMAT:
 Return JSON with recycling_analysis, disposal_impacts, and total_eol_impact.
-Only include fields that have actual data - omit empty or unknown fields completely."""
+Only include fields that have actual data from the input - omit empty or unknown fields completely.
+Include a "data_limitations" field listing what additional information would be needed for more complete analysis."""
 
             messages = [
                 {"role": "system", "content": self.system_prompt},
                 {"role": "user", "content": prompt}
             ]
             
-            response = self._make_robust_api_request(messages)
+            response = self._make_api_request(messages)
             content = response.choices[0].message.content
             
             try:
@@ -452,7 +466,7 @@ IMPORTANT INSTRUCTIONS:
                 ]
                 
                 try:
-                    response = self._make_robust_api_request(messages)
+                    response = self._make_api_request(messages)
                     content = response.choices[0].message.content
                     section_data = json.loads(content)
                     final_report.update(section_data)
@@ -472,18 +486,24 @@ IMPORTANT INSTRUCTIONS:
 def main():
     """Main execution function for LLM-based LCA analysis."""
     # Configuration
-    api_keys = [
-        "d9960fad1d2aaa16167902b0d26e369f",
-        "d1c9ed1ca70b9721dee1087d93f9662a"
-    ]
-    base_url = "https://chat-ai.academiccloud.de/v1"
-    input_file = "output/component_analysis.json"
-    output_file = "output/llm_based_lca_analysis.json"
+    api_keys = [PRIMARY_API_KEY, SECONDARY_API_KEY]
+    base_url = BASE_URL
+    input_file = "output/automotive_sample/component_analysis.json"  # Default path
     
     try:
         # Initialize analyzer
         analyzer = LLMBasedLCAAnalyzer(api_keys, base_url)
-        logger.info("LLM-based LCA Analyzer initialized successfully")
+        
+        # Determine output folder from input file
+        analyzer.output_folder = analyzer.get_output_folder_from_component_file(input_file)
+        output_file = f"{analyzer.output_folder}/llm_based_lca_analysis.json"
+        
+        logger.info(f"Using input file: {input_file}")
+        logger.info(f"Using output folder: {analyzer.output_folder}")
+        logger.info(f"Output file will be: {output_file}")
+        
+        # Create output folder if it doesn't exist
+        Path(analyzer.output_folder).mkdir(parents=True, exist_ok=True)
         
         # Load component data
         with open(input_file, 'r') as f:
@@ -527,10 +547,6 @@ def main():
             json.dump(output_data, f, indent=2)
         
         logger.info(f"LLM-based LCA analysis completed successfully. Results saved to {output_file}")
-        
-        # Performance summary
-        total_errors = sum(analyzer.rate_limits[key]["errors"] for key in analyzer.api_keys)
-        logger.info(f"Analysis completed with {total_errors} errors across all API keys")
         
     except Exception as e:
         logger.error(f"Critical error in main execution: {str(e)}")

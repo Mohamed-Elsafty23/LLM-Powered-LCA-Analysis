@@ -20,6 +20,7 @@ from io import BytesIO
 from lca_visualizations import create_all_visualizations as create_lca_visualizations, get_latest_visualizations as get_latest_lca_visualizations
 from sustainable_solutions_visualizations import create_all_visualizations as create_solutions_visualizations, get_latest_visualizations as get_latest_solutions_visualizations
 import re
+from typing import Dict
 
 # Suppress Faiss GPU warning
 warnings.filterwarnings('ignore', message='.*Failed to load GPU Faiss.*')
@@ -107,7 +108,7 @@ def initialize_components():
         
         # Initialize component analyzer
         component_analyzer = ComponentAnalyzer(
-            api_key=primary_key,
+            api_keys=api_keys,
             base_url=base_url
         )
         
@@ -141,11 +142,46 @@ def initialize_components():
         logger.error(f"Error initializing components: {str(e)}")
         raise
 
-def save_uploaded_file(uploaded_file):
-    """Save the uploaded file to a temporary location."""
-    temp_file = Path("temp_input.txt")
-    temp_file.write_text(uploaded_file.getvalue().decode())
-    return str(temp_file)
+def get_output_folder_from_input(input_file: str) -> str:
+    """
+    Get the output folder name based on the input file name.
+    
+    Args:
+        input_file: Path to the input file
+        
+    Returns:
+        str: Output folder path
+    """
+    if not input_file:
+        # Default folder if no input file provided
+        return "output/automotive_sample"
+    
+    # Extract filename without extension
+    input_path = Path(input_file)
+    folder_name = input_path.stem  # Gets filename without extension
+    output_folder = f"output/{folder_name}"
+    
+    # Create the folder if it doesn't exist
+    Path(output_folder).mkdir(parents=True, exist_ok=True)
+    
+    return output_folder
+
+def get_project_name_from_upload(uploaded_file) -> str:
+    """
+    Extract project name from uploaded file name.
+    
+    Args:
+        uploaded_file: Streamlit uploaded file object
+        
+    Returns:
+        str: Project name for folder creation
+    """
+    if not uploaded_file or not uploaded_file.name:
+        return "automotive_sample"
+    
+    # Extract filename without extension
+    file_path = Path(uploaded_file.name)
+    return file_path.stem
 
 def update_logs(log_container):
     """Update the log display with new messages."""
@@ -205,13 +241,29 @@ def format_lca_report(report):
     def display_metrics(data):
         """Display metrics in a visually appealing way."""
         if isinstance(data, dict):
-            cols = st.columns(len(data))
-            for col, (key, value) in zip(cols, data.items()):
+            # Flatten nested dictionaries
+            flat_data = {}
+            def flatten_dict(d, prefix=''):
+                for key, value in d.items():
+                    new_key = f"{prefix}{key}" if prefix else key
+                    if isinstance(value, dict):
+                        flatten_dict(value, f"{new_key}_")
+                    else:
+                        flat_data[new_key] = value
+            
+            flatten_dict(data)
+            
+            # Create columns for the flattened data
+            cols = st.columns(len(flat_data))
+            for col, (key, value) in zip(cols, flat_data.items()):
                 with col:
-                    st.metric(
-                        label=key.replace('_', ' ').title(),
-                        value=value
-                    )
+                    # Format the key for display
+                    display_key = key.replace('_', ' ').title()
+                    # Ensure value is a simple type
+                    if isinstance(value, (int, float)):
+                        st.metric(label=display_key, value=f"{value:,.2f}")
+                    else:
+                        st.metric(label=display_key, value=str(value))
 
     # Get the main report data
     report_data = report.get("lca_report", report)
@@ -234,8 +286,19 @@ def format_lca_report(report):
                 # Display key findings if they exist
                 if "key_findings" in section_data:
                     st.markdown("### Key Findings")
-                    for key, value in section_data["key_findings"].items():
-                        st.markdown(f"**{format_key(key)}:** {value}")
+                    key_findings = section_data["key_findings"]
+                    if isinstance(key_findings, dict):
+                        for key, value in key_findings.items():
+                            st.markdown(f"**{format_key(key)}:** {value}")
+                    elif isinstance(key_findings, list):
+                        for item in key_findings:
+                            if isinstance(item, str):
+                                st.markdown(f"• {item}")
+                            elif isinstance(item, dict):
+                                for key, value in item.items():
+                                    st.markdown(f"**{format_key(key)}:** {value}")
+                    else:
+                        st.write(key_findings)
                 
                 # Display percentage breakdown if it exists
                 if "percentage_breakdown" in section_data:
@@ -326,34 +389,112 @@ def format_solutions_report(report_text):
             format_section(section)
             st.markdown("---")
 
-def load_visualizations():
-    """Load the latest visualizations for both LCA and sustainable solutions."""
+def load_visualizations(output_folder=None):
+    """Load the latest visualizations for both LCA and sustainable solutions from project-specific folders."""
     lca_viz = {}
     solutions_viz = {}
     
-    # Load LCA visualizations from newest timestamped folder
-    lca_dir = Path("visualizations/lca")
-    if lca_dir.exists():
-        # Get all timestamped directories and sort by name (newest first)
-        timestamp_dirs = [d for d in lca_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
-        if timestamp_dirs:
-            newest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
-            for html_file in newest_dir.glob("*.html"):
-                with open(html_file, 'r', encoding='utf-8') as f:
-                    lca_viz[html_file.stem] = f.read()
-    
-    # Load sustainable solutions visualizations from newest timestamped folder
-    solutions_dir = Path("visualizations/sustainable_solutions")
-    if solutions_dir.exists():
-        # Get all timestamped directories and sort by name (newest first)
-        timestamp_dirs = [d for d in solutions_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
-        if timestamp_dirs:
-            newest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
-            for html_file in newest_dir.glob("*.html"):
-                with open(html_file, 'r', encoding='utf-8') as f:
-                    solutions_viz[html_file.stem] = f.read()
+    if output_folder:
+        # Load LCA visualizations from project-specific folder
+        lca_dir = Path(output_folder) / "visualizations" / "lca"
+        if lca_dir.exists():
+            # Get all timestamped directories and sort by name (newest first)
+            timestamp_dirs = [d for d in lca_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
+            if timestamp_dirs:
+                newest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
+                for html_file in newest_dir.glob("*.html"):
+                    with open(html_file, 'r', encoding='utf-8') as f:
+                        lca_viz[html_file.stem] = f.read()
+        
+        # Load sustainable solutions visualizations from project-specific folder
+        solutions_dir = Path(output_folder) / "visualizations" / "sustainable_solutions"
+        if solutions_dir.exists():
+            # Get all timestamped directories and sort by name (newest first)
+            timestamp_dirs = [d for d in solutions_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
+            if timestamp_dirs:
+                newest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
+                for html_file in newest_dir.glob("*.html"):
+                    with open(html_file, 'r', encoding='utf-8') as f:
+                        solutions_viz[html_file.stem] = f.read()
+    else:
+        # Fallback to default global visualization folders
+        # Load LCA visualizations from global folder
+        lca_dir = Path("visualizations/lca")
+        if lca_dir.exists():
+            # Get all timestamped directories and sort by name (newest first)
+            timestamp_dirs = [d for d in lca_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
+            if timestamp_dirs:
+                newest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
+                for html_file in newest_dir.glob("*.html"):
+                    with open(html_file, 'r', encoding='utf-8') as f:
+                        lca_viz[html_file.stem] = f.read()
+        
+        # Load sustainable solutions visualizations from global folder
+        solutions_dir = Path("visualizations/sustainable_solutions")
+        if solutions_dir.exists():
+            # Get all timestamped directories and sort by name (newest first)
+            timestamp_dirs = [d for d in solutions_dir.iterdir() if d.is_dir() and all(part.isdigit() for part in d.name.split('_'))]
+            if timestamp_dirs:
+                newest_dir = sorted(timestamp_dirs, key=lambda x: x.name, reverse=True)[0]
+                for html_file in newest_dir.glob("*.html"):
+                    with open(html_file, 'r', encoding='utf-8') as f:
+                        solutions_viz[html_file.stem] = f.read()
     
     return lca_viz, solutions_viz
+
+def check_existing_files(output_folder: str) -> Dict[str, bool]:
+    """
+    Check which analysis files already exist in the output folder.
+    
+    Args:
+        output_folder: Path to the project output folder
+        
+    Returns:
+        Dict: Status of each analysis step
+    """
+    output_path = Path(output_folder)
+    
+    # Define required files for each step
+    required_files = {
+        "component_analysis": output_path / "component_analysis.json",
+        "lca_analysis": output_path / "llm_based_lca_analysis.json", 
+        "sustainable_solutions": output_path / "sustainable_solutions_report.txt",
+        "retrieved_papers": output_path / "retrieved_papers.json",
+        "lca_visualizations": output_path / "visualizations" / "lca",
+        "solutions_visualizations": output_path / "visualizations" / "sustainable_solutions"
+    }
+    
+    # Check which files exist and are not empty
+    file_status = {}
+    for step, file_path in required_files.items():
+        if step.endswith("_visualizations"):
+            # For visualization folders, check if they exist and contain files
+            exists = file_path.exists() and any(file_path.iterdir()) if file_path.exists() else False
+        else:
+            # For regular files, check if they exist and are not empty
+            exists = file_path.exists() and file_path.stat().st_size > 0 if file_path.exists() else False
+        file_status[step] = exists
+    
+    return file_status
+
+def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
+    """
+    Determine which steps need to be run based on existing files.
+    
+    Args:
+        file_status: Dictionary of file existence status
+        
+    Returns:
+        Dict: Which steps should be executed
+    """
+    steps_to_run = {
+        "Component Analysis": not file_status["component_analysis"],
+        "LCA Analysis": not file_status["lca_analysis"],
+        "Sustainable Solutions": not file_status["sustainable_solutions"], 
+        "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
+    }
+    
+    return steps_to_run
 
 def main():
     # Set page config with custom theme
@@ -370,6 +511,8 @@ def main():
         st.session_state.current_file_hash = None
     if 'analysis_results' not in st.session_state:
         st.session_state.analysis_results = None
+    if 'output_folder' not in st.session_state:
+        st.session_state.output_folder = "output/automotive_sample"  # Default folder
     
     # Add custom CSS for better formatting
     st.markdown("""
@@ -586,18 +729,64 @@ def main():
             st.session_state.analysis_completed = False
             st.session_state.current_file_hash = file_hash
             st.session_state.analysis_results = None
+            st.session_state.output_folder = get_output_folder_from_input(uploaded_file.name)
             logger.info(f"New file uploaded with hash: {file_hash}")
+            logger.info(f"Output folder set to: {st.session_state.output_folder}")
         
         # Only run analysis if not already completed for this file
         if not st.session_state.analysis_completed:
             try:
-                # Save uploaded file
-                input_file = save_uploaded_file(uploaded_file)
-                logger.info(f"File uploaded and saved: {input_file}")
+                # Get content from uploaded file
+                file_content = uploaded_file.getvalue().decode()
+                project_name = get_project_name_from_upload(uploaded_file)
+                output_folder = f"output/{project_name}"
                 
-                # Initialize components
+                logger.info(f"Processing uploaded file: {uploaded_file.name}")
+                logger.info(f"Project name: {project_name}")
+                logger.info(f"Output folder: {output_folder}")
+                
+                # Check existing files
+                file_status = check_existing_files(output_folder)
+                steps_to_run = get_steps_to_run(file_status)
+                
+                # If all steps are completed, skip to results
+                if not any(steps_to_run.values()):
+                    logger.info("All analysis steps already completed, skipping to results")
+                    
+                    # Add option to force re-run all steps
+                    st.success("🎉 All analysis steps are already completed!")
+                    col1, col2 = st.columns([2, 1])
+                    with col2:
+                        force_rerun = st.button("🔄 Force Re-run All", help="Re-execute all analysis steps even if files exist")
+                    
+                    if not force_rerun:
+                        st.session_state.analysis_completed = True
+                        st.session_state.analysis_results = {"output_folder": output_folder}
+                        # Skip to results display
+                        st.rerun()
+                        return
+                    else:
+                        st.info("🔄 Force re-running all analysis steps...")
+                        # Override steps_to_run to force execution of all steps
+                        steps_to_run = {
+                            "Component Analysis": True,
+                            "LCA Analysis": True,
+                            "Sustainable Solutions": True,
+                            "Visualization Generation": True
+                        }
+                
+                # Initialize components only if needed
                 component_analyzer, lca_analyzer, solutions_generator = initialize_components()
                 logger.info("Components initialized successfully")
+                
+                # Log which steps will be executed
+                steps_to_execute = [step for step, will_run in steps_to_run.items() if will_run]
+                steps_to_skip = [step for step, will_run in steps_to_run.items() if not will_run]
+                
+                if steps_to_execute:
+                    logger.info(f"Steps to execute: {', '.join(steps_to_execute)}")
+                if steps_to_skip:
+                    logger.info(f"Steps to skip (already completed): {', '.join(steps_to_skip)}")
                 
                 # Create step display
                 steps = {
@@ -608,101 +797,116 @@ def main():
                 }
                 
                 # Step 1: Component Analysis
-                with st.container():
+                if steps_to_run["Component Analysis"]:
+                    with st.container():
+                        st.markdown("### Step 1/4: Component Analysis")
+                        st.markdown("Analyzing components from the input file...")
+                        component_results = component_analyzer.analyze_ecu_components_from_content(file_content, project_name)
+                        component_analyzer.save_analysis(component_results, f"{output_folder}/component_analysis.json")
+                        steps["Component Analysis"] = True
+                        st.success("✓ Component analysis completed")
+                else:
                     st.markdown("### Step 1/4: Component Analysis")
-                    st.markdown("Analyzing components from the input file...")
-                    component_results = component_analyzer.analyze_ecu_components(input_file)
-                    component_analyzer.save_analysis(component_results, "output/component_analysis.json")
-                    steps["Component Analysis"] = True
-                    st.success("✓ Component analysis completed")
+                    st.success("✓ Component analysis already exists - skipping")
+                    # Load existing component results for later steps
+                    try:
+                        with open(f"{output_folder}/component_analysis.json", 'r') as f:
+                            component_results = json.load(f)
+                        steps["Component Analysis"] = True
+                    except Exception as e:
+                        st.error(f"Error loading existing component analysis: {str(e)}")
+                        logger.error(f"Error loading component analysis: {str(e)}")
+                        return
                 
                 # Step 2: LCA Analysis
-                with st.container():
+                if steps_to_run["LCA Analysis"]:
+                    with st.container():
+                        st.markdown("### Step 2/4: LCA Analysis")
+                        st.markdown("Performing LCA analysis for each life cycle phase...")
+                        lca_results = {}
+                        phases = ['production', 'distribution', 'use', 'end_of_life']
+                        
+                        # Set output folder for LCA analyzer
+                        lca_analyzer.output_folder = output_folder
+                        
+                        for phase in phases:
+                            st.markdown(f"Analyzing {phase} phase...")
+                            if phase == 'production':
+                                lca_results[phase] = lca_analyzer.analyze_production_phase(component_results)
+                            elif phase == 'distribution':
+                                lca_results[phase] = lca_analyzer.analyze_distribution_phase(component_results)
+                            elif phase == 'use':
+                                lca_results[phase] = lca_analyzer.analyze_use_phase(component_results)
+                            elif phase == 'end_of_life':
+                                lca_results[phase] = lca_analyzer.analyze_end_of_life_phase(component_results)
+                        
+                        final_report = lca_analyzer.generate_comprehensive_report(lca_results, component_results)
+                        with open(f"{output_folder}/llm_based_lca_analysis.json", 'w') as f:
+                            json.dump({"lca_report": final_report}, f, indent=2)
+                        steps["LCA Analysis"] = True
+                        st.success("✓ LCA analysis completed")
+                else:
                     st.markdown("### Step 2/4: LCA Analysis")
-                    st.markdown("Performing LCA analysis for each life cycle phase...")
-                    lca_results = {}
-                    phases = ['production', 'distribution', 'use', 'end_of_life']
-                    
-                    for phase in phases:
-                        st.markdown(f"Analyzing {phase} phase...")
-                        if phase == 'production':
-                            lca_results[phase] = lca_analyzer.analyze_production_phase(component_results)
-                        elif phase == 'distribution':
-                            lca_results[phase] = lca_analyzer.analyze_distribution_phase(component_results)
-                        elif phase == 'use':
-                            lca_results[phase] = lca_analyzer.analyze_use_phase(component_results)
-                        elif phase == 'end_of_life':
-                            lca_results[phase] = lca_analyzer.analyze_end_of_life_phase(component_results)
-                    
-                    final_report = lca_analyzer.generate_comprehensive_report(lca_results, component_results)
-                    with open("output/llm_based_lca_analysis.json", 'w') as f:
-                        json.dump({"lca_report": final_report}, f, indent=2)
+                    st.success("✓ LCA analysis already exists - skipping")
                     steps["LCA Analysis"] = True
-                    st.success("✓ LCA analysis completed")
                 
                 # Step 3: Generate Sustainable Solutions
-                with st.container():
+                if steps_to_run["Sustainable Solutions"]:
+                    with st.container():
+                        st.markdown("### Step 3/4: Sustainable Solutions")
+                        st.markdown("Generating sustainable solutions based on LCA results...")
+                        
+                        # Generate sustainable solutions and get retrieved papers
+                        retrieved_papers = solutions_generator.generate_sustainable_solutions(
+                            lca_report_path=f"{output_folder}/llm_based_lca_analysis.json",
+                            output_path=f"{output_folder}/sustainable_solutions_report.txt"
+                        )
+                        
+                        steps["Sustainable Solutions"] = True
+                        st.success("✓ Sustainable solutions generated")
+                else:
                     st.markdown("### Step 3/4: Sustainable Solutions")
-                    st.markdown("Generating sustainable solutions based on LCA results...")
-                    
-                    # Generate sustainable solutions and get retrieved papers
-                    retrieved_papers = solutions_generator.generate_sustainable_solutions(
-                        lca_report_path="output/llm_based_lca_analysis.json",
-                        output_path="output/sustainable_solutions_report.txt"
-                    )
-                    
-                    # Store retrieved papers in output folder if they exist
-                    if retrieved_papers:
-                        try:
-                            with open("output/retrieved_papers.json", 'w') as f:
-                                json.dump(retrieved_papers, f, indent=2)
-                            logger.info(f"Retrieved papers saved to output/retrieved_papers.json")
-                        except Exception as e:
-                            logger.error(f"Error saving retrieved papers: {str(e)}")
-                    
+                    st.success("✓ Sustainable solutions already exist - skipping")
                     steps["Sustainable Solutions"] = True
-                    st.success("✓ Sustainable solutions generated")
                 
                 # Step 4: Generate Visualizations
-                with st.container():
+                if steps_to_run["Visualization Generation"]:
+                    with st.container():
+                        st.markdown("### Step 4/4: Visualization Generation")
+                        st.markdown("Creating visualizations for LCA and sustainable solutions...")
+                        
+                        # Create LCA visualizations
+                        try:
+                            lca_visualizations, lca_saved_files = create_lca_visualizations(f"{output_folder}/llm_based_lca_analysis.json")
+                            logger.info("LCA visualizations created successfully")
+                        except Exception as e:
+                            logger.error(f"Error creating LCA visualizations: {str(e)}")
+                            lca_visualizations = {}
+                            lca_saved_files = []
+                        
+                        # Create sustainable solutions visualizations
+                        try:
+                            solutions_visualizations, solutions_saved_files = create_solutions_visualizations(f"{output_folder}/sustainable_solutions_report.txt")
+                            logger.info("Sustainable solutions visualizations created successfully")
+                        except Exception as e:
+                            logger.error(f"Error creating sustainable solutions visualizations: {str(e)}")
+                            solutions_visualizations = {}
+                            solutions_saved_files = []
+                        
+                        steps["Visualization Generation"] = True
+                        st.success("✓ Visualizations generated")
+                else:
                     st.markdown("### Step 4/4: Visualization Generation")
-                    st.markdown("Creating visualizations for LCA and sustainable solutions...")
-                    
-                    # Create LCA visualizations
-                    try:
-                        lca_visualizations, lca_saved_files = create_lca_visualizations("output/llm_based_lca_analysis.json")
-                        logger.info("LCA visualizations created successfully")
-                    except Exception as e:
-                        logger.error(f"Error creating LCA visualizations: {str(e)}")
-                        lca_visualizations = {}
-                        lca_saved_files = []
-                    
-                    # Create sustainable solutions visualizations
-                    try:
-                        solutions_visualizations, solutions_saved_files = create_solutions_visualizations("output/sustainable_solutions_report.txt")
-                        logger.info("Sustainable solutions visualizations created successfully")
-                    except Exception as e:
-                        logger.error(f"Error creating sustainable solutions visualizations: {str(e)}")
-                        solutions_visualizations = {}
-                        solutions_saved_files = []
-                    
+                    st.success("✓ Visualizations already exist - skipping")
                     steps["Visualization Generation"] = True
-                    st.success("✓ Visualizations generated")
                 
                 # Mark analysis as completed
                 st.session_state.analysis_completed = True
-                st.session_state.analysis_results = "completed"
+                st.session_state.analysis_results = {"output_folder": output_folder}
                 
                 # Display success message
                 st.success("Analysis completed successfully!")
                 logger.info("Analysis completed successfully")
-                
-                # Clean up temporary file
-                try:
-                    Path(input_file).unlink(missing_ok=True)
-                    logger.info("Temporary file cleaned up")
-                except Exception as e:
-                    logger.error(f"Error cleaning up temporary file: {str(e)}")
                 
             except Exception as e:
                 error_msg = f"An error occurred during analysis: {str(e)}"
@@ -714,13 +918,29 @@ def main():
         
         # Display results if analysis is completed
         if st.session_state.analysis_completed:
+            # Get output folder from session state
+            output_folder = st.session_state.analysis_results.get("output_folder", st.session_state.output_folder)
+            
+            # Check if files still exist (in case they were deleted)
+            file_status = check_existing_files(output_folder)
+            missing_files = [step for step, exists in file_status.items() if not exists]
+            
+            if missing_files:
+                st.warning(f"⚠️ Some analysis files are missing: {', '.join(missing_files)}")
+                st.info("Please upload your file again to regenerate missing analysis.")
+                # Reset session state to force re-analysis
+                st.session_state.analysis_completed = False
+                st.session_state.analysis_results = None
+                st.rerun()
+                return
+            
             # Create tabs for different reports
             tab1, tab2, tab3 = st.tabs(["📊 LCA Report", "🌱 Sustainable Solutions", "📈 Visualization"])
             
             with tab1:
                 # Load and display LCA report
                 try:
-                    with open("output/llm_based_lca_analysis.json", 'r') as f:
+                    with open(f"{output_folder}/llm_based_lca_analysis.json", 'r') as f:
                         lca_data = json.load(f)
                     format_lca_report(lca_data)
                 except FileNotFoundError:
@@ -729,7 +949,7 @@ def main():
             with tab2:
                 # Load and display sustainable solutions report
                 try:
-                    with open("output/sustainable_solutions_report.txt", 'r') as f:
+                    with open(f"{output_folder}/sustainable_solutions_report.txt", 'r') as f:
                         solutions_report = f.read()
                     format_solutions_report(solutions_report)
                 except FileNotFoundError:
@@ -742,7 +962,7 @@ def main():
                 with viz_tab1:
                     st.subheader("LCA Analysis Visualizations")
                     # Load visualizations from files
-                    lca_viz, _ = load_visualizations()
+                    lca_viz, _ = load_visualizations(output_folder)
                     
                     # Display visualizations
                     for name, html_content in lca_viz.items():
@@ -768,7 +988,7 @@ def main():
                 with viz_tab2:
                     st.subheader("Sustainable Solutions Visualizations")
                     # Load visualizations from files
-                    _, solutions_viz = load_visualizations()
+                    _, solutions_viz = load_visualizations(output_folder)
                     
                     # Display visualizations
                     for name, html_content in solutions_viz.items():
@@ -791,11 +1011,13 @@ def main():
                             scrolling=True
                         )
     else:
-        # Reset session state when no file is uploaded
+        # Reset session state when no file is uploaded, but preserve output folder for default
         if st.session_state.analysis_completed:
             st.session_state.analysis_completed = False
             st.session_state.current_file_hash = None
             st.session_state.analysis_results = None
+            # Keep default output folder for potential analysis with default data
+            st.session_state.output_folder = "output/automotive_sample"
 
 if __name__ == "__main__":
     main() 

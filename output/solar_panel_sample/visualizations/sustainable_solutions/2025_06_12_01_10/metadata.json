@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-06-12T01:11:02.683923",
+  "source_file": "output/solar_panel_sample/sustainable_solutions_report.txt",
+  "output_folder": "output\\solar_panel_sample",
+  "visualizations": [
+    {
+      "name": "Production Phase Energy Consumption",
+      "html_path": "output\\solar_panel_sample\\visualizations\\sustainable_solutions\\2025_06_12_01_10\\Production Phase Energy Consumption.html",
+      "png_path": "output\\solar_panel_sample\\visualizations\\sustainable_solutions\\2025_06_12_01_10\\Production Phase Energy Consumption.png"
+    },
+    {
+      "name": "Use Phase Energy Consumption",
+      "html_path": "output\\solar_panel_sample\\visualizations\\sustainable_solutions\\2025_06_12_01_10\\Use Phase Energy Consumption.html",
+      "png_path": "output\\solar_panel_sample\\visualizations\\sustainable_solutions\\2025_06_12_01_10\\Use Phase Energy Consumption.png"
+    }
+  ]
+}

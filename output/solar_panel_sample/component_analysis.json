@@ -1,0 +1,52 @@
+{
+  "ECU Housing": {
+    "Name": "ECU Housing",
+    "Contextual Information": "Part of a larger system",
+    "Numerical Values and Units": {
+      "Start": 1,
+      "End": 3
+    }
+  },
+  "ECU": {
+    "ECU_Component_Scenarios": [
+      {
+        "scenario": "Monitoring System",
+        "materials": {
+          "electronic_components": 50,
+          "plastic_housing": 30,
+          "display_components": 15,
+          "other_materials": 5
+        },
+        "weight": 0.8,
+        "manufacturing_process": {
+          "temperature": "room temperature",
+          "cycle_time": 15,
+          "energy_consumption": 0.3
+        }
+      },
+      {
+        "scenario": "Inverter",
+        "materials": {
+          "electronic_components": 40,
+          "aluminum_housing": 35,
+          "copper": 15,
+          "other_materials": 10
+        },
+        "weight": 15.2,
+        "manufacturing_process": {
+          "temperature": "20-25\u00b0C",
+          "cycle_time": 45,
+          "energy_consumption": 1.8
+        }
+      }
+    ]
+  },
+  "Power Supply": {
+    "Name": "Power Supply",
+    "Numerical Values and Units": {
+      "Start": 9,
+      "End": 11
+    },
+    "Contextual Information": "Part of a larger system, possibly related to Residential Solar Panel System"
+  }
+}

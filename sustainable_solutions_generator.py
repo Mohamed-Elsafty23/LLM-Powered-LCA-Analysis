@@ -8,7 +8,11 @@ import logging
 import concurrent.futures
 from itertools import chain
 import os
+import time
+from tenacity import retry, stop_after_attempt, wait_exponential
 from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
+from pathlib import Path
+import re
 
 # Configure logging
 logging.basicConfig(
@@ -19,6 +23,7 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+logger = logging.getLogger(__name__)
 
 class APIClient:
     def __init__(self, api_key: str, base_url: str, model: str):
@@ -32,9 +37,11 @@ class APIClient:
         """
         self.client = OpenAI(
             api_key=api_key,
-            base_url=base_url
+            base_url=base_url,
+            timeout=180.0  # Increase timeout to 180 seconds
         )
         self.model = model
+        self.api_key = api_key
 
 class VectorSearch:
     def __init__(self, vector_db_path: str, api_clients: List[APIClient]):
@@ -47,6 +54,7 @@ class VectorSearch:
         """
         self.vector_db_path = vector_db_path
         self.api_clients = api_clients
+        self.current_client_index = 0
         
         try:
             # Load vector database
@@ -55,12 +63,69 @@ class VectorSearch:
                 data = pickle.load(f)
                 self.metadata = data.get("metadata", [])
             
-            logging.info(f"Vector index size: {self.index.ntotal}")
-            logging.info(f"Available metadata entries: {len(self.metadata)}")
-            logging.info("Initialized VectorSearch")
+            logger.info(f"Vector index size: {self.index.ntotal}")
+            logger.info(f"Available metadata entries: {len(self.metadata)}")
+            logger.info("Initialized VectorSearch")
             
         except Exception as e:
-            logging.error(f"Error initializing VectorSearch: {str(e)}")
+            logger.error(f"Error initializing VectorSearch: {str(e)}")
+            raise
+
+    def _get_next_client(self):
+        """Get the next available client in rotation."""
+        client = self.api_clients[self.current_client_index]
+        self.current_client_index = (self.current_client_index + 1) % len(self.api_clients)
+        return client
+
+    def _make_api_request(self, input_text: str, model: str = "e5-mistral-7b-instruct"):
+        """Make API request with multiple client fallback logic."""
+        last_exception = None
+        
+        # Try each client once
+        for attempt in range(len(self.api_clients)):
+            client = self._get_next_client()
+            client_index = (self.current_client_index - 1) % len(self.api_clients)
+            
+            try:
+                logging.debug(f"Attempting embedding request with client {client_index + 1}/{len(self.api_clients)}")
+                response = client.client.embeddings.create(
+                    input=input_text,
+                    model=model
+                )
+                logging.debug(f"Embedding request successful with client {client_index + 1}")
+                return response
+                
+            except Exception as e:
+                last_exception = e
+                logging.warning(f"Embedding request failed with client {client_index + 1}: {str(e)}")
+                if attempt < len(self.api_clients) - 1:
+                    logging.info(f"Trying next client...")
+                    time.sleep(2)  # Brief delay before trying next client
+                continue
+        
+        # If all clients failed, use retry logic with exponential backoff
+        logging.warning("All clients failed on first attempt. Retrying with exponential backoff...")
+        return self._make_api_request_with_retry(input_text, model)
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=2, min=4, max=20),
+        reraise=True
+    )
+    def _make_api_request_with_retry(self, input_text: str, model: str = "e5-mistral-7b-instruct"):
+        """Make API request with retry logic and client rotation."""
+        client = self._get_next_client()
+        client_index = (self.current_client_index - 1) % len(self.api_clients)
+        
+        try:
+            logging.debug(f"Retry embedding attempt with client {client_index + 1}/{len(self.api_clients)}")
+            response = client.client.embeddings.create(
+                input=input_text,
+                model=model
+            )
+            return response
+        except Exception as e:
+            logging.warning(f"Retry embedding failed with client {client_index + 1}: {str(e)}")
             raise
 
     def get_embedding(self, text: str) -> np.ndarray:
@@ -74,11 +139,7 @@ class VectorSearch:
             np.ndarray: Text embedding
         """
         try:
-            # Use the first API client for embeddings
-            response = self.api_clients[0].client.embeddings.create(
-                input=text,
-                model="e5-mistral-7b-instruct"
-            )
+            response = self._make_api_request(text, "e5-mistral-7b-instruct")
             
             # Convert to numpy array and reshape for FAISS
             embedding = np.array(response.data[0].embedding, dtype=np.float32)
@@ -148,11 +209,11 @@ class VectorSearch:
             
             if not results:
                 print("\n=== No Valid Results Found ===")
-                logging.warning("No valid results found in the search")
+                logger.warning("No valid results found in the search")
                 # If no results found, return any available papers
                 if self.metadata:
                     print("Attempting fallback to available papers")
-                    logging.info("Returning available papers as fallback")
+                    logger.info("Returning available papers as fallback")
                     for i, paper_data in enumerate(self.metadata[:top_k]):
                         try:
                             print(f"\nProcessing fallback paper {i}:")
@@ -173,13 +234,13 @@ class VectorSearch:
             
             print(f"\n=== Search Complete ===")
             print(f"Total results found: {len(results)}")
-            logging.info(f"Found {len(results)} relevant papers")
+            logger.info(f"Found {len(results)} relevant papers")
             return results
             
         except Exception as e:
             print(f"\n=== Error in Search Process ===")
             print(f"Error: {str(e)}")
-            logging.error(f"Error during vector search: {str(e)}")
+            logger.error(f"Error during vector search: {str(e)}")
             return []
 
     def _flatten_paper_data(self, paper_data: Dict[str, Any]) -> str:
@@ -233,13 +294,72 @@ class SustainableSolutionsGenerator:
             ) for config in api_configs
         ]
         
+        self.current_client_index = 0
+        
         # Initialize vector search
         self.vector_search = VectorSearch(
             vector_db_path=vector_db_path,
             api_clients=self.api_clients
         )
             
-        logging.info("Initialized SustainableSolutionsGenerator")
+        logger.info(f"Initialized SustainableSolutionsGenerator with {len(self.api_clients)} API clients")
+
+    def _get_next_client(self):
+        """Get the next available client in rotation."""
+        client = self.api_clients[self.current_client_index]
+        self.current_client_index = (self.current_client_index + 1) % len(self.api_clients)
+        return client
+
+    def _make_api_request(self, messages: List[Dict[str, str]], model: str = None):
+        """Make API request with multiple client fallback logic."""
+        last_exception = None
+        
+        # Try each client once
+        for attempt in range(len(self.api_clients)):
+            client = self._get_next_client()
+            client_index = (self.current_client_index - 1) % len(self.api_clients)
+            
+            try:
+                logging.debug(f"Attempting chat request with client {client_index + 1}/{len(self.api_clients)}")
+                response = client.client.chat.completions.create(
+                    messages=messages,
+                    model=model or client.model
+                )
+                logging.debug(f"Chat request successful with client {client_index + 1}")
+                return response
+                
+            except Exception as e:
+                last_exception = e
+                logging.warning(f"Chat request failed with client {client_index + 1}: {str(e)}")
+                if attempt < len(self.api_clients) - 1:
+                    logging.info(f"Trying next client...")
+                    time.sleep(2)  # Brief delay before trying next client
+                continue
+        
+        # If all clients failed, use retry logic with exponential backoff
+        logging.warning("All clients failed on first attempt. Retrying with exponential backoff...")
+        return self._make_api_request_with_retry(messages, model)
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=2, min=4, max=20),
+        reraise=True
+    )
+    def _make_api_request_with_retry(self, messages: List[Dict[str, str]], model: str = None):
+        """Make API request with retry logic and client rotation."""
+        client = self._get_next_client()
+        client_index = (self.current_client_index - 1) % len(self.api_clients)
+        
+        try:
+            logging.debug(f"Retry chat attempt with client {client_index + 1}/{len(self.api_clients)}")
+            response = client.client.chat.completions.create(
+                messages=messages,
+                model=model or client.model
+            )
+            return response
+        except Exception as e:
+            logging.warning(f"Retry chat failed with client {client_index + 1}: {str(e)}")
+            raise
 
     def generate_query(self, lca_report: Dict[str, Any]) -> str:
         """
@@ -272,17 +392,14 @@ class SustainableSolutionsGenerator:
         The query should be specific to this exact LCA case and its findings.
         """
 
-        # Use the first API client for query generation
-        response = self.api_clients[0].client.chat.completions.create(
-            messages=[
+        # Use the new API request method
+        response = self._make_api_request([
                 {"role": "system", "content": "You are an expert in generating precise research queries for finding sustainable solutions. Return only the query string, no other text."},
                 {"role": "user", "content": prompt}
-            ],
-            model=self.api_clients[0].model
-        )
+        ])
         
         query = response.choices[0].message.content.strip()
-        logging.info(f"Generated query: {query}")
+        logger.info(f"Generated query: {query}")
         return query
 
     def search_papers(self, query: str, top_k) -> List[Dict[str, Any]]:
@@ -334,47 +451,56 @@ class SustainableSolutionsGenerator:
             'Paper_content': paper_content
         }
         
-        prompt = f"""Analyze the following research paper and LCA report to identify sustainable solutions.
-        Focus on practical recommendations that could be implemented to improve the environmental performance.
+        prompt = f"""Analyze the following research paper to identify sustainable solutions that could improve the environmental performance described in the LCA report.
 
         Research Paper Content:
         {json.dumps(flattened_paper, indent=2)}
 
-        LCA Report Content:
+        LCA Report Content (BASELINE DATA - these are current environmental impacts, NOT improvements):
         {json.dumps(lca_report, indent=2)}
 
-        Instructions:
-        1. Extract specific sustainable solutions from the paper that directly address the environmental impacts identified in the LCA report
-        2. For each solution:
-           - Explain how it specifically addresses the LCA findings
-           - Provide implementation feasibility based on the paper's technical details
-           - Include any specific parameters, requirements, or conditions mentioned
-           - Include any numerical improvements, calculations, or metrics that show the potential impact
-        3. Always include the paper citation: title: {title} and with DOI link url: "https://doi.org/{doi}" if available.
-        4. Focus only on solutions that are:
-           - Technically feasible based on the paper's evidence
-           - Directly relevant to the specific environmental impacts in the LCA report
-           - Supported by concrete data or results from the paper
-           
-        Format the response in a clear, readable way that highlights:
-        - Solution name and description
-        - Specific environmental impact addressed
-        - Technical implementation details
-        - Numerical improvements and calculations
-        - Feasibility assessment
-        - Paper citation title with DOI link 	
+        CRITICAL INSTRUCTIONS:
+        1. The LCA report contains BASELINE/CURRENT environmental impacts, NOT improvements
+        2. Your task is to find solutions in the research paper that could REDUCE these baseline impacts
+        3. DO NOT confuse baseline LCA values with potential reductions
+        4. DO NOT attribute LCA baseline data as achievements from the research paper
+        5. ONLY propose solutions that are actually described in the research paper
+        6. Clearly distinguish between:
+           - BASELINE (from LCA): Current environmental impacts that need to be reduced
+           - SOLUTIONS (from paper): Methods to achieve reductions from the baseline
+        
+        For each solution you identify:
+        1. Extract the specific solution from the research paper
+        2. Explain how it could theoretically reduce the BASELINE impacts from the LCA
+        3. Provide implementation details ONLY from the research paper
+        4. Include quantitative improvements ONLY if the paper provides them for similar applications
+        5. Always cite: title: {title} with DOI: https://doi.org/{doi}
+        6. Be explicit about feasibility and applicability limitations
+        
+        Example of CORRECT analysis:
+        - BASELINE (from LCA): "Production phase consumes 0.02996 kWh"
+        - SOLUTION (from paper): "Paper proposes material X that could reduce energy consumption by Y% in similar manufacturing processes"
+        - RESULT: "This could potentially reduce the baseline 0.02996 kWh by Y%, resulting in approximately Z kWh"
+        
+        Example of INCORRECT analysis:
+        - "The paper achieves 0.02996 kWh reduction" (This confuses baseline data with improvements)
+        
+        Focus only on solutions that are:
+        - Actually described in the research paper
+        - Technically feasible for ECU applications
+        - Supported by evidence in the paper
         """
 
         response = api_client.client.chat.completions.create(
             messages=[
-                {"role": "system", "content": "You are an expert in analyzing research papers for sustainable solutions. Focus on specific, evidence-based solutions that directly address the LCA findings. Include numerical improvements and paper citations."},
+                {"role": "system", "content": "You are an expert in analyzing research papers for sustainable solutions. You must clearly distinguish between baseline environmental impacts (from LCA) and potential improvements (from research). Never confuse current impacts with potential reductions."},
                 {"role": "user", "content": prompt}
             ],
             model=api_client.model
         )
         
         analysis = response.choices[0].message.content
-        logging.info(f"Analyzed paper with similarity score: {paper.get('similarity_score', 0.0)}")
+        logger.info(f"Analyzed paper with similarity score: {paper.get('similarity_score', 0.0)}")
         return {
             "analysis": analysis,
             "similarity_score": paper.get('similarity_score', 0.0)
@@ -412,7 +538,7 @@ class SustainableSolutionsGenerator:
                     analysis = future.result()
                     analyses.append(analysis)
                 except Exception as e:
-                    logging.error(f"Error analyzing paper: {str(e)}")
+                    logger.error(f"Error analyzing paper: {str(e)}")
         
         return analyses
 
@@ -427,115 +553,211 @@ class SustainableSolutionsGenerator:
         Returns:
             Dict: Final cleaned and organized report
         """
-        # # Filter out None analyses (papers without valid citations)
-        # valid_analyses = [a for a in analyses if a is not None]
+        # Filter out None analyses (papers without valid citations)
+        valid_analyses = [a for a in analyses if a is not None and a.get('analysis')]
         
-        # if not valid_analyses:
-        #     return {
-        #         "final_report": "No valid solutions found with proper citations.",
-        #         "source_analyses": []
-        #     }
+        if not valid_analyses:
+            return {
+                "final_report": "No valid solutions found with proper citations.",
+                "source_analyses": []
+            }
         
-        prompt = f"""Review and organize the following analyses of sustainable solutions.
-        Create a comprehensive report that directly addresses the environmental impacts identified in the LCA report.
+        # Format analyses for the prompt
+        analyses_text = ""
+        for i, analysis in enumerate(valid_analyses, 1):
+            analyses_text += f"\n--- Analysis {i} ---\n"
+            analyses_text += f"Similarity Score: {analysis.get('similarity_score', 0.0)}\n"
+            analyses_text += f"Content: {analysis['analysis']}\n"
+        
+        prompt = f"""Review and organize the following analyses of sustainable solutions from research papers.
+        Create a comprehensive report that addresses how to improve the environmental impacts identified in the LCA report.
 
-        Complete LCA Report:
+        Complete LCA Report (BASELINE ENVIRONMENTAL IMPACTS):
         {json.dumps(lca_report, indent=2)}
 
-        
+        Paper Analyses from Retrieved Research:
+        {analyses_text}
 
-        Instructions:
-        1. For each environmental impact identified in the LCA report:
-           - List all relevant solutions from the papers
-           - Prioritize solutions based on:
-             * Direct relevance to the specific impact
-             * Technical feasibility
-             * Implementation complexity
-             * Expected environmental benefit
-        2. For each solution:
-           - Provide specific implementation steps
-           - Include exact technical parameters from the papers
-           - Include all numerical improvements and calculations
-           - Note any limitations or requirements
-           - Include the paper citation
-        3. Focus on solutions that:
-           - Are directly supported by the papers
-           - Address specific impacts from the LCA report
-           - Have clear implementation guidelines
-           - Include numerical evidence of improvements
-        4. Format the report with clear sections:
-           - Introduction
-           - Environmental Impacts and Solutions (organized by life cycle phase)
-           - Prioritization of Solutions
-           - Conclusion
-           - References (only include papers that were actually used) : use citation title and DOI link if available.
-
-        Format the response in a clear, readable way that emphasizes:
-        - Environmental impacts and their solutions
-        - Technical details and implementation steps 
-        - Numerical improvements and calculations
-        - Paper citations with DOI link if available
-        - Priority and feasibility of each solution
+        CRITICAL INSTRUCTIONS FOR ACCURATE REPORTING:
+        1. The LCA report shows BASELINE/CURRENT environmental impacts - these are NOT achievements or improvements
+        2. ONLY use solutions and data from the "Paper Analyses" section above
+        3. DO NOT create or invent any citations not found in the analyses
+        4. Clearly distinguish between BASELINE impacts (from LCA) and POTENTIAL IMPROVEMENTS (from papers)
+        5. Never attribute LCA baseline values as achievements from research papers
         
-        Feel free to include any other relevant information that would help understand and implement the solutions, such as:
-        - Cost considerations and economic feasibility
-        - Social impacts and stakeholder considerations
-        - Regulatory requirements and compliance needs
-        - Case studies and real-world examples
-        - Risk factors and mitigation strategies
-        - Long-term sustainability implications
+        For each environmental impact identified in the LCA report:
+        1. State the BASELINE impact clearly (e.g., "Current production phase consumes 0.02996 kWh")
+        2. List relevant solutions from the analyzed papers that could reduce this baseline
+        3. For each solution:
+           - Describe the solution from the research paper
+           - Explain how it could theoretically reduce the baseline impact
+           - Include quantitative improvements ONLY if the paper provides them for similar applications
+           - Specify implementation requirements from the paper
+           - Include ONLY citations from papers that were actually analyzed
+           - Note applicability limitations and feasibility concerns
+        
+        Prioritization criteria:
+        - Solutions actually described in the analyzed papers
+        - Technical feasibility for ECU applications
+        - Evidence quality from the research
+        - Potential for meaningful impact reduction
+        
+        Report structure:
+        1. Introduction - explain that this report proposes improvements to baseline LCA impacts
+        2. Environmental Impacts and Solutions (by life cycle phase):
+           - Clearly state baseline impacts from LCA
+           - Propose solutions from analyzed papers
+           - Distinguish between current state and potential improvements
+        3. Prioritization of Solutions
+        4. Conclusion
+        5. References (ONLY papers that were actually analyzed)
+        
+        CRITICAL: 
+        - Never say a paper "achieves" a baseline LCA value
+        - Always clarify when values come from LCA baseline vs. potential improvements
+        - Only reference information that appears in the provided paper analyses
+        - If no relevant solutions exist in the papers for a specific impact, state this clearly
         """
 
-        response = self.api_clients[0].client.chat.completions.create(
-            messages=[
-                {"role": "system", "content": "You are an expert in synthesizing and organizing sustainable solutions research. Focus on specific, evidence-based solutions that directly address the LCA findings. Include numerical improvements and paper citations."},
+        response = self._make_api_request([
+            {"role": "system", "content": "You are an expert in synthesizing research. You MUST only use information from the provided paper analyses. Never invent or hallucinate citations. If no relevant solutions exist in the provided papers, state that clearly."},
                 {"role": "user", "content": prompt}
-            ],
-            model=self.api_clients[0].model
-        )
+        ])
         
         final_report = response.choices[0].message.content
-        logging.info("Generated final report")
+        logger.info("Generated final report")
         return {
             "final_report": final_report,
-            # "source_analyses": valid_analyses
+            "source_analyses": valid_analyses
         }
 
-    def generate_sustainable_solutions(self, lca_report_path: str, output_path: str):
+    def validate_citations(self, report_text: str, retrieved_papers: List[Dict]) -> str:
+        """Validate that all citations in the report exist in retrieved papers and check for baseline confusion."""
+        # Extract DOIs from retrieved papers
+        valid_dois = set()
+        for paper in retrieved_papers:
+            doi = paper.get('paper_metadata', {}).get('doi', '')
+            if doi:
+                valid_dois.add(doi)
+        
+        # Check for fake DOIs in report
+        doi_pattern = r'https://doi\.org/([^\s\)]+)'
+        found_dois = re.findall(doi_pattern, report_text)
+        
+        for doi in found_dois:
+            if doi not in valid_dois:
+                logger.warning(f"Invalid DOI found in report: {doi}")
+                # Replace with warning
+                report_text = report_text.replace(
+                    f"https://doi.org/{doi}", 
+                    "[CITATION ERROR: Paper not in retrieved database]"
+                )
+        
+        # Check for baseline data confusion patterns
+        baseline_confusion_patterns = [
+            r'achieves?\s+(\d+\.?\d*)\s*kWh',
+            r'provides?\s+(\d+\.?\d*)\s*kWh\s+reduction',
+            r'demonstrates?\s+(\d+\.?\d*)\s*kWh\s+improvement',
+            r'shows?\s+(\d+\.?\d*)\s*kWh\s+energy\s+consumption'
+        ]
+        
+        for pattern in baseline_confusion_patterns:
+            matches = re.findall(pattern, report_text, re.IGNORECASE)
+            if matches:
+                logger.warning(f"Potential baseline confusion detected with pattern: {pattern}")
+                # Add warning comment
+                report_text = f"[WARNING: Report may contain confusion between baseline LCA data and improvements]\n\n{report_text}"
+                break
+        
+        return report_text
+
+    def get_output_folder_from_lca_file(self, lca_file: str) -> str:
         """
-        Main method to generate sustainable solutions.
+        Get the output folder based on the LCA analysis file path.
         
         Args:
-            lca_report_path: Path to the LCA report JSON file
-            output_path: Path to save the output
+            lca_file: Path to the LCA analysis file
+            
+        Returns:
+            str: Output folder path
         """
+        if not lca_file:
+            return "output/automotive_sample"
+        
+        # Extract folder from LCA file path
+        lca_path = Path(lca_file)
+        if lca_path.parent.name != "output":
+            # If LCA file is in output/project_name/llm_based_lca_analysis.json
+            return str(lca_path.parent)
+        else:
+            # Fallback: extract from filename if it follows pattern
+            folder_name = lca_path.stem.replace("_llm_based_lca_analysis", "")
+            return f"output/{folder_name}"
+
+    def generate_sustainable_solutions(self, lca_report_path: str, output_path: str = None):
         try:
+            # Determine output folder
+            self.output_folder = self.get_output_folder_from_lca_file(lca_report_path)
+            
+            # Set default output path if not provided
+            if output_path is None:
+                output_path = f"{self.output_folder}/sustainable_solutions_report.txt"
+            elif not str(output_path).startswith(self.output_folder):
+                # If output_path doesn't include the folder, prepend it
+                filename = Path(output_path).name
+                output_path = f"{self.output_folder}/{filename}"
+            
+            # Create output folder if it doesn't exist
+            Path(self.output_folder).mkdir(parents=True, exist_ok=True)
+            
+            logger.info(f"Using LCA report: {lca_report_path}")
+            logger.info(f"Using output folder: {self.output_folder}")
+            logger.info(f"Solutions report will be saved to: {output_path}")
+            
             # Load LCA report
             with open(lca_report_path, 'r') as f:
                 lca_report = json.load(f)
             
             # Generate query
             query = self.generate_query(lca_report)
+            logger.info(f"Generated search query: {query}")
             
             # Search for relevant papers with max 5 results
             papers = self.search_papers(query, top_k=5)
+            logger.info(f"Retrieved {len(papers)} papers from vector database")
+            
+            # Log retrieved papers for debugging
+            for i, paper in enumerate(papers):
+                title = paper.get('paper_metadata', {}).get('title', 'Unknown')
+                doi = paper.get('paper_metadata', {}).get('doi', 'No DOI')
+                logger.info(f"Paper {i+1}: {title} (DOI: {doi})")
+            
+            # Save retrieved papers to the same folder
+            retrieved_papers_path = f"{self.output_folder}/retrieved_papers.json"
+            with open(retrieved_papers_path, 'w') as f:
+                json.dump(papers, f, indent=2)
+            logger.info(f"Retrieved papers saved to {retrieved_papers_path}")
             
             # Analyze papers in parallel
             analyses = self.analyze_papers_parallel(papers, lca_report)
+            logger.info(f"Generated {len([a for a in analyses if a])} valid analyses")
             
             # Review and clean up
             final_report = self.review_and_cleanup(analyses, lca_report)
+            
+            # Validate citations
+            validated_report = self.validate_citations(final_report['final_report'], papers)
             
             # Save output directly as text
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write("SUSTAINABLE SOLUTIONS REPORT\n")
                 f.write("=" * 50 + "\n\n")
-                f.write(final_report['final_report'])
+                f.write(validated_report)
             
-            logging.info(f"Successfully generated sustainable solutions report at {output_path}")
-            
+            logger.info(f"Successfully generated sustainable solutions report at {output_path}")
+            return papers
         except Exception as e:
-            logging.error(f"Error generating sustainable solutions: {str(e)}")
+            logger.error(f"Error generating sustainable solutions: {str(e)}")
             raise
 
 def main():
@@ -559,11 +781,11 @@ def main():
         api_configs=api_configs
     )
     
-    # Generate solutions
-    generator.generate_sustainable_solutions(
-        lca_report_path="output/llm_based_lca_analysis.json",
-        output_path="output/sustainable_solutions_report.txt"
-    )
+    # Default paths - will use automotive_sample folder
+    lca_report_path = "output/automotive_sample/llm_based_lca_analysis.json"
+    
+    # Generate solutions (output path will be determined automatically)
+    generator.generate_sustainable_solutions(lca_report_path=lca_report_path)
 
 if __name__ == "__main__":
     main() 
