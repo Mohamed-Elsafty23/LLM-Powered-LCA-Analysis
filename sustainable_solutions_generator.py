@@ -21,7 +21,7 @@ logging.basicConfig(
     handlers=[
         logging.FileHandler('logs/sustainable_solutions.log'),
         logging.StreamHandler()
-    ]
+        ]
 )
 logger = logging.getLogger(__name__)
 
@@ -723,7 +723,7 @@ class SustainableSolutionsGenerator:
             logger.info(f"Generated search query: {query}")
             
             # Search for relevant papers with max 5 results
-            papers = self.search_papers(query, top_k=5)
+            papers = self.search_papers(query, top_k=15)
             logger.info(f"Retrieved {len(papers)} papers from vector database")
             
             # Log retrieved papers for debugging

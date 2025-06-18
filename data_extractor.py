@@ -163,7 +163,7 @@ Return a comprehensive JSON object containing all extracted information."""
             format='%(asctime)s - %(levelname)s - %(message)s'
         )
 
-    def split_text(self, text: str, max_chars: int = 15000) -> list:
+    def split_text(self, text: str, max_chars: int = 8000) -> list:
         """Split text into chunks of maximum size while preserving paragraph boundaries."""
         if len(text) <= max_chars:
             return [text]
@@ -172,13 +172,28 @@ Return a comprehensive JSON object containing all extracted information."""
         current_chunk = ""
         paragraphs = text.split('\n\n')
         
+        # Estimate tokens (rough approximation: 1 token ≈ 4 characters)
+        max_tokens = 100000  # Leave room for system prompt and other overhead
+        max_chars = min(max_chars, max_tokens * 4)
+        
         for paragraph in paragraphs:
-            if len(current_chunk) + len(paragraph) + 2 <= max_chars:
-                current_chunk += paragraph + '\n\n'
+            # If a single paragraph is too long, split it into sentences
+            if len(paragraph) > max_chars:
+                sentences = paragraph.split('. ')
+                for sentence in sentences:
+                    if len(current_chunk) + len(sentence) + 2 <= max_chars:
+                        current_chunk += sentence + '. '
+                    else:
+                        if current_chunk:
+                            chunks.append(current_chunk.strip())
+                        current_chunk = sentence + '. '
             else:
-                if current_chunk:
-                    chunks.append(current_chunk.strip())
-                current_chunk = paragraph + '\n\n'
+                if len(current_chunk) + len(paragraph) + 2 <= max_chars:
+                    current_chunk += paragraph + '\n\n'
+                else:
+                    if current_chunk:
+                        chunks.append(current_chunk.strip())
+                    current_chunk = paragraph + '\n\n'
                 
         if current_chunk:
             chunks.append(current_chunk.strip())
@@ -188,6 +203,14 @@ Return a comprehensive JSON object containing all extracted information."""
     def make_llm_request(self, messages: list, is_cleanup: bool = False, max_retries: int = 3, initial_delay: float = 2.0) -> Optional[str]:
         """Make LLM request with retry logic and exponential backoff."""
         client = self.cleanup_client if is_cleanup else self.extraction_client
+        
+        # Estimate total tokens in messages
+        total_chars = sum(len(msg.get('content', '')) for msg in messages)
+        estimated_tokens = total_chars // 4  # Rough approximation
+        
+        if estimated_tokens > 100000:  # Leave room for system prompt and other overhead
+            print(f"Warning: Estimated token count ({estimated_tokens}) exceeds recommended limit. Reducing chunk size...")
+            return None
         
         for attempt in range(max_retries):
             try:
@@ -238,112 +261,15 @@ Return a comprehensive JSON object containing all extracted information."""
             text_chunks = self.split_text(text)
             print(f"Split text into {len(text_chunks)} chunks")
             
-            combined_prompt = """Analyze this academic paper and extract ALL relevant information, with special attention to Life Cycle Assessment (LCA) and sustainability aspects. Extract:
-
-1. Paper metadata:
-   - title (full title with subtitle if any)
-   - DOI (if available)
-   - citation (in standard format)
-   - abstract (full text)
-
-2. Research information:
-   - objectives (detailed description of research goals)
-   - methodology (detailed steps and procedures)
-   - key findings (with supporting data and context)
-   - limitations (with explanations)
-   - research questions (detailed description)
-   - hypotheses (with context and rationale)
-   - assumptions (with justification)
-   - scope (detailed description)
-
-3. Technical parameters:
-   - measurements (with units, uncertainty, and context)
-   - specifications (detailed descriptions)
-   - performance metrics (with values and conditions)
-   - experimental conditions (detailed setup)
-   - materials (with properties and characteristics)
-   - processes (with parameters and conditions)
-   - equipment (with specifications and usage)
-   - quality parameters (with standards and requirements)
-
-4. Environmental aspects:
-   - life cycle phases (detailed descriptions)
-   - environmental impacts (with values and units)
-   - resource consumption (with quantities and context)
-   - emissions data (with types and amounts)
-   - environmental indicators (with measurements)
-   - impact categories (with assessment methods)
-   - environmental standards (with compliance details)
-   - mitigation measures (with implementation details)
-
-5. Economic aspects:
-   - costs (with types and values)
-   - economic indicators (with calculations)
-   - market analysis (with trends and data)
-   - financial implications (with detailed analysis)
-   - investment requirements (with breakdown)
-   - operational costs (with categories)
-   - revenue streams (with projections)
-   - economic feasibility (detailed analysis)
-
-6. Sustainability considerations:
-   - environmental impacts (with detailed assessments)
-   - social aspects (with stakeholder impacts)
-   - circular economy elements (with implementation details)
-   - sustainability metrics (with values and context)
-   - sustainable practices (with examples)
-   - sustainability goals (with targets)
-   - stakeholder engagement (with strategies)
-   - sustainability challenges (with solutions)
-
-7. Additional information:
-   - tables (with content and context)
-   - figures (with detailed descriptions)
-   - equations (with explanations)
-   - important notes (with context)
-   - recommendations (with rationale)
-   - future work (with priorities)
-   - case studies (with outcomes)
-   - best practices (with examples)
-
-8. Any other significant information:
-   - regulatory compliance (with requirements)
-   - industry standards (with specifications)
-   - innovation aspects (with details)
-   - risk assessment (with mitigation)
-   - quality assurance (with procedures)
-   - implementation details (with steps)
-   - maintenance requirements (with schedule)
-   - safety considerations (with protocols)
-
-IMPORTANT:
-- Extract ALL numerical values, measurements, and units with their context
-- Include detailed descriptions and context for each finding
-- Do not omit any information that could be relevant for technical or sustainability analysis
-- Format the response as a clean JSON object
-- Ensure all values are properly escaped and formatted as valid JSON strings
-- Use consistent naming conventions (use underscores instead of hyphens)
-- For any section where all fields are empty, omit that section entirely
-- Include units, uncertainty values, and confidence intervals where available
-- Preserve relationships between different pieces of information
-- Include any information that doesn't fit the above categories in section 8
-- Present information in detailed sentences rather than paragraphs
-- Focus on clarity and precision in descriptions
-- DO NOT use "not specified" or similar placeholder text - if information is not available, omit the field entirely
-- Only include fields where actual information is present in the paper
-- If a section has no available information, omit the entire section
-- For nested objects, only include fields that have actual data
-- Do not create empty or placeholder fields
-- In case of the paper or the researchers did not provide information about a certain topic, omit the field entirely without mentioning it
-- Do not include any information that is not provided in the paper or the researchers did not provide information about
-- Finally, if any important information was mentioned in the paper but no the prompt, add it to the section 8
-
-Return a comprehensive JSON object containing all extracted information."""
-
+            if not text_chunks:
+                print("Error: Text splitting resulted in no chunks")
+                return None
+                
             all_extracted_data = {}
             
             for i, chunk in enumerate(text_chunks, 1):
                 print(f"\nProcessing chunk {i}/{len(text_chunks)}")
+                print(f"Chunk size: {len(chunk)} characters")
                 
                 # Initial extraction request
                 extraction_messages = [

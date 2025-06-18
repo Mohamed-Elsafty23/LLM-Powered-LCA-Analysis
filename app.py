@@ -33,16 +33,20 @@ class StreamlitHandler(logging.Handler):
     def emit(self, record):
         try:
             msg = self.format(record)
+            # Ensure the message is properly encoded
+            if isinstance(msg, str):
+                msg = msg.encode('utf-8', errors='replace').decode('utf-8')
             log_queue.put(msg)
-        except Exception:
+        except Exception as e:
             self.handleError(record)
+            logger.error(f"Error in StreamlitHandler: {str(e)}")
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/app.log'),
+        logging.FileHandler('logs/app.log', encoding='utf-8'),
         StreamlitHandler()
     ]
 )
@@ -487,12 +491,26 @@ def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
     Returns:
         Dict: Which steps should be executed
     """
-    steps_to_run = {
-        "Component Analysis": not file_status["component_analysis"],
-        "LCA Analysis": not file_status["lca_analysis"],
-        "Sustainable Solutions": not file_status["sustainable_solutions"], 
-        "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
-    }
+    # Check if component analysis and LCA analysis files exist
+    component_analysis_exists = file_status["component_analysis"]
+    lca_analysis_exists = file_status["lca_analysis"]
+    
+    # If both component analysis and LCA analysis exist, skip to sustainable solutions
+    if component_analysis_exists and lca_analysis_exists:
+        steps_to_run = {
+            "Component Analysis": False,
+            "LCA Analysis": False,
+            "Sustainable Solutions": not file_status["sustainable_solutions"],
+            "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
+        }
+    else:
+        # If either file is missing, run all steps
+        steps_to_run = {
+            "Component Analysis": not component_analysis_exists,
+            "LCA Analysis": not lca_analysis_exists,
+            "Sustainable Solutions": not file_status["sustainable_solutions"],
+            "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
+        }
     
     return steps_to_run
 
@@ -776,8 +794,9 @@ def main():
                         }
                 
                 # Initialize components only if needed
-                component_analyzer, lca_analyzer, solutions_generator = initialize_components()
-                logger.info("Components initialized successfully")
+                if any(steps_to_run.values()):
+                    component_analyzer, lca_analyzer, solutions_generator = initialize_components()
+                    logger.info("Components initialized successfully")
                 
                 # Log which steps will be executed
                 steps_to_execute = [step for step, will_run in steps_to_run.items() if will_run]

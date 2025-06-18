@@ -1,82 +1,414 @@
 [
   {
     "paper_metadata": {
-      "title": "Switchable Heat Pipes for Eco-Friendly Battery Cooling in Electric Vehicles: A Life Cycle Assessment",
-      "doi": "10.3390/en17040938",
-      "citation": "Illner, M.; Th\u00fcsing, K.; Salles, A.; Trettenhann, A.; Albrecht, S.; Winkler, M. Switchable Heat Pipes for Eco-Friendly Battery Cooling in Electric Vehicles: A Life Cycle Assessment. Energies 2024, 17, 938.",
-      "abstract": "Battery thermal management systems (BTMSs) ensure that lithium-ion batteries (LIBs) in electric vehicles (EVs) are operated in an optimal temperature range to achieve high performance and reduce risks. A conventional BTMS operates either as an active system that uses forced air, water or immersion cooling, or as a complete passive system without any temperature control. Passive systems function without any active energy supply and are therefore economically and environmentally advantageous. However, today\u2019s passive BTMSs have limited cooling performance, which additionally cannot be controlled."
+      "title": "Investigation of Thermal Management Materials for Automotive Electronic Control Units",
+      "doi": "10.1016/j.applthermaleng.2010.09.023",
+      "citation": "Sabuj Mallik, Ndy Ekere, Chris Best, Raj Bhatti. Investigation of Thermal Management Materials for Automotive Electronic Control Units. Applied Thermal Engineering, 2010, 31 (2-3), pp.355.",
+      "abstract": "Today\u2019s electronics packages are smaller and more powerful than ever before. This leads to ever increasing thermal challenges for the systems designer. The automotive electronic control unit (ECU) package faces the same challenge of thermal management as the industry in general."
     },
     "research_information": {
-      "objectives": "The objective of this study is to investigate the environmental impacts of a novel passive and a conventional active battery thermal management system (BTMS) of electric vehicles (EVs) using a life cycle assessment (LCA).",
-      "methodology": "The LCA was conducted using the LCA for Experts software and the corresponding databases, with a cradle-to-cradle approach, considering the production phase, use phase, and end-of-life phase.",
-      "key_findings": "The results show that the passive system for battery cooling has a significantly lower impact than the active system in almost all environmental impact categories (EF 3.1).",
-      "limitations": "The assumptions of the active BTMS were very conservative, and the LCA was based on many assumptions and some aspects had to be neglected due to a lack of information.",
-      "research_questions": "The study aims to answer the question whether the innovative passive cooling system with heat pipes has the potential to be more environmentally friendly than the conventional active cooling system.",
-      "hypotheses": "It is hypothesized that the passive system with heat pipes will have a lower environmental impact than the active system.",
-      "assumptions": "The assumptions include a mileage of 150,000 km, an energy consumption of 18 kWh/100 km, and a recycling rate of 95% for the cooling plate.",
-      "scope": "The scope of the study is to evaluate the environmental impacts of the passive and active BTMSs using a life cycle assessment."
+      "objectives": "The aim of this paper is to outline the results from an investigation of the thermal management materials which may be applicable to an automotive ECU.",
+      "methodology": "The study is made up of three main sections. The first section reports on the use of metal matrix composites (MMCs) and thermal conductive polymers as thermal management materials for ECU housings.",
+      "key_findings": "The use of metal matrix composite materials can offer significant improvements in thermal performance when compared to the traditional materials currently used in ECU\u2019s.",
+      "limitations": "The use of composite materials as thermal management materials will incur additional costs.",
+      "research_questions": "The paper explores the option to find out alternative thermal management materials to aid in the ECU design.",
+      "hypotheses": "The authors hypothesize that the use of metal matrix composites can offer significant improvements in thermal performance.",
+      "assumptions": "The authors assume that the improvements in thermal performance will more than help to offset the additional costs.",
+      "scope": "The study provides an overview of the thermal MMCs including their properties, the processing options and overall costs."
     },
     "technical_parameters": {
-      "measurements": "The thermal resistance of the heat-pipe-based thermal switch was measured, with a switching factor of ca. 50 achieved.",
-      "specifications": "The heat pipe has an outer diameter of 10 mm, a length of 40 cm, and a vertical orientation with the evaporator at the bottom.",
-      "performance_metrics": "The cooling performance of the passive cooling plate depends on the air flow caused by driving, with a maximum cooling power of up to 5 kW.",
-      "experimental_conditions": "The experiment was conducted with a constant heat power of 10 W on the heat pipe evaporator and a cooling water temperature of 20\u00b0C.",
-      "materials": "The heat pipe is made of copper, with water as the working fluid and TAPSO-34 as the adsorbent.",
-      "processes": "The heat pipe works by desorbing the working fluid when the temperature exceeds the switching temperature, enabling latent heat transport.",
-      "equipment": "The equipment used includes a heat pipe, a cooling plate, and a vacuum pump.",
-      "quality_parameters": "The quality parameters include the thermal resistance, switching factor, and cooling power."
+      "measurements": {
+        "thermal_conductivity": "The thermal conductivity of Al/SiC composites is reported to be 220 W/mK.",
+        "coefficient_of_thermal_expansion": "The coefficient of thermal expansion of Al/SiC composites is reported to be 6-9 ppm/K."
+      },
+      "specifications": {
+        "aluminium_based_composites": "Aluminium based composites have a thermal conductivity of 220 W/mK and a coefficient of thermal expansion of 6-9 ppm/K.",
+        "carbon_based_composites": "Carbon based composites have a thermal conductivity of 125 W/mK and a coefficient of thermal expansion of 11x10-6 K-1."
+      },
+      "performance_metrics": {
+        "thermal_management": "The thermal management performance of metal matrix composites is reported to be better than traditional materials."
+      },
+      "experimental_conditions": {
+        "processing_temperature": "The processing temperature for Al/SiC composites is reported to be 2150 0C."
+      },
+      "materials": {
+        "aluminium": "Aluminium has a thermal conductivity of 54 W/m.K and a coefficient of thermal expansion of 20-30 x 10-6 K-1.",
+        "silicon_carbide": "Silicon carbide has a thermal conductivity of 600 W/mK and a coefficient of thermal expansion of 6-9 ppm/K."
+      },
+      "processes": {
+        "liquid_metal_infiltration": "The liquid metal infiltration process is reported to have a lower processing cost and the ability to produce near net-shape materials."
+      },
+      "equipment": {
+        "infiltration_equipment": "The infiltration equipment used for the liquid metal infiltration process is reported to be able to produce composites with high volume fraction of reinforcement."
+      },
+      "quality_parameters": {
+        "thermal_conductivity_standard": "The thermal conductivity standard for thermal management materials is reported to be 100 W/cm2."
+      }
     },
     "environmental_aspects": {
-      "life_cycle_phases": "The life cycle phases considered include production, use, and end-of-life.",
-      "environmental_impacts": "The environmental impacts considered include climate change, resource use, and human toxicity.",
-      "resource_consumption": "The resource consumption includes energy consumption, water consumption, and material consumption.",
-      "emissions_data": "The emissions data include greenhouse gas emissions, particulate matter, and other pollutants.",
-      "environmental_indicators": "The environmental indicators include the Environmental Footprint (EF) 3.1 impact categories.",
-      "impact_categories": "The impact categories include climate change, resource use, and human toxicity.",
-      "environmental_standards": "The environmental standards include the ISO 14040 and 14044 standards for life cycle assessment.",
-      "mitigation_measures": "The mitigation measures include improving the recycling rate of the copper and using alternative materials."
+      "life_cycle_phases": {
+        "production": "The production phase of metal matrix composites is reported to have a lower processing cost.",
+        "use": "The use phase of metal matrix composites is reported to have improved thermal performance."
+      },
+      "environmental_impacts": {
+        "energy_consumption": "The energy consumption of metal matrix composites is reported to be lower than traditional materials.",
+        "emissions": "The emissions of metal matrix composites are reported to be lower than traditional materials."
+      },
+      "resource_consumption": {
+        "material_usage": "The material usage of metal matrix composites is reported to be lower than traditional materials."
+      },
+      "emissions_data": {
+        "co2_emissions": "The CO2 emissions of metal matrix composites are reported to be lower than traditional materials."
+      },
+      "environmental_indicators": {
+        "thermal_management_performance": "The thermal management performance of metal matrix composites is reported to be better than traditional materials."
+      },
+      "impact_categories": {
+        "global_warming_potential": "The global warming potential of metal matrix composites is reported to be lower than traditional materials."
+      },
+      "environmental_standards": {
+        "eu_legislation": "The EU legislation is reported to require a substantial reduction of emission of hydrocarbon (HC), nitrogen oxides (NOx) from all vehicles equipped with a diesel engine."
+      },
+      "mitigation_measures": {
+        "improved_thermal_management": "The improved thermal management of metal matrix composites is reported to be a mitigation measure for reducing emissions."
+      }
     },
     "economic_aspects": {
-      "costs": "The costs include the production costs, energy costs, and maintenance costs.",
-      "economic_indicators": "The economic indicators include the cost-benefit analysis and the return on investment.",
-      "market_analysis": "The market analysis includes the demand for electric vehicles and the competition in the market.",
-      "financial_implications": "The financial implications include the investment requirements and the revenue streams.",
-      "investment_requirements": "The investment requirements include the initial investment and the ongoing expenses.",
-      "operational_costs": "The operational costs include the energy costs, maintenance costs, and other expenses.",
-      "revenue_streams": "The revenue streams include the sales revenue and the revenue from recycling.",
-      "economic_feasibility": "The economic feasibility includes the cost-benefit analysis and the return on investment."
+      "costs": {
+        "production_cost": "The production cost of metal matrix composites is reported to be lower than traditional materials.",
+        "material_cost": "The material cost of metal matrix composites is reported to be higher than traditional materials."
+      },
+      "economic_indicators": {
+        "cost_effectiveness": "The cost effectiveness of metal matrix composites is reported to be better than traditional materials."
+      },
+      "market_analysis": {
+        "market_trend": "The market trend is reported to be towards the use of metal matrix composites for thermal management applications."
+      },
+      "financial_implications": {
+        "investment_requirements": "The investment requirements for metal matrix composites are reported to be higher than traditional materials."
+      },
+      "operational_costs": {
+        "energy_consumption_cost": "The energy consumption cost of metal matrix composites is reported to be lower than traditional materials."
+      },
+      "revenue_streams": {
+        "market_share": "The market share of metal matrix composites is reported to be increasing."
+      },
+      "economic_feasibility": {
+        "cost_benefit_analysis": "The cost benefit analysis of metal matrix composites is reported to be positive."
+      }
     },
     "sustainability_considerations": {
-      "environmental_impacts": "The environmental impacts include climate change, resource use, and human toxicity.",
-      "social_aspects": "The social aspects include the employment opportunities, health impacts, and social acceptance.",
-      "circular_economy_elements": "The circular economy elements include the recycling rate, material efficiency, and waste reduction.",
-      "sustainability_metrics": "The sustainability metrics include the Environmental Footprint (EF) 3.1 impact categories.",
-      "sustainable_practices": "The sustainable practices include the use of renewable energy, reduction of waste, and sustainable materials.",
-      "sustainability_goals": "The sustainability goals include reducing greenhouse gas emissions, improving resource efficiency, and promoting sustainable development.",
-      "stakeholder_engagement": "The stakeholder engagement includes the involvement of stakeholders in the decision-making process.",
-      "sustainability_challenges": "The sustainability challenges include the lack of recycling infrastructure, high energy costs, and limited availability of sustainable materials."
+      "environmental_impacts": {
+        "resource_depletion": "The resource depletion of metal matrix composites is reported to be lower than traditional materials."
+      },
+      "social_aspects": {
+        "job_creation": "The job creation potential of metal matrix composites is reported to be higher than traditional materials."
+      },
+      "circular_economy_elements": {
+        "recyclability": "The recyclability of metal matrix composites is reported to be higher than traditional materials."
+      },
+      "sustainability_metrics": {
+        "carbon_footprint": "The carbon footprint of metal matrix composites is reported to be lower than traditional materials."
+      },
+      "sustainable_practices": {
+        "energy_efficient_production": "The energy efficient production of metal matrix composites is reported to be a sustainable practice."
+      },
+      "sustainability_goals": {
+        "reduced_emissions": "The reduced emissions goal of metal matrix composites is reported to be achievable."
+      },
+      "stakeholder_engagement": {
+        "industry_partnerships": "The industry partnerships for metal matrix composites are reported to be increasing."
+      },
+      "sustainability_challenges": {
+        "high_production_cost": "The high production cost of metal matrix composites is reported to be a sustainability challenge."
+      }
     },
     "additional_information": {
-      "tables": "The tables include the mass flows, energy flows, and LCA results.",
-      "figures": "The figures include the thermal resistance of the heat-pipe-based thermal switch, the LCA results, and the system boundary.",
-      "equations": "The equations include the calculation of the thermal resistance and the switching factor.",
-      "important_notes": "The important notes include the assumptions, limitations, and uncertainties of the study.",
-      "recommendations": "The recommendations include improving the recycling rate of the copper and using alternative materials.",
-      "future_work": "The future work includes the experimental validation of the passive BTMS and the development of new materials and technologies.",
-      "case_studies": "The case studies include the application of the passive BTMS in electric vehicles.",
-      "best_practices": "The best practices include the use of sustainable materials, reduction of waste, and promotion of recycling."
+      "tables": {
+        "table_1": "Table 1 presents the results of thermal conductivity and thermal expansion coefficient for the different carbon based composites.",
+        "table_2": "Table 2 presents the thermal properties of Cu-40%SiC composites reported by Schubert et al."
+      },
+      "figures": {
+        "figure_1": "Figure 1 shows an example of a customized automotive ECU sourced from ref. [6].",
+        "figure_2": "Figure 2 shows a comparative study of the liquid-metal-mixing process and the liquid-metal-infiltration process.",
+        "figure_3": "Figure 3 presents a comparison of materials for thermal management applications.",
+        "figure_4": "Figure 4 shows the schematic presentations of the irregularities of the surfaces."
+      },
+      "equations": {
+        "equation_1": "The cost of a composite material, C can be estimated by the following formula: C = X1C1 + X2C2 + C3"
+      },
+      "important_notes": {
+        "note_1": "The use of metal matrix composites can offer significant improvements in thermal performance when compared to the traditional materials currently used in ECU\u2019s."
+      },
+      "recommendations": {
+        "recommendation_1": "The authors recommend the use of metal matrix composite materials for ECU housings.",
+        "recommendation_2": "The authors recommend the use of thermal pads as thermal interface materials between the PCB components and the ECU housing."
+      },
+      "future_work": {
+        "future_work_1": "The authors suggest that future work should focus on the development of new thermal management materials with improved thermal performance and lower production costs."
+      },
+      "case_studies": {
+        "case_study_1": "The authors present a case study on the use of metal matrix composites for thermal management in automotive electronic control units."
+      },
+      "best_practices": {
+        "best_practice_1": "The authors recommend the use of best practices in the design and production of metal matrix composites for thermal management applications."
+      }
     },
     "other_significant_information": {
-      "regulatory_compliance": "The regulatory compliance includes the adherence to the ISO 14040 and 14044 standards for life cycle assessment.",
-      "industry_standards": "The industry standards include the standards for electric vehicles and battery thermal management systems.",
-      "innovation_aspects": "The innovation aspects include the development of new materials and technologies for passive BTMS.",
-      "risk_assessment": "The risk assessment includes the evaluation of the risks associated with the use of passive BTMS.",
-      "quality_assurance": "The quality assurance includes the testing and validation of the passive BTMS.",
-      "implementation_details": "The implementation details include the installation and maintenance of the passive BTMS.",
-      "maintenance_requirements": "The maintenance requirements include the regular inspection and maintenance of the passive BTMS.",
-      "safety_considerations": "The safety considerations include the evaluation of the safety risks associated with the use of passive BTMS."
+      "regulatory_compliance": {
+        "eu_legislation": "The EU legislation is reported to require a substantial reduction of emission of hydrocarbon (HC), nitrogen oxides (NOx) from all vehicles equipped with a diesel engine."
+      },
+      "industry_standards": {
+        "industry_standard_1": "The industry standard for thermal management materials is reported to be 100 W/cm2."
+      },
+      "innovation_aspects": {
+        "innovation_1": "The use of metal matrix composites for thermal management applications is reported to be an innovative approach."
+      },
+      "risk_assessment": {
+        "risk_1": "The authors identify the high production cost of metal matrix composites as a risk."
+      },
+      "quality_assurance": {
+        "quality_assurance_1": "The authors recommend the use of quality assurance measures to ensure the reliability and performance of metal matrix composites."
+      },
+      "implementation_details": {
+        "implementation_detail_1": "The authors provide implementation details for the use of metal matrix composites in thermal management applications."
+      },
+      "maintenance_requirements": {
+        "maintenance_requirement_1": "The authors recommend regular maintenance to ensure the performance and reliability of metal matrix composites."
+      },
+      "safety_considerations": {
+        "safety_consideration_1": "The authors identify the potential safety risks associated with the use of metal matrix composites in thermal management applications."
+      }
     },
-    "similarity_score": 0.7089632153511047
+    "similarity_score": 0.7223808169364929
+  },
+  {
+    "paper_metadata": {
+      "title": "Thermoplastic Electromagnetic Shielding Materials from the Integral Recycling of Waste from Electronic Equipment",
+      "doi": "10.3390/polym15193859",
+      "citation": "Aradoaei, M.; Ciobanu, R.C.; Schreiner, C.; Ursan, A.G.; Hitruc, E.G.; Aflori, M. Thermoplastic Electromagnetic Shielding Materials from the Integral Recycling of Waste from Electronic Equipment. Polymers 2023, 15, 3859.",
+      "abstract": "The European Green Deal\u2019s goals are anticipated to be fulfilled in large part thanks to the New Circular Economy Action Plan. It is believed that recycling materials will have a significant positive impact on the environment, particularly in terms of reducing greenhouse gas emissions and the impacts this will have on preventing climate change."
+    },
+    "research_information": {
+      "objectives": "The goal of this paper is to characterize and obtain composite materials using an injection process with a matrix of LDPE, PP, and HDPE, with up to a 10% addition of nonmetallic powders from PCBs and electronic parts from an integrated process of WEEE recycling.",
+      "methodology": "The integral recycling of WEEE was performed in two stages: obtaining powder from thermoset components of WEEE and manufacturing composites made of recycled LDPE, HDPE, and PP from WEEE with up to a 10% addition of non-metallic powder.",
+      "key_findings": "The composites presented relevant thermal, electrical, and mechanical properties, and may be further tested for applications in electromagnetic shielding at frequencies above 1 kHz, or for electromagnetic interference/electromagnetic compatibility (EMI/EMC and ESD) applications at lower frequencies.",
+      "limitations": "The study has some limitations, including the use of a specific type of WEEE and the need for further research on the scalability of the process.",
+      "research_questions": "The research questions addressed in this study include the characterization of composite materials obtained from the integral recycling of WEEE and the evaluation of their potential applications in electromagnetic shielding and EMI/EMC.",
+      "hypotheses": "The hypotheses of this study include the assumption that the integral recycling of WEEE can produce composite materials with relevant thermal, electrical, and mechanical properties, and that these materials can be used in electromagnetic shielding and EMI/EMC applications.",
+      "assumptions": "The assumptions of this study include the assumption that the WEEE used in this study is representative of the wider range of WEEE, and that the results of this study can be generalized to other types of WEEE.",
+      "scope": "The scope of this study includes the characterization of composite materials obtained from the integral recycling of WEEE and the evaluation of their potential applications in electromagnetic shielding and EMI/EMC."
+    },
+    "technical_parameters": {
+      "measurements": {
+        "units": "mm, g, MPa, GPa, %",
+        "uncertainty": "\u00b10.1 mg, \u00b10.2 mg, \u00b10.5%",
+        "context": "The measurements were taken using a XS204 Analytical Balance and a Dr. Boy 35A laboratory micro-extruder."
+      },
+      "specifications": {
+        "equipment": "Dr. Boy 35A laboratory micro-extruder, XS204 Analytical Balance, X-ray diffractometer type D8 Advance",
+        "software": "Auriga Smart SEM V05.04 Workstation Manual, WinDETA/WinFIT"
+      },
+      "performance_metrics": {
+        "values": "12.9 MPa, 0.16 GPa, 351.1%",
+        "conditions": "The performance metrics were measured at room temperature and atmospheric pressure."
+      },
+      "experimental_conditions": {
+        "setup": "The experimental setup consisted of a Dr. Boy 35A laboratory micro-extruder and a XS204 Analytical Balance.",
+        "temperature": "25.2 \u00b0C",
+        "pressure": "Atmospheric pressure"
+      },
+      "materials": {
+        "properties": "Thermal, electrical, and mechanical properties",
+        "characteristics": "The materials used in this study were LDPE, HDPE, and PP, with up to a 10% addition of non-metallic powder from WEEE."
+      },
+      "processes": {
+        "parameters": "Temperature, pressure, and time",
+        "conditions": "The processes were performed at room temperature and atmospheric pressure."
+      },
+      "equipment": {
+        "specifications": "Dr. Boy 35A laboratory micro-extruder, XS204 Analytical Balance, X-ray diffractometer type D8 Advance",
+        "usage": "The equipment was used to manufacture and characterize the composite materials."
+      },
+      "quality_parameters": {
+        "standards": "ASTM E-1461:2007",
+        "requirements": "The quality parameters were measured according to the ASTM E-1461:2007 standard."
+      }
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": {
+        "description": "The life cycle phases of the composite materials include the production of the raw materials, the manufacturing of the composite materials, and the end-of-life disposal or recycling of the materials."
+      },
+      "environmental_impacts": {
+        "values": "400 million tonnes per year",
+        "units": "tonnes per year",
+        "context": "The environmental impacts of the composite materials include the reduction of greenhouse gas emissions and the prevention of climate change."
+      },
+      "resource_consumption": {
+        "quantities": "Up to 10% addition of non-metallic powder from WEEE",
+        "context": "The resource consumption of the composite materials includes the use of WEEE as a raw material."
+      },
+      "emissions_data": {
+        "types": "Greenhouse gas emissions",
+        "amounts": "400 million tonnes per year",
+        "context": "The emissions data of the composite materials include the reduction of greenhouse gas emissions."
+      },
+      "environmental_indicators": {
+        "measurements": "The environmental indicators were measured using the XS204 Analytical Balance and the X-ray diffractometer type D8 Advance.",
+        "context": "The environmental indicators include the thermal, electrical, and mechanical properties of the composite materials."
+      },
+      "impact_categories": {
+        "assessment_methods": "The impact categories were assessed using the life cycle assessment (LCA) method.",
+        "context": "The impact categories include the environmental impacts of the composite materials, such as the reduction of greenhouse gas emissions and the prevention of climate change."
+      },
+      "environmental_standards": {
+        "compliance_details": "The environmental standards were complied with according to the ASTM E-1461:2007 standard.",
+        "context": "The environmental standards include the requirements for the production and disposal of the composite materials."
+      },
+      "mitigation_measures": {
+        "implementation_details": "The mitigation measures were implemented according to the life cycle assessment (LCA) method.",
+        "context": "The mitigation measures include the reduction of greenhouse gas emissions and the prevention of climate change."
+      }
+    },
+    "economic_aspects": {
+      "costs": {
+        "types": "Production costs, disposal costs",
+        "values": "Not specified",
+        "context": "The costs of the composite materials include the production costs and the disposal costs."
+      },
+      "economic_indicators": {
+        "calculations": "The economic indicators were calculated using the life cycle assessment (LCA) method.",
+        "context": "The economic indicators include the cost-benefit analysis of the composite materials."
+      },
+      "market_analysis": {
+        "trends": "The market trends of the composite materials include the increasing demand for sustainable and environmentally friendly materials.",
+        "data": "Not specified",
+        "context": "The market analysis of the composite materials includes the evaluation of the market trends and the competition."
+      },
+      "financial_implications": {
+        "analysis": "The financial implications of the composite materials were analyzed using the life cycle assessment (LCA) method.",
+        "context": "The financial implications include the cost-benefit analysis of the composite materials."
+      },
+      "investment_requirements": {
+        "breakdown": "Not specified",
+        "context": "The investment requirements of the composite materials include the initial investment and the ongoing costs."
+      },
+      "operational_costs": {
+        "categories": "Not specified",
+        "context": "The operational costs of the composite materials include the production costs and the disposal costs."
+      },
+      "revenue_streams": {
+        "projections": "Not specified",
+        "context": "The revenue streams of the composite materials include the sales revenue and the revenue from the disposal of the materials."
+      },
+      "economic_feasibility": {
+        "analysis": "The economic feasibility of the composite materials was analyzed using the life cycle assessment (LCA) method.",
+        "context": "The economic feasibility includes the evaluation of the cost-benefit analysis of the composite materials."
+      }
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": {
+        "assessments": "The environmental impacts of the composite materials were assessed using the life cycle assessment (LCA) method.",
+        "context": "The environmental impacts include the reduction of greenhouse gas emissions and the prevention of climate change."
+      },
+      "social_aspects": {
+        "stakeholder_impacts": "The social aspects of the composite materials include the impacts on the stakeholders, such as the employees, customers, and the community.",
+        "context": "The social aspects include the evaluation of the social impacts of the composite materials."
+      },
+      "circular_economy_elements": {
+        "implementation_details": "The circular economy elements were implemented according to the life cycle assessment (LCA) method.",
+        "context": "The circular economy elements include the design of the composite materials for recyclability and reusability."
+      },
+      "sustainability_metrics": {
+        "values": "Not specified",
+        "context": "The sustainability metrics include the evaluation of the environmental, social, and economic impacts of the composite materials."
+      },
+      "sustainable_practices": {
+        "examples": "The sustainable practices of the composite materials include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The sustainable practices include the evaluation of the sustainability of the composite materials."
+      },
+      "sustainability_goals": {
+        "targets": "The sustainability goals of the composite materials include the reduction of greenhouse gas emissions, the prevention of climate change, and the promotion of sustainable development.",
+        "context": "The sustainability goals include the evaluation of the sustainability of the composite materials."
+      },
+      "stakeholder_engagement": {
+        "strategies": "The stakeholder engagement strategies of the composite materials include the communication with the stakeholders, the evaluation of the stakeholder impacts, and the implementation of stakeholder engagement plans.",
+        "context": "The stakeholder engagement includes the evaluation of the social impacts of the composite materials."
+      },
+      "sustainability_challenges": {
+        "solutions": "The sustainability challenges of the composite materials include the reduction of greenhouse gas emissions, the prevention of climate change, and the promotion of sustainable development.",
+        "context": "The sustainability challenges include the evaluation of the sustainability of the composite materials."
+      }
+    },
+    "additional_information": {
+      "tables": {
+        "content": "The tables include the results of the measurements, the specifications of the equipment, and the calculations of the economic indicators.",
+        "context": "The tables provide additional information on the composite materials."
+      },
+      "figures": {
+        "descriptions": "The figures include the diagrams of the experimental setup, the graphs of the results, and the images of the composite materials.",
+        "context": "The figures provide visual representations of the composite materials and the experimental setup."
+      },
+      "equations": {
+        "explanations": "The equations include the calculations of the thermal diffusivity, the specific heat, and the thermal conductivity.",
+        "context": "The equations provide the mathematical models used to analyze the composite materials."
+      },
+      "important_notes": {
+        "context": "The important notes include the assumptions, limitations, and uncertainties of the study.",
+        "notes": "The study has some limitations, including the use of a specific type of WEEE and the need for further research on the scalability of the process."
+      },
+      "recommendations": {
+        "rationale": "The recommendations include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The recommendations provide guidance on the sustainable production and disposal of the composite materials."
+      },
+      "future_work": {
+        "priorities": "The future work priorities include the development of new composite materials, the improvement of the manufacturing process, and the evaluation of the environmental impacts.",
+        "context": "The future work priorities include the continuation of the research on the composite materials."
+      },
+      "case_studies": {
+        "outcomes": "The case studies include the evaluation of the composite materials in different applications, such as electromagnetic shielding and EMI/EMC.",
+        "context": "The case studies provide examples of the use of the composite materials in different contexts."
+      },
+      "best_practices": {
+        "examples": "The best practices include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The best practices provide guidance on the sustainable production and disposal of the composite materials."
+      }
+    },
+    "other_significant_information": {
+      "regulatory_compliance": {
+        "requirements": "The regulatory compliance requirements include the compliance with the ASTM E-1461:2007 standard.",
+        "context": "The regulatory compliance includes the evaluation of the compliance of the composite materials with the relevant regulations."
+      },
+      "industry_standards": {
+        "specifications": "The industry standards specifications include the ASTM E-1461:2007 standard.",
+        "context": "The industry standards include the evaluation of the compliance of the composite materials with the relevant industry standards."
+      },
+      "innovation_aspects": {
+        "details": "The innovation aspects of the composite materials include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
+        "context": "The innovation aspects include the evaluation of the innovative characteristics of the composite materials."
+      },
+      "risk_assessment": {
+        "mitigation": "The risk assessment mitigation strategies include the evaluation of the risks and the implementation of risk reduction measures.",
+        "context": "The risk assessment includes the evaluation of the risks associated with the composite materials."
+      },
+      "quality_assurance": {
+        "procedures": "The quality assurance procedures include the evaluation of the quality of the composite materials and the implementation of quality control measures.",
+        "context": "The quality assurance includes the evaluation of the quality of the composite materials."
+      },
+      "implementation_details": {
+        "steps": "The implementation details steps include the development of new composite materials, the improvement of the manufacturing process, and the evaluation of the environmental impacts.",
+        "context": "The implementation details include the evaluation of the implementation of the composite materials in different contexts."
+      },
+      "maintenance_requirements": {
+        "schedule": "The maintenance requirements schedule includes the regular evaluation of the composite materials and the implementation of maintenance measures.",
+        "context": "The maintenance requirements include the evaluation of the maintenance needs of the composite materials."
+      },
+      "safety_considerations": {
+        "protocols": "The safety considerations protocols include the evaluation of the safety risks and the implementation of safety measures.",
+        "context": "The safety considerations include the evaluation of the safety of the composite materials."
+      }
+    },
+    "similarity_score": 0.7140416502952576
   },
   {
     "paper_metadata": {
@@ -383,7 +715,7 @@
         }
       }
     },
-    "similarity_score": 0.7021889090538025
+    "similarity_score": 0.7071571946144104
   },
   {
     "paper_metadata": {
@@ -454,235 +786,505 @@
       "implementation_details": "The researchers discussed the implementation details associated with the recycling and reuse of PET waste, including the development of new technologies and infrastructure, and the promotion of sustainable practices and stakeholder engagement.",
       "safety_considerations": "The researchers discussed the safety considerations associated with the recycling and reuse of PET waste, including the potential for environmental and health impacts, and the need for proper handling and disposal of hazardous materials."
     },
-    "similarity_score": 0.6999205350875854
+    "similarity_score": 0.7071425914764404
   },
   {
     "paper_metadata": {
-      "title": "Thermoplastic Electromagnetic Shielding Materials from the Integral Recycling of Waste from Electronic Equipment",
-      "doi": "10.3390/polym15193859",
-      "citation": "Aradoaei, M.; Ciobanu, R.C.; Schreiner, C.; Ursan, A.G.; Hitruc, E.G.; Aflori, M. Thermoplastic Electromagnetic Shielding Materials from the Integral Recycling of Waste from Electronic Equipment. Polymers 2023, 15, 3859.",
-      "abstract": "The European Green Deal\u2019s goals are anticipated to be fulfilled in large part thanks to the New Circular Economy Action Plan. It is believed that recycling materials will have a significant positive impact on the environment, particularly in terms of reducing greenhouse gas emissions and the impacts this will have on preventing climate change."
+      "title": "Accelerated life testing of Electronic Control Unit",
+      "doi": "not available",
+      "citation": "Ravi Kotekallu et al.; International Journal of Advance Research, Ideas and Innovations in Technology, Volume 5, Issue 3, 2019",
+      "abstract": "An Electronic Control Unit (ECU) is an embedded system in automotive electronics that control one or more electro-mechanical systems or subsystems in a vehicle. For a sophisticated automotive will almost have 200 ECUs for multipurpose. Optimal Accelerated Life Test (ALT) Plan of Temperature Cycling (TC) and Mechanical Vibration (MV) for ECU are developed."
     },
     "research_information": {
-      "objectives": "The goal of this paper is to characterize and obtain composite materials using an injection process with a matrix of LDPE, PP, and HDPE, with up to a 10% addition of nonmetallic powders from PCBs and electronic parts from an integrated process of WEEE recycling.",
-      "methodology": "The integral recycling of WEEE was performed in two stages: obtaining powder from thermoset components of WEEE and manufacturing composites made of recycled LDPE, HDPE, and PP from WEEE with up to a 10% addition of non-metallic powder.",
-      "key_findings": "The composites presented relevant thermal, electrical, and mechanical properties, and may be further tested for applications in electromagnetic shielding at frequencies above 1 kHz, or for electromagnetic interference/electromagnetic compatibility (EMI/EMC and ESD) applications at lower frequencies.",
-      "limitations": "The study has some limitations, including the use of a specific type of WEEE and the need for further research on the scalability of the process.",
-      "research_questions": "The research questions addressed in this study include the characterization of composite materials obtained from the integral recycling of WEEE and the evaluation of their potential applications in electromagnetic shielding and EMI/EMC.",
-      "hypotheses": "The hypotheses of this study include the assumption that the integral recycling of WEEE can produce composite materials with relevant thermal, electrical, and mechanical properties, and that these materials can be used in electromagnetic shielding and EMI/EMC applications.",
-      "assumptions": "The assumptions of this study include the assumption that the WEEE used in this study is representative of the wider range of WEEE, and that the results of this study can be generalized to other types of WEEE.",
-      "scope": "The scope of this study includes the characterization of composite materials obtained from the integral recycling of WEEE and the evaluation of their potential applications in electromagnetic shielding and EMI/EMC."
+      "objectives": "The objective of this research is to develop an optimal Accelerated Life Test (ALT) plan for Electronic Control Units (ECUs) using Temperature Cycling (TC) and Mechanical Vibration (MV) tests.",
+      "methodology": "The methodology used in this research involves developing an ALT plan using TC and MV tests, and then comparing the results with Sherlock Simulation.",
+      "key_findings": "The key findings of this research include the development of an optimal ALT plan for ECUs, and the comparison of the results with Sherlock Simulation.",
+      "limitations": "The limitations of this research include the fact that the testing procedures were performed in a laboratory setting, and the results may not be representative of the complete system.",
+      "research_questions": "The research questions addressed in this study include the development of an optimal ALT plan for ECUs, and the comparison of the results with Sherlock Simulation.",
+      "hypotheses": "The hypotheses of this study include the assumption that the number of cycles, stresses, hours, etc., to failures on the test, is proportionate to the acceleration factor that would be observed at a normal usage rate.",
+      "assumptions": "The assumptions of this study include the assumption that the failures modes and their effects are mutually exclusive.",
+      "scope": "The scope of this study includes the development of an optimal ALT plan for ECUs, and the comparison of the results with Sherlock Simulation."
     },
     "technical_parameters": {
       "measurements": {
-        "units": "mm, g, MPa, GPa, %",
-        "uncertainty": "\u00b10.1 mg, \u00b10.2 mg, \u00b10.5%",
-        "context": "The measurements were taken using a XS204 Analytical Balance and a Dr. Boy 35A laboratory micro-extruder."
+        "temperature_range": "-40 to 125\u00b0C",
+        "vibration": "Up to 3g",
+        "temperature_change": "\u0394T = Tmax - Tmin",
+        "ramp_rates": "10\u00b0C/min",
+        "dwell_times": "30 minutes"
       },
       "specifications": {
-        "equipment": "Dr. Boy 35A laboratory micro-extruder, XS204 Analytical Balance, X-ray diffractometer type D8 Advance",
-        "software": "Auriga Smart SEM V05.04 Workstation Manual, WinDETA/WinFIT"
+        "device_hours": "Optimum allocation of device-hours for ALT plan is obtained from Minitab-18 with 65% Confidence Interval (CI)",
+        "stress_levels": "Three stress levels are 110\u00b0C, 150\u00b0C and 180\u00b0C with singly failure censored at right"
       },
       "performance_metrics": {
-        "values": "12.9 MPa, 0.16 GPa, 351.1%",
-        "conditions": "The performance metrics were measured at room temperature and atmospheric pressure."
+        "reliability": "Reliability of the ECU for a life of 20 years that is for 8 cycles per day of the vehicle will be 0.999854 with 65% confidence interval",
+        "life_cycle": "Life cycle of the ECU is estimated and compared with Sherlock Simulation"
       },
       "experimental_conditions": {
-        "setup": "The experimental setup consisted of a Dr. Boy 35A laboratory micro-extruder and a XS204 Analytical Balance.",
-        "temperature": "25.2 \u00b0C",
-        "pressure": "Atmospheric pressure"
+        "thermal_cycling": "Thermal Cycling is conducted as per IEC60068 standard for a specified number of failures",
+        "mechanical_vibration": "Mechanical Vibration test is carried out using Miner\u2019s fatigue modal satisfying IEC60068 standard for a specified number of failures"
       },
       "materials": {
-        "properties": "Thermal, electrical, and mechanical properties",
-        "characteristics": "The materials used in this study were LDPE, HDPE, and PP, with up to a 10% addition of non-metallic powder from WEEE."
+        "ecu": "Electronic Control Unit (ECU) is a crucial component in the system for integration and control"
       },
       "processes": {
-        "parameters": "Temperature, pressure, and time",
-        "conditions": "The processes were performed at room temperature and atmospheric pressure."
+        "thermal_cycling_test": "Thermal Cycling test is carried out for the same device-hours at the stresses mentioned",
+        "mechanical_vibration_test": "Mechanical Vibration test is carried out for the same device-hours at the stresses mentioned"
       },
       "equipment": {
-        "specifications": "Dr. Boy 35A laboratory micro-extruder, XS204 Analytical Balance, X-ray diffractometer type D8 Advance",
-        "usage": "The equipment was used to manufacture and characterize the composite materials."
+        "thermal_cycling_chamber": "Thermal Cycling Chamber using iTools Software",
+        "accelerometer": "Accelerometer must be placed on the unit under test"
       },
       "quality_parameters": {
-        "standards": "ASTM E-1461:2007",
-        "requirements": "The quality parameters were measured according to the ASTM E-1461:2007 standard."
+        "reliability": "Reliability of the ECU is estimated and compared with Sherlock Simulation"
       }
     },
     "environmental_aspects": {
       "life_cycle_phases": {
-        "description": "The life cycle phases of the composite materials include the production of the raw materials, the manufacturing of the composite materials, and the end-of-life disposal or recycling of the materials."
+        "production": "Various stages of ECU production is shown in figure 1",
+        "use": "The field data is given in table 1",
+        "end_of_life": "Not mentioned"
       },
       "environmental_impacts": {
-        "values": "400 million tonnes per year",
-        "units": "tonnes per year",
-        "context": "The environmental impacts of the composite materials include the reduction of greenhouse gas emissions and the prevention of climate change."
+        "energy_consumption": "Not mentioned",
+        "greenhouse_gas_emissions": "Not mentioned",
+        "waste_generation": "Not mentioned"
       },
       "resource_consumption": {
-        "quantities": "Up to 10% addition of non-metallic powder from WEEE",
-        "context": "The resource consumption of the composite materials includes the use of WEEE as a raw material."
+        "materials": "Not mentioned",
+        "energy": "Not mentioned",
+        "water": "Not mentioned"
       },
       "emissions_data": {
-        "types": "Greenhouse gas emissions",
-        "amounts": "400 million tonnes per year",
-        "context": "The emissions data of the composite materials include the reduction of greenhouse gas emissions."
+        "greenhouse_gas_emissions": "Not mentioned",
+        "air_pollutants": "Not mentioned",
+        "water_pollutants": "Not mentioned"
       },
       "environmental_indicators": {
-        "measurements": "The environmental indicators were measured using the XS204 Analytical Balance and the X-ray diffractometer type D8 Advance.",
-        "context": "The environmental indicators include the thermal, electrical, and mechanical properties of the composite materials."
+        "reliability": "Reliability of the ECU is estimated and compared with Sherlock Simulation"
       },
       "impact_categories": {
-        "assessment_methods": "The impact categories were assessed using the life cycle assessment (LCA) method.",
-        "context": "The impact categories include the environmental impacts of the composite materials, such as the reduction of greenhouse gas emissions and the prevention of climate change."
+        "climate_change": "Not mentioned",
+        "human_health": "Not mentioned",
+        "ecosystem_quality": "Not mentioned"
       },
       "environmental_standards": {
-        "compliance_details": "The environmental standards were complied with according to the ASTM E-1461:2007 standard.",
-        "context": "The environmental standards include the requirements for the production and disposal of the composite materials."
+        "iec_60068": "IEC 60068 standard for environmental testing"
       },
       "mitigation_measures": {
-        "implementation_details": "The mitigation measures were implemented according to the life cycle assessment (LCA) method.",
-        "context": "The mitigation measures include the reduction of greenhouse gas emissions and the prevention of climate change."
+        "reliability_testing": "Reliability testing is performed to identify design weaknesses and improve the reliability of the ECU"
       }
     },
     "economic_aspects": {
       "costs": {
-        "types": "Production costs, disposal costs",
-        "values": "Not specified",
-        "context": "The costs of the composite materials include the production costs and the disposal costs."
+        "production": "Not mentioned",
+        "maintenance": "Not mentioned",
+        "end_of_life": "Not mentioned"
       },
       "economic_indicators": {
-        "calculations": "The economic indicators were calculated using the life cycle assessment (LCA) method.",
-        "context": "The economic indicators include the cost-benefit analysis of the composite materials."
+        "reliability": "Reliability of the ECU is estimated and compared with Sherlock Simulation"
       },
       "market_analysis": {
-        "trends": "The market trends of the composite materials include the increasing demand for sustainable and environmentally friendly materials.",
-        "data": "Not specified",
-        "context": "The market analysis of the composite materials includes the evaluation of the market trends and the competition."
+        "market_trends": "Not mentioned",
+        "market_size": "Not mentioned",
+        "market_share": "Not mentioned"
       },
       "financial_implications": {
-        "analysis": "The financial implications of the composite materials were analyzed using the life cycle assessment (LCA) method.",
-        "context": "The financial implications include the cost-benefit analysis of the composite materials."
+        "cost_savings": "Not mentioned",
+        "revenue_generation": "Not mentioned"
       },
       "investment_requirements": {
-        "breakdown": "Not specified",
-        "context": "The investment requirements of the composite materials include the initial investment and the ongoing costs."
+        "initial_investment": "Not mentioned",
+        "ongoing_investment": "Not mentioned"
       },
       "operational_costs": {
-        "categories": "Not specified",
-        "context": "The operational costs of the composite materials include the production costs and the disposal costs."
+        "energy_consumption": "Not mentioned",
+        "maintenance": "Not mentioned"
       },
       "revenue_streams": {
-        "projections": "Not specified",
-        "context": "The revenue streams of the composite materials include the sales revenue and the revenue from the disposal of the materials."
+        "sales": "Not mentioned",
+        "services": "Not mentioned"
       },
       "economic_feasibility": {
-        "analysis": "The economic feasibility of the composite materials was analyzed using the life cycle assessment (LCA) method.",
-        "context": "The economic feasibility includes the evaluation of the cost-benefit analysis of the composite materials."
+        "cost_benefit_analysis": "Not mentioned"
       }
     },
     "sustainability_considerations": {
       "environmental_impacts": {
-        "assessments": "The environmental impacts of the composite materials were assessed using the life cycle assessment (LCA) method.",
-        "context": "The environmental impacts include the reduction of greenhouse gas emissions and the prevention of climate change."
+        "energy_consumption": "Not mentioned",
+        "greenhouse_gas_emissions": "Not mentioned",
+        "waste_generation": "Not mentioned"
       },
       "social_aspects": {
-        "stakeholder_impacts": "The social aspects of the composite materials include the impacts on the stakeholders, such as the employees, customers, and the community.",
-        "context": "The social aspects include the evaluation of the social impacts of the composite materials."
+        "human_health": "Not mentioned",
+        "safety": "Not mentioned"
       },
       "circular_economy_elements": {
-        "implementation_details": "The circular economy elements were implemented according to the life cycle assessment (LCA) method.",
-        "context": "The circular economy elements include the design of the composite materials for recyclability and reusability."
+        "design_for_recycling": "Not mentioned",
+        "design_for_reuse": "Not mentioned"
       },
       "sustainability_metrics": {
-        "values": "Not specified",
-        "context": "The sustainability metrics include the evaluation of the environmental, social, and economic impacts of the composite materials."
+        "reliability": "Reliability of the ECU is estimated and compared with Sherlock Simulation"
       },
       "sustainable_practices": {
-        "examples": "The sustainable practices of the composite materials include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
-        "context": "The sustainable practices include the evaluation of the sustainability of the composite materials."
+        "reliability_testing": "Reliability testing is performed to identify design weaknesses and improve the reliability of the ECU"
       },
       "sustainability_goals": {
-        "targets": "The sustainability goals of the composite materials include the reduction of greenhouse gas emissions, the prevention of climate change, and the promotion of sustainable development.",
-        "context": "The sustainability goals include the evaluation of the sustainability of the composite materials."
+        "un_sustainable_development_goals": "Not mentioned"
       },
       "stakeholder_engagement": {
-        "strategies": "The stakeholder engagement strategies of the composite materials include the communication with the stakeholders, the evaluation of the stakeholder impacts, and the implementation of stakeholder engagement plans.",
-        "context": "The stakeholder engagement includes the evaluation of the social impacts of the composite materials."
+        "stakeholder_identification": "Not mentioned",
+        "stakeholder_analysis": "Not mentioned"
       },
       "sustainability_challenges": {
-        "solutions": "The sustainability challenges of the composite materials include the reduction of greenhouse gas emissions, the prevention of climate change, and the promotion of sustainable development.",
-        "context": "The sustainability challenges include the evaluation of the sustainability of the composite materials."
+        "technical_challenges": "Not mentioned",
+        "economic_challenges": "Not mentioned"
       }
     },
     "additional_information": {
       "tables": {
-        "content": "The tables include the results of the measurements, the specifications of the equipment, and the calculations of the economic indicators.",
-        "context": "The tables provide additional information on the composite materials."
+        "table_1": "Field Temperature and Random vibration profile",
+        "table_2": "Best Optimum Allocations ALT plan",
+        "table_3": "Distribution plot data",
+        "table_4": "Random vibration profile data",
+        "table_5": "Failure Times of ECU"
       },
       "figures": {
-        "descriptions": "The figures include the diagrams of the experimental setup, the graphs of the results, and the images of the composite materials.",
-        "context": "The figures provide visual representations of the composite materials and the experimental setup."
+        "figure_1": "Steps in production of ECU",
+        "figure_2": "Temperature cycle profile schematic",
+        "figure_3": "Temperature cycle profile loaded in TC Chamber using iTools",
+        "figure_4": "Stress Vs Number of Cycles to failure Curve",
+        "figure_5": "Relation between Reliability Stress and Strength Curve",
+        "figure_6": "Sweep Sine test plot of ECU",
+        "figure_7": "Random Vibration test plot for the 3rd-row profile of ECU",
+        "figure_8": "Layout of ECU",
+        "figure_9": "Thermal cycling profile in Sherlock",
+        "figure_10": "Random Vibration profile in Sherlock",
+        "figure_11": "List of components under risk due to thermal cycling shown in hot colour",
+        "figure_12": "List of components under risk due to random vibration shown in hot colour",
+        "figure_13": "Weibull plot of temperature cycle test data",
+        "figure_14": "Virtual Stress model for thermal cycling",
+        "figure_15": "Virtual Stress model for random vibration",
+        "figure_16": "Graph for the ECU with an expected life of 20 years with 10% Probability of failure"
       },
       "equations": {
-        "explanations": "The equations include the calculations of the thermal diffusivity, the specific heat, and the thermal conductivity.",
-        "context": "The equations provide the mathematical models used to analyze the composite materials."
+        "equation_1": "N = B * \u0394T^(-b) * A(Tmax)",
+        "equation_2": "Af = (Nmin / Nmax) = (\u0394Tmax / \u0394Tmin)^b * exp((Ea / K) * (1 / Tkmax - 1 / Tkmin))",
+        "equation_3": "CFD = C1 * Tg * (z^2) * (1 - z^2) * f1",
+        "equation_4": "Tg = f1 * (z^2 - 1) / (C1 * \u03b6 * Ma(f1)) * (z^2)",
+        "equation_5": "R(t) = exp(-[t / \u03c5]^\u03b6)"
       },
       "important_notes": {
-        "context": "The important notes include the assumptions, limitations, and uncertainties of the study.",
-        "notes": "The study has some limitations, including the use of a specific type of WEEE and the need for further research on the scalability of the process."
+        "note_1": "The failures modes and their effects are assumed to be mutually exclusive"
       },
       "recommendations": {
-        "rationale": "The recommendations include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
-        "context": "The recommendations provide guidance on the sustainable production and disposal of the composite materials."
+        "recommendation_1": "Reliability testing should be performed to identify design weaknesses and improve the reliability of the ECU"
       },
       "future_work": {
-        "priorities": "The future work priorities include the development of new composite materials, the improvement of the manufacturing process, and the evaluation of the environmental impacts.",
-        "context": "The future work priorities include the continuation of the research on the composite materials."
+        "future_work_1": "Further research is needed to develop more accurate models for predicting the reliability of ECUs"
       },
       "case_studies": {
-        "outcomes": "The case studies include the evaluation of the composite materials in different applications, such as electromagnetic shielding and EMI/EMC.",
-        "context": "The case studies provide examples of the use of the composite materials in different contexts."
+        "case_study_1": "The case study presented in this paper demonstrates the application of ALT and Sherlock Simulation for estimating the reliability of ECUs"
       },
       "best_practices": {
-        "examples": "The best practices include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
-        "context": "The best practices provide guidance on the sustainable production and disposal of the composite materials."
+        "best_practice_1": "Best practices for reliability testing and simulation should be followed to ensure the accuracy and validity of the results"
       }
     },
     "other_significant_information": {
       "regulatory_compliance": {
-        "requirements": "The regulatory compliance requirements include the compliance with the ASTM E-1461:2007 standard.",
-        "context": "The regulatory compliance includes the evaluation of the compliance of the composite materials with the relevant regulations."
+        "iec_60068": "IEC 60068 standard for environmental testing"
       },
       "industry_standards": {
-        "specifications": "The industry standards specifications include the ASTM E-1461:2007 standard.",
-        "context": "The industry standards include the evaluation of the compliance of the composite materials with the relevant industry standards."
+        "ipc_2581": "IPC 2581 standard for assembly, Bill of Materials (BoM), copper layers, drill and fabrication details"
       },
       "innovation_aspects": {
-        "details": "The innovation aspects of the composite materials include the use of recycled materials, the reduction of waste, and the implementation of energy-efficient processes.",
-        "context": "The innovation aspects include the evaluation of the innovative characteristics of the composite materials."
+        "innovation_1": "The use of ALT and Sherlock Simulation for estimating the reliability of ECUs is an innovative approach"
       },
       "risk_assessment": {
-        "mitigation": "The risk assessment mitigation strategies include the evaluation of the risks and the implementation of risk reduction measures.",
-        "context": "The risk assessment includes the evaluation of the risks associated with the composite materials."
+        "risk_1": "The risk of failure of ECUs due to thermal cycling and mechanical vibration is assessed in this study"
       },
       "quality_assurance": {
-        "procedures": "The quality assurance procedures include the evaluation of the quality of the composite materials and the implementation of quality control measures.",
-        "context": "The quality assurance includes the evaluation of the quality of the composite materials."
+        "quality_assurance_1": "Quality assurance procedures should be followed to ensure the accuracy and validity of the results"
       },
       "implementation_details": {
-        "steps": "The implementation details steps include the development of new composite materials, the improvement of the manufacturing process, and the evaluation of the environmental impacts.",
-        "context": "The implementation details include the evaluation of the implementation of the composite materials in different contexts."
+        "implementation_1": "The implementation of ALT and Sherlock Simulation for estimating the reliability of ECUs is presented in this paper"
       },
       "maintenance_requirements": {
-        "schedule": "The maintenance requirements schedule includes the regular evaluation of the composite materials and the implementation of maintenance measures.",
-        "context": "The maintenance requirements include the evaluation of the maintenance needs of the composite materials."
+        "maintenance_1": "Maintenance requirements for ECUs should be considered to ensure their reliability and performance"
       },
       "safety_considerations": {
-        "protocols": "The safety considerations protocols include the evaluation of the safety risks and the implementation of safety measures.",
-        "context": "The safety considerations include the evaluation of the safety of the composite materials."
+        "safety_1": "Safety considerations should be taken into account when designing and testing ECUs"
       }
     },
-    "similarity_score": 0.6956391930580139
+    "similarity_score": 0.7051207423210144
+  },
+  {
+    "paper_metadata": {
+      "title": "Switchable Heat Pipes for Eco-Friendly Battery Cooling in Electric Vehicles: A Life Cycle Assessment",
+      "doi": "10.3390/en17040938",
+      "citation": "Illner, M.; Th\u00fcsing, K.; Salles, A.; Trettenhann, A.; Albrecht, S.; Winkler, M. Switchable Heat Pipes for Eco-Friendly Battery Cooling in Electric Vehicles: A Life Cycle Assessment. Energies 2024, 17, 938.",
+      "abstract": "Battery thermal management systems (BTMSs) ensure that lithium-ion batteries (LIBs) in electric vehicles (EVs) are operated in an optimal temperature range to achieve high performance and reduce risks. A conventional BTMS operates either as an active system that uses forced air, water or immersion cooling, or as a complete passive system without any temperature control. Passive systems function without any active energy supply and are therefore economically and environmentally advantageous. However, today\u2019s passive BTMSs have limited cooling performance, which additionally cannot be controlled."
+    },
+    "research_information": {
+      "objectives": "The objective of this study is to investigate the environmental impacts of a novel passive and a conventional active battery thermal management system (BTMS) of electric vehicles (EVs) using a life cycle assessment (LCA).",
+      "methodology": "The LCA was conducted using the LCA for Experts software and the corresponding databases, with a cradle-to-cradle approach, considering the production phase, use phase, and end-of-life phase.",
+      "key_findings": "The results show that the passive system for battery cooling has a significantly lower impact than the active system in almost all environmental impact categories (EF 3.1).",
+      "limitations": "The assumptions of the active BTMS were very conservative, and the LCA was based on many assumptions and some aspects had to be neglected due to a lack of information.",
+      "research_questions": "The study aims to answer the question whether the innovative passive cooling system with heat pipes has the potential to be more environmentally friendly than the conventional active cooling system.",
+      "hypotheses": "It is hypothesized that the passive system with heat pipes will have a lower environmental impact than the active system.",
+      "assumptions": "The assumptions include a mileage of 150,000 km, an energy consumption of 18 kWh/100 km, and a recycling rate of 95% for the cooling plate.",
+      "scope": "The scope of the study is to evaluate the environmental impacts of the passive and active BTMSs using a life cycle assessment."
+    },
+    "technical_parameters": {
+      "measurements": "The thermal resistance of the heat-pipe-based thermal switch was measured, with a switching factor of ca. 50 achieved.",
+      "specifications": "The heat pipe has an outer diameter of 10 mm, a length of 40 cm, and a vertical orientation with the evaporator at the bottom.",
+      "performance_metrics": "The cooling performance of the passive cooling plate depends on the air flow caused by driving, with a maximum cooling power of up to 5 kW.",
+      "experimental_conditions": "The experiment was conducted with a constant heat power of 10 W on the heat pipe evaporator and a cooling water temperature of 20\u00b0C.",
+      "materials": "The heat pipe is made of copper, with water as the working fluid and TAPSO-34 as the adsorbent.",
+      "processes": "The heat pipe works by desorbing the working fluid when the temperature exceeds the switching temperature, enabling latent heat transport.",
+      "equipment": "The equipment used includes a heat pipe, a cooling plate, and a vacuum pump.",
+      "quality_parameters": "The quality parameters include the thermal resistance, switching factor, and cooling power."
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": "The life cycle phases considered include production, use, and end-of-life.",
+      "environmental_impacts": "The environmental impacts considered include climate change, resource use, and human toxicity.",
+      "resource_consumption": "The resource consumption includes energy consumption, water consumption, and material consumption.",
+      "emissions_data": "The emissions data include greenhouse gas emissions, particulate matter, and other pollutants.",
+      "environmental_indicators": "The environmental indicators include the Environmental Footprint (EF) 3.1 impact categories.",
+      "impact_categories": "The impact categories include climate change, resource use, and human toxicity.",
+      "environmental_standards": "The environmental standards include the ISO 14040 and 14044 standards for life cycle assessment.",
+      "mitigation_measures": "The mitigation measures include improving the recycling rate of the copper and using alternative materials."
+    },
+    "economic_aspects": {
+      "costs": "The costs include the production costs, energy costs, and maintenance costs.",
+      "economic_indicators": "The economic indicators include the cost-benefit analysis and the return on investment.",
+      "market_analysis": "The market analysis includes the demand for electric vehicles and the competition in the market.",
+      "financial_implications": "The financial implications include the investment requirements and the revenue streams.",
+      "investment_requirements": "The investment requirements include the initial investment and the ongoing expenses.",
+      "operational_costs": "The operational costs include the energy costs, maintenance costs, and other expenses.",
+      "revenue_streams": "The revenue streams include the sales revenue and the revenue from recycling.",
+      "economic_feasibility": "The economic feasibility includes the cost-benefit analysis and the return on investment."
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": "The environmental impacts include climate change, resource use, and human toxicity.",
+      "social_aspects": "The social aspects include the employment opportunities, health impacts, and social acceptance.",
+      "circular_economy_elements": "The circular economy elements include the recycling rate, material efficiency, and waste reduction.",
+      "sustainability_metrics": "The sustainability metrics include the Environmental Footprint (EF) 3.1 impact categories.",
+      "sustainable_practices": "The sustainable practices include the use of renewable energy, reduction of waste, and sustainable materials.",
+      "sustainability_goals": "The sustainability goals include reducing greenhouse gas emissions, improving resource efficiency, and promoting sustainable development.",
+      "stakeholder_engagement": "The stakeholder engagement includes the involvement of stakeholders in the decision-making process.",
+      "sustainability_challenges": "The sustainability challenges include the lack of recycling infrastructure, high energy costs, and limited availability of sustainable materials."
+    },
+    "additional_information": {
+      "tables": "The tables include the mass flows, energy flows, and LCA results.",
+      "figures": "The figures include the thermal resistance of the heat-pipe-based thermal switch, the LCA results, and the system boundary.",
+      "equations": "The equations include the calculation of the thermal resistance and the switching factor.",
+      "important_notes": "The important notes include the assumptions, limitations, and uncertainties of the study.",
+      "recommendations": "The recommendations include improving the recycling rate of the copper and using alternative materials.",
+      "future_work": "The future work includes the experimental validation of the passive BTMS and the development of new materials and technologies.",
+      "case_studies": "The case studies include the application of the passive BTMS in electric vehicles.",
+      "best_practices": "The best practices include the use of sustainable materials, reduction of waste, and promotion of recycling."
+    },
+    "other_significant_information": {
+      "regulatory_compliance": "The regulatory compliance includes the adherence to the ISO 14040 and 14044 standards for life cycle assessment.",
+      "industry_standards": "The industry standards include the standards for electric vehicles and battery thermal management systems.",
+      "innovation_aspects": "The innovation aspects include the development of new materials and technologies for passive BTMS.",
+      "risk_assessment": "The risk assessment includes the evaluation of the risks associated with the use of passive BTMS.",
+      "quality_assurance": "The quality assurance includes the testing and validation of the passive BTMS.",
+      "implementation_details": "The implementation details include the installation and maintenance of the passive BTMS.",
+      "maintenance_requirements": "The maintenance requirements include the regular inspection and maintenance of the passive BTMS.",
+      "safety_considerations": "The safety considerations include the evaluation of the safety risks associated with the use of passive BTMS."
+    },
+    "similarity_score": 0.702130913734436
+  },
+  {
+    "paper_metadata": {
+      "title": "Environmental Benefits of post-consumer recycled PET based Valox iQ resin vs. Valox resin using Life Cycle Assessment Approach",
+      "doi": "not available",
+      "citation": "Baroth, A., Karanam, S., & McKay, R. (2011). Environmental Benefits of post-consumer recycled PET based Valox iQ resin vs. Valox resin using Life Cycle Assessment Approach. Proceedings of International Conference on Advances in Polymer Science and Rubber Technology, 3-5 March, 2011, IIT-Kharagpur",
+      "abstract": "Polymers play a major role in delivering and sustaining the quality, comfort and safety of modern life-styles. In addition to its impressive ratio of cost to performance, plastic products are also quickly adopting to the \u2018sustainable\u2019 or \u2018green\u2019 performance. One of the most demanded sustainable practices in polymer or plastic industry is handling of waste, which requires the polymer industry to explore new ways of using resources more efficiently."
+    },
+    "research_information": {
+      "objectives": "The aim of this paper is to showcase environmental benefits of Valox iQ resin over the Valox resin using Life Cycle Assessment (LCA) methodology following ISO 14049 framework.",
+      "methodology": "The LCA study was completed using SimaPro LCA software, version 7.1. The modeling was done in SimaPro version 7.1. LCA software. The study compares \u2018Cradle-to-Gate\u2019 impacts for each material.",
+      "key_findings": "The results indicate that the carbon footprint as well as the total energy demand of Valox iQ resin is about 40% lesser than the traditional PBT material (Valox resin).",
+      "limitations": "A sensitivity analysis based on different recycling allocation assumptions revealed that the impacts of Valox iQ resin remains lesser in almost all the situations except when the recycled PET market is constrained.",
+      "research_questions": "The goal of this study was to compare the lifecycle environmental effects of Valox iQ resin compared to Valox resin.",
+      "hypotheses": "The key to the reduced impact from the iQ resin is that the first life of the PET water bottles carry the burden of the fossil based raw materials.",
+      "assumptions": "Allocating the full burden of the PET raw materials to the first life is the most important assumption in this study.",
+      "scope": "The study compares \u2018Cradle-to-Gate\u2019 impacts for each material."
+    },
+    "technical_parameters": {
+      "measurements": {
+        "tensile_stress_at_yield": "54 Mpa for Valox Resin and 50 Mpa for Valox iQ Resin",
+        "flexural_stress_at_5_strain": "85 Mpa for Valox Resin and 82 Mpa for Valox iQ Resin",
+        "flexural_modulus": "2500 Mpa for Valox Resin and 2460 Mpa for Valox iQ Resin",
+        "notched_izod": "35 J/m for Valox Resin and 35 J/m for Valox iQ Resin",
+        "specific_gravity": "1.31 for Valox Resin and 1.31 for Valox iQ Resin",
+        "tc": "164\u00b0C for Valox Resin and 170\u00b0C for Valox iQ Resin",
+        "tm": "225\u00b0C for Valox Resin and 220\u00b0C for Valox iQ Resin",
+        "hdt": "155\u00b0C for Valox Resin and 150\u00b0C for Valox iQ Resin"
+      },
+      "specifications": "Valox iQ resin uses up to 60% by weight post-consumer PET bottle waste as feedstock instead of traditional fossil fuel based raw material.",
+      "performance_metrics": {
+        "global_warming_potential": "2.7 Kg CO2 eq for Valox iQ Resin and 5.3 Kg CO2 eq for Valox Resin",
+        "cumulative_energy_demand": "49.65 MJ Eq for Valox iQ Resin and 115.2 MJ Eq for Valox Resin"
+      },
+      "experimental_conditions": "The study compares \u2018Cradle-to-Gate\u2019 impacts for each material.",
+      "materials": {
+        "valox_resin": "PBT (Polybutylene terephthalate) based material",
+        "valox_iq_resin": "PBT (Polybutylene terephthalate) based material made from post-consumer recycled PET bottle waste"
+      },
+      "processes": {
+        "manufacturing_process": "The PET waste is chemically decomposed to its oligomers and the recovered TPA oligomers are used to manufacture Valox iQ PBT neat resin."
+      },
+      "equipment": {
+        "lca_software": "SimaPro LCA software, version 7.1"
+      },
+      "quality_parameters": {
+        "standards": "ISO 14049 framework"
+      }
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": {
+        "cradle_to_gate": "The study compares \u2018Cradle-to-Gate\u2019 impacts for each material."
+      },
+      "environmental_impacts": {
+        "global_warming_potential": "2.7 Kg CO2 eq for Valox iQ Resin and 5.3 Kg CO2 eq for Valox Resin",
+        "cumulative_energy_demand": "49.65 MJ Eq for Valox iQ Resin and 115.2 MJ Eq for Valox Resin"
+      },
+      "resource_consumption": {
+        "post_consumer_pet_bottle_waste": "up to 60% by weight"
+      },
+      "emissions_data": {
+        "co2_equivalent": "2.7 Kg CO2 eq for Valox iQ Resin and 5.3 Kg CO2 eq for Valox Resin"
+      },
+      "environmental_indicators": {
+        "eco_indicator_99": "Valox iQ resin shows a clear advantage over Valox resin in all the categories"
+      },
+      "impact_categories": {
+        "global_warming_potential": "IPCC 2007 method",
+        "cumulative_energy_demand": "CED v1.04 method",
+        "eco_indicator_99": "Midpoint version"
+      },
+      "environmental_standards": {
+        "iso_14049": "framework for the study"
+      },
+      "mitigation_measures": {
+        "recycling": "post-consumer PET bottle waste is recycled and used as feedstock for Valox iQ resin"
+      }
+    },
+    "economic_aspects": {
+      "costs": {
+        "production_cost": "not available"
+      },
+      "economic_indicators": {
+        "cumulative_energy_demand": "49.65 MJ Eq for Valox iQ Resin and 115.2 MJ Eq for Valox Resin"
+      },
+      "market_analysis": {
+        "market_trend": "increasing demand for sustainable products"
+      },
+      "financial_implications": {
+        "cost_savings": "not available"
+      },
+      "investment_requirements": {
+        "investment_cost": "not available"
+      },
+      "operational_costs": {
+        "production_cost": "not available"
+      },
+      "revenue_streams": {
+        "revenue": "not available"
+      },
+      "economic_feasibility": {
+        "feasibility_study": "not available"
+      }
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": {
+        "global_warming_potential": "2.7 Kg CO2 eq for Valox iQ Resin and 5.3 Kg CO2 eq for Valox Resin"
+      },
+      "social_aspects": {
+        "stakeholder_impacts": "not available"
+      },
+      "circular_economy_elements": {
+        "recycling": "post-consumer PET bottle waste is recycled and used as feedstock for Valox iQ resin"
+      },
+      "sustainability_metrics": {
+        "cumulative_energy_demand": "49.65 MJ Eq for Valox iQ Resin and 115.2 MJ Eq for Valox Resin"
+      },
+      "sustainable_practices": {
+        "sustainable_production": "Valox iQ resin uses up to 60% by weight post-consumer PET bottle waste as feedstock"
+      },
+      "sustainability_goals": {
+        "reduction_of_greenhouse_gas_emissions": "Valox iQ resin shows a 49% reduction in global warming potential compared to Valox resin"
+      },
+      "stakeholder_engagement": {
+        "stakeholder_involvement": "not available"
+      },
+      "sustainability_challenges": {
+        "challenges": "not available"
+      }
+    },
+    "additional_information": {
+      "tables": {
+        "table_1": "Comparison of properties for Valox resin (PBT) and Valox iQ PBT neat resin",
+        "table_2": "Cradle-to-Gate comparison - Valox resin vs. Valox iQ resin using IPCC GWP 100a method",
+        "table_3": "Cradle-to-Gate comparison Valox resin vs. Valox iQ resin using CED 1.04 method"
+      },
+      "figures": {
+        "figure_1": "System Boundary for Cradle-to-Gate LCA of Valox resin and Valox iQ resin",
+        "figure_2": "Cradle-to-Gate Graph comparison \u2013 Valox resin vs. Valox iQ resin using IPCC GWP 100a method",
+        "figure_3": "Cradle-to-Gate Graph comparison \u2013Valox resin vs. Valox iQ resin using CED 1.04 method",
+        "figure_4": "Cradle-to-Gate Characterization Graph - Valox resin vs. Valox iQ resin using Eco-indicator 99 (H/A) method"
+      },
+      "equations": {
+        "equation": "not available"
+      },
+      "important_notes": {
+        "note": "The study compares \u2018Cradle-to-Gate\u2019 impacts for each material."
+      },
+      "recommendations": {
+        "recommendation": "Product designers and customers interested in engineering resins with excellent properties that contain a high percentage of post-consumer recycle content should consider using Valox iQ resin."
+      },
+      "future_work": {
+        "future_study": "not available"
+      },
+      "case_studies": {
+        "case_study": "not available"
+      },
+      "best_practices": {
+        "best_practice": "not available"
+      }
+    },
+    "other_significant_information": {
+      "regulatory_compliance": {
+        "compliance": "ISO 14049 framework"
+      },
+      "industry_standards": {
+        "standard": "ISO 14049 framework"
+      },
+      "innovation_aspects": {
+        "innovation": "Valox iQ resin uses up to 60% by weight post-consumer PET bottle waste as feedstock"
+      },
+      "risk_assessment": {
+        "risk": "not available"
+      },
+      "quality_assurance": {
+        "quality_assurance": "not available"
+      },
+      "implementation_details": {
+        "implementation": "not available"
+      },
+      "maintenance_requirements": {
+        "maintenance": "not available"
+      },
+      "safety_considerations": {
+        "safety": "not available"
+      }
+    },
+    "similarity_score": 0.6997190117835999
   },
   {
     "paper_metadata": {
@@ -761,6 +1363,139 @@
       "maintenance_requirements": "The maintenance requirements include the regular maintenance and repair of the thermal management system.",
       "safety_considerations": "The safety considerations include the analysis of the potential risks and the development of mitigation measures."
     },
-    "similarity_score": 0.6942234635353088
+    "similarity_score": 0.6990152597427368
+  },
+  {
+    "paper_metadata": {
+      "title": "Integrative inspection methodology for enhanced PCB remanufacturing using artificial intelligence",
+      "doi": "10.1016/j.procir.2025.01.038",
+      "citation": "Florian Stamer, Rouven Jachemich, Stefano Puttero, Elisa Verona, Maurizio Galetto, Integrative inspection methodology for enhanced PCB remanufacturing using artificial intelligence, Procedia CIRP 132 (2025) 227\u2013232",
+      "abstract": "Electronic waste (e-waste) represents one of the world\u2019s most significant environmental challenges, with over 50 million tons generated annually. A key component is the management of Printed Circuit Boards (PCBs), which are integral components of electronic devices and have an operational lifespan of 15 years. However, on average, electrical equipment is discarded after 5 years due to individual defects, prompting the EU to enforce regulations supporting the right to repair. Although industrial remanufacturing of PCBs could be a viable solution, it is not currently feasible due to the complex inspection process required. This paper presents a novel inspection process approach based on data fusion of thermography, current measurement and optical inspection using artificial intelligence."
+    },
+    "research_information": {
+      "objectives": "The main objective of this paper is to implement a new method in the context of circular production for the inspection of PCBs.",
+      "methodology": "The proposed methodology aims to combine the advantages of various measurement technologies to select the best MT combination for specific scenarios.",
+      "key_findings": "The results show that the proposed methodology can reduce time and costs associated with more precise identification methods by identifying valuable, functioning components early in the inspection process.",
+      "research_questions": "The research question addressed in this paper is how to develop a hybrid inspection approach that combines the strengths of various measurement technologies for the remanufacturing of PCBs.",
+      "hypotheses": "The hypothesis is that a hybrid inspection approach can optimize profit per board by balancing economic and technical performance.",
+      "assumptions": "The assumption is that the proposed methodology can be applied to various types of PCBs and can be integrated with advanced AI algorithms.",
+      "scope": "The scope of this paper is to present a novel inspection concept that leverages data fusion of visual inspection, current measurement, thermography, and FP using artificial intelligence to address the complex challenges in remanufacturing PCBs."
+    },
+    "technical_parameters": {
+      "measurements": "The measurements used in this study include visual inspection, current-time analysis, thermography, and FP testing.",
+      "specifications": "The specifications of the equipment used include a Keithley SMU2461 for current measurement and an ImageIR 9400 infrared camera for thermography.",
+      "performance_metrics": "The performance metrics used to evaluate the methodology include the reduction in time and costs associated with more precise identification methods.",
+      "experimental_conditions": "The experimental conditions include the use of a Balluff IO-Link Master as a test case.",
+      "materials": "The materials used in this study include PCBs and various electronic components.",
+      "processes": "The processes used in this study include data fusion, sequential measurement technology, and value-based approach.",
+      "equipment": "The equipment used in this study includes a Keithley SMU2461, an ImageIR 9400 infrared camera, and a computer for data analysis.",
+      "quality_parameters": "The quality parameters used to evaluate the methodology include the accuracy and precision of the inspection results."
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": "The life cycle phases considered in this study include the production, use, and end-of-life phases of PCBs.",
+      "environmental_impacts": "The environmental impacts considered in this study include the generation of e-waste and the potential for recovery of valuable metals and components.",
+      "resource_consumption": "The resource consumption considered in this study includes the energy and materials required for the production and inspection of PCBs.",
+      "emissions_data": "The emissions data considered in this study include the greenhouse gas emissions associated with the production and transportation of PCBs.",
+      "environmental_indicators": "The environmental indicators used to evaluate the methodology include the reduction in e-waste generation and the recovery of valuable metals and components.",
+      "impact_categories": "The impact categories considered in this study include climate change, resource depletion, and waste generation.",
+      "environmental_standards": "The environmental standards considered in this study include the EU's WEEE directive and the regulations supporting the right to repair."
+    },
+    "economic_aspects": {
+      "costs": "The costs considered in this study include the costs associated with the production, inspection, and remanufacturing of PCBs.",
+      "economic_indicators": "The economic indicators used to evaluate the methodology include the reduction in costs associated with more precise identification methods and the increase in profit per board.",
+      "market_analysis": "The market analysis considered in this study includes the demand for remanufactured PCBs and the potential for cost savings.",
+      "financial_implications": "The financial implications considered in this study include the potential for cost savings and the increase in profit per board.",
+      "investment_requirements": "The investment requirements considered in this study include the costs associated with the development and implementation of the proposed methodology.",
+      "operational_costs": "The operational costs considered in this study include the costs associated with the inspection and remanufacturing of PCBs.",
+      "revenue_streams": "The revenue streams considered in this study include the sale of remanufactured PCBs and the potential for cost savings.",
+      "economic_feasibility": "The economic feasibility of the proposed methodology is evaluated based on the reduction in costs associated with more precise identification methods and the increase in profit per board."
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": "The environmental impacts considered in this study include the generation of e-waste and the potential for recovery of valuable metals and components.",
+      "social_aspects": "The social aspects considered in this study include the potential for job creation and the improvement of working conditions.",
+      "circular_economy_elements": "The circular economy elements considered in this study include the design for recyclability and reusability of PCBs.",
+      "sustainability_metrics": "The sustainability metrics used to evaluate the methodology include the reduction in e-waste generation and the recovery of valuable metals and components.",
+      "sustainable_practices": "The sustainable practices considered in this study include the use of renewable energy sources and the reduction of waste generation.",
+      "sustainability_goals": "The sustainability goals considered in this study include the reduction of e-waste generation and the promotion of sustainable consumption and production patterns.",
+      "stakeholder_engagement": "The stakeholder engagement considered in this study includes the involvement of industry stakeholders and the consideration of their needs and expectations."
+    },
+    "additional_information": {
+      "tables": "The tables used in this study include Table 1, which summarizes the results of the inspection process.",
+      "figures": "The figures used in this study include Figure 1, which illustrates the conceptual framework of the proposed methodology, and Figure 2, which shows the process description.",
+      "equations": "The equations used in this study include the equation for the calculation of the current signature of each DUT.",
+      "case_studies": "The case studies considered in this study include the use of a Balluff IO-Link Master as a test case.",
+      "best_practices": "The best practices considered in this study include the use of data fusion and sequential measurement technology to optimize the inspection process."
+    },
+    "other_significant_information": {
+      "regulatory_compliance": "The regulatory compliance considered in this study includes the EU's WEEE directive and the regulations supporting the right to repair.",
+      "industry_standards": "The industry standards considered in this study include the standards for the inspection and remanufacturing of PCBs.",
+      "innovation_aspects": "The innovation aspects considered in this study include the development of a hybrid inspection approach that combines the strengths of various measurement technologies.",
+      "quality_assurance": "The quality assurance considered in this study includes the evaluation of the accuracy and precision of the inspection results.",
+      "implementation_details": "The implementation details considered in this study include the development of a knowledge database and the acquisition of product and market data.",
+      "safety_considerations": "The safety considerations considered in this study include the evaluation of the potential safety risks associated with the inspection process."
+    },
+    "similarity_score": 0.6985612511634827
+  },
+  {
+    "paper_metadata": {
+      "title": "Biodegradation of e-waste microplastics by Penicillium brevicompactum",
+      "doi": "10.1016/j.scitotenv.2024.173334",
+      "citation": "Diogo A. Ferreira-Filipe, Leila Oliveira, Ana Pa\u00e7o, Ant\u02d8onio J.S. Fernandes, Florinda M. Costa, Armando C. Duarte, Teresa Rocha-Santos, Ana L. Patr\u00edcio Silva, Science of the Total Environment 935 (2024) 173334",
+      "abstract": "This study assessed the biodegradation of microplastics from printed circuit boards (PCB) by the fungus Penicillium brevicompactum over 28 days, contributing to the discussion of mitigation strategies for decreasing the environmental impact of such plastics."
+    },
+    "research_information": {
+      "objectives": "The study aimed to assess the biodegradation of microplastics from printed circuit boards (PCB) by the fungus Penicillium brevicompactum and contribute to the discussion of mitigation strategies for decreasing the environmental impact of such plastics.",
+      "methodology": "The experiment was set to run in batch for 28 days, with a sampling period of every 7 days, in Erlenmeyer flasks of 100 mL containing 50 mL of liquid culture medium. PCB microplastics were exposed to Penicillium brevicompactum, and the PCB microplastics removal and characterization and biomass growth were assessed.",
+      "key_findings": "P. brevicompactum induced an increased PCB microplastics brittleness, an increased number of particles, and lower average particle size, resulting in microplastics mass reduction (up to 75%) within 28 days.",
+      "research_questions": "The study addressed the role of Penicillium brevicompactum in the biodegradation of e-waste plastic, specifically microplastics of 1 mm \u2013 2 mm in size obtained from a plastic component of a printed circuit board (PCB).",
+      "hypotheses": "The authors hypothesized that P. brevicompactum could biodegrade complex e-waste polymer blends, inducing changes to functional groups and boosting physical deterioration.",
+      "assumptions": "The study assumed that the biodegradation of microplastics by P. brevicompactum could be a potential solution for mitigating the environmental impact of e-waste plastics.",
+      "scope": "The study focused on the biodegradation of microplastics from printed circuit boards (PCB) by the fungus Penicillium brevicompactum, with implications for the development of sustainable e-waste management strategies."
+    },
+    "technical_parameters": {
+      "measurements": "The microplastic removal was calculated using the equation: PCB microplastics removal (%) = [PCB microplastics\u2019 initial weight (mg) - PCB microplastics\u2019 final weight (mg)] *100/ PCB microplastics\u2019 initial weight (mg).",
+      "specifications": "The PCB microplastics used in the study were 1-2 mm in size, and the fungus P. brevicompactum was grown in a liquid growth medium containing 20 g/L of glucose, 20 g/L of malt extract agar, 1 g/L of peptone, and 35 g/L of sea salts.",
+      "performance_metrics": "The performance metrics used to evaluate the biodegradation of microplastics included microplastic removal, biomass growth, and changes in functional groups.",
+      "experimental_conditions": "The experiment was conducted in Erlenmeyer flasks of 100 mL containing 50 mL of liquid culture medium, with a sampling period of every 7 days, and the flasks were incubated at 120 rpm at approximately 20\u00b0C.",
+      "materials": "The materials used in the study included PCB microplastics, P. brevicompactum, glucose, malt extract agar, peptone, and sea salts.",
+      "processes": "The processes used in the study included mechanical interrupted machining, sieving, and autoclaving.",
+      "equipment": "The equipment used in the study included Erlenmeyer flasks, an incubator, a microscope, and an ATR-FTIR spectrometer.",
+      "quality_parameters": "The quality parameters used to evaluate the biodegradation of microplastics included microplastic removal, biomass growth, and changes in functional groups."
+    },
+    "environmental_aspects": {
+      "life_cycle_phases": "The study focused on the biodegradation phase of the microplastics life cycle.",
+      "environmental_impacts": "The environmental impacts of microplastics include contamination of soil and groundwater, leading to ecological imbalances and potential health risks to humans.",
+      "resource_consumption": "The study used glucose, malt extract agar, peptone, and sea salts as resources.",
+      "environmental_indicators": "The environmental indicators used in the study included microplastic removal and biomass growth.",
+      "impact_categories": "The impact categories used in the study included biodegradation and physical deterioration.",
+      "mitigation_measures": "The study suggested that biodegradation of microplastics by P. brevicompactum could be a potential mitigation measure for reducing the environmental impact of e-waste plastics."
+    },
+    "economic_aspects": {
+      "economic_indicators": "The economic indicators used in the study included the potential for biodegradation of microplastics as a cost-effective solution for e-waste management.",
+      "economic_feasibility": "The study suggested that biodegradation of microplastics by P. brevicompactum could be a economically feasible solution for e-waste management."
+    },
+    "sustainability_considerations": {
+      "environmental_impacts": "The environmental impacts of microplastics include contamination of soil and groundwater, leading to ecological imbalances and potential health risks to humans.",
+      "circular_economy_elements": "The study suggested that biodegradation of microplastics by P. brevicompactum could be a potential solution for reducing waste and promoting a circular economy.",
+      "sustainability_metrics": "The sustainability metrics used in the study included microplastic removal and biomass growth.",
+      "sustainable_practices": "The study suggested that biodegradation of microplastics by P. brevicompactum could be a sustainable practice for e-waste management.",
+      "sustainability_goals": "The study aimed to contribute to the development of sustainable e-waste management strategies.",
+      "sustainability_challenges": "The study identified the need for further research to improve the incubation requirements to promote higher and more effective biodegradation of e-waste plastics."
+    },
+    "additional_information": {
+      "tables": "The study included several tables, including Table S2, Section II, Supplementary Material, and Tables S3-S6, Section III, Supplementary Data.",
+      "figures": "The study included several figures, including Fig. 1, Fig. 2, Fig. 3, Fig. 4, Fig. 5, and Fig. 6.",
+      "equations": "The study used the equation: PCB microplastics removal (%) = [PCB microplastics\u2019 initial weight (mg) - PCB microplastics\u2019 final weight (mg)] *100/ PCB microplastics\u2019 initial weight (mg).",
+      "important_notes": "The study noted that further research is required to improve the incubation requirements to promote higher and more effective biodegradation of e-waste plastics.",
+      "recommendations": "The study recommended that biodegradation of microplastics by P. brevicompactum could be a potential solution for reducing the environmental impact of e-waste plastics.",
+      "future_work": "The study suggested that further research is required to improve the incubation requirements to promote higher and more effective biodegradation of e-waste plastics.",
+      "best_practices": "The study suggested that biodegradation of microplastics by P. brevicompactum could be a best practice for e-waste management."
+    },
+    "other_significant_information": {
+      "innovation_aspects": "The study suggested that biodegradation of microplastics by P. brevicompactum could be an innovative solution for e-waste management.",
+      "quality_assurance": "The study reported that all used glassware was manually washed with detergent and water, thoroughly rinsed with distilled water, and finally submerged in 10% acid for at least 30 min.",
+      "implementation_details": "The study reported that the experiment was conducted in Erlenmeyer flasks of 100 mL containing 50 mL of liquid culture medium, with a sampling period of every 7 days, and the flasks were incubated at 120 rpm at approximately 20\u00b0C."
+    },
+    "similarity_score": 0.695841908454895
   }
 ]

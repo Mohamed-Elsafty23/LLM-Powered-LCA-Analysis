@@ -1,129 +1,92 @@
 {
   "ECU Housing": {
     "materials": {
-      "name": "PBT (Polybutylene Terephthalate)",
-      "composition": {
+      "material": "PBT (Polybutylene Terephthalate)",
+      "material_composition": {
         "PBT": "95%",
         "additives": "5%"
       }
     },
     "manufacturing_process": {
-      "process": "injection molding",
-      "parameters": {
-        "temperature_range": "240-260\u00b0C",
-        "cycle_time": "45 seconds",
-        "energy_consumption": "0.8 kWh/kg"
-      },
+      "process": "Injection molding",
+      "temperature_range": "240-260\u00b0C",
+      "cycle_time": "45 seconds",
+      "energy_consumption": "0.8 kWh/kg",
       "steps": [
-        "material preparation and drying",
-        "injection molding process",
-        "post-processing",
-        "quality control"
+        "Material preparation and drying",
+        "Injection molding process",
+        "Post-processing",
+        "Quality control"
       ]
     },
     "physical_specifications": {
       "weight": "37.45g"
     },
-    "operational_parameters": {
+    "environmental_aspects": {
+      "end_of_life": {
+        "recycling_potential": "70% plastic recovery",
+        "disposal_methods": "Incineration for plastics"
+      }
+    },
+    "contextual_information": {
+      "description": "Primary enclosure for the electronic assembly"
+    }
+  },
+  "Microcontroller": {
+    "Component Information": {
+      "Name": "Microcontroller",
+      "Start": 5,
+      "End": 7,
+      "Contextual Information": "Part of the ECU component, likely part of the PCBA component"
+    },
+    "Numerical Values and Units": {
+      "Start": 5,
+      "End": 7
+    }
+  },
+  "Power Supply": {
+    "Component Information": {
+      "Name": "Power Supply",
+      "Start": 9,
+      "End": 11,
+      "Contextual Information": "Part of the ECU component"
+    }
+  },
+  "ecu_overall": {
+    "operating_conditions": {
       "temperature_range": "-40\u00b0C to 85\u00b0C",
       "humidity_range": "5% to 95%",
       "vibration_range": "10-2000 Hz",
-      "IP_rating": "IP67",
+      "ip_rating": "IP67",
       "operating_altitude": "0-3000m"
     },
-    "performance": {
+    "energy_consumption": {
       "standby_power": "0.5W",
       "active_power": "15W",
       "efficiency": "72%",
       "lifetime": "15 years",
       "operating_hours": "5806h"
     },
-    "environmental_aspects": {
-      "distribution": {
-        "transportation_distance": "500km",
-        "transportation_method": "road transport",
-        "packaging": "cardboard and plastic",
-        "total_weight": "350g"
+    "distribution": {
+      "transportation_distance": "500km",
+      "transportation_method": "road transport",
+      "packaging": "cardboard and plastic",
+      "total_weight": "350g"
+    },
+    "end_of_life": {
+      "recycling_potential": {
+        "metal_recovery": "95%",
+        "plastic_recovery": "70%",
+        "pcb_recovery": "85%"
       },
-      "end_of_life": {
-        "recycling_potential": {
-          "metal": "95%",
-          "plastic": "70%",
-          "PCB": "85%"
-        },
-        "disposal_methods": [
-          "recycling for metals",
-          "incineration for plastics",
-          "specialized e-waste processing for PCBA"
-        ]
+      "disposal_methods": {
+        "metals": "recycling",
+        "plastics": "incineration",
+        "pcba": "specialized e-waste processing"
       }
     },
-    "related_sub_components": [
-      "Radiator",
-      "PCBA",
-      "EMC Shield"
-    ]
-  },
-  "Microcontroller": {
-    "component_name": "Microcontroller",
-    "contextual_information": "Part of the ECU component, likely part of the PCBA",
-    "numerical_values_and_units": {
-      "start": 5,
-      "end": 7
-    }
-  },
-  "Power Supply": {
-    "Name": "Power Supply",
-    "Numerical Values": {
-      "Start": 10,
-      "End": 12
-    },
-    "Contextual Information": "Part of the ECU component"
-  },
-  "ecu_overall": {
-    "Operating Conditions": {
-      "Temperature Range": "-40\u00b0C to 85\u00b0C",
-      "Humidity Range": "5% to 95%",
-      "Vibration Range": "10-2000 Hz",
-      "IP Rating": "IP67",
-      "Operating Altitude": "0-3000m"
-    },
-    "Energy Consumption": {
-      "Standby Power": "0.5W",
-      "Active Power": "15W",
-      "Efficiency": "72%",
-      "Lifetime": "15 years",
-      "Operating Hours": "5806h"
-    },
-    "Distribution": {
-      "Transportation Distance": "500km",
-      "Transportation Method": "road transport",
-      "Packaging Materials": [
-        "cardboard",
-        "plastic"
-      ],
-      "Total Weight": "350g"
-    },
-    "End-of-Life": {
-      "Recycling Potential": {
-        "Metal Recovery": "95%",
-        "Plastic Recovery": "70%",
-        "PCB Recovery": "85%"
-      },
-      "Disposal Methods": [
-        "recycling for metals",
-        "incineration for plastics",
-        "specialized e-waste processing for PCBA"
-      ]
-    },
-    "System Information": {
-      "Components": [
-        "Housing",
-        "Radiator",
-        "PCBA",
-        "EMC Shield"
-      ],
-      "Manufacturing Practices": "global manufacturing practices with consideration for regional variations"
+    "manufacturing": {
+      "global_practices": "consideration for regional variations in production methods and environmental regulations"
     }
   }
 }
