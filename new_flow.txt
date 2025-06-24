@@ -1,0 +1,7 @@
+get the input sample 
+make Hotspot LCA analysis for the input
+generate serach query for each hotspot
+for each query, download related papers from Arxiv API
+make processing for the downloaded papers to convert it from pdf to text files and remove the reference section
+generate sustainability report baed on the hotspot analysis and the downloaded papers for each hotspot
+make visualizations for the Hotspot analysis and sustainability report

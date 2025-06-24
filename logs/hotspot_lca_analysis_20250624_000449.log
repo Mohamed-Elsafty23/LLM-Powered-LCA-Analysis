@@ -1,0 +1,547 @@
+2025-06-24 00:04:55,189 - __main__ - INFO - New file uploaded with hash: fdd82d479489b4646c34c2d478bb0ea0
+2025-06-24 00:04:55,191 - __main__ - INFO - Output folder set to: output/ECU_sample
+2025-06-24 00:04:55,191 - __main__ - INFO - Processing uploaded file: ECU_sample.txt
+2025-06-24 00:04:55,191 - __main__ - INFO - Project name: ECU_sample
+2025-06-24 00:04:55,191 - __main__ - INFO - Output folder: output/ECU_sample
+2025-06-24 00:04:55,905 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-24 00:04:56,461 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-24 00:04:56,463 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-24 00:04:56,464 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-24 00:04:56,464 - __main__ - INFO - LCA workflow initialized successfully
+2025-06-24 00:04:56,464 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Sustainable Solutions, Visualization Generation
+2025-06-24 00:04:56,466 - __main__ - INFO - Starting complete LCA workflow for input file: temp/ECU_sample.txt
+2025-06-24 00:04:56,467 - __main__ - INFO - ============================================================
+2025-06-24 00:04:56,467 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-24 00:04:56,467 - __main__ - INFO - ============================================================
+2025-06-24 00:04:56,468 - lca_implementation - INFO - Using input file: temp/ECU_sample.txt
+2025-06-24 00:04:56,468 - lca_implementation - INFO - Using output folder: output/ECU_sample
+2025-06-24 00:04:56,470 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-24 00:04:56,470 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-24 00:05:53,522 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:05:53,522 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-24 00:05:53,522 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-24 00:06:09,244 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:06:09,244 - lca_implementation - INFO - Generated 4 improved search queries for hotspots
+2025-06-24 00:06:09,244 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/ECU_sample/hotspot_lca_analysis.json
+2025-06-24 00:06:09,244 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/ECU_sample/hotspot_lca_analysis.json
+2025-06-24 00:06:09,244 - __main__ - INFO - ============================================================
+2025-06-24 00:06:09,244 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-24 00:06:09,244 - __main__ - INFO - ============================================================
+2025-06-24 00:06:09,244 - __main__ - INFO - [SUCCESS] Extracted 4 search queries for hotspots:
+2025-06-24 00:06:09,244 - __main__ - INFO -   - PBT Injection Molding: injection molding PBT housing energy efficiency optimization cycle time reduction
+2025-06-24 00:06:09,244 - __main__ - INFO -   - Aluminium Die Casting: die casting aluminium radiator energy consumption reduction process optimization techniques
+2025-06-24 00:06:09,244 - __main__ - INFO -   - PCBA Production: THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains
+2025-06-24 00:06:09,244 - __main__ - INFO -   - Steel Punching and Bending: punching and bending steel EMC shield material substitution studies resource reduction percentages
+2025-06-24 00:06:09,244 - __main__ - INFO - ============================================================
+2025-06-24 00:06:09,260 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-24 00:06:09,260 - __main__ - INFO - ============================================================
+2025-06-24 00:06:09,260 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PBT Injection Molding
+2025-06-24 00:06:09,261 - arxiv_paper_downloader - INFO - Query: injection molding PBT housing energy efficiency optimization cycle time reduction
+2025-06-24 00:06:09,262 - arxiv_paper_downloader - INFO - Converting query: injection molding PBT housing energy efficiency optimization cycle time reduction
+2025-06-24 00:06:09,262 - arxiv_paper_downloader - INFO - Original query: injection molding PBT housing energy efficiency optimization cycle time reduction
+2025-06-24 00:06:09,263 - arxiv_paper_downloader - INFO - ArXiv API query: injection molding pbt housing energy efficiency optimization cycle time reduction
+2025-06-24 00:06:09,263 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10
+2025-06-24 00:06:09,680 - arxiv_paper_downloader - INFO - Downloading paper 1: DRL-Based Injection Molding Process Parameter Optimization for Adaptive
+  and Profitable Production
+2025-06-24 00:06:10,131 - arxiv_paper_downloader - INFO - Successfully downloaded: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Prof.pdf
+2025-06-24 00:06:11,147 - arxiv_paper_downloader - INFO - Downloading paper 2: Multi-Objective Population Based Training
+2025-06-24 00:06:12,066 - arxiv_paper_downloader - INFO - Successfully downloaded: Multi-Objective Population Based Training.pdf
+2025-06-24 00:06:13,081 - arxiv_paper_downloader - INFO - Downloading paper 3: Simultaneous Training of First- and Second-Order Optimizers in
+  Population-Based Reinforcement Learning
+2025-06-24 00:06:13,283 - arxiv_paper_downloader - INFO - Successfully downloaded: Simultaneous Training of First- and Second-Order Optimizers in Population-Based.pdf
+2025-06-24 00:06:14,285 - arxiv_paper_downloader - INFO - Downloading paper 4: Surrogate Modelling for Injection Molding Processes using Machine
+  Learning
+2025-06-24 00:06:15,076 - arxiv_paper_downloader - INFO - Successfully downloaded: Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf
+2025-06-24 00:06:16,081 - arxiv_paper_downloader - INFO - Downloading paper 5: Towards new methods for process adjustments based on parts quality
+  measurements
+2025-06-24 00:06:16,232 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards new methods for process adjustments based on parts quality measurements.pdf
+2025-06-24 00:06:17,238 - arxiv_paper_downloader - INFO - Downloading paper 6: Shrink-Perturb Improves Architecture Mixing during Population Based
+  Training for Neural Architecture Search
+2025-06-24 00:06:17,846 - arxiv_paper_downloader - INFO - Successfully downloaded: Shrink-Perturb Improves Architecture Mixing during Population Based Training for.pdf
+2025-06-24 00:06:18,855 - arxiv_paper_downloader - INFO - Downloading paper 7: Efficient quantum circuits for port-based teleportation
+2025-06-24 00:06:19,015 - arxiv_paper_downloader - INFO - Successfully downloaded: Efficient quantum circuits for port-based teleportation.pdf
+2025-06-24 00:06:20,027 - arxiv_paper_downloader - INFO - Downloading paper 8: Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models
+  with Chordae Tendinae Made From 3D-Printable Molds
+2025-06-24 00:06:20,441 - arxiv_paper_downloader - INFO - Successfully downloaded: Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models with Ch.pdf
+2025-06-24 00:06:21,442 - arxiv_paper_downloader - INFO - Downloading paper 9: Generalized Population-Based Training for Hyperparameter Optimization in
+  Reinforcement Learning
+2025-06-24 00:06:22,149 - arxiv_paper_downloader - INFO - Successfully downloaded: Generalized Population-Based Training for Hyperparameter Optimization in Reinfor.pdf
+2025-06-24 00:06:23,151 - arxiv_paper_downloader - INFO - Downloading paper 10: Efficient Algorithms for All Port-Based Teleportation Protocols
+2025-06-24 00:06:23,350 - arxiv_paper_downloader - INFO - Successfully downloaded: Efficient Algorithms for All Port-Based Teleportation Protocols.pdf
+2025-06-24 00:06:24,365 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'PBT Injection Molding'
+2025-06-24 00:06:26,372 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Aluminium Die Casting
+2025-06-24 00:06:26,372 - arxiv_paper_downloader - INFO - Query: die casting aluminium radiator energy consumption reduction process optimization techniques
+2025-06-24 00:06:26,372 - arxiv_paper_downloader - INFO - Converting query: die casting aluminium radiator energy consumption reduction process optimization techniques
+2025-06-24 00:06:26,372 - arxiv_paper_downloader - INFO - Original query: die casting aluminium radiator energy consumption reduction process optimization techniques
+2025-06-24 00:06:26,372 - arxiv_paper_downloader - INFO - ArXiv API query: die casting aluminium radiator energy consumption reduction process optimization techniques
+2025-06-24 00:06:26,372 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10
+2025-06-24 00:06:26,867 - arxiv_paper_downloader - INFO - Downloading paper 1: An Innovative Line Balancing for the Aluminium Melting Process
+2025-06-24 00:06:27,345 - arxiv_paper_downloader - INFO - Successfully downloaded: An Innovative Line Balancing for the Aluminium Melting Process.pdf
+2025-06-24 00:06:28,364 - arxiv_paper_downloader - INFO - Downloading paper 2: A process planning system with feature based neural network search
+  strategy for aluminum extrusion die manufacturing
+2025-06-24 00:06:28,666 - arxiv_paper_downloader - INFO - Successfully downloaded: A process planning system with feature based neural network search strategy for.pdf
+2025-06-24 00:06:29,680 - arxiv_paper_downloader - INFO - Downloading paper 3: A Novel Approach for Establishing Connectivity in Partitioned Mobile
+  Sensor Networks Using Beamforming Techniques
+2025-06-24 00:06:29,893 - arxiv_paper_downloader - INFO - Successfully downloaded: A Novel Approach for Establishing Connectivity in Partitioned Mobile Sensor Netw.pdf
+2025-06-24 00:06:30,909 - arxiv_paper_downloader - INFO - Downloading paper 4: Power Reduction in FM Networks by Mixed-Integer Programming. A Case
+  Study
+2025-06-24 00:06:31,158 - arxiv_paper_downloader - INFO - Successfully downloaded: Power Reduction in FM Networks by Mixed-Integer Programming. A Case Study.pdf
+2025-06-24 00:06:32,166 - arxiv_paper_downloader - INFO - Downloading paper 5: Information-Theoretic Study of Time-Domain Energy-Saving Techniques in
+  Radio Access
+2025-06-24 00:06:32,713 - arxiv_paper_downloader - INFO - Successfully downloaded: Information-Theoretic Study of Time-Domain Energy-Saving Techniques in Radio Acc.pdf
+2025-06-24 00:06:33,714 - arxiv_paper_downloader - INFO - Downloading paper 6: Power-Constrained Trajectory Optimization for Wireless UAV Relays with
+  Random Requests
+2025-06-24 00:06:33,847 - arxiv_paper_downloader - INFO - Successfully downloaded: Power-Constrained Trajectory Optimization for Wireless UAV Relays with Random Re.pdf
+2025-06-24 00:06:34,856 - arxiv_paper_downloader - INFO - Downloading paper 7: Direct Reuse of Aluminium and Copper Current Collectors from Spent
+  Lithium-ion Batteries
+2025-06-24 00:06:35,401 - arxiv_paper_downloader - INFO - Successfully downloaded: Direct Reuse of Aluminium and Copper Current Collectors from Spent Lithium-ion B.pdf
+2025-06-24 00:06:36,402 - arxiv_paper_downloader - INFO - Downloading paper 8: MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die
+  Castings
+2025-06-24 00:06:37,094 - arxiv_paper_downloader - INFO - Successfully downloaded: MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf
+2025-06-24 00:06:38,098 - arxiv_paper_downloader - INFO - Downloading paper 9: Optimization of Solidification in Die Casting using Numerical
+  Simulations and Machine Learning
+2025-06-24 00:06:38,827 - arxiv_paper_downloader - INFO - Successfully downloaded: Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf
+2025-06-24 00:06:39,833 - arxiv_paper_downloader - INFO - Downloading paper 10: Optimizing IoT Energy Efficiency on Edge (EEE): a Cross-layer Design in
+  a Cognitive Mesh Network
+2025-06-24 00:06:40,462 - arxiv_paper_downloader - INFO - Successfully downloaded: Optimizing IoT Energy Efficiency on Edge (EEE)_ a Cross-layer Design in a Cognit.pdf
+2025-06-24 00:06:41,475 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Aluminium Die Casting'
+2025-06-24 00:06:43,498 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-24 00:06:43,498 - arxiv_paper_downloader - INFO - Query: THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains
+2025-06-24 00:06:43,498 - arxiv_paper_downloader - INFO - Converting query: THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains
+2025-06-24 00:06:43,498 - arxiv_paper_downloader - INFO - Original query: THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains
+2025-06-24 00:06:43,498 - arxiv_paper_downloader - INFO - ArXiv API query: tht smd soldering pcba production energy efficiency improvement quantitative efficiency gains
+2025-06-24 00:06:43,498 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10
+2025-06-24 00:06:43,919 - arxiv_paper_downloader - INFO - Downloading paper 1: Separation of gamma/pi^0 showers at high energies
+2025-06-24 00:06:45,074 - arxiv_paper_downloader - INFO - Downloading paper 2: Polymerase/nicking enzyme powered dual-template multi-cycled G-triplex
+  machine for HIV-1 determination
+2025-06-24 00:06:45,357 - arxiv_paper_downloader - INFO - Successfully downloaded: Polymerase_nicking enzyme powered dual-template multi-cycled G-triplex machine f.pdf
+2025-06-24 00:06:46,358 - arxiv_paper_downloader - INFO - Downloading paper 3: YOLO algorithm with hybrid attention feature pyramid network for solder
+  joint defect detection
+2025-06-24 00:06:46,825 - arxiv_paper_downloader - INFO - Successfully downloaded: YOLO algorithm with hybrid attention feature pyramid network for solder joint de.pdf
+2025-06-24 00:06:47,833 - arxiv_paper_downloader - INFO - Downloading paper 4: SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in
+  Electronics Manufacturing Using Explainable Artificial Intelligence
+2025-06-24 00:06:49,307 - arxiv_paper_downloader - INFO - Successfully downloaded: SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf
+2025-06-24 00:06:50,308 - arxiv_paper_downloader - INFO - Downloading paper 5: Optimization simulation of reflow welding based on prediction of
+  regional center temperature field
+2025-06-24 00:06:50,542 - arxiv_paper_downloader - INFO - Successfully downloaded: Optimization simulation of reflow welding based on prediction of regional center.pdf
+2025-06-24 00:06:51,552 - arxiv_paper_downloader - INFO - Downloading paper 6: DVQI: A Multi-task, Hardware-integrated Artificial Intelligence System
+  for Automated Visual Inspection in Electronics Manufacturing
+2025-06-24 00:06:52,708 - arxiv_paper_downloader - INFO - Successfully downloaded: DVQI_ A Multi-task_ Hardware-integrated Artificial Intelligence System for Autom.pdf
+2025-06-24 00:06:53,717 - arxiv_paper_downloader - INFO - Downloading paper 7: Miniaturized liquid metal composite circuits with energy harvesting
+  coils for battery-free bioelectronics and optogenetics
+2025-06-24 00:06:54,510 - arxiv_paper_downloader - INFO - Successfully downloaded: Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf
+2025-06-24 00:06:55,513 - arxiv_paper_downloader - INFO - Downloading paper 8: A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on
+  Laplace Transforms and Flexible Krylov Solvers
+2025-06-24 00:06:56,724 - arxiv_paper_downloader - INFO - Successfully downloaded: A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on Laplace Trans.pdf
+2025-06-24 00:06:57,729 - arxiv_paper_downloader - INFO - Downloading paper 9: Convolutional Recurrent Reconstructive Network for Spatiotemporal
+  Anomaly Detection in Solder Paste Inspection
+2025-06-24 00:06:59,238 - arxiv_paper_downloader - INFO - Successfully downloaded: Convolutional Recurrent Reconstructive Network for Spatiotemporal Anomaly Detect.pdf
+2025-06-24 00:07:00,241 - arxiv_paper_downloader - INFO - Downloading paper 10: Grounding Stylistic Domain Generalization with Quantitative Domain Shift
+  Measures and Synthetic Scene Images
+2025-06-24 00:07:00,816 - arxiv_paper_downloader - INFO - Successfully downloaded: Grounding Stylistic Domain Generalization with Quantitative Domain Shift Measure.pdf
+2025-06-24 00:07:01,830 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'PCBA Production'
+2025-06-24 00:07:03,837 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Steel Punching and Bending
+2025-06-24 00:07:03,837 - arxiv_paper_downloader - INFO - Query: punching and bending steel EMC shield material substitution studies resource reduction percentages
+2025-06-24 00:07:03,837 - arxiv_paper_downloader - INFO - Converting query: punching and bending steel EMC shield material substitution studies resource reduction percentages
+2025-06-24 00:07:03,837 - arxiv_paper_downloader - INFO - Original query: punching and bending steel EMC shield material substitution studies resource reduction percentages
+2025-06-24 00:07:03,837 - arxiv_paper_downloader - INFO - ArXiv API query: punching bending steel emc shield material substitution studies resource reduction percentages
+2025-06-24 00:07:03,837 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10
+2025-06-24 00:07:04,232 - arxiv_paper_downloader - INFO - Downloading paper 1: Drawing of the wire of low-carbon steel: plasticity resource, optimal
+  reduction, structure, properties
+2025-06-24 00:07:04,476 - arxiv_paper_downloader - INFO - Successfully downloaded: Drawing of the wire of low-carbon steel_ plasticity resource_ optimal reduction.pdf
+2025-06-24 00:07:05,477 - arxiv_paper_downloader - INFO - Downloading paper 2: Evidence of strong electron correlation effects and magnetic topological
+  excitation in low carbon steel
+2025-06-24 00:07:06,489 - arxiv_paper_downloader - INFO - Successfully downloaded: Evidence of strong electron correlation effects and magnetic topological excitat.pdf
+2025-06-24 00:07:07,502 - arxiv_paper_downloader - INFO - Downloading paper 3: Bayesian Model Selection for Network Discrimination and Risk-informed
+  Decision Making in Material Flow Analysis
+2025-06-24 00:07:17,495 - arxiv_paper_downloader - INFO - Successfully downloaded: Bayesian Model Selection for Network Discrimination and Risk-informed Decision M.pdf
+2025-06-24 00:07:18,506 - arxiv_paper_downloader - INFO - Downloading paper 4: Highly flexible electromagnetic interference shielding films based on
+  ultrathin Ni/Ag composites on paper substrates
+2025-06-24 00:07:19,125 - arxiv_paper_downloader - INFO - Successfully downloaded: Highly flexible electromagnetic interference shielding films based on ultrathin.pdf
+2025-06-24 00:07:20,140 - arxiv_paper_downloader - INFO - Downloading paper 5: Air plasma key parameters for electromagnetic wave propagation at and
+  out of thermal equilibrium: applications to electromagnetic compatibility
+2025-06-24 00:07:20,312 - arxiv_paper_downloader - INFO - Successfully downloaded: Air plasma key parameters for electromagnetic wave propagation at and out of the.pdf
+2025-06-24 00:07:21,324 - arxiv_paper_downloader - INFO - Downloading paper 6: Simulation of conventional cold-formed steel sections formed from
+  Advanced High Strength Steel (AHSS)
+2025-06-24 00:07:21,728 - arxiv_paper_downloader - INFO - Successfully downloaded: Simulation of conventional cold-formed steel sections formed from Advanced High.pdf
+2025-06-24 00:07:22,745 - arxiv_paper_downloader - INFO - Downloading paper 7: Intelligent data collection for network discrimination in material flow
+  analysis using Bayesian optimal experimental design
+2025-06-24 00:07:27,983 - arxiv_paper_downloader - INFO - Successfully downloaded: Intelligent data collection for network discrimination in material flow analysis.pdf
+2025-06-24 00:07:28,985 - arxiv_paper_downloader - INFO - Downloading paper 8: Radiation Shielding Properties of $Nd_{0.6}Sr_{0.4}Mn_{1-y}Ni_{y}O_{3}$
+  Substitute with Different Concentrations of Nickle
+2025-06-24 00:07:30,496 - arxiv_paper_downloader - INFO - Successfully downloaded: Radiation Shielding Properties of _Nd_0.6_Sr_0.4_Mn_1-y_Ni_y_O_3_ Substitute wit.pdf
+2025-06-24 00:07:31,499 - arxiv_paper_downloader - INFO - Downloading paper 9: Neutron Activation Background in the NvDEx Experiment
+2025-06-24 00:07:32,233 - arxiv_paper_downloader - INFO - Successfully downloaded: Neutron Activation Background in the NvDEx Experiment.pdf
+2025-06-24 00:07:33,235 - arxiv_paper_downloader - INFO - Downloading paper 10: Anisotropic behaviour law for sheets used in stamping: A comparative
+  study of steel and aluminium
+2025-06-24 00:07:33,315 - arxiv_paper_downloader - INFO - Successfully downloaded: Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf
+2025-06-24 00:07:34,320 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Steel Punching and Bending'
+2025-06-24 00:07:36,330 - arxiv_paper_downloader - INFO - Downloaded 40 papers total for 4 hotspots
+2025-06-24 00:07:36,330 - __main__ - INFO - [SUCCESS] Downloaded 40 papers for 4 hotspots
+2025-06-24 00:07:36,330 - __main__ - INFO - ============================================================
+2025-06-24 00:07:36,330 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-24 00:07:36,330 - __main__ - INFO - ============================================================
+2025-06-24 00:07:36,335 - pdf_processor - INFO - Processing papers in: output\ECU_sample\downloaded_papers
+2025-06-24 00:07:36,359 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-24 00:07:36,365 - pdf_processor - INFO - Processing hotspot directory: Aluminium_Die_Casting
+2025-06-24 00:07:36,367 - pdf_processor - INFO - Found 10 PDF files in Aluminium_Die_Casting
+2025-06-24 00:07:36,367 - pdf_processor - INFO - Processing: A Novel Approach for Establishing Connectivity in Partitioned Mobile Sensor Netw.pdf
+2025-06-24 00:07:37,864 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:37,864 - pdf_processor - INFO - Text reduced from 52696 to 44180 characters
+2025-06-24 00:07:37,864 - pdf_processor - INFO - Successfully processed: A Novel Approach for Establishing Connectivity in Partitioned Mobile Sensor Netw.pdf
+2025-06-24 00:07:37,864 - pdf_processor - INFO - Processing: A process planning system with feature based neural network search strategy for.pdf
+2025-06-24 00:07:38,529 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:07:38,529 - pdf_processor - INFO - Successfully processed: A process planning system with feature based neural network search strategy for.pdf
+2025-06-24 00:07:38,529 - pdf_processor - INFO - Processing: An Innovative Line Balancing for the Aluminium Melting Process.pdf
+2025-06-24 00:07:39,275 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:07:39,275 - pdf_processor - INFO - Text reduced from 40200 to 36984 characters
+2025-06-24 00:07:39,275 - pdf_processor - INFO - Successfully processed: An Innovative Line Balancing for the Aluminium Melting Process.pdf
+2025-06-24 00:07:39,275 - pdf_processor - INFO - Processing: Direct Reuse of Aluminium and Copper Current Collectors from Spent Lithium-ion B.pdf
+2025-06-24 00:07:40,311 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:07:40,311 - pdf_processor - INFO - Successfully processed: Direct Reuse of Aluminium and Copper Current Collectors from Spent Lithium-ion B.pdf
+2025-06-24 00:07:40,311 - pdf_processor - INFO - Processing: Information-Theoretic Study of Time-Domain Energy-Saving Techniques in Radio Acc.pdf
+2025-06-24 00:07:41,605 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:07:41,605 - pdf_processor - INFO - Text reduced from 61093 to 53789 characters
+2025-06-24 00:07:41,605 - pdf_processor - INFO - Successfully processed: Information-Theoretic Study of Time-Domain Energy-Saving Techniques in Radio Acc.pdf
+2025-06-24 00:07:41,605 - pdf_processor - INFO - Processing: MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf
+2025-06-24 00:07:41,988 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:41,988 - pdf_processor - INFO - Text reduced from 54632 to 41975 characters
+2025-06-24 00:07:41,988 - pdf_processor - INFO - Successfully processed: MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf
+2025-06-24 00:07:41,988 - pdf_processor - INFO - Processing: Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf
+2025-06-24 00:07:42,271 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:42,273 - pdf_processor - INFO - Text reduced from 53380 to 44963 characters
+2025-06-24 00:07:42,273 - pdf_processor - INFO - Successfully processed: Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf
+2025-06-24 00:07:42,273 - pdf_processor - INFO - Processing: Optimizing IoT Energy Efficiency on Edge (EEE)_ a Cross-layer Design in a Cognit.pdf
+2025-06-24 00:07:43,731 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:07:43,731 - pdf_processor - INFO - Text reduced from 78643 to 65073 characters
+2025-06-24 00:07:43,731 - pdf_processor - INFO - Successfully processed: Optimizing IoT Energy Efficiency on Edge (EEE)_ a Cross-layer Design in a Cognit.pdf
+2025-06-24 00:07:43,731 - pdf_processor - INFO - Processing: Power Reduction in FM Networks by Mixed-Integer Programming. A Case Study.pdf
+2025-06-24 00:07:43,980 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:07:43,980 - pdf_processor - INFO - Text reduced from 35316 to 33732 characters
+2025-06-24 00:07:43,980 - pdf_processor - INFO - Successfully processed: Power Reduction in FM Networks by Mixed-Integer Programming. A Case Study.pdf
+2025-06-24 00:07:43,980 - pdf_processor - INFO - Processing: Power-Constrained Trajectory Optimization for Wireless UAV Relays with Random Re.pdf
+2025-06-24 00:07:44,542 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:07:44,542 - pdf_processor - INFO - Text reduced from 33184 to 30640 characters
+2025-06-24 00:07:44,542 - pdf_processor - INFO - Successfully processed: Power-Constrained Trajectory Optimization for Wireless UAV Relays with Random Re.pdf
+2025-06-24 00:07:44,542 - pdf_processor - INFO - Processing hotspot directory: PBT_Injection_Molding
+2025-06-24 00:07:44,542 - pdf_processor - INFO - Found 10 PDF files in PBT_Injection_Molding
+2025-06-24 00:07:44,542 - pdf_processor - INFO - Processing: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Prof.pdf
+2025-06-24 00:07:46,724 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:07:46,724 - pdf_processor - INFO - Successfully processed: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Prof.pdf
+2025-06-24 00:07:46,724 - pdf_processor - INFO - Processing: Efficient Algorithms for All Port-Based Teleportation Protocols.pdf
+2025-06-24 00:07:47,870 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:07:47,870 - pdf_processor - INFO - Successfully processed: Efficient Algorithms for All Port-Based Teleportation Protocols.pdf
+2025-06-24 00:07:47,870 - pdf_processor - INFO - Processing: Efficient quantum circuits for port-based teleportation.pdf
+2025-06-24 00:07:49,691 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:49,691 - pdf_processor - INFO - Text reduced from 95265 to 2208 characters
+2025-06-24 00:07:49,691 - pdf_processor - INFO - Successfully processed: Efficient quantum circuits for port-based teleportation.pdf
+2025-06-24 00:07:49,691 - pdf_processor - INFO - Processing: Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models with Ch.pdf
+2025-06-24 00:07:49,879 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:49,879 - pdf_processor - INFO - Text reduced from 38027 to 33339 characters
+2025-06-24 00:07:49,879 - pdf_processor - INFO - Successfully processed: Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models with Ch.pdf
+2025-06-24 00:07:49,879 - pdf_processor - INFO - Processing: Generalized Population-Based Training for Hyperparameter Optimization in Reinfor.pdf
+2025-06-24 00:07:52,962 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:07:52,962 - pdf_processor - INFO - Text reduced from 67202 to 56585 characters
+2025-06-24 00:07:52,962 - pdf_processor - INFO - Successfully processed: Generalized Population-Based Training for Hyperparameter Optimization in Reinfor.pdf
+2025-06-24 00:07:52,962 - pdf_processor - INFO - Processing: Multi-Objective Population Based Training.pdf
+2025-06-24 00:07:57,236 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:57,236 - pdf_processor - INFO - Text reduced from 71611 to 39798 characters
+2025-06-24 00:07:57,236 - pdf_processor - INFO - Successfully processed: Multi-Objective Population Based Training.pdf
+2025-06-24 00:07:57,236 - pdf_processor - INFO - Processing: Shrink-Perturb Improves Architecture Mixing during Population Based Training for.pdf
+2025-06-24 00:07:57,845 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-24 00:07:57,845 - pdf_processor - INFO - Text reduced from 60442 to 41284 characters
+2025-06-24 00:07:57,845 - pdf_processor - INFO - Successfully processed: Shrink-Perturb Improves Architecture Mixing during Population Based Training for.pdf
+2025-06-24 00:07:57,845 - pdf_processor - INFO - Processing: Simultaneous Training of First- and Second-Order Optimizers in Population-Based.pdf
+2025-06-24 00:07:58,441 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:58,441 - pdf_processor - INFO - Text reduced from 33574 to 28108 characters
+2025-06-24 00:07:58,441 - pdf_processor - INFO - Successfully processed: Simultaneous Training of First- and Second-Order Optimizers in Population-Based.pdf
+2025-06-24 00:07:58,441 - pdf_processor - INFO - Processing: Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf
+2025-06-24 00:07:58,660 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:07:58,660 - pdf_processor - INFO - Text reduced from 35350 to 30337 characters
+2025-06-24 00:07:58,660 - pdf_processor - INFO - Successfully processed: Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf
+2025-06-24 00:07:58,660 - pdf_processor - INFO - Processing: Towards new methods for process adjustments based on parts quality measurements.pdf
+2025-06-24 00:07:58,990 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:07:58,990 - pdf_processor - INFO - Successfully processed: Towards new methods for process adjustments based on parts quality measurements.pdf
+2025-06-24 00:07:58,990 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-24 00:07:58,990 - pdf_processor - INFO - Found 10 PDF files in PCBA_Production
+2025-06-24 00:07:58,990 - pdf_processor - INFO - Processing: A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on Laplace Trans.pdf
+2025-06-24 00:07:59,411 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-24 00:07:59,418 - pdf_processor - INFO - Text reduced from 56283 to 50648 characters
+2025-06-24 00:07:59,419 - pdf_processor - INFO - Successfully processed: A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on Laplace Trans.pdf
+2025-06-24 00:07:59,419 - pdf_processor - INFO - Processing: Convolutional Recurrent Reconstructive Network for Spatiotemporal Anomaly Detect.pdf
+2025-06-24 00:08:00,212 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:08:00,212 - pdf_processor - INFO - Text reduced from 47404 to 40739 characters
+2025-06-24 00:08:00,228 - pdf_processor - INFO - Successfully processed: Convolutional Recurrent Reconstructive Network for Spatiotemporal Anomaly Detect.pdf
+2025-06-24 00:08:00,228 - pdf_processor - INFO - Processing: DVQI_ A Multi-task_ Hardware-integrated Artificial Intelligence System for Autom.pdf
+2025-06-24 00:08:00,349 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-24 00:08:00,349 - pdf_processor - INFO - Text reduced from 28011 to 25156 characters
+2025-06-24 00:08:00,349 - pdf_processor - INFO - Successfully processed: DVQI_ A Multi-task_ Hardware-integrated Artificial Intelligence System for Autom.pdf
+2025-06-24 00:08:00,349 - pdf_processor - INFO - Processing: Grounding Stylistic Domain Generalization with Quantitative Domain Shift Measure.pdf
+2025-06-24 00:08:00,800 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-24 00:08:00,800 - pdf_processor - INFO - Text reduced from 49468 to 33807 characters
+2025-06-24 00:08:00,800 - pdf_processor - INFO - Successfully processed: Grounding Stylistic Domain Generalization with Quantitative Domain Shift Measure.pdf
+2025-06-24 00:08:00,800 - pdf_processor - INFO - Processing: Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf
+2025-06-24 00:08:06,402 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:06,402 - pdf_processor - INFO - Text reduced from 59010 to 46350 characters
+2025-06-24 00:08:06,402 - pdf_processor - INFO - Successfully processed: Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf
+2025-06-24 00:08:06,402 - pdf_processor - INFO - Processing: Optimization simulation of reflow welding based on prediction of regional center.pdf
+2025-06-24 00:08:06,730 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:08:06,731 - pdf_processor - INFO - Successfully processed: Optimization simulation of reflow welding based on prediction of regional center.pdf
+2025-06-24 00:08:06,731 - pdf_processor - INFO - Processing: Polymerase_nicking enzyme powered dual-template multi-cycled G-triplex machine f.pdf
+2025-06-24 00:08:07,781 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:07,781 - pdf_processor - INFO - Text reduced from 33333 to 21037 characters
+2025-06-24 00:08:07,781 - pdf_processor - INFO - Successfully processed: Polymerase_nicking enzyme powered dual-template multi-cycled G-triplex machine f.pdf
+2025-06-24 00:08:08,895 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:08,895 - pdf_processor - INFO - Text reduced from 25928 to 24789 characters
+2025-06-24 00:08:08,895 - pdf_processor - INFO - Processing: SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf
+2025-06-24 00:08:09,031 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:09,031 - pdf_processor - INFO - Text reduced from 32956 to 27651 characters
+2025-06-24 00:08:09,031 - pdf_processor - INFO - Successfully processed: SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf
+2025-06-24 00:08:09,031 - pdf_processor - INFO - Processing: YOLO algorithm with hybrid attention feature pyramid network for solder joint de.pdf
+2025-06-24 00:08:09,308 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:09,308 - pdf_processor - INFO - Text reduced from 45740 to 37635 characters
+2025-06-24 00:08:09,308 - pdf_processor - INFO - Successfully processed: YOLO algorithm with hybrid attention feature pyramid network for solder joint de.pdf
+2025-06-24 00:08:09,308 - pdf_processor - INFO - Processing hotspot directory: Steel_Punching_and_Bending
+2025-06-24 00:08:09,313 - pdf_processor - INFO - Found 10 PDF files in Steel_Punching_and_Bending
+2025-06-24 00:08:09,313 - pdf_processor - INFO - Processing: Air plasma key parameters for electromagnetic wave propagation at and out of the.pdf
+2025-06-24 00:08:12,848 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-24 00:08:12,848 - pdf_processor - INFO - Text reduced from 25523 to 23790 characters
+2025-06-24 00:08:12,848 - pdf_processor - INFO - Successfully processed: Air plasma key parameters for electromagnetic wave propagation at and out of the.pdf
+2025-06-24 00:08:12,848 - pdf_processor - INFO - Processing: Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf
+2025-06-24 00:08:12,939 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:12,940 - pdf_processor - INFO - Text reduced from 21560 to 20054 characters
+2025-06-24 00:08:12,940 - pdf_processor - INFO - Successfully processed: Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf
+2025-06-24 00:08:12,941 - pdf_processor - INFO - Processing: Bayesian Model Selection for Network Discrimination and Risk-informed Decision M.pdf
+2025-06-24 00:08:13,558 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:13,562 - pdf_processor - INFO - Text reduced from 88597 to 75001 characters
+2025-06-24 00:08:13,563 - pdf_processor - INFO - Successfully processed: Bayesian Model Selection for Network Discrimination and Risk-informed Decision M.pdf
+2025-06-24 00:08:13,563 - pdf_processor - INFO - Processing: Drawing of the wire of low-carbon steel_ plasticity resource_ optimal reduction.pdf
+2025-06-24 00:08:13,978 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:08:13,978 - pdf_processor - INFO - Successfully processed: Drawing of the wire of low-carbon steel_ plasticity resource_ optimal reduction.pdf
+2025-06-24 00:08:13,978 - pdf_processor - INFO - Processing: Evidence of strong electron correlation effects and magnetic topological excitat.pdf
+2025-06-24 00:08:17,371 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:17,371 - pdf_processor - INFO - Text reduced from 81921 to 32342 characters
+2025-06-24 00:08:17,371 - pdf_processor - INFO - Successfully processed: Evidence of strong electron correlation effects and magnetic topological excitat.pdf
+2025-06-24 00:08:17,371 - pdf_processor - INFO - Processing: Highly flexible electromagnetic interference shielding films based on ultrathin.pdf
+2025-06-24 00:08:17,737 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:08:17,737 - pdf_processor - INFO - Successfully processed: Highly flexible electromagnetic interference shielding films based on ultrathin.pdf
+2025-06-24 00:08:17,737 - pdf_processor - INFO - Processing: Intelligent data collection for network discrimination in material flow analysis.pdf
+2025-06-24 00:08:18,247 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:18,247 - pdf_processor - INFO - Text reduced from 70051 to 60181 characters
+2025-06-24 00:08:18,247 - pdf_processor - INFO - Successfully processed: Intelligent data collection for network discrimination in material flow analysis.pdf
+2025-06-24 00:08:18,247 - pdf_processor - INFO - Processing: Neutron Activation Background in the NvDEx Experiment.pdf
+2025-06-24 00:08:18,495 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:18,495 - pdf_processor - INFO - Text reduced from 25008 to 21757 characters
+2025-06-24 00:08:18,495 - pdf_processor - INFO - Successfully processed: Neutron Activation Background in the NvDEx Experiment.pdf
+2025-06-24 00:08:18,495 - pdf_processor - INFO - Processing: Radiation Shielding Properties of _Nd_0.6_Sr_0.4_Mn_1-y_Ni_y_O_3_ Substitute wit.pdf
+2025-06-24 00:08:19,529 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-24 00:08:19,529 - pdf_processor - INFO - Text reduced from 40645 to 27024 characters
+2025-06-24 00:08:19,529 - pdf_processor - INFO - Successfully processed: Radiation Shielding Properties of _Nd_0.6_Sr_0.4_Mn_1-y_Ni_y_O_3_ Substitute wit.pdf
+2025-06-24 00:08:19,529 - pdf_processor - INFO - Processing: Simulation of conventional cold-formed steel sections formed from Advanced High.pdf
+2025-06-24 00:08:20,704 - pdf_processor - INFO - No references section found to remove
+2025-06-24 00:08:20,704 - pdf_processor - INFO - Successfully processed: Simulation of conventional cold-formed steel sections formed from Advanced High.pdf
+2025-06-24 00:08:20,708 - pdf_processor - INFO - Successfully processed 40 papers total
+2025-06-24 00:08:20,726 - pdf_processor - INFO - Processed papers saved to: output\ECU_sample\processed_papers.json
+2025-06-24 00:08:20,727 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\ECU_sample\processed_papers.json
+2025-06-24 00:08:20,727 - __main__ - INFO - ============================================================
+2025-06-24 00:08:20,728 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-24 00:08:20,728 - __main__ - INFO - ============================================================
+2025-06-24 00:08:20,729 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/ECU_sample/hotspot_lca_analysis.json
+2025-06-24 00:08:20,729 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\ECU_sample/sustainable_solutions_report.txt
+2025-06-24 00:08:20,757 - sustainable_solutions_generator - INFO - Analyzing 40 processed papers for hotspot solutions
+2025-06-24 00:08:20,757 - sustainable_solutions_generator - INFO - Analyzing 10 papers for hotspot: Aluminium_Die_Casting
+2025-06-24 00:08:54,963 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:08:54,963 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': A process planning system with feature based neural network search
+  strategy for aluminum extrusion die manufacturing
+2025-06-24 00:08:58,569 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:08:58,588 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': A Novel Approach for Establishing Connectivity in Partitioned Mobile
+  Sensor Networks Using Beamforming Techniques
+2025-06-24 00:09:22,591 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:09:22,607 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': An Innovative Line Balancing for the Aluminium Melting Process
+2025-06-24 00:09:56,350 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:09:56,353 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': Information-Theoretic Study of Time-Domain Energy-Saving Techniques in
+  Radio Access
+2025-06-24 00:10:15,985 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:10:15,985 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': Direct Reuse of Aluminium and Copper Current Collectors from Spent
+  Lithium-ion Batteries
+2025-06-24 00:10:47,073 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:10:47,075 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': Optimization of Solidification in Die Casting using Numerical
+  Simulations and Machine Learning
+2025-06-24 00:10:56,724 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:10:56,724 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die
+  Castings
+2025-06-24 00:10:59,544 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:10:59,544 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': Power Reduction in FM Networks by Mixed-Integer Programming. A Case
+  Study
+2025-06-24 00:11:10,855 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:11:10,855 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': Optimizing IoT Energy Efficiency on Edge (EEE): a Cross-layer Design in
+  a Cognitive Mesh Network
+2025-06-24 00:11:20,763 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:11:20,763 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': Power-Constrained Trajectory Optimization for Wireless UAV Relays with
+  Random Requests
+2025-06-24 00:11:20,763 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Aluminium_Die_Casting': 10 results
+2025-06-24 00:11:20,763 - sustainable_solutions_generator - INFO - Analyzing 10 papers for hotspot: PBT_Injection_Molding
+2025-06-24 00:11:50,341 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 500 Internal Server Error"
+2025-06-24 00:11:50,341 - openai._base_client - INFO - Retrying request to /chat/completions in 0.403579 seconds
+2025-06-24 00:12:11,109 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:12:11,125 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Efficient Algorithms for All Port-Based Teleportation Protocols
+2025-06-24 00:12:12,711 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:12:12,727 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Efficient quantum circuits for port-based teleportation
+2025-06-24 00:12:55,521 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:12:55,521 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': DRL-Based Injection Molding Process Parameter Optimization for Adaptive
+  and Profitable Production
+2025-06-24 00:13:12,320 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:13:12,326 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models
+  with Chordae Tendinae Made From 3D-Printable Molds
+2025-06-24 00:13:15,196 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:13:15,197 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Multi-Objective Population Based Training
+2025-06-24 00:13:18,092 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:13:18,092 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Shrink-Perturb Improves Architecture Mixing during Population Based
+  Training for Neural Architecture Search
+2025-06-24 00:13:30,060 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:13:30,060 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Generalized Population-Based Training for Hyperparameter Optimization in
+  Reinforcement Learning
+2025-06-24 00:13:56,772 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:13:56,787 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Simultaneous Training of First- and Second-Order Optimizers in
+  Population-Based Reinforcement Learning
+2025-06-24 00:14:25,148 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:14:25,148 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Surrogate Modelling for Injection Molding Processes using Machine
+  Learning
+2025-06-24 00:14:33,095 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:14:33,095 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Towards new methods for process adjustments based on parts quality
+  measurements
+2025-06-24 00:14:33,095 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PBT_Injection_Molding': 10 results
+2025-06-24 00:14:33,095 - sustainable_solutions_generator - INFO - Analyzing 10 papers for hotspot: PCBA_Production
+2025-06-24 00:15:05,859 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:15:05,859 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on
+  Laplace Transforms and Flexible Krylov Solvers
+2025-06-24 00:15:06,988 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:15:06,992 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Convolutional Recurrent Reconstructive Network for Spatiotemporal
+  Anomaly Detection in Solder Paste Inspection
+2025-06-24 00:15:09,616 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:15:09,630 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Grounding Stylistic Domain Generalization with Quantitative Domain Shift
+  Measures and Synthetic Scene Images
+2025-06-24 00:15:35,159 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:15:35,159 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': DVQI: A Multi-task, Hardware-integrated Artificial Intelligence System
+  for Automated Visual Inspection in Electronics Manufacturing
+2025-06-24 00:15:55,762 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:15:55,762 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Miniaturized liquid metal composite circuits with energy harvesting
+  coils for battery-free bioelectronics and optogenetics
+2025-06-24 00:16:00,674 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:16:00,674 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Optimization simulation of reflow welding based on prediction of
+  regional center temperature field
+2025-06-24 00:16:22,294 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:16:22,294 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Separation of gamma/pi^0 showers at high energies
+2025-06-24 00:16:29,096 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:16:29,096 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Polymerase/nicking enzyme powered dual-template multi-cycled G-triplex
+  machine for HIV-1 determination
+2025-06-24 00:16:50,168 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:16:50,207 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in
+  Electronics Manufacturing Using Explainable Artificial Intelligence
+2025-06-24 00:17:01,009 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:17:01,009 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': YOLO algorithm with hybrid attention feature pyramid network for solder
+  joint defect detection
+2025-06-24 00:17:01,009 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PCBA_Production': 10 results
+2025-06-24 00:17:01,009 - sustainable_solutions_generator - INFO - Analyzing 10 papers for hotspot: Steel_Punching_and_Bending
+2025-06-24 00:17:04,099 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:17:04,113 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Air plasma key parameters for electromagnetic wave propagation at and
+  out of thermal equilibrium: applications to electromagnetic compatibility
+2025-06-24 00:17:08,205 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:17:08,205 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Bayesian Model Selection for Network Discrimination and Risk-informed
+  Decision Making in Material Flow Analysis
+2025-06-24 00:17:18,850 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:17:18,850 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Anisotropic behaviour law for sheets used in stamping: A comparative
+  study of steel and aluminium
+2025-06-24 00:17:44,348 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:17:44,360 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Drawing of the wire of low-carbon steel: plasticity resource, optimal
+  reduction, structure, properties
+2025-06-24 00:17:51,957 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:17:51,957 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Evidence of strong electron correlation effects and magnetic topological
+  excitation in low carbon steel
+2025-06-24 00:18:17,573 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:18:17,573 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Highly flexible electromagnetic interference shielding films based on
+  ultrathin Ni/Ag composites on paper substrates
+2025-06-24 00:18:23,480 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:18:23,480 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Intelligent data collection for network discrimination in material flow
+  analysis using Bayesian optimal experimental design
+2025-06-24 00:18:47,882 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:18:47,898 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Neutron Activation Background in the NvDEx Experiment
+2025-06-24 00:18:49,934 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:18:49,950 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Simulation of conventional cold-formed steel sections formed from
+  Advanced High Strength Steel (AHSS)
+2025-06-24 00:19:11,586 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 00:19:11,586 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Radiation Shielding Properties of $Nd_{0.6}Sr_{0.4}Mn_{1-y}Ni_{y}O_{3}$
+  Substitute with Different Concentrations of Nickle
+2025-06-24 00:19:11,586 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Steel_Punching_and_Bending': 10 results
+2025-06-24 00:19:11,596 - sustainable_solutions_generator - INFO - Generated evidence-based sustainability report
+2025-06-24 00:19:12,282 - sustainable_solutions_generator - INFO - Successfully generated PDF report: output\ECU_sample/sustainable_solutions_report.pdf
+2025-06-24 00:19:12,283 - sustainable_solutions_generator - INFO - PDF report generated at output\ECU_sample/sustainable_solutions_report.pdf
+2025-06-24 00:19:12,288 - sustainable_solutions_generator - INFO - Successfully generated sustainability solutions report at output\ECU_sample/sustainable_solutions_report.txt
+2025-06-24 00:19:12,288 - sustainable_solutions_generator - INFO - Detailed analysis saved at output\ECU_sample/detailed_sustainability_analysis.json
+2025-06-24 00:19:12,289 - __main__ - INFO - [SUCCESS] Sustainability solutions report generated: output\ECU_sample/sustainable_solutions_report.txt
+2025-06-24 00:19:12,290 - __main__ - INFO - ============================================================
+2025-06-24 00:19:12,290 - __main__ - INFO - WORKFLOW COMPLETION SUMMARY
+2025-06-24 00:19:12,290 - __main__ - INFO - ============================================================
+2025-06-24 00:19:12,290 - __main__ - INFO - [SUCCESS] Total workflow time: 855.82 seconds
+2025-06-24 00:19:12,291 - __main__ - INFO - [SUCCESS] Input file: temp/ECU_sample.txt
+2025-06-24 00:19:12,291 - __main__ - INFO - [SUCCESS] Output folder: output/ECU_sample
+2025-06-24 00:19:12,291 - __main__ - INFO - Generated files:
+2025-06-24 00:19:12,292 - __main__ - INFO -   [SUCCESS] input_file: temp/ECU_sample.txt
+2025-06-24 00:19:12,292 - __main__ - INFO -   [SUCCESS] output_folder: output/ECU_sample
+2025-06-24 00:19:12,293 - __main__ - INFO -   [SUCCESS] hotspot_analysis: output/ECU_sample/hotspot_lca_analysis.json
+2025-06-24 00:19:12,293 - __main__ - INFO -   [SUCCESS] processed_papers: output\ECU_sample\processed_papers.json
+2025-06-24 00:19:12,294 - __main__ - INFO -   [SUCCESS] sustainability_report: output\ECU_sample/sustainable_solutions_report.txt
+2025-06-24 00:19:12,294 - __main__ - INFO -   [SUCCESS] detailed_analysis: output/ECU_sample/detailed_sustainability_analysis.json
+2025-06-24 00:19:12,294 - __main__ - INFO -   [SUCCESS] downloaded_papers_folder: output/ECU_sample/downloaded_papers
+2025-06-24 00:19:12,295 - __main__ - INFO -   [SUCCESS] query_mapping: output/ECU_sample/downloaded_papers/query_paper_mapping.json
+2025-06-24 00:19:12,831 - lca_visualizations - INFO - Initialized HotspotLCAVisualizationManager with 2 API clients
+2025-06-24 00:22:12,883 - openai._base_client - INFO - Retrying request to /chat/completions in 0.453034 seconds
+2025-06-24 00:25:13,390 - openai._base_client - INFO - Retrying request to /chat/completions in 0.814490 seconds
+2025-06-24 00:28:14,250 - lca_visualizations - WARNING - Request failed with client 1: Request timed out.
+2025-06-24 00:28:14,250 - lca_visualizations - INFO - Trying next client...
+2025-06-24 00:31:16,310 - openai._base_client - INFO - Retrying request to /chat/completions in 0.491936 seconds
+2025-06-24 00:34:16,860 - openai._base_client - INFO - Retrying request to /chat/completions in 0.809959 seconds
+2025-06-24 00:37:17,708 - lca_visualizations - WARNING - Request failed with client 2: Request timed out.
+2025-06-24 00:37:17,708 - lca_visualizations - WARNING - All clients failed on first attempt. Retrying with exponential backoff...
+2025-06-24 00:40:17,778 - openai._base_client - INFO - Retrying request to /chat/completions in 0.497566 seconds
+2025-06-24 00:43:18,349 - openai._base_client - INFO - Retrying request to /chat/completions in 0.832874 seconds
+2025-06-24 00:46:19,238 - lca_visualizations - WARNING - Retry failed with client 1: Request timed out.
+2025-06-24 00:49:23,296 - openai._base_client - INFO - Retrying request to /chat/completions in 0.440321 seconds
+2025-06-24 00:52:23,788 - openai._base_client - INFO - Retrying request to /chat/completions in 0.833578 seconds
+2025-06-24 00:55:24,672 - lca_visualizations - WARNING - Retry failed with client 2: Request timed out.
+2025-06-24 00:58:28,701 - openai._base_client - INFO - Retrying request to /chat/completions in 0.465042 seconds
+2025-06-24 01:01:29,243 - openai._base_client - INFO - Retrying request to /chat/completions in 0.751464 seconds
+2025-06-24 01:04:30,022 - lca_visualizations - WARNING - Retry failed with client 1: Request timed out.
+2025-06-24 01:04:30,022 - __main__ - INFO - Hotspot LCA visualizations created successfully
+2025-06-24 01:04:30,022 - __main__ - INFO - Sustainable solutions visualizations created successfully

@@ -1,791 +1,958 @@
+"""
+Hotspot Sustainable Solutions Generator
+Generates sustainability solutions based on hotspot analysis and research papers.
+"""
+
 import json
-import faiss
-import pickle
-import numpy as np
-from openai import OpenAI
-from typing import List, Dict, Any
 import logging
-import concurrent.futures
-from itertools import chain
-import os
-import time
-from tenacity import retry, stop_after_attempt, wait_exponential
-from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
 from pathlib import Path
+from datetime import datetime
+from typing import Dict, Any, List
+import time
+import concurrent.futures
+from openai import OpenAI
+from tenacity import retry, stop_after_attempt, wait_exponential
+import sys
+import unicodedata
 import re
+
+# PDF generation imports
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch
+from reportlab.lib.colors import HexColor
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle
+from reportlab.platypus.tableofcontents import TableOfContents
+from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_JUSTIFY
+
+# Configure logging with Unicode support
+def safe_str(text):
+    """Convert text to ASCII-safe string for logging on Windows."""
+    if isinstance(text, str):
+        # Replace Unicode characters that can't be encoded in cp1252
+        try:
+            text.encode('cp1252')
+            return text
+        except UnicodeEncodeError:
+            # Replace problematic characters with ASCII equivalents or descriptive text
+            # Handle specific Greek characters commonly found in physics papers
+            replacements = {
+                'γ': 'gamma',
+                'π': 'pi',
+                'α': 'alpha',
+                'β': 'beta',
+                'δ': 'delta',
+                'ε': 'epsilon',
+                'θ': 'theta',
+                'λ': 'lambda',
+                'μ': 'mu',
+                'ν': 'nu',
+                'ρ': 'rho',
+                'σ': 'sigma',
+                'τ': 'tau',
+                'φ': 'phi',
+                'χ': 'chi',
+                'ψ': 'psi',
+                'ω': 'omega',
+                'Γ': 'Gamma',
+                'Π': 'Pi',
+                'Α': 'Alpha',
+                'Β': 'Beta',
+                'Δ': 'Delta',
+                'Ε': 'Epsilon',
+                'Θ': 'Theta',
+                'Λ': 'Lambda',
+                'Μ': 'Mu',
+                'Ν': 'Nu',
+                'Ρ': 'Rho',
+                'Σ': 'Sigma',
+                'Τ': 'Tau',
+                'Φ': 'Phi',
+                'Χ': 'Chi',
+                'Ψ': 'Psi',
+                'Ω': 'Omega'
+            }
+            
+            # Apply character replacements
+            for unicode_char, replacement in replacements.items():
+                text = text.replace(unicode_char, replacement)
+            
+            # Try encoding again after replacements
+            try:
+                text.encode('cp1252')
+                return text
+            except UnicodeEncodeError:
+                # If still failing, normalize and convert to ASCII
+                return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
+    return str(text)
+
+class UnicodeStreamHandler(logging.StreamHandler):
+    """Custom stream handler that safely handles Unicode characters."""
+    def emit(self, record):
+        try:
+            # Create a safe version of the log message
+            if hasattr(record, 'msg') and isinstance(record.msg, str):
+                record.msg = safe_str(record.msg)
+            if hasattr(record, 'args') and record.args:
+                record.args = tuple(safe_str(arg) for arg in record.args)
+            super().emit(record)
+        except (UnicodeEncodeError, UnicodeDecodeError) as e:
+            # Fail fast - don't provide fallback generic messages
+            raise RuntimeError(f"Unicode encoding error in log message: {e}") from e
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/sustainable_solutions.log'),
-        logging.StreamHandler()
+        logging.FileHandler(f'logs/sustainable_solutions_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', encoding='utf-8'),
+        UnicodeStreamHandler()
         ]
 )
 logger = logging.getLogger(__name__)
 
 class APIClient:
     def __init__(self, api_key: str, base_url: str, model: str):
-        """
-        Initialize an API client.
-        
-        Args:
-            api_key: API key for the LLM service
-            base_url: Base URL for the LLM service
-            model: Model name to use
-        """
-        self.client = OpenAI(
-            api_key=api_key,
-            base_url=base_url,
-            timeout=180.0  # Increase timeout to 180 seconds
-        )
+        self.client = OpenAI(api_key=api_key, base_url=base_url)
         self.model = model
-        self.api_key = api_key
 
-class VectorSearch:
-    def __init__(self, vector_db_path: str, api_clients: List[APIClient]):
-        """
-        Initialize the VectorSearch.
+class HotspotSustainableSolutionsGenerator:
+    def __init__(self, api_configs: List[Dict[str, str]]):
+        """Initialize with multiple API configurations for load balancing."""
+        self.api_clients = []
+        for config in api_configs:
+            client = APIClient(config["api_key"], config["base_url"], config["model"])
+            self.api_clients.append(client)
         
-        Args:
-            vector_db_path: Path to the vector database directory
-            api_clients: List of API clients to use
-        """
-        self.vector_db_path = vector_db_path
-        self.api_clients = api_clients
         self.current_client_index = 0
+        self.output_folder = None
         
-        try:
-            # Load vector database
-            self.index = faiss.read_index(f"{vector_db_path}/index.faiss")
-            with open(f"{vector_db_path}/metadata.pkl", 'rb') as f:
-                data = pickle.load(f)
-                self.metadata = data.get("metadata", [])
-            
-            logger.info(f"Vector index size: {self.index.ntotal}")
-            logger.info(f"Available metadata entries: {len(self.metadata)}")
-            logger.info("Initialized VectorSearch")
-            
-        except Exception as e:
-            logger.error(f"Error initializing VectorSearch: {str(e)}")
-            raise
+        logger.info(f"Initialized HotspotSustainableSolutionsGenerator with {len(self.api_clients)} API clients")
 
     def _get_next_client(self):
-        """Get the next available client in rotation."""
+        """Get the next API client for load balancing."""
         client = self.api_clients[self.current_client_index]
         self.current_client_index = (self.current_client_index + 1) % len(self.api_clients)
         return client
 
-    def _make_api_request(self, input_text: str, model: str = "e5-mistral-7b-instruct"):
-        """Make API request with multiple client fallback logic."""
-        last_exception = None
-        
-        # Try each client once
-        for attempt in range(len(self.api_clients)):
-            client = self._get_next_client()
-            client_index = (self.current_client_index - 1) % len(self.api_clients)
-            
-            try:
-                logging.debug(f"Attempting embedding request with client {client_index + 1}/{len(self.api_clients)}")
-                response = client.client.embeddings.create(
-                    input=input_text,
-                    model=model
-                )
-                logging.debug(f"Embedding request successful with client {client_index + 1}")
-                return response
-                
-            except Exception as e:
-                last_exception = e
-                logging.warning(f"Embedding request failed with client {client_index + 1}: {str(e)}")
-                if attempt < len(self.api_clients) - 1:
-                    logging.info(f"Trying next client...")
-                    time.sleep(2)  # Brief delay before trying next client
-                continue
-        
-        # If all clients failed, use retry logic with exponential backoff
-        logging.warning("All clients failed on first attempt. Retrying with exponential backoff...")
-        return self._make_api_request_with_retry(input_text, model)
-
-    @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=2, min=4, max=20),
-        reraise=True
-    )
-    def _make_api_request_with_retry(self, input_text: str, model: str = "e5-mistral-7b-instruct"):
-        """Make API request with retry logic and client rotation."""
-        client = self._get_next_client()
-        client_index = (self.current_client_index - 1) % len(self.api_clients)
-        
-        try:
-            logging.debug(f"Retry embedding attempt with client {client_index + 1}/{len(self.api_clients)}")
-            response = client.client.embeddings.create(
-                input=input_text,
-                model=model
-            )
-            return response
-        except Exception as e:
-            logging.warning(f"Retry embedding failed with client {client_index + 1}: {str(e)}")
-            raise
-
-    def get_embedding(self, text: str) -> np.ndarray:
-        """
-        Get embedding for a text using the LLM.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            np.ndarray: Text embedding
-        """
-        try:
-            response = self._make_api_request(text, "e5-mistral-7b-instruct")
-            
-            # Convert to numpy array and reshape for FAISS
-            embedding = np.array(response.data[0].embedding, dtype=np.float32)
-            return embedding.reshape(1, -1)
-        except Exception as e:
-            logging.error(f"Error getting embedding: {str(e)}")
-            raise
-
-    def search(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
-        """
-        Search for relevant papers in the vector database.
-        
-        Args:
-            query: The search query
-            top_k: Number of top results to return
-            
-        Returns:
-            List[Dict]: List of relevant papers with their metadata
-        """
-        try:
-            print("\n=== Starting Search Process ===")
-            print(f"Query: {query}")
-            print(f"Top k: {top_k}")
-            print(f"Total metadata entries: {len(self.metadata)}")
-            
-            # Get query embedding
-            query_vector = self.get_embedding(query)
-            print("\n=== After Getting Embedding ===")
-            print(f"Query vector shape: {query_vector.shape}")
-            
-            # Search the index - get more results to account for potential invalid indices
-            search_k = min(top_k * 2, self.index.ntotal)
-            distances, indices = self.index.search(query_vector, search_k)
-            print("\n=== After FAISS Search ===")
-            print(f"Found indices: {indices[0]}")
-            print(f"Distances: {distances[0]}")
-            
-            # Get results
-            results = []
-            for idx, distance in zip(indices[0], distances[0]):
-                print(f"\n=== Processing Index {idx} ===")
-                if idx != -1 and idx < len(self.metadata):
-                    try:
-                        print(f"Metadata at index {idx}:")
-                        print(f"Type: {type(self.metadata[idx])}")
-                        print(f"Content: {self.metadata[idx]}")
-                        
-                        # Get the paper data from raw_data
-                        paper_data = self.metadata[idx].get('raw_data', {})
-                        if paper_data:
-                            # Add similarity score to the paper data
-                            paper_data['similarity_score'] = float(1 / (1 + distance))
-                            results.append(paper_data)
-                            print(f"Successfully added paper to results. Current results count: {len(results)}")
-                        else:
-                            print(f"Warning: No raw_data found in paper metadata")
-                        
-                        # Break if we have enough results
-                        if len(results) >= top_k:
-                            print("Reached desired number of results")
-                            break
-                            
-                    except Exception as e:
-                        print(f"Error processing index {idx}: {str(e)}")
-                        logging.warning(f"Error processing index {idx}: {str(e)}")
-                        continue
-            
-            if not results:
-                print("\n=== No Valid Results Found ===")
-                logger.warning("No valid results found in the search")
-                # If no results found, return any available papers
-                if self.metadata:
-                    print("Attempting fallback to available papers")
-                    logger.info("Returning available papers as fallback")
-                    for i, paper_data in enumerate(self.metadata[:top_k]):
-                        try:
-                            print(f"\nProcessing fallback paper {i}:")
-                            print(f"Type: {type(paper_data)}")
-                            print(f"Content: {paper_data}")
-                            
-                            raw_data = paper_data.get('raw_data', {})
-                            if raw_data:
-                                raw_data['similarity_score'] = 0.1  # Low similarity for fallback
-                                results.append(raw_data)
-                                print(f"Added fallback paper. Current results count: {len(results)}")
-                            else:
-                                print(f"Warning: No raw_data found in fallback paper")
-                                
-                        except Exception as e:
-                            print(f"Error processing fallback paper {i}: {str(e)}")
-                            continue
-            
-            print(f"\n=== Search Complete ===")
-            print(f"Total results found: {len(results)}")
-            logger.info(f"Found {len(results)} relevant papers")
-            return results
-            
-        except Exception as e:
-            print(f"\n=== Error in Search Process ===")
-            print(f"Error: {str(e)}")
-            logger.error(f"Error during vector search: {str(e)}")
-            return []
-
-    def _flatten_paper_data(self, paper_data: Dict[str, Any]) -> str:
-        """
-        Flatten paper data into a single string containing all information.
-        
-        Args:
-            paper_data: The paper data dictionary
-            
-        Returns:
-            str: Flattened paper content
-        """
-        def flatten_dict(d: Dict[str, Any], prefix: str = "") -> str:
-            content = []
-            for key, value in d.items():
-                current_key = f"{prefix}{key}"
-                if isinstance(value, dict):
-                    content.append(flatten_dict(value, f"{current_key}."))
-                elif isinstance(value, list):
-                    if value:  # Only process non-empty lists
-                        list_content = []
-                        for item in value:
-                            if isinstance(item, dict):
-                                list_content.append(flatten_dict(item, ""))
-                            else:
-                                list_content.append(str(item))
-                        content.append(f"{current_key}: {' '.join(list_content)}")
-                elif value is not None:  # Skip None values
-                    content.append(f"{current_key}: {str(value)}")
-            return " ".join(content)
-        
-        return flatten_dict(paper_data)
-
-class SustainableSolutionsGenerator:
-    def __init__(self, vector_db_path: str, api_configs: List[Dict[str, str]]):
-        """
-        Initialize the SustainableSolutionsGenerator.
-        
-        Args:
-            vector_db_path: Path to the vector database directory
-            api_configs: List of API configurations, each containing api_key, base_url, and model
-        """
-        self.vector_db_path = vector_db_path
-        
-        # Initialize API clients
-        self.api_clients = [
-            APIClient(
-                api_key=config['api_key'],
-                base_url=config['base_url'],
-                model=config['model']
-            ) for config in api_configs
-        ]
-        
-        self.current_client_index = 0
-        
-        # Initialize vector search
-        self.vector_search = VectorSearch(
-            vector_db_path=vector_db_path,
-            api_clients=self.api_clients
-        )
-            
-        logger.info(f"Initialized SustainableSolutionsGenerator with {len(self.api_clients)} API clients")
-
-    def _get_next_client(self):
-        """Get the next available client in rotation."""
-        client = self.api_clients[self.current_client_index]
-        self.current_client_index = (self.current_client_index + 1) % len(self.api_clients)
-        return client
-
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=2, min=4, max=20), reraise=True)
     def _make_api_request(self, messages: List[Dict[str, str]], model: str = None):
-        """Make API request with multiple client fallback logic."""
-        last_exception = None
-        
-        # Try each client once
-        for attempt in range(len(self.api_clients)):
-            client = self._get_next_client()
-            client_index = (self.current_client_index - 1) % len(self.api_clients)
-            
-            try:
-                logging.debug(f"Attempting chat request with client {client_index + 1}/{len(self.api_clients)}")
-                response = client.client.chat.completions.create(
-                    messages=messages,
-                    model=model or client.model
-                )
-                logging.debug(f"Chat request successful with client {client_index + 1}")
-                return response
-                
-            except Exception as e:
-                last_exception = e
-                logging.warning(f"Chat request failed with client {client_index + 1}: {str(e)}")
-                if attempt < len(self.api_clients) - 1:
-                    logging.info(f"Trying next client...")
-                    time.sleep(2)  # Brief delay before trying next client
-                continue
-        
-        # If all clients failed, use retry logic with exponential backoff
-        logging.warning("All clients failed on first attempt. Retrying with exponential backoff...")
-        return self._make_api_request_with_retry(messages, model)
-
-    @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=2, min=4, max=20),
-        reraise=True
-    )
-    def _make_api_request_with_retry(self, messages: List[Dict[str, str]], model: str = None):
-        """Make API request with retry logic and client rotation."""
-        client = self._get_next_client()
-        client_index = (self.current_client_index - 1) % len(self.api_clients)
-        
+        """Make API request with retry logic."""
+        api_client = self._get_next_client()
         try:
-            logging.debug(f"Retry chat attempt with client {client_index + 1}/{len(self.api_clients)}")
-            response = client.client.chat.completions.create(
+            response = api_client.client.chat.completions.create(
                 messages=messages,
-                model=model or client.model
+                model=model or api_client.model,
+                temperature=0.7,
+                max_tokens=4000
             )
             return response
         except Exception as e:
-            logging.warning(f"Retry chat failed with client {client_index + 1}: {str(e)}")
+            logger.error(f"API request failed: {str(e)}")
             raise
 
-    def generate_query(self, lca_report: Dict[str, Any]) -> str:
-        """
-        Generate a comprehensive query based on the LCA report.
-        
-        Args:
-            lca_report: The LCA report data
+    def get_output_folder_from_hotspot_file(self, hotspot_file: str) -> str:
+        """Get output folder from hotspot analysis file path."""
+        return str(Path(hotspot_file).parent)
+    
+    def analyze_paper_for_hotspot(self, paper_content: str, paper_metadata: Dict[str, Any], 
+                                  hotspot_analysis: Dict[str, Any], raw_input_data: str, 
+                                  api_client: APIClient) -> Dict[str, Any]:
+        """Analyze a single paper to extract sustainable solutions for specific hotspots."""
+        try:
+            hotspot_name = paper_metadata.get('hotspot_name', 'unknown')
+            title = paper_metadata.get('title', 'Unknown Title')
             
-        Returns:
-            str: Only Generated query
-        """
-        prompt = f"""Based on the complete LCA report below, generate a specific search query to find relevant research papers 
-        that could provide sustainable solutions. The query should focus on the exact environmental impacts and areas for improvement 
-        identified in this specific LCA report.
+            prompt = f"""You are a quantitative research analyst. Extract ONLY explicit, measurable sustainability improvements from this research paper for the hotspot "{hotspot_name}".
 
-        Complete LCA Report:
-        {json.dumps(lca_report, indent=2)}
+PAPER CONTENT:
+{paper_content}
 
-        Instructions:
-        1. Extract the specific product/system name, materials, and processes from the LCA report
-        2. Identify the exact environmental impacts and their magnitudes from the report
-        3. Note the specific life cycle phases that show significant environmental burdens
-        4. Create a query that combines:
-           - The exact product/system name and materials from the report
-           - The specific environmental impacts identified
-           - The problematic life cycle phases
-           - The exact processes that need improvement
+PAPER TITLE: {title}
+TARGET HOTSPOT: {hotspot_name}
 
-        Return ONLY the search query string, with no additional text, explanations, or formatting.
-        The query should be specific to this exact LCA case and its findings.
-        """
+STRICT EXTRACTION RULES:
+1. ONLY extract numbers explicitly stated in the paper
+2. Find percentages, energy reductions, efficiency improvements, cost savings
+3. Look for specific process optimizations with measured results
+4. Identify temperature, pressure, time, or material improvements with exact values
+5. NO estimates, NO generalizations, NO assumptions
 
-        # Use the new API request method
-        response = self._make_api_request([
-                {"role": "system", "content": "You are an expert in generating precise research queries for finding sustainable solutions. Return only the query string, no other text."},
-                {"role": "user", "content": prompt}
-        ])
-        
-        query = response.choices[0].message.content.strip()
-        logger.info(f"Generated query: {query}")
-        return query
+SEARCH FOR THESE PATTERNS:
+- "X% reduction in..."
+- "Y% improvement in..."
+- "reduced by X watts/kWh/MJ"
+- "increased efficiency by Y%"
+- "cycle time reduced from A to B"
+- "temperature optimized from X°C to Y°C"
+- "material waste decreased by Z%"
+- "energy consumption reduced by..."
 
-    def search_papers(self, query: str, top_k) -> List[Dict[str, Any]]:
-        """
-        Search for relevant papers in the vector database.
-        
-        Args:
-            query: The search query
-            top_k: Number of top results to return
+OUTPUT FORMAT (respond with ONLY the extracted data):
+
+**QUANTITATIVE FINDINGS:**
+[List each finding with exact numbers and what they measure]
+
+**TECHNOLOGIES/METHODS:**
+[Specific technologies mentioned with their applications]
+
+**PROCESS IMPROVEMENTS:**
+[Specific process changes with measurable results]
+
+**RELEVANCE TO {hotspot_name}:**
+[How findings specifically apply to this hotspot]
+
+If NO quantitative data is found, respond with:
+"NO QUANTITATIVE SUSTAINABILITY DATA FOUND"
+
+Do not make up numbers. Only report what is explicitly written in the paper."""
+
+            response = api_client.client.chat.completions.create(
+                messages=[
+                    {"role": "system", "content": "You are a precise data extraction specialist. Extract only explicit quantitative sustainability data from research papers. Never estimate or infer numbers not directly stated. If no quantitative data exists, clearly state this fact."},
+                    {"role": "user", "content": prompt}
+                ],
+                model=api_client.model,
+                temperature=0.0,  # Zero temperature for precise extraction
+                max_tokens=2000
+            )
             
-        Returns:
-            List[Dict]: List of relevant papers with their metadata
-        """
-        return self.vector_search.search(query, top_k)
-
-    def analyze_paper(self, paper: Dict[str, Any], lca_report: Dict[str, Any], api_client: APIClient) -> Dict[str, Any]:
-        # save paper_content to a json file
-        # with open('paper_content.json', 'w', encoding='utf-8') as f:
-        #     json.dump(paper, f, indent=2)
-        
-        """
-        Analyze a single paper to extract sustainable solutions.
-        
-        Args:
-            paper: The paper data
-            lca_report: The LCA report data
-            api_client: The API client to use
+            analysis_content = response.choices[0].message.content
             
-        Returns:
-            Dict: Analysis results with sustainable solutions
-        """
-        # Extract paper ID and content
-        # paper_id = list(paper.keys())[0]
-        paper_content = paper
-        
-        # Get paper citation from metadata
-        citation = paper_content.get('paper_metadata', {}).get('citation', '') 
-        title = paper_content.get('paper_metadata', {}).get('title', '')
-        doi = paper_content.get('paper_metadata', {}).get('doi', '')
-        
-        print(f"Citation: {citation} and DOI url: https://doi.org/{doi}")
-
-        if not citation or citation == 'Not available':
-            return None
-        
-        # Create a flattened version of the paper content for analysis
-        flattened_paper = {
-            'paper_metadata': paper_content.get('paper_metadata', {}),
-            'Paper_content': paper_content
-        }
-        
-        prompt = f"""Analyze the following research paper to identify sustainable solutions that could improve the environmental performance described in the LCA report.
-
-        Research Paper Content:
-        {json.dumps(flattened_paper, indent=2)}
-
-        LCA Report Content (BASELINE DATA - these are current environmental impacts, NOT improvements):
-        {json.dumps(lca_report, indent=2)}
-
-        CRITICAL INSTRUCTIONS:
-        1. The LCA report contains BASELINE/CURRENT environmental impacts, NOT improvements
-        2. Your task is to find solutions in the research paper that could REDUCE these baseline impacts
-        3. DO NOT confuse baseline LCA values with potential reductions
-        4. DO NOT attribute LCA baseline data as achievements from the research paper
-        5. ONLY propose solutions that are actually described in the research paper
-        6. Clearly distinguish between:
-           - BASELINE (from LCA): Current environmental impacts that need to be reduced
-           - SOLUTIONS (from paper): Methods to achieve reductions from the baseline
-        
-        For each solution you identify:
-        1. Extract the specific solution from the research paper
-        2. Explain how it could theoretically reduce the BASELINE impacts from the LCA
-        3. Provide implementation details ONLY from the research paper
-        4. Include quantitative improvements ONLY if the paper provides them for similar applications
-        5. Always cite: title: {title} with DOI: https://doi.org/{doi}
-        6. Be explicit about feasibility and applicability limitations
-        
-        Example of CORRECT analysis:
-        - BASELINE (from LCA): "Production phase consumes 0.02996 kWh"
-        - SOLUTION (from paper): "Paper proposes material X that could reduce energy consumption by Y% in similar manufacturing processes"
-        - RESULT: "This could potentially reduce the baseline 0.02996 kWh by Y%, resulting in approximately Z kWh"
-        
-        Example of INCORRECT analysis:
-        - "The paper achieves 0.02996 kWh reduction" (This confuses baseline data with improvements)
-        
-        Focus only on solutions that are:
-        - Actually described in the research paper
-        - Technically feasible for ECU applications
-        - Supported by evidence in the paper
-        """
-
-        response = api_client.client.chat.completions.create(
-            messages=[
-                {"role": "system", "content": "You are an expert in analyzing research papers for sustainable solutions. You must clearly distinguish between baseline environmental impacts (from LCA) and potential improvements (from research). Never confuse current impacts with potential reductions."},
-                {"role": "user", "content": prompt}
-            ],
-            model=api_client.model
-        )
-        
-        analysis = response.choices[0].message.content
-        logger.info(f"Analyzed paper with similarity score: {paper.get('similarity_score', 0.0)}")
-        return {
-            "analysis": analysis,
-            "similarity_score": paper.get('similarity_score', 0.0)
-        }
-
-    def analyze_papers_parallel(self, papers: List[Dict[str, Any]], lca_report: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """
-        Analyze multiple papers in parallel using available API clients.
-        
-        Args:
-            papers: List of papers to analyze
-            lca_report: The LCA report data
+            # Safe logging for paper titles that may contain Unicode characters
+            safe_title = safe_str(title)
+            logger.info(f"Analyzed paper for hotspot '{hotspot_name}': {safe_title}")
             
-        Returns:
-            List[Dict]: List of analysis results
-        """
-        analyses = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(self.api_clients)) as executor:
-            # Create a list of (paper, api_client) pairs
-            paper_api_pairs = [
-                (paper, self.api_clients[i % len(self.api_clients)])
-                for i, paper in enumerate(papers)
-            ]
-            
-            # Submit all tasks
-            future_to_paper = {
-                executor.submit(self.analyze_paper, paper, lca_report, api_client): paper
-                for paper, api_client in paper_api_pairs
-            }
-            
-            # Collect results as they complete
-            for future in concurrent.futures.as_completed(future_to_paper):
-                paper = future_to_paper[future]
-                try:
-                    analysis = future.result()
-                    analyses.append(analysis)
-                except Exception as e:
-                    logger.error(f"Error analyzing paper: {str(e)}")
-        
-        return analyses
-
-    def review_and_cleanup(self, analyses: List[Dict[str, Any]], lca_report: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Review and clean up all analyses to create a final comprehensive report.
-        
-        Args:
-            analyses: List of paper analyses
-            lca_report: The LCA report data
-            
-        Returns:
-            Dict: Final cleaned and organized report
-        """
-        # Filter out None analyses (papers without valid citations)
-        valid_analyses = [a for a in analyses if a is not None and a.get('analysis')]
-        
-        if not valid_analyses:
             return {
-                "final_report": "No valid solutions found with proper citations.",
-                "source_analyses": []
+                "hotspot_name": hotspot_name,
+                "paper_title": title,
+                "paper_metadata": paper_metadata,
+                "analysis_content": analysis_content,  # Include the actual analysis
+                "has_quantitative_data": "NO QUANTITATIVE" not in analysis_content.upper()
             }
-        
-        # Format analyses for the prompt
-        analyses_text = ""
-        for i, analysis in enumerate(valid_analyses, 1):
-            analyses_text += f"\n--- Analysis {i} ---\n"
-            analyses_text += f"Similarity Score: {analysis.get('similarity_score', 0.0)}\n"
-            analyses_text += f"Content: {analysis['analysis']}\n"
-        
-        prompt = f"""Review and organize the following analyses of sustainable solutions from research papers.
-        Create a comprehensive report that addresses how to improve the environmental impacts identified in the LCA report.
-
-        Complete LCA Report (BASELINE ENVIRONMENTAL IMPACTS):
-        {json.dumps(lca_report, indent=2)}
-
-        Paper Analyses from Retrieved Research:
-        {analyses_text}
-
-        CRITICAL INSTRUCTIONS FOR ACCURATE REPORTING:
-        1. The LCA report shows BASELINE/CURRENT environmental impacts - these are NOT achievements or improvements
-        2. ONLY use solutions and data from the "Paper Analyses" section above
-        3. DO NOT create or invent any citations not found in the analyses
-        4. Clearly distinguish between BASELINE impacts (from LCA) and POTENTIAL IMPROVEMENTS (from papers)
-        5. Never attribute LCA baseline values as achievements from research papers
-        
-        For each environmental impact identified in the LCA report:
-        1. State the BASELINE impact clearly (e.g., "Current production phase consumes 0.02996 kWh")
-        2. List relevant solutions from the analyzed papers that could reduce this baseline
-        3. For each solution:
-           - Describe the solution from the research paper
-           - Explain how it could theoretically reduce the baseline impact
-           - Include quantitative improvements ONLY if the paper provides them for similar applications
-           - Specify implementation requirements from the paper
-           - Include ONLY citations from papers that were actually analyzed
-           - Note applicability limitations and feasibility concerns
-        
-        Prioritization criteria:
-        - Solutions actually described in the analyzed papers
-        - Technical feasibility for ECU applications
-        - Evidence quality from the research
-        - Potential for meaningful impact reduction
-        
-        Report structure:
-        1. Introduction - explain that this report proposes improvements to baseline LCA impacts
-        2. Environmental Impacts and Solutions (by life cycle phase):
-           - Clearly state baseline impacts from LCA
-           - Propose solutions from analyzed papers
-           - Distinguish between current state and potential improvements
-        3. Prioritization of Solutions
-        4. Conclusion
-        5. References (ONLY papers that were actually analyzed)
-        
-        CRITICAL: 
-        - Never say a paper "achieves" a baseline LCA value
-        - Always clarify when values come from LCA baseline vs. potential improvements
-        - Only reference information that appears in the provided paper analyses
-        - If no relevant solutions exist in the papers for a specific impact, state this clearly
-        """
-
-        response = self._make_api_request([
-            {"role": "system", "content": "You are an expert in synthesizing research. You MUST only use information from the provided paper analyses. Never invent or hallucinate citations. If no relevant solutions exist in the provided papers, state that clearly."},
-                {"role": "user", "content": prompt}
-        ])
-        
-        final_report = response.choices[0].message.content
-        logger.info("Generated final report")
-        return {
-            "final_report": final_report,
-            "source_analyses": valid_analyses
-        }
-
-    def validate_citations(self, report_text: str, retrieved_papers: List[Dict]) -> str:
-        """Validate that all citations in the report exist in retrieved papers and check for baseline confusion."""
-        # Extract DOIs from retrieved papers
-        valid_dois = set()
-        for paper in retrieved_papers:
-            doi = paper.get('paper_metadata', {}).get('doi', '')
-            if doi:
-                valid_dois.add(doi)
-        
-        # Check for fake DOIs in report
-        doi_pattern = r'https://doi\.org/([^\s\)]+)'
-        found_dois = re.findall(doi_pattern, report_text)
-        
-        for doi in found_dois:
-            if doi not in valid_dois:
-                logger.warning(f"Invalid DOI found in report: {doi}")
-                # Replace with warning
-                report_text = report_text.replace(
-                    f"https://doi.org/{doi}", 
-                    "[CITATION ERROR: Paper not in retrieved database]"
-                )
-        
-        # Check for baseline data confusion patterns
-        baseline_confusion_patterns = [
-            r'achieves?\s+(\d+\.?\d*)\s*kWh',
-            r'provides?\s+(\d+\.?\d*)\s*kWh\s+reduction',
-            r'demonstrates?\s+(\d+\.?\d*)\s*kWh\s+improvement',
-            r'shows?\s+(\d+\.?\d*)\s*kWh\s+energy\s+consumption'
-        ]
-        
-        for pattern in baseline_confusion_patterns:
-            matches = re.findall(pattern, report_text, re.IGNORECASE)
-            if matches:
-                logger.warning(f"Potential baseline confusion detected with pattern: {pattern}")
-                # Add warning comment
-                report_text = f"[WARNING: Report may contain confusion between baseline LCA data and improvements]\n\n{report_text}"
-                break
-        
-        return report_text
-
-    def get_output_folder_from_lca_file(self, lca_file: str) -> str:
-        """
-        Get the output folder based on the LCA analysis file path.
-        
-        Args:
-            lca_file: Path to the LCA analysis file
             
-        Returns:
-            str: Output folder path
-        """
-        if not lca_file:
-            return "output/automotive_sample"
-        
-        # Extract folder from LCA file path
-        lca_path = Path(lca_file)
-        if lca_path.parent.name != "output":
-            # If LCA file is in output/project_name/llm_based_lca_analysis.json
-            return str(lca_path.parent)
-        else:
-            # Fallback: extract from filename if it follows pattern
-            folder_name = lca_path.stem.replace("_llm_based_lca_analysis", "")
-            return f"output/{folder_name}"
+        except Exception as e:
+            logger.error(f"Error analyzing paper for hotspot: {str(e)}")
+            return None
+    
+    def analyze_papers_for_hotspots(self, processed_papers_file: str, hotspot_analysis: Dict[str, Any], 
+                                   raw_input_data: str) -> Dict[str, List[Dict[str, Any]]]:
+        """Analyze all processed papers for hotspot-specific solutions."""
+        try:
+            # Load processed papers with UTF-8 encoding
+            with open(processed_papers_file, 'r', encoding='utf-8') as f:
+                papers_data = json.load(f)
+            
+            processed_papers = papers_data.get('processed_papers', {})
+            
+            if not processed_papers:
+                logger.error("No processed papers found in the processed papers file")
+                raise ValueError("Processed papers file is empty - no papers available for analysis")
+            
+            logger.info(f"Analyzing {len(processed_papers)} processed papers for hotspot solutions")
+            
+            # Group papers by hotspot
+            hotspot_papers = {}
+            for paper_id, paper_data in processed_papers.items():
+                hotspot_name = paper_data.get('metadata', {}).get('hotspot_name', 'unknown')
+                if hotspot_name not in hotspot_papers:
+                    hotspot_papers[hotspot_name] = []
+                hotspot_papers[hotspot_name].append((paper_id, paper_data))
+            
+            # Analyze papers for each hotspot
+            hotspot_analyses = {}
+            
+            for hotspot_name, papers in hotspot_papers.items():
+                logger.info(f"Analyzing {len(papers)} papers for hotspot: {hotspot_name}")
+                
+                hotspot_results = []
+                
+                # Use ThreadPoolExecutor for concurrent processing
+                with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(self.api_clients), 3)) as executor:
+                    # Create analysis tasks
+                    future_to_paper = {}
+                    for i, (paper_id, paper_data) in enumerate(papers):
+                        api_client = self.api_clients[i % len(self.api_clients)]
+                        future = executor.submit(
+                            self.analyze_paper_for_hotspot,
+                            paper_data['full_text'],
+                            paper_data['metadata'],
+                            hotspot_analysis,
+                            raw_input_data,
+                            api_client
+                        )
+                        future_to_paper[future] = paper_id
+                    
+                    # Collect results
+                    for future in concurrent.futures.as_completed(future_to_paper):
+                        paper_id = future_to_paper[future]
+                        try:
+                            result = future.result()
+                            if result:
+                                hotspot_results.append(result)
+                        except Exception as e:
+                            logger.error(f"Error analyzing paper {paper_id}: {str(e)}")
+                
+                hotspot_analyses[hotspot_name] = hotspot_results
+                logger.info(f"Completed analysis for hotspot '{hotspot_name}': {len(hotspot_results)} results")
+            
+            return hotspot_analyses
+            
+        except Exception as e:
+            logger.error(f"Error analyzing papers for hotspots: {str(e)}")
+            raise
 
-    def generate_sustainable_solutions(self, lca_report_path: str, output_path: str = None):
+    def generate_comprehensive_sustainability_report(self, hotspot_analyses: Dict[str, List[Dict[str, Any]]], 
+                                                   hotspot_analysis: Dict[str, Any], 
+                                                   raw_input_data: str) -> Dict[str, Any]:
+        """Generate a comprehensive sustainability report based on actual paper analysis."""
+        try:
+            # Check if any analyses were found
+            if not hotspot_analyses:
+                logger.error("No hotspot analyses found - cannot generate sustainability report")
+                raise ValueError("No paper analyses available for generating sustainability report")
+            
+            # Verify that at least some hotspots have papers
+            total_papers = sum(len(papers) for papers in hotspot_analyses.values())
+            if total_papers == 0:
+                logger.error("No papers successfully analyzed for any hotspot")
+                raise ValueError("No papers were successfully analyzed - cannot generate sustainability report")
+            
+            # Extract actual quantitative data from ECU input
+            ecu_components = self._extract_ecu_components(raw_input_data)
+            hotspot_ranking = hotspot_analysis.get('overall_hotspot_ranking', [])
+            
+            # Build report from actual analysis content
+            paper_based_solutions = {}
+            quantitative_findings = {}
+            
+            for hotspot_name, analyses in hotspot_analyses.items():
+                solutions_with_data = []
+                solutions_without_data = []
+                
+                for analysis in analyses:
+                    paper_title = analysis.get('paper_title', 'Unknown Paper')
+                    analysis_content = analysis.get('analysis_content', '')
+                    has_quantitative_data = analysis.get('has_quantitative_data', False)
+                    paper_metadata = analysis.get('paper_metadata', {})
+                    pdf_link = paper_metadata.get('pdf_link', '')
+                    
+                    if has_quantitative_data:
+                        solutions_with_data.append({
+                            'title': paper_title,
+                            'content': analysis_content,
+                            'pdf_link': pdf_link
+                        })
+                    else:
+                        solutions_without_data.append({
+                            'title': paper_title,
+                            'content': analysis_content,
+                            'pdf_link': pdf_link
+                        })
+                
+                paper_based_solutions[hotspot_name] = {
+                    'with_data': solutions_with_data,
+                    'without_data': solutions_without_data
+                }
+            
+            # Generate final report content based on actual findings
+            report_content = self._generate_evidence_based_report(
+                paper_based_solutions, 
+                ecu_components, 
+                hotspot_ranking,
+                hotspot_analysis
+            )
+            
+            logger.info("Generated evidence-based sustainability report")
+            
+            return {
+                "sustainability_report": report_content,
+                "hotspot_analyses": hotspot_analyses,
+                "baseline_hotspot_analysis": hotspot_analysis,
+                "report_metadata": {
+                    "generation_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "total_hotspots_analyzed": len(hotspot_analyses),
+                    "total_papers_analyzed": total_papers,
+                    "papers_with_quantitative_data": sum(
+                        len(data['with_data']) for data in paper_based_solutions.values()
+                    ),
+                    "papers_without_quantitative_data": sum(
+                        len(data['without_data']) for data in paper_based_solutions.values()
+                    )
+                }
+            }
+            
+        except Exception as e:
+            logger.error(f"Error generating comprehensive sustainability report: {str(e)}")
+            raise
+    
+    def _extract_ecu_components(self, raw_input_data: str) -> Dict[str, Dict[str, str]]:
+        """Extract component data from ECU input file."""
+        components = {}
+        current_component = None
+        
+        for line in raw_input_data.split('\n'):
+            line = line.strip()
+            if line and ':' not in line and line != '':
+                current_component = line
+                components[current_component] = {}
+            elif line and ':' in line and current_component:
+                key, value = line.split(':', 1)
+                components[current_component][key.strip()] = value.strip()
+        
+        return components
+    
+    def _generate_evidence_based_report(self, paper_based_solutions: Dict, 
+                                       ecu_components: Dict, 
+                                       hotspot_ranking: List,
+                                       hotspot_analysis: Dict = None) -> str:
+        """Generate the final report based on actual evidence from papers."""
+        
+        report_sections = []
+        
+        # Header
+        report_sections.append("EVIDENCE-BASED SUSTAINABILITY SOLUTIONS REPORT")
+        report_sections.append("=" * 60)
+        report_sections.append("")
+        
+        # ECU Component Analysis
+        report_sections.append("**ECU COMPONENT ANALYSIS**")
+        report_sections.append("")
+        report_sections.append("Based on the ECU sample input data:")
+        report_sections.append("")
+        
+        for component, details in ecu_components.items():
+            if details:
+                report_sections.append(f"• {component}:")
+                for key, value in details.items():
+                    report_sections.append(f"  - {key}: {value}")
+                report_sections.append("")
+        
+        # Hotspot Priority Ranking with detailed information
+        report_sections.append("**ENVIRONMENTAL HOTSPOT PRIORITY RANKING**")
+        report_sections.append("")
+        
+        # Get production hotspots details for additional information
+        production_hotspots = {}
+        if hotspot_analysis:
+            for hotspot in hotspot_analysis.get('production_hotspots', []):
+                production_hotspots[hotspot.get('hotspot_name')] = hotspot
+        
+        for i, hotspot in enumerate(hotspot_ranking, 1):
+            hotspot_name = hotspot.get('hotspot_name', 'Unknown')
+            significance = hotspot.get('environmental_significance', 'unknown')
+            justification = hotspot.get('priority_justification', 'No justification provided')
+            life_cycle_phase = hotspot.get('life_cycle_phase', 'unknown')
+            
+            # Get additional details from production hotspots
+            production_details = production_hotspots.get(hotspot_name, {})
+            impact_category = production_details.get('impact_category', 'Unknown')
+            impact_source = production_details.get('impact_source', 'Unknown')
+            quantitative_impact = production_details.get('quantitative_impact', 'Unknown')
+            description = production_details.get('description', 'No description available')
+            
+            report_sections.append(f"{i}. {hotspot_name}")
+            report_sections.append(f"   Life Cycle Phase: {life_cycle_phase}")
+            report_sections.append(f"   Environmental Significance: {significance}")
+            report_sections.append(f"   Impact Category: {impact_category}")
+            report_sections.append(f"   Impact Source: {impact_source}")
+            report_sections.append(f"   Quantitative Impact: {quantitative_impact}")
+            report_sections.append(f"   Priority Justification: {justification}")
+            report_sections.append(f"   Description: {description}")
+            report_sections.append("")
+        
+        # Research-Based Solutions
+        report_sections.append("**RESEARCH-BASED SUSTAINABILITY SOLUTIONS**")
+        report_sections.append("")
+        
+        for hotspot_name, solutions in paper_based_solutions.items():
+            report_sections.append(f"### {hotspot_name}")
+            report_sections.append("")
+            
+            # Solutions with quantitative data
+            if solutions['with_data']:
+                report_sections.append("**Papers with Quantitative Sustainability Data:**")
+                report_sections.append("")
+                
+                for solution in solutions['with_data']:
+                    title = solution['title']
+                    pdf_link = solution.get('pdf_link', '')
+                    if pdf_link:
+                        report_sections.append(f"**Paper:** {title} (PDF: {pdf_link})")
+                    else:
+                        report_sections.append(f"**Paper:** {title}")
+                    report_sections.append("")
+                    report_sections.append(solution['content'])
+                    report_sections.append("")
+                    report_sections.append("---")
+                    report_sections.append("")
+            
+            # Solutions without quantitative data
+            if solutions['without_data']:
+                report_sections.append("**Papers without Specific Quantitative Data:**")
+                report_sections.append("")
+                
+                for solution in solutions['without_data']:
+                    title = solution['title']
+                    pdf_link = solution.get('pdf_link', '')
+                    if pdf_link:
+                        report_sections.append(f"**Paper:** {title} (PDF: {pdf_link})")
+                    else:
+                        report_sections.append(f"**Paper:** {title}")
+                    report_sections.append("")
+                    # Only show that no quantitative data was found
+                    report_sections.append("No specific quantitative sustainability improvements were found in this paper.")
+                    report_sections.append("")
+            
+            if not solutions['with_data'] and not solutions['without_data']:
+                report_sections.append("No research papers were successfully analyzed for this hotspot.")
+                report_sections.append("")
+            
+            report_sections.append("")
+        
+        # Data Quality Assessment
+        report_sections.append("**DATA QUALITY ASSESSMENT**")
+        report_sections.append("")
+        
+        total_papers = sum(len(solutions['with_data']) + len(solutions['without_data']) 
+                          for solutions in paper_based_solutions.values())
+        papers_with_data = sum(len(solutions['with_data']) 
+                              for solutions in paper_based_solutions.values())
+        
+        report_sections.append(f"Total papers analyzed: {total_papers}")
+        report_sections.append(f"Papers with quantitative sustainability data: {papers_with_data}")
+        report_sections.append(f"Papers without quantitative data: {total_papers - papers_with_data}")
+        report_sections.append("")
+        
+        if papers_with_data == 0:
+            report_sections.append("**IMPORTANT LIMITATION:**")
+            report_sections.append("No quantitative sustainability improvements were found in any of the analyzed papers.")
+            report_sections.append("This report is based on available research but lacks specific numerical targets")
+            report_sections.append("for sustainability improvements. Additional research with quantitative")
+            report_sections.append("data may be needed for concrete implementation planning.")
+            report_sections.append("")
+        
+        # Disclaimer
+        report_sections.append("**REPORT DISCLAIMER**")
+        report_sections.append("")
+        report_sections.append("This report is based exclusively on:")
+        report_sections.append("1. Actual data from the ECU component specification")
+        report_sections.append("2. Quantitative findings explicitly stated in research papers")
+        report_sections.append("3. No estimates, assumptions, or generic industry values were used")
+        report_sections.append("")
+        report_sections.append("All sustainability solutions are evidence-based and sourced from")
+        report_sections.append("the analyzed research literature. Where no quantitative data was")
+        report_sections.append("available, this is clearly stated.")
+        
+        return "\n".join(report_sections)
+
+    def _process_hyperlinks(self, content: str) -> str:
+        """Process content to convert PDF URLs into clickable hyperlinks."""
+        # Pattern to match PDF links like (PDF: http://arxiv.org/pdf/...)
+        pdf_pattern = r'\(PDF:\s*(https?://[^\)]+)\)'
+        
+        def replace_pdf_link(match):
+            url = match.group(1).strip()
+            # Use ReportLab's hyperlink format - display the URL as clickable link
+            return f'(<a href="{url}" color="#0066CC"><u>{url}</u></a>)'
+        
+        # Replace PDF links with hyperlinks
+        processed_content = re.sub(pdf_pattern, replace_pdf_link, content)
+        
+        return processed_content
+
+    def _create_pdf_styles(self):
+        """Create custom styles for PDF generation."""
+        styles = getSampleStyleSheet()
+        
+        # Custom styles with proper hierarchy: ### sections as main headlines (BIGGER FONTS)
+        styles.add(ParagraphStyle(
+            name='CustomMainTitle',
+            parent=styles['Title'],
+            fontSize=22,  # Increased from 18
+            spaceAfter=30,
+            alignment=TA_CENTER,
+            textColor=HexColor('#2C3E50'),
+            fontName='Helvetica-Bold',
+            wordWrap='CJK'  # Better word wrapping to prevent color split
+        ))
+        
+        # ### Hotspot sections - Main headlines (largest)
+        styles.add(ParagraphStyle(
+            name='CustomHotspotTitle',
+            parent=styles['Heading1'],
+            fontSize=18,  # Increased from 16
+            spaceAfter=15,
+            spaceBefore=25,
+            textColor=HexColor('#1A5490'),
+            keepWithNext=1,
+            fontName='Helvetica-Bold'
+        ))
+        
+        # ** sections - Secondary headlines (medium)
+        styles.add(ParagraphStyle(
+            name='CustomSectionTitle',
+            parent=styles['Heading2'],
+            fontSize=15,  # Increased from 13
+            spaceAfter=10,
+            spaceBefore=15,
+            textColor=HexColor('#34495E'),
+            keepWithNext=1,
+            fontName='Helvetica-Bold'
+        ))
+        
+        # Paper titles - Tertiary headlines (smaller)
+        styles.add(ParagraphStyle(
+            name='CustomPaperTitle',
+            parent=styles['Heading3'],
+            fontSize=13,  # Increased from 11
+            spaceAfter=6,
+            spaceBefore=8,
+            textColor=HexColor('#2980B9'),
+            keepWithNext=1,
+            fontName='Helvetica-Bold'
+        ))
+        
+        # Content subsections (like QUANTITATIVE FINDINGS)
+        styles.add(ParagraphStyle(
+            name='CustomContentSubtitle',
+            parent=styles['Normal'],
+            fontSize=12,  # Increased from 10
+            spaceAfter=4,
+            spaceBefore=6,
+            textColor=HexColor('#7F8C8D'),
+            fontName='Helvetica-Bold'
+        ))
+        
+        # Regular body text
+        styles.add(ParagraphStyle(
+            name='CustomBodyText',
+            parent=styles['Normal'],
+            fontSize=11,  # Increased from 9
+            spaceAfter=4,
+            alignment=TA_JUSTIFY,
+            textColor=HexColor('#2C3E50')
+        ))
+        
+        # Bullet points
+        styles.add(ParagraphStyle(
+            name='CustomBulletPoint',
+            parent=styles['Normal'],
+            fontSize=11,  # Increased from 9
+            spaceAfter=3,
+            leftIndent=20,
+            bulletIndent=10,
+            textColor=HexColor('#2C3E50')
+        ))
+        
+        # Numbered items
+        styles.add(ParagraphStyle(
+            name='CustomNumberedItem',
+            parent=styles['Normal'],
+            fontSize=11,  # Increased from 9
+            spaceAfter=3,
+            leftIndent=15,
+            textColor=HexColor('#2C3E50')
+        ))
+        
+        # Indented details for hotspot priority ranking
+        styles.add(ParagraphStyle(
+            name='CustomIndentedDetail',
+            parent=styles['Normal'],
+            fontSize=10,
+            spaceAfter=2,
+            leftIndent=40,  # Heavy indentation for details
+            textColor=HexColor('#555555')
+        ))
+        
+        return styles
+
+    def _parse_report_content(self, report_content: str) -> List[Dict[str, Any]]:
+        """Parse the text report content into structured elements for PDF generation."""
+        lines = report_content.split('\n')
+        elements = []
+        in_hotspot_ranking = False
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            # Track if we're in the hotspot ranking section
+            if line.startswith('**ENVIRONMENTAL HOTSPOT PRIORITY RANKING**'):
+                in_hotspot_ranking = True
+            elif line.startswith('**') and line.endswith('**') and in_hotspot_ranking:
+                in_hotspot_ranking = False
+                
+            # Main title
+            if line.startswith('EVIDENCE-BASED SUSTAINABILITY SOLUTIONS REPORT'):
+                elements.append({'type': 'main_title', 'content': line})
+            # ### Hotspot sections - MAIN HEADLINES (largest)
+            elif line.startswith('### '):
+                hotspot_title = line[4:].strip().replace('_', ' ')  # Clean up underscores
+                elements.append({'type': 'hotspot_title', 'content': hotspot_title})
+            # ** sections - Secondary headlines
+            elif line.startswith('**') and line.endswith('**') and not line.startswith('**Paper:'):
+                section_title = line.strip('*').strip()
+                # Check if it's a content subsection (like QUANTITATIVE FINDINGS)
+                if (section_title.upper() in ['QUANTITATIVE FINDINGS', 'TECHNOLOGIES/METHODS', 
+                                              'PROCESS IMPROVEMENTS', 'DATA QUALITY ASSESSMENT',
+                                              'REPORT DISCLAIMER'] or 
+                    section_title.upper().startswith('RELEVANCE TO')):
+                    elements.append({'type': 'content_subtitle', 'content': section_title})
+                else:
+                    elements.append({'type': 'section_title', 'content': section_title})
+            # Paper titles with PDF links
+            elif line.startswith('**Paper:**'):
+                paper_title = line[10:].strip()
+                elements.append({'type': 'paper_title', 'content': paper_title})
+            # Bullet points
+            elif line.startswith('• ') or line.startswith('- ') or line.startswith('* '):
+                bullet_text = line[2:].strip()
+                elements.append({'type': 'bullet', 'content': bullet_text})
+            # Numbered lists and hotspot ranking details
+            elif line and line[0].isdigit() and '. ' in line[:4]:
+                elements.append({'type': 'numbered', 'content': line})
+            # Indented details in hotspot ranking (lines that start with spaces and contain ":")
+            elif in_hotspot_ranking and (line.startswith('   ') or line.startswith('\t')) and ':' in line:
+                elements.append({'type': 'indented_detail', 'content': line.strip()})
+            # Dividers
+            elif line.startswith('---'):
+                elements.append({'type': 'divider', 'content': ''})
+            # Regular text
+            elif line:
+                elements.append({'type': 'body', 'content': line})
+        
+        return elements
+
+    def generate_pdf_report(self, text_report_path: str, pdf_output_path: str = None) -> str:
+        """Generate a professional PDF report from the text sustainability report."""
+        try:
+            # Set default PDF output path
+            if pdf_output_path is None:
+                text_path = Path(text_report_path)
+                pdf_output_path = str(text_path.with_suffix('.pdf'))
+            
+            # Read the text report
+            with open(text_report_path, 'r', encoding='utf-8') as f:
+                report_content = f.read()
+            
+            # Create PDF document
+            doc = SimpleDocTemplate(
+                pdf_output_path,
+                pagesize=A4,
+                rightMargin=72,
+                leftMargin=72,
+                topMargin=72,
+                bottomMargin=72
+            )
+            
+            # Get styles
+            styles = self._create_pdf_styles()
+            
+            # Build story (PDF content)
+            story = []
+            
+            # Add header with better formatting to prevent color splitting
+            title_text = "COMPREHENSIVE SUSTAINABILITY<br/>SOLUTIONS REPORT"
+            story.append(Paragraph(title_text, styles['CustomMainTitle']))
+            story.append(Spacer(1, 0.2*inch))
+            
+            # Add generation timestamp
+            timestamp = datetime.now().strftime("%B %d, %Y at %H:%M")
+            story.append(Paragraph(f"Generated on {timestamp}", styles['CustomBodyText']))
+            story.append(Spacer(1, 0.3*inch))
+            
+            # Parse and add content
+            elements = self._parse_report_content(report_content)
+            
+            for element in elements:
+                element_type = element['type']
+                content = element['content']
+                
+                if element_type == 'main_title':
+                    continue  # Already added at the top
+                elif element_type == 'hotspot_title':
+                    # MAIN HEADLINES - largest (### sections)
+                    story.append(Spacer(1, 0.3*inch))
+                    story.append(Paragraph(content, styles['CustomHotspotTitle']))
+                elif element_type == 'section_title':
+                    # Secondary headlines (** sections)
+                    story.append(Spacer(1, 0.2*inch))
+                    story.append(Paragraph(content, styles['CustomSectionTitle']))
+                elif element_type == 'content_subtitle':
+                    # Content subsections (QUANTITATIVE FINDINGS, etc.)
+                    story.append(Spacer(1, 0.1*inch))
+                    story.append(Paragraph(content, styles['CustomContentSubtitle']))
+                elif element_type == 'paper_title':
+                    # Paper titles - tertiary headlines with clickable PDF links
+                    story.append(Spacer(1, 0.08*inch))
+                    # Process hyperlinks in paper titles
+                    processed_content = self._process_hyperlinks(content)
+                    story.append(Paragraph(processed_content, styles['CustomPaperTitle']))
+                elif element_type == 'bullet':
+                    story.append(Paragraph(f"• {content}", styles['CustomBulletPoint']))
+                elif element_type == 'numbered':
+                    story.append(Paragraph(content, styles['CustomNumberedItem']))
+                elif element_type == 'indented_detail':
+                    # Indented details for hotspot ranking
+                    story.append(Paragraph(content, styles['CustomIndentedDetail']))
+                elif element_type == 'divider':
+                    story.append(Spacer(1, 0.15*inch))
+                    # Add a more subtle horizontal line
+                    divider_table = Table([['─' * 60]], colWidths=[5*inch])
+                    divider_table.setStyle(TableStyle([
+                        ('TEXTCOLOR', (0, 0), (-1, -1), HexColor('#BDC3C7')),
+                        ('FONTSIZE', (0, 0), (-1, -1), 10),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                    ]))
+                    story.append(divider_table)
+                    story.append(Spacer(1, 0.15*inch))
+                elif element_type == 'body':
+                    story.append(Paragraph(content, styles['CustomBodyText']))
+            
+            # Add footer information
+            story.append(Spacer(1, 0.3*inch))
+            footer_text = """
+            <para align="center">
+            <b>Report Information</b><br/>
+            This report was generated using the LLM-Powered LCA Analysis System<br/>
+            All data is based on research papers and actual component specifications<br/>
+            No estimates or fabricated values were used in this analysis
+            </para>
+            """
+            story.append(Paragraph(footer_text, styles['CustomBodyText']))
+            
+            # Build PDF
+            doc.build(story)
+            
+            logger.info(f"Successfully generated PDF report: {pdf_output_path}")
+            return pdf_output_path
+            
+        except Exception as e:
+            logger.error(f"Error generating PDF report: {str(e)}")
+            raise
+
+    def generate_solutions_from_hotspot_analysis(self, hotspot_analysis_path: str, output_path: str = None):
+        """Generate sustainable solutions based on hotspot analysis results."""
         try:
             # Determine output folder
-            self.output_folder = self.get_output_folder_from_lca_file(lca_report_path)
+            self.output_folder = self.get_output_folder_from_hotspot_file(hotspot_analysis_path)
             
             # Set default output path if not provided
             if output_path is None:
                 output_path = f"{self.output_folder}/sustainable_solutions_report.txt"
             elif not str(output_path).startswith(self.output_folder):
-                # If output_path doesn't include the folder, prepend it
                 filename = Path(output_path).name
                 output_path = f"{self.output_folder}/{filename}"
             
             # Create output folder if it doesn't exist
             Path(self.output_folder).mkdir(parents=True, exist_ok=True)
             
-            logger.info(f"Using LCA report: {lca_report_path}")
-            logger.info(f"Using output folder: {self.output_folder}")
+            logger.info(f"Using hotspot analysis: {hotspot_analysis_path}")
             logger.info(f"Solutions report will be saved to: {output_path}")
             
-            # Load LCA report
-            with open(lca_report_path, 'r') as f:
-                lca_report = json.load(f)
+            # Load hotspot analysis with UTF-8 encoding
+            with open(hotspot_analysis_path, 'r', encoding='utf-8') as f:
+                hotspot_data = json.load(f)
             
-            # Generate query
-            query = self.generate_query(lca_report)
-            logger.info(f"Generated search query: {query}")
+            hotspot_analysis = hotspot_data.get('hotspot_analysis', {})
+            input_file = hotspot_data.get('input_file', '')
             
-            # Search for relevant papers with max 5 results
-            papers = self.search_papers(query, top_k=15)
-            logger.info(f"Retrieved {len(papers)} papers from vector database")
+            # Load raw input data with UTF-8 encoding
+            raw_input_data = ""
+            if input_file and Path(input_file).exists():
+                with open(input_file, 'r', encoding='utf-8') as f:
+                    raw_input_data = f.read()
+                logger.info("Loaded raw input data")
             
-            # Log retrieved papers for debugging
-            for i, paper in enumerate(papers):
-                title = paper.get('paper_metadata', {}).get('title', 'Unknown')
-                doi = paper.get('paper_metadata', {}).get('doi', 'No DOI')
-                logger.info(f"Paper {i+1}: {title} (DOI: {doi})")
+            # Check if processed papers exist
+            processed_papers_file = f"{self.output_folder}/processed_papers.json"
+            if not Path(processed_papers_file).exists():
+                logger.error(f"Processed papers file not found: {processed_papers_file}")
+                error_message = f"""SUSTAINABILITY SOLUTIONS REPORT
+{"=" * 50}
+
+ERROR: NO RESEARCH PAPERS FOUND
+
+The sustainability analysis cannot be completed because no processed research papers were found.
+
+Expected file: {processed_papers_file}
+
+REQUIRED STEPS:
+1. Download research papers for each hotspot using the paper downloader
+2. Process the downloaded papers using the PDF processor
+3. Re-run this sustainability analysis
+
+Without research papers, no evidence-based sustainability solutions can be generated.
+The system does not provide generic recommendations.
+
+Please complete the paper download and processing steps first."""
+                
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(error_message)
+                
+                logger.error(f"Cannot generate sustainability report - no papers processed")
+                raise FileNotFoundError(f"Processed papers file not found: {processed_papers_file}")
             
-            # Save retrieved papers to the same folder
-            retrieved_papers_path = f"{self.output_folder}/retrieved_papers.json"
-            with open(retrieved_papers_path, 'w') as f:
-                json.dump(papers, f, indent=2)
-            logger.info(f"Retrieved papers saved to {retrieved_papers_path}")
+            # Analyze papers for hotspot-specific solutions
+            hotspot_analyses = self.analyze_papers_for_hotspots(
+                processed_papers_file, hotspot_analysis, raw_input_data
+            )
             
-            # Analyze papers in parallel
-            analyses = self.analyze_papers_parallel(papers, lca_report)
-            logger.info(f"Generated {len([a for a in analyses if a])} valid analyses")
+            # Generate comprehensive sustainability report
+            final_report = self.generate_comprehensive_sustainability_report(
+                hotspot_analyses, hotspot_analysis, raw_input_data
+            )
             
-            # Review and clean up
-            final_report = self.review_and_cleanup(analyses, lca_report)
-            
-            # Validate citations
-            validated_report = self.validate_citations(final_report['final_report'], papers)
-            
-            # Save output directly as text
+            # Save the report
             with open(output_path, 'w', encoding='utf-8') as f:
-                f.write("SUSTAINABLE SOLUTIONS REPORT\n")
-                f.write("=" * 50 + "\n\n")
-                f.write(validated_report)
+                f.write("COMPREHENSIVE SUSTAINABILITY SOLUTIONS REPORT\n")
+                f.write("=" * 60 + "\n\n")
+                f.write(final_report['sustainability_report'])
             
-            logger.info(f"Successfully generated sustainable solutions report at {output_path}")
-            return papers
+            # Generate PDF version
+            try:
+                pdf_output_path = f"{self.output_folder}/sustainable_solutions_report.pdf"
+                self.generate_pdf_report(output_path, pdf_output_path)
+                logger.info(f"PDF report generated at {pdf_output_path}")
+            except Exception as e:
+                logger.warning(f"Failed to generate PDF report: {str(e)}")
+            
+            # Also save the detailed analysis data
+            detailed_output_path = f"{self.output_folder}/detailed_sustainability_analysis.json"
+            with open(detailed_output_path, 'w', encoding='utf-8') as f:
+                json.dump(final_report, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"Successfully generated sustainability solutions report at {output_path}")
+            logger.info(f"Detailed analysis saved at {detailed_output_path}")
+            
+            return output_path
+            
         except Exception as e:
-            logger.error(f"Error generating sustainable solutions: {str(e)}")
+            logger.error(f"Error generating solutions from hotspot analysis: {str(e)}")
             raise
+    
+
 
 def main():
-    # Configuration for both APIs
+    """Test the sustainable solutions generator."""
+    from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
+    
     api_configs = [
-        {
-            "api_key": PRIMARY_API_KEY,
-            "base_url": BASE_URL,
-            "model": "llama-3.3-70b-instruct"
-        },
-        {
-            "api_key": SECONDARY_API_KEY,
-            "base_url": BASE_URL,
-            "model": "llama-3.3-70b-instruct"
-        }
+        {"api_key": PRIMARY_API_KEY, "base_url": BASE_URL, "model": "llama-3.3-70b-instruct"},
+        {"api_key": SECONDARY_API_KEY, "base_url": BASE_URL, "model": "llama-3.3-70b-instruct"}
     ]
     
-    # Initialize generator
-    generator = SustainableSolutionsGenerator(
-        vector_db_path="vector_db",
-        api_configs=api_configs
-    )
+    generator = HotspotSustainableSolutionsGenerator(api_configs)
     
-    # Default paths - will use automotive_sample folder
-    lca_report_path = "output/automotive_sample/llm_based_lca_analysis.json"
-    
-    # Generate solutions (output path will be determined automatically)
-    generator.generate_sustainable_solutions(lca_report_path=lca_report_path)
+    # Test with a sample hotspot analysis file
+    hotspot_file = "output/automotive_sample/hotspot_lca_analysis.json"
+    if Path(hotspot_file).exists():
+        result = generator.generate_solutions_from_hotspot_analysis(hotspot_file)
+        print(f"Generated sustainability report: {result}")
+    else:
+        print(f"Hotspot analysis file not found: {hotspot_file}")
 
 if __name__ == "__main__":
     main() 

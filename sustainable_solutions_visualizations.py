@@ -262,12 +262,18 @@ def create_visualization(extracted_data, visualization_spec):
        - Professional appearance
     6. Apply modern styling with:
        - White background
-       - Grid lines
+       - Grid lines (if applicable)
        - Proper margins
-       - Hover templates
+       - Hover templates (only for supported chart types)
        - Formatted numbers
     
-    Example format:
+    CRITICAL PLOTLY CHART TYPE RULES:
+    - For Indicator/Gauge charts (go.Indicator): DO NOT use hovertemplate, update_traces with hovertemplate, or hover-related parameters
+    - For Scatter, Bar, Line charts (px or go): hovertemplate is supported
+    - For Pie charts: hovertemplate is supported
+    - Only apply hover formatting to chart types that support it
+    
+    Example format for non-gauge charts:
     import plotly.express as px
     import pandas as pd
 
@@ -282,7 +288,6 @@ def create_visualization(extracted_data, visualization_spec):
     fig.update_layout(
         title_x=0.5,
         title_font_size=20,
-        showlegend=True,
         plot_bgcolor='white',
         paper_bgcolor='white',
         margin=dict(t=50, l=50, r=50, b=50),
@@ -290,9 +295,38 @@ def create_visualization(extracted_data, visualization_spec):
         yaxis=dict(showgrid=True, gridcolor='#f0f0f0')
     )
     
-    # Update traces
+    # Update traces (ONLY for charts that support hovertemplate)
     fig.update_traces(
         hovertemplate='%{{x}}: %{{y:,.2f}}<extra></extra>'
+    )
+    
+    Example format for gauge/indicator charts:
+    import plotly.graph_objects as go
+
+    # Create data
+    value = 15
+
+    # Create figure
+    fig = go.Figure(go.Indicator(
+        domain = {{'x': [0, 1], 'y': [0, 1]}},
+        value = value,
+        mode = "gauge+number",
+        title = {{'text': "Title"}},
+        gauge = {{
+            'axis': {{'range': [None, 25]}},
+            'bar': {{'color': "#1f77b4"}},
+            'steps': [...],
+            'threshold': {{...}}
+        }}
+    ))
+
+    # Update layout (DO NOT use update_traces with hovertemplate for Indicator charts)
+    fig.update_layout(
+        title_x=0.5,
+        title_font_size=20,
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        margin=dict(t=100, l=50, r=50, b=50)
     )
     """
     

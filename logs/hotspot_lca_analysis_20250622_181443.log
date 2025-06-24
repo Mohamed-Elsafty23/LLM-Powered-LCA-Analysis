@@ -1,0 +1,490 @@
+2025-06-22 18:14:45,631 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-22 18:14:46,330 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-22 18:14:46,331 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-22 18:14:46,331 - __main__ - INFO - Starting complete LCA workflow for input file: automotive_sample_input.txt
+2025-06-22 18:14:46,331 - __main__ - INFO - ============================================================
+2025-06-22 18:14:46,331 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-22 18:14:46,332 - __main__ - INFO - ============================================================
+2025-06-22 18:14:46,334 - lca_implementation - INFO - Using input file: automotive_sample_input.txt
+2025-06-22 18:14:46,334 - lca_implementation - INFO - Using output folder: output/automotive_sample_input
+2025-06-22 18:14:46,335 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-22 18:14:46,335 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-22 18:16:18,781 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:16:18,791 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-22 18:16:18,791 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-22 18:16:31,220 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:16:31,221 - lca_implementation - INFO - Generated 10 search queries for hotspots
+2025-06-22 18:16:31,309 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 18:16:31,309 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 18:16:31,309 - __main__ - INFO - ============================================================
+2025-06-22 18:16:31,310 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-22 18:16:31,310 - __main__ - INFO - ============================================================
+2025-06-22 18:16:31,310 - __main__ - INFO - [SUCCESS] Extracted 10 search queries for hotspots:
+2025-06-22 18:16:31,310 - __main__ - INFO -   - Housing Production: sustainable injection molding
+2025-06-22 18:16:31,311 - __main__ - INFO -   - Radiator Production: eco-friendly die casting
+2025-06-22 18:16:31,311 - __main__ - INFO -   - PCBA Production: energy efficient soldering
+2025-06-22 18:16:31,311 - __main__ - INFO -   - EMC Shield Production: low impact punching
+2025-06-22 18:16:31,311 - __main__ - INFO -   - Transportation: green transport optimization
+2025-06-22 18:16:31,312 - __main__ - INFO -   - ECU Operation: energy efficient ECU
+2025-06-22 18:16:31,312 - __main__ - INFO -   - ECU Standby: low power ECU
+2025-06-22 18:16:31,312 - __main__ - INFO -   - Metal Recycling: sustainable metal recycling
+2025-06-22 18:16:31,312 - __main__ - INFO -   - Plastic Incineration: eco-friendly incineration
+2025-06-22 18:16:31,312 - __main__ - INFO -   - PCBA Recycling: green PCBA recycling
+2025-06-22 18:16:31,312 - __main__ - INFO - ============================================================
+2025-06-22 18:16:31,313 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-22 18:16:31,313 - __main__ - INFO - ============================================================
+2025-06-22 18:16:31,313 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-22 18:16:31,313 - arxiv_paper_downloader - INFO - Query: sustainable injection molding
+2025-06-22 18:16:31,314 - arxiv_paper_downloader - INFO - Converting query: sustainable injection molding
+2025-06-22 18:16:31,314 - arxiv_paper_downloader - INFO - Original query: sustainable injection molding
+2025-06-22 18:16:31,314 - arxiv_paper_downloader - INFO - ArXiv API query: sustainable injection molding
+2025-06-22 18:16:31,315 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=sustainable%20injection%20molding&start=0&max_results=2
+2025-06-22 18:16:31,993 - arxiv_paper_downloader - INFO - Downloading paper 1: Enhancing the Product Quality of the Injection Process Using eXplainable
+  Artificial Intelligence
+2025-06-22 18:16:32,495 - arxiv_paper_downloader - INFO - Successfully downloaded: Enhancing the Product Quality of the Injection Process Using eXplainable Artific.pdf
+2025-06-22 18:16:33,496 - arxiv_paper_downloader - INFO - Downloading paper 2: Dimensional Analysis Theory and Molecular Dynamics Simulation of
+  Polypropylene Melt Flow during Injection Molding Process
+2025-06-22 18:16:39,091 - arxiv_paper_downloader - INFO - Successfully downloaded: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene M.pdf
+2025-06-22 18:16:40,093 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'Housing Production'
+2025-06-22 18:16:42,099 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-22 18:16:42,099 - arxiv_paper_downloader - INFO - Query: eco-friendly die casting
+2025-06-22 18:16:42,100 - arxiv_paper_downloader - INFO - Converting query: eco-friendly die casting
+2025-06-22 18:16:42,101 - arxiv_paper_downloader - INFO - Original query: eco-friendly die casting
+2025-06-22 18:16:42,101 - arxiv_paper_downloader - INFO - ArXiv API query: eco-friendly die casting
+2025-06-22 18:16:42,102 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=eco-friendly%20die%20casting&start=0&max_results=2
+2025-06-22 18:16:42,408 - arxiv_paper_downloader - INFO - Downloading paper 1: MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die
+  Castings
+2025-06-22 18:16:43,517 - arxiv_paper_downloader - INFO - Successfully downloaded: MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf
+2025-06-22 18:16:44,518 - arxiv_paper_downloader - INFO - Downloading paper 2: Optimization of Solidification in Die Casting using Numerical
+  Simulations and Machine Learning
+2025-06-22 18:16:45,297 - arxiv_paper_downloader - INFO - Successfully downloaded: Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf
+2025-06-22 18:16:46,299 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'Radiator Production'
+2025-06-22 18:16:48,303 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-22 18:16:48,303 - arxiv_paper_downloader - INFO - Query: energy efficient soldering
+2025-06-22 18:16:48,303 - arxiv_paper_downloader - INFO - Converting query: energy efficient soldering
+2025-06-22 18:16:48,303 - arxiv_paper_downloader - INFO - Original query: energy efficient soldering
+2025-06-22 18:16:48,303 - arxiv_paper_downloader - INFO - ArXiv API query: energy efficient soldering
+2025-06-22 18:16:48,304 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=energy%20efficient%20soldering&start=0&max_results=2
+2025-06-22 18:16:48,669 - arxiv_paper_downloader - INFO - Downloading paper 1: On Soldering Chiralities
+2025-06-22 18:16:48,808 - arxiv_paper_downloader - INFO - Successfully downloaded: On Soldering Chiralities.pdf
+2025-06-22 18:16:49,808 - arxiv_paper_downloader - INFO - Downloading paper 2: SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in
+  Electronics Manufacturing Using Explainable Artificial Intelligence
+2025-06-22 18:16:51,833 - arxiv_paper_downloader - INFO - Successfully downloaded: SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf
+2025-06-22 18:16:52,834 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'PCBA Production'
+2025-06-22 18:16:54,840 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-22 18:16:54,840 - arxiv_paper_downloader - INFO - Query: low impact punching
+2025-06-22 18:16:54,841 - arxiv_paper_downloader - INFO - Converting query: low impact punching
+2025-06-22 18:16:54,841 - arxiv_paper_downloader - INFO - Original query: low impact punching
+2025-06-22 18:16:54,842 - arxiv_paper_downloader - INFO - ArXiv API query: low impact punching
+2025-06-22 18:16:54,842 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=low%20impact%20punching&start=0&max_results=2
+2025-06-22 18:16:55,163 - arxiv_paper_downloader - INFO - Downloading paper 1: Punch Card Programmable Microfluidics
+2025-06-22 18:16:56,359 - arxiv_paper_downloader - INFO - Successfully downloaded: Punch Card Programmable Microfluidics.pdf
+2025-06-22 18:16:57,360 - arxiv_paper_downloader - INFO - Downloading paper 2: Validation of a temperature-dependent elasto-viscoplastic material model
+  for a talcum-filled polypropylene/polyethylene co-polymer using glove box
+  flap component tests
+2025-06-22 18:17:03,985 - arxiv_paper_downloader - INFO - Successfully downloaded: Validation of a temperature-dependent elasto-viscoplastic material model for a t.pdf
+2025-06-22 18:17:04,987 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'EMC Shield Production'
+2025-06-22 18:17:07,088 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-22 18:17:07,088 - arxiv_paper_downloader - INFO - Query: green transport optimization
+2025-06-22 18:17:07,088 - arxiv_paper_downloader - INFO - Converting query: green transport optimization
+2025-06-22 18:17:07,088 - arxiv_paper_downloader - INFO - Original query: green transport optimization
+2025-06-22 18:17:07,089 - arxiv_paper_downloader - INFO - ArXiv API query: green transport optimization
+2025-06-22 18:17:07,089 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=green%20transport%20optimization&start=0&max_results=2
+2025-06-22 18:17:07,431 - arxiv_paper_downloader - INFO - Downloading paper 1: Optimizing Thermal Transport in Graphene Nanoribbon Based on Phonon
+  Resonance Hybridization
+2025-06-22 18:17:08,142 - arxiv_paper_downloader - INFO - Successfully downloaded: Optimizing Thermal Transport in Graphene Nanoribbon Based on Phonon Resonance Hy.pdf
+2025-06-22 18:17:09,143 - arxiv_paper_downloader - INFO - Downloading paper 2: Recursive Green's functions optimized for atomistic modelling of large
+  superlattice-based devices
+2025-06-22 18:17:12,554 - arxiv_paper_downloader - INFO - Successfully downloaded: Recursive Green_s functions optimized for atomistic modelling of large superlatt.pdf
+2025-06-22 18:17:13,555 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'Transportation'
+2025-06-22 18:17:15,558 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Operation
+2025-06-22 18:17:15,558 - arxiv_paper_downloader - INFO - Query: energy efficient ECU
+2025-06-22 18:17:15,559 - arxiv_paper_downloader - INFO - Converting query: energy efficient ECU
+2025-06-22 18:17:15,559 - arxiv_paper_downloader - INFO - Original query: energy efficient ECU
+2025-06-22 18:17:15,559 - arxiv_paper_downloader - INFO - ArXiv API query: energy efficient ecu
+2025-06-22 18:17:15,559 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=energy%20efficient%20ecu&start=0&max_results=2
+2025-06-22 18:17:15,923 - arxiv_paper_downloader - INFO - Downloading paper 1: Viden: Attacker Identification on In-Vehicle Networks
+2025-06-22 18:17:18,125 - arxiv_paper_downloader - INFO - Successfully downloaded: Viden_ Attacker Identification on In-Vehicle Networks.pdf
+2025-06-22 18:17:19,126 - arxiv_paper_downloader - INFO - Downloading paper 2: SecCAN: An Extended CAN Controller with Embedded Intrusion Detection
+2025-06-22 18:17:19,813 - arxiv_paper_downloader - INFO - Successfully downloaded: SecCAN_ An Extended CAN Controller with Embedded Intrusion Detection.pdf
+2025-06-22 18:17:20,815 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'ECU Operation'
+2025-06-22 18:17:22,817 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Standby
+2025-06-22 18:17:22,817 - arxiv_paper_downloader - INFO - Query: low power ECU
+2025-06-22 18:17:22,820 - arxiv_paper_downloader - INFO - Converting query: low power ECU
+2025-06-22 18:17:22,821 - arxiv_paper_downloader - INFO - Original query: low power ECU
+2025-06-22 18:17:22,822 - arxiv_paper_downloader - INFO - ArXiv API query: low power ecu
+2025-06-22 18:17:22,823 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=low%20power%20ecu&start=0&max_results=2
+2025-06-22 18:17:23,302 - arxiv_paper_downloader - INFO - Downloading paper 1: Viden: Attacker Identification on In-Vehicle Networks
+2025-06-22 18:17:24,059 - arxiv_paper_downloader - INFO - Successfully downloaded: Viden_ Attacker Identification on In-Vehicle Networks.pdf
+2025-06-22 18:17:25,060 - arxiv_paper_downloader - INFO - Downloading paper 2: Using Ethernet or A Wireless Harness and Named Data Networking in
+  Autonomous Tractor-Trailer Communication
+2025-06-22 18:17:25,848 - arxiv_paper_downloader - INFO - Successfully downloaded: Using Ethernet or A Wireless Harness and Named Data Networking in Autonomous Tra.pdf
+2025-06-22 18:17:26,849 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'ECU Standby'
+2025-06-22 18:17:28,852 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Metal Recycling
+2025-06-22 18:17:28,852 - arxiv_paper_downloader - INFO - Query: sustainable metal recycling
+2025-06-22 18:17:28,853 - arxiv_paper_downloader - INFO - Converting query: sustainable metal recycling
+2025-06-22 18:17:28,854 - arxiv_paper_downloader - INFO - Original query: sustainable metal recycling
+2025-06-22 18:17:28,854 - arxiv_paper_downloader - INFO - ArXiv API query: sustainable metal recycling
+2025-06-22 18:17:28,855 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=sustainable%20metal%20recycling&start=0&max_results=2
+2025-06-22 18:17:29,188 - arxiv_paper_downloader - INFO - Downloading paper 1: Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form
+  Factors
+2025-06-22 18:17:31,535 - arxiv_paper_downloader - INFO - Successfully downloaded: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-22 18:17:32,536 - arxiv_paper_downloader - INFO - Downloading paper 2: Constraining galactic baryon cycle using the galaxy stellar-to-halo mass
+  relations
+2025-06-22 18:17:33,244 - arxiv_paper_downloader - INFO - Successfully downloaded: Constraining galactic baryon cycle using the galaxy stellar-to-halo mass relatio.pdf
+2025-06-22 18:17:34,245 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'Metal Recycling'
+2025-06-22 18:17:36,250 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Plastic Incineration
+2025-06-22 18:17:36,250 - arxiv_paper_downloader - INFO - Query: eco-friendly incineration
+2025-06-22 18:17:36,252 - arxiv_paper_downloader - INFO - Converting query: eco-friendly incineration
+2025-06-22 18:17:36,253 - arxiv_paper_downloader - INFO - Original query: eco-friendly incineration
+2025-06-22 18:17:36,253 - arxiv_paper_downloader - INFO - ArXiv API query: eco-friendly incineration
+2025-06-22 18:17:36,253 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=eco-friendly%20incineration&start=0&max_results=2
+2025-06-22 18:17:36,623 - arxiv_paper_downloader - INFO - Downloading paper 1: Feasibility Study of Magnetism-based Indoor Positioning Methods in an
+  Incineration Plant
+2025-06-22 18:17:38,418 - arxiv_paper_downloader - INFO - Successfully downloaded: Feasibility Study of Magnetism-based Indoor Positioning Methods in an Incinerati.pdf
+2025-06-22 18:17:39,420 - arxiv_paper_downloader - INFO - Downloading paper 2: Valorization of incinerator bottom ash for the production of
+  resource-efficient eco-friendly concrete: Performance and toxicological
+  characterization
+2025-06-22 18:17:41,522 - arxiv_paper_downloader - INFO - Successfully downloaded: Valorization of incinerator bottom ash for the production of resource-efficient.pdf
+2025-06-22 18:17:42,523 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'Plastic Incineration'
+2025-06-22 18:17:44,525 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Recycling
+2025-06-22 18:17:44,525 - arxiv_paper_downloader - INFO - Query: green PCBA recycling
+2025-06-22 18:17:44,526 - arxiv_paper_downloader - INFO - Converting query: green PCBA recycling
+2025-06-22 18:17:44,527 - arxiv_paper_downloader - INFO - Original query: green PCBA recycling
+2025-06-22 18:17:44,527 - arxiv_paper_downloader - INFO - ArXiv API query: green pcba recycling
+2025-06-22 18:17:44,528 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=green%20pcba%20recycling&start=0&max_results=2
+2025-06-22 18:17:44,843 - arxiv_paper_downloader - INFO - Downloading paper 1: Safe, Optimal, Real-time Trajectory Planning with a Parallel Constrained
+  Bernstein Algorithm
+2025-06-22 18:17:45,704 - arxiv_paper_downloader - INFO - Successfully downloaded: Safe_ Optimal_ Real-time Trajectory Planning with a Parallel Constrained Bernste.pdf
+2025-06-22 18:17:46,705 - arxiv_paper_downloader - INFO - Downloading paper 2: Colored Petri Nets for Modeling and Simulation of a Green Supply Chain
+  System
+2025-06-22 18:17:46,969 - arxiv_paper_downloader - INFO - Successfully downloaded: Colored Petri Nets for Modeling and Simulation of a Green Supply Chain System.pdf
+2025-06-22 18:17:47,970 - arxiv_paper_downloader - INFO - Successfully downloaded 2 papers for hotspot 'PCBA Recycling'
+2025-06-22 18:17:49,987 - arxiv_paper_downloader - INFO - Downloaded 20 papers total for 10 hotspots
+2025-06-22 18:17:49,988 - __main__ - INFO - [SUCCESS] Downloaded 20 papers for 10 hotspots
+2025-06-22 18:17:49,988 - __main__ - INFO - ============================================================
+2025-06-22 18:17:49,988 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-22 18:17:49,988 - __main__ - INFO - ============================================================
+2025-06-22 18:17:49,989 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-22 18:17:50,000 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-22 18:17:50,001 - pdf_processor - INFO - Processing hotspot directory: ECU_Operation
+2025-06-22 18:17:50,002 - pdf_processor - INFO - Found 2 PDF files in ECU_Operation
+2025-06-22 18:17:50,002 - pdf_processor - INFO - Processing: SecCAN_ An Extended CAN Controller with Embedded Intrusion Detection.pdf
+2025-06-22 18:17:50,319 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:17:50,320 - pdf_processor - INFO - Text reduced from 26862 to 23053 characters
+2025-06-22 18:17:50,320 - pdf_processor - INFO - Successfully processed: SecCAN_ An Extended CAN Controller with Embedded Intrusion Detection.pdf
+2025-06-22 18:17:50,321 - pdf_processor - INFO - Processing: Viden_ Attacker Identification on In-Vehicle Networks.pdf
+2025-06-22 18:17:53,002 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-22 18:17:53,002 - pdf_processor - INFO - Text reduced from 86210 to 77645 characters
+2025-06-22 18:17:53,002 - pdf_processor - INFO - Successfully processed: Viden_ Attacker Identification on In-Vehicle Networks.pdf
+2025-06-22 18:17:53,003 - pdf_processor - INFO - Processing hotspot directory: ECU_Standby
+2025-06-22 18:17:53,004 - pdf_processor - INFO - Found 2 PDF files in ECU_Standby
+2025-06-22 18:17:53,004 - pdf_processor - INFO - Processing: Using Ethernet or A Wireless Harness and Named Data Networking in Autonomous Tra.pdf
+2025-06-22 18:17:54,149 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:17:54,150 - pdf_processor - INFO - Text reduced from 59001 to 45268 characters
+2025-06-22 18:17:54,150 - pdf_processor - INFO - Successfully processed: Using Ethernet or A Wireless Harness and Named Data Networking in Autonomous Tra.pdf
+2025-06-22 18:17:54,150 - pdf_processor - INFO - Processing: Viden_ Attacker Identification on In-Vehicle Networks.pdf
+2025-06-22 18:17:56,432 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-22 18:17:56,432 - pdf_processor - INFO - Text reduced from 86210 to 77645 characters
+2025-06-22 18:17:56,433 - pdf_processor - INFO - Successfully processed: Viden_ Attacker Identification on In-Vehicle Networks.pdf
+2025-06-22 18:17:56,433 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-22 18:17:56,433 - pdf_processor - INFO - Found 4 PDF files in EMC_Shield_Production
+2025-06-22 18:17:56,434 - pdf_processor - INFO - Processing: Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf
+2025-06-22 18:17:56,543 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:17:56,544 - pdf_processor - INFO - Text reduced from 21560 to 20054 characters
+2025-06-22 18:17:56,545 - pdf_processor - INFO - Successfully processed: Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf
+2025-06-22 18:17:56,545 - pdf_processor - INFO - Processing: Cold Isostatic Pressing to Improve the Mechanical Performance of Additively Manu.pdf
+2025-06-22 18:17:57,114 - pdf_processor - INFO - No references section found to remove
+2025-06-22 18:17:57,115 - pdf_processor - INFO - Successfully processed: Cold Isostatic Pressing to Improve the Mechanical Performance of Additively Manu.pdf
+2025-06-22 18:17:57,115 - pdf_processor - INFO - Processing: Punch Card Programmable Microfluidics.pdf
+2025-06-22 18:17:59,698 - pdf_processor - INFO - No references section found to remove
+2025-06-22 18:17:59,698 - pdf_processor - INFO - Successfully processed: Punch Card Programmable Microfluidics.pdf
+2025-06-22 18:17:59,699 - pdf_processor - INFO - Processing: Validation of a temperature-dependent elasto-viscoplastic material model for a t.pdf
+2025-06-22 18:18:00,201 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:00,202 - pdf_processor - INFO - Text reduced from 32351 to 28291 characters
+2025-06-22 18:18:00,203 - pdf_processor - INFO - Successfully processed: Validation of a temperature-dependent elasto-viscoplastic material model for a t.pdf
+2025-06-22 18:18:00,203 - pdf_processor - INFO - Processing hotspot directory: Energy_Consumption
+2025-06-22 18:18:00,204 - pdf_processor - INFO - Found 2 PDF files in Energy_Consumption
+2025-06-22 18:18:00,204 - pdf_processor - INFO - Processing: A Lightweight FPGA-based IDS-ECU Architecture for Automotive CAN.pdf
+2025-06-22 18:18:00,565 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:00,566 - pdf_processor - INFO - Text reduced from 53822 to 43539 characters
+2025-06-22 18:18:00,566 - pdf_processor - INFO - Successfully processed: A Lightweight FPGA-based IDS-ECU Architecture for Automotive CAN.pdf
+2025-06-22 18:18:00,567 - pdf_processor - INFO - Processing: CANOA_ CAN Origin Authentication Through Power Side-Channel Monitoring.pdf
+2025-06-22 18:18:29,410 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:29,411 - pdf_processor - INFO - Text reduced from 60545 to 54487 characters
+2025-06-22 18:18:29,411 - pdf_processor - INFO - Successfully processed: CANOA_ CAN Origin Authentication Through Power Side-Channel Monitoring.pdf
+2025-06-22 18:18:29,412 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-22 18:18:29,412 - pdf_processor - INFO - Found 2 PDF files in Housing_Production
+2025-06-22 18:18:29,413 - pdf_processor - INFO - Processing: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene M.pdf
+2025-06-22 18:18:29,825 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:29,826 - pdf_processor - INFO - Text reduced from 48383 to 40136 characters
+2025-06-22 18:18:29,826 - pdf_processor - INFO - Successfully processed: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene M.pdf
+2025-06-22 18:18:29,826 - pdf_processor - INFO - Processing: Enhancing the Product Quality of the Injection Process Using eXplainable Artific.pdf
+2025-06-22 18:18:30,391 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:30,391 - pdf_processor - INFO - Text reduced from 35355 to 30827 characters
+2025-06-22 18:18:30,392 - pdf_processor - INFO - Successfully processed: Enhancing the Product Quality of the Injection Process Using eXplainable Artific.pdf
+2025-06-22 18:18:30,392 - pdf_processor - INFO - Processing hotspot directory: Metal_Recycling
+2025-06-22 18:18:30,392 - pdf_processor - INFO - Found 2 PDF files in Metal_Recycling
+2025-06-22 18:18:30,392 - pdf_processor - INFO - Processing: Constraining galactic baryon cycle using the galaxy stellar-to-halo mass relatio.pdf
+2025-06-22 18:18:31,336 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:31,337 - pdf_processor - INFO - Text reduced from 75698 to 68428 characters
+2025-06-22 18:18:31,338 - pdf_processor - INFO - Successfully processed: Constraining galactic baryon cycle using the galaxy stellar-to-halo mass relatio.pdf
+2025-06-22 18:18:31,338 - pdf_processor - INFO - Processing: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-22 18:18:31,717 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:31,717 - pdf_processor - INFO - Text reduced from 70847 to 57875 characters
+2025-06-22 18:18:31,718 - pdf_processor - INFO - Successfully processed: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-22 18:18:31,718 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-22 18:18:31,719 - pdf_processor - INFO - Found 4 PDF files in PCBA_Production
+2025-06-22 18:18:31,719 - pdf_processor - INFO - Processing: A high entropy alloy as very low melting point solder for advanced electronic pa.pdf
+2025-06-22 18:18:32,487 - pdf_processor - INFO - No references section found to remove
+2025-06-22 18:18:32,487 - pdf_processor - INFO - Successfully processed: A high entropy alloy as very low melting point solder for advanced electronic pa.pdf
+2025-06-22 18:18:32,489 - pdf_processor - INFO - Processing: On Soldering Chiralities.pdf
+2025-06-22 18:18:32,751 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-22 18:18:32,752 - pdf_processor - INFO - Text reduced from 18605 to 17682 characters
+2025-06-22 18:18:32,752 - pdf_processor - INFO - Successfully processed: On Soldering Chiralities.pdf
+2025-06-22 18:18:32,753 - pdf_processor - INFO - Processing: Optimization simulation of reflow welding based on prediction of regional center.pdf
+2025-06-22 18:18:33,028 - pdf_processor - INFO - No references section found to remove
+2025-06-22 18:18:33,028 - pdf_processor - INFO - Successfully processed: Optimization simulation of reflow welding based on prediction of regional center.pdf
+2025-06-22 18:18:33,029 - pdf_processor - INFO - Processing: SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf
+2025-06-22 18:18:33,153 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:33,153 - pdf_processor - INFO - Text reduced from 32956 to 27651 characters
+2025-06-22 18:18:33,153 - pdf_processor - INFO - Successfully processed: SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf
+2025-06-22 18:18:33,154 - pdf_processor - INFO - Processing hotspot directory: PCBA_Recycling
+2025-06-22 18:18:33,154 - pdf_processor - INFO - Found 2 PDF files in PCBA_Recycling
+2025-06-22 18:18:33,155 - pdf_processor - INFO - Processing: Colored Petri Nets for Modeling and Simulation of a Green Supply Chain System.pdf
+2025-06-22 18:18:33,314 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:33,315 - pdf_processor - INFO - Text reduced from 24696 to 17354 characters
+2025-06-22 18:18:33,315 - pdf_processor - INFO - Successfully processed: Colored Petri Nets for Modeling and Simulation of a Green Supply Chain System.pdf
+2025-06-22 18:18:33,316 - pdf_processor - INFO - Processing: Safe_ Optimal_ Real-time Trajectory Planning with a Parallel Constrained Bernste.pdf
+2025-06-22 18:18:34,431 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:34,432 - pdf_processor - INFO - Text reduced from 93744 to 67067 characters
+2025-06-22 18:18:34,432 - pdf_processor - INFO - Successfully processed: Safe_ Optimal_ Real-time Trajectory Planning with a Parallel Constrained Bernste.pdf
+2025-06-22 18:18:34,433 - pdf_processor - INFO - Processing hotspot directory: Plastic_Incineration
+2025-06-22 18:18:34,433 - pdf_processor - INFO - Found 2 PDF files in Plastic_Incineration
+2025-06-22 18:18:34,433 - pdf_processor - INFO - Processing: Feasibility Study of Magnetism-based Indoor Positioning Methods in an Incinerati.pdf
+2025-06-22 18:18:34,862 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:34,863 - pdf_processor - INFO - Text reduced from 24839 to 23286 characters
+2025-06-22 18:18:34,863 - pdf_processor - INFO - Successfully processed: Feasibility Study of Magnetism-based Indoor Positioning Methods in an Incinerati.pdf
+2025-06-22 18:18:34,863 - pdf_processor - INFO - Processing: Valorization of incinerator bottom ash for the production of resource-efficient.pdf
+2025-06-22 18:18:35,084 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:35,084 - pdf_processor - INFO - Text reduced from 51418 to 40573 characters
+2025-06-22 18:18:35,084 - pdf_processor - INFO - Successfully processed: Valorization of incinerator bottom ash for the production of resource-efficient.pdf
+2025-06-22 18:18:35,085 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-22 18:18:35,086 - pdf_processor - INFO - Found 3 PDF files in Radiator_Production
+2025-06-22 18:18:35,086 - pdf_processor - INFO - Processing: An Innovative Line Balancing for the Aluminium Melting Process.pdf
+2025-06-22 18:18:35,822 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:35,823 - pdf_processor - INFO - Text reduced from 40200 to 36984 characters
+2025-06-22 18:18:35,823 - pdf_processor - INFO - Successfully processed: An Innovative Line Balancing for the Aluminium Melting Process.pdf
+2025-06-22 18:18:35,824 - pdf_processor - INFO - Processing: MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf
+2025-06-22 18:18:36,218 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:36,219 - pdf_processor - INFO - Text reduced from 54632 to 41975 characters
+2025-06-22 18:18:36,219 - pdf_processor - INFO - Successfully processed: MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf
+2025-06-22 18:18:36,219 - pdf_processor - INFO - Processing: Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf
+2025-06-22 18:18:36,513 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:36,513 - pdf_processor - INFO - Text reduced from 53380 to 44963 characters
+2025-06-22 18:18:36,514 - pdf_processor - INFO - Successfully processed: Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf
+2025-06-22 18:18:36,514 - pdf_processor - INFO - Processing hotspot directory: Standby_Power
+2025-06-22 18:18:36,527 - pdf_processor - INFO - Found 2 PDF files in Standby_Power
+2025-06-22 18:18:36,527 - pdf_processor - INFO - Processing: Integrating DRAM Power-Down Modes in gem5 and Quantifying their Impact.pdf
+2025-06-22 18:18:37,184 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:37,185 - pdf_processor - INFO - Text reduced from 53868 to 42706 characters
+2025-06-22 18:18:37,185 - pdf_processor - INFO - Successfully processed: Integrating DRAM Power-Down Modes in gem5 and Quantifying their Impact.pdf
+2025-06-22 18:18:37,185 - pdf_processor - INFO - Processing: The visibility of low-frequency solar acoustic modes.pdf
+2025-06-22 18:18:38,061 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:38,061 - pdf_processor - INFO - Text reduced from 41931 to 40819 characters
+2025-06-22 18:18:38,062 - pdf_processor - INFO - Successfully processed: The visibility of low-frequency solar acoustic modes.pdf
+2025-06-22 18:18:38,063 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-22 18:18:38,063 - pdf_processor - INFO - Found 4 PDF files in Transportation
+2025-06-22 18:18:38,063 - pdf_processor - INFO - Processing: Cyber-physical Control of Road Freight Transport.pdf
+2025-06-22 18:18:38,855 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:38,856 - pdf_processor - INFO - Text reduced from 59818 to 49236 characters
+2025-06-22 18:18:38,856 - pdf_processor - INFO - Successfully processed: Cyber-physical Control of Road Freight Transport.pdf
+2025-06-22 18:18:38,856 - pdf_processor - INFO - Processing: Modeling and Analysis of Dynamic Charging for EVs_ A Stochastic Geometry Approac.pdf
+2025-06-22 18:18:40,483 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 18:18:40,484 - pdf_processor - INFO - Text reduced from 101740 to 87335 characters
+2025-06-22 18:18:40,485 - pdf_processor - INFO - Successfully processed: Modeling and Analysis of Dynamic Charging for EVs_ A Stochastic Geometry Approac.pdf
+2025-06-22 18:18:40,485 - pdf_processor - INFO - Processing: Optimizing Thermal Transport in Graphene Nanoribbon Based on Phonon Resonance Hy.pdf
+2025-06-22 18:18:40,988 - pdf_processor - INFO - No references section found to remove
+2025-06-22 18:18:40,989 - pdf_processor - INFO - Successfully processed: Optimizing Thermal Transport in Graphene Nanoribbon Based on Phonon Resonance Hy.pdf
+2025-06-22 18:18:40,989 - pdf_processor - INFO - Processing: Recursive Green_s functions optimized for atomistic modelling of large superlatt.pdf
+2025-06-22 18:18:41,638 - pdf_processor - INFO - No references section found to remove
+2025-06-22 18:18:41,639 - pdf_processor - INFO - Successfully processed: Recursive Green_s functions optimized for atomistic modelling of large superlatt.pdf
+2025-06-22 18:18:41,639 - pdf_processor - INFO - Processing hotspot directory: Waste_Generation
+2025-06-22 18:18:41,653 - pdf_processor - INFO - Found 2 PDF files in Waste_Generation
+2025-06-22 18:18:41,654 - pdf_processor - INFO - Processing: Measuring the Recyclability of Electronic Components to Assist Automatic Disasse.pdf
+2025-06-22 18:18:42,082 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:42,082 - pdf_processor - INFO - Text reduced from 31540 to 24223 characters
+2025-06-22 18:18:42,083 - pdf_processor - INFO - Successfully processed: Measuring the Recyclability of Electronic Components to Assist Automatic Disasse.pdf
+2025-06-22 18:18:42,083 - pdf_processor - INFO - Processing: Using multicomponent recycled electronic waste alloys to produce high entropy al.pdf
+2025-06-22 18:18:43,140 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 18:18:43,140 - pdf_processor - INFO - Text reduced from 42170 to 29342 characters
+2025-06-22 18:18:43,141 - pdf_processor - INFO - Successfully processed: Using multicomponent recycled electronic waste alloys to produce high entropy al.pdf
+2025-06-22 18:18:43,141 - pdf_processor - INFO - Successfully processed 33 papers total
+2025-06-22 18:18:43,177 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-22 18:18:43,178 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\automotive_sample_input\processed_papers.json
+2025-06-22 18:18:43,178 - __main__ - INFO - ============================================================
+2025-06-22 18:18:43,179 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-22 18:18:43,179 - __main__ - INFO - ============================================================
+2025-06-22 18:18:43,179 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 18:18:43,180 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-22 18:18:43,180 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-22 18:18:43,207 - sustainable_solutions_generator - INFO - Analyzing 32 processed papers for hotspot solutions
+2025-06-22 18:18:43,208 - sustainable_solutions_generator - INFO - Analyzing 1 papers for hotspot: ECU_Operation
+2025-06-22 18:19:25,281 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:19:25,284 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Operation': SecCAN: An Extended CAN Controller with Embedded Intrusion Detection
+2025-06-22 18:19:25,285 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'ECU_Operation': 1 results
+2025-06-22 18:19:25,286 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: ECU_Standby
+2025-06-22 18:20:08,482 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:20:08,486 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': Using Ethernet or A Wireless Harness and Named Data Networking in
+  Autonomous Tractor-Trailer Communication
+2025-06-22 18:20:12,499 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:20:12,502 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': Viden: Attacker Identification on In-Vehicle Networks
+2025-06-22 18:20:12,503 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'ECU_Standby': 2 results
+2025-06-22 18:20:12,504 - sustainable_solutions_generator - INFO - Analyzing 4 papers for hotspot: EMC_Shield_Production
+2025-06-22 18:20:45,039 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:20:45,043 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Unknown Title
+2025-06-22 18:20:50,259 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:20:50,260 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Unknown Title
+2025-06-22 18:21:22,205 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:21:22,206 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Validation of a temperature-dependent elasto-viscoplastic material model
+  for a talcum-filled polypropylene/polyethylene co-polymer using glove box
+  flap component tests
+2025-06-22 18:21:23,687 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:21:23,691 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Punch Card Programmable Microfluidics
+2025-06-22 18:21:23,692 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'EMC_Shield_Production': 4 results
+2025-06-22 18:21:23,693 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Energy_Consumption
+2025-06-22 18:22:17,905 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:22:17,909 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Energy_Consumption': CANOA: CAN Origin Authentication Through Power Side-Channel Monitoring
+2025-06-22 18:22:21,903 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:22:21,904 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Energy_Consumption': A Lightweight FPGA-based IDS-ECU Architecture for Automotive CAN
+2025-06-22 18:22:21,905 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Energy_Consumption': 2 results
+2025-06-22 18:22:21,905 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Housing_Production
+2025-06-22 18:22:58,225 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:22:58,228 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Housing_Production': Dimensional Analysis Theory and Molecular Dynamics Simulation of
+  Polypropylene Melt Flow during Injection Molding Process
+2025-06-22 18:23:08,123 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:23:08,126 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Housing_Production': Enhancing the Product Quality of the Injection Process Using eXplainable
+  Artificial Intelligence
+2025-06-22 18:23:08,128 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Housing_Production': 2 results
+2025-06-22 18:23:08,129 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Metal_Recycling
+2025-06-22 18:23:43,544 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:23:43,547 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form
+  Factors
+2025-06-22 18:23:52,110 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:23:52,111 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': Constraining galactic baryon cycle using the galaxy stellar-to-halo mass
+  relations
+2025-06-22 18:23:52,112 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Metal_Recycling': 2 results
+2025-06-22 18:23:52,112 - sustainable_solutions_generator - INFO - Analyzing 4 papers for hotspot: PCBA_Production
+2025-06-22 18:24:29,959 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:24:29,962 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Unknown Title
+2025-06-22 18:24:43,818 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:24:43,819 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': On Soldering Chiralities
+2025-06-22 18:25:12,455 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:25:12,460 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Unknown Title
+2025-06-22 18:25:24,691 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:25:24,696 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in
+  Electronics Manufacturing Using Explainable Artificial Intelligence
+2025-06-22 18:25:24,697 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PCBA_Production': 4 results
+2025-06-22 18:25:24,698 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: PCBA_Recycling
+2025-06-22 18:26:03,974 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:26:03,975 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': Colored Petri Nets for Modeling and Simulation of a Green Supply Chain
+  System
+2025-06-22 18:26:06,438 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:26:06,441 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': Safe, Optimal, Real-time Trajectory Planning with a Parallel Constrained
+  Bernstein Algorithm
+2025-06-22 18:26:06,443 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PCBA_Recycling': 2 results
+2025-06-22 18:26:06,443 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Plastic_Incineration
+2025-06-22 18:26:53,997 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:26:53,998 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Plastic_Incineration': Valorization of incinerator bottom ash for the production of
+  resource-efficient eco-friendly concrete: Performance and toxicological
+  characterization
+2025-06-22 18:26:54,813 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:26:54,814 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Plastic_Incineration': Feasibility Study of Magnetism-based Indoor Positioning Methods in an
+  Incineration Plant
+2025-06-22 18:26:54,814 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Plastic_Incineration': 2 results
+2025-06-22 18:26:54,815 - sustainable_solutions_generator - INFO - Analyzing 3 papers for hotspot: Radiator_Production
+2025-06-22 18:27:34,746 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:27:34,747 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Radiator_Production': MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die
+  Castings
+2025-06-22 18:27:36,933 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:27:36,934 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Radiator_Production': Unknown Title
+2025-06-22 18:28:14,475 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:28:14,477 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Radiator_Production': Optimization of Solidification in Die Casting using Numerical
+  Simulations and Machine Learning
+2025-06-22 18:28:14,478 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Radiator_Production': 3 results
+2025-06-22 18:28:14,480 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Standby_Power
+2025-06-22 18:28:50,728 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:28:50,730 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Standby_Power': The visibility of low-frequency solar acoustic modes
+2025-06-22 18:28:54,349 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:28:54,353 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Standby_Power': Integrating DRAM Power-Down Modes in gem5 and Quantifying their Impact
+2025-06-22 18:28:54,355 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Standby_Power': 2 results
+2025-06-22 18:28:54,356 - sustainable_solutions_generator - INFO - Analyzing 4 papers for hotspot: Transportation
+2025-06-22 18:29:27,159 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:29:27,160 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Transportation': Unknown Title
+2025-06-22 18:29:31,661 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:29:31,663 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Transportation': Unknown Title
+2025-06-22 18:30:06,457 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:30:06,460 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Transportation': Recursive Green's functions optimized for atomistic modelling of large
+  superlattice-based devices
+2025-06-22 18:30:21,793 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:30:21,795 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Transportation': Optimizing Thermal Transport in Graphene Nanoribbon Based on Phonon
+  Resonance Hybridization
+2025-06-22 18:30:21,796 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Transportation': 4 results
+2025-06-22 18:30:21,798 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Waste_Generation
+2025-06-22 18:31:11,095 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:31:11,099 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Waste_Generation': Measuring the Recyclability of Electronic Components to Assist Automatic
+  Disassembly and Sorting Waste Printed Circuit Boards
+2025-06-22 18:31:14,704 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:31:14,705 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Waste_Generation': Using multicomponent recycled electronic waste alloys to produce high
+  entropy alloys
+2025-06-22 18:31:14,706 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Waste_Generation': 2 results
+2025-06-22 18:32:31,004 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 18:32:31,008 - sustainable_solutions_generator - INFO - Generated comprehensive sustainability report
+2025-06-22 18:32:31,024 - sustainable_solutions_generator - INFO - Successfully generated sustainability solutions report at output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-22 18:32:31,024 - sustainable_solutions_generator - INFO - Detailed analysis saved at output\automotive_sample_input/detailed_sustainability_analysis.json
+2025-06-22 18:32:31,025 - __main__ - INFO - [SUCCESS] Sustainability solutions report generated: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-22 18:32:31,026 - __main__ - INFO - ============================================================
+2025-06-22 18:32:31,026 - __main__ - INFO - WORKFLOW COMPLETION SUMMARY
+2025-06-22 18:32:31,026 - __main__ - INFO - ============================================================
+2025-06-22 18:32:31,028 - __main__ - INFO - [SUCCESS] Total workflow time: 1064.69 seconds
+2025-06-22 18:32:31,029 - __main__ - INFO - [SUCCESS] Input file: automotive_sample_input.txt
+2025-06-22 18:32:31,029 - __main__ - INFO - [SUCCESS] Output folder: output/automotive_sample_input
+2025-06-22 18:32:31,029 - __main__ - INFO - Generated files:
+2025-06-22 18:32:31,030 - __main__ - INFO -   [SUCCESS] input_file: automotive_sample_input.txt
+2025-06-22 18:32:31,031 - __main__ - INFO -   [SUCCESS] output_folder: output/automotive_sample_input
+2025-06-22 18:32:31,031 - __main__ - INFO -   [SUCCESS] hotspot_analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 18:32:31,032 - __main__ - INFO -   [SUCCESS] processed_papers: output\automotive_sample_input\processed_papers.json
+2025-06-22 18:32:31,032 - __main__ - INFO -   [SUCCESS] sustainability_report: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-22 18:32:31,032 - __main__ - INFO -   [SUCCESS] detailed_analysis: output/automotive_sample_input/detailed_sustainability_analysis.json
+2025-06-22 18:32:31,032 - __main__ - INFO -   [SUCCESS] downloaded_papers_folder: output/automotive_sample_input/downloaded_papers
+2025-06-22 18:32:31,033 - __main__ - INFO -   [SUCCESS] query_mapping: output/automotive_sample_input/downloaded_papers/query_paper_mapping.json
+2025-06-22 18:32:31,033 - __main__ - INFO - ================================================================================
+2025-06-22 18:32:31,033 - __main__ - INFO - NEW LCA WORKFLOW COMPLETED SUCCESSFULLY!
+2025-06-22 18:32:31,033 - __main__ - INFO - ================================================================================

@@ -1,0 +1,24 @@
+Housing:
+
+Weight: 37,45g
+Material: PBT
+Process: Injection Molding
+Radiator
+
+Weight: 160,1 g
+Material: Aluminium
+Process: Die casting
+
+PCBA
+
+PCB size: 243,5x182 mm
+PCB weight: 40,7 g
+Soldered E/E components weight: 61,8 g
+Process: THT and SMD soldering
+ 
+
+EMC Shield
+
+Weight: 30,5 g
+Material: Steel
+Process: Punching and bending

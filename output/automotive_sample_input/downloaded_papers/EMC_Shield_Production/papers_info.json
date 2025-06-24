@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Power consumption prediction for steel industry",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/2307.07597v1",
+    "published_date": "2023-07-14T19:41:53Z",
+    "query": "steel punching and bending process optimization sustainable manufacturing",
+    "filename": "Power consumption prediction for steel industry.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+  },
+  {
+    "title": "Cold Isostatic Pressing to Improve the Mechanical Performance of\n  Additively Manufactured Metallic Components",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/1908.03003v1",
+    "published_date": "2019-08-08T10:28:28Z",
+    "query": "steel punching and bending process optimization sustainable manufacturing",
+    "filename": "Cold Isostatic Pressing to Improve the Mechanical Performance of Additively Manu.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+  }
+]

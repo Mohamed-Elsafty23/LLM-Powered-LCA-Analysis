@@ -1,0 +1,39 @@
+2025-06-23 23:28:40,241 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 1 API clients
+2025-06-23 23:28:40,241 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/ECU_sample_/hotspot_lca_analysis.json
+2025-06-23 23:28:40,241 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\ECU_sample_/sustainable_solutions_report.txt
+2025-06-23 23:28:40,241 - sustainable_solutions_generator - INFO - Analyzing 8 processed papers for hotspot solutions
+2025-06-23 23:28:40,241 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Aluminium_Die_Casting
+2025-06-23 23:29:17,573 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:29:17,612 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': A process planning system with feature based neural network search
+  strategy for aluminum extrusion die manufacturing
+2025-06-23 23:29:45,379 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:29:45,386 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Aluminium_Die_Casting': An Innovative Line Balancing for the Aluminium Melting Process
+2025-06-23 23:29:45,387 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Aluminium_Die_Casting': 2 results
+2025-06-23 23:29:45,387 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: PBT_Injection_Molding
+2025-06-23 23:30:32,408 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:30:32,425 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': DRL-Based Injection Molding Process Parameter Optimization for Adaptive
+  and Profitable Production
+2025-06-23 23:31:13,350 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:31:13,360 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PBT_Injection_Molding': Enhancing the Product Quality of the Injection Process Using eXplainable
+  Artificial Intelligence
+2025-06-23 23:31:13,360 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PBT_Injection_Molding': 2 results
+2025-06-23 23:31:13,360 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: PCBA_Production
+2025-06-23 23:31:53,144 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:31:53,149 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': DVQI: A Multi-task, Hardware-integrated Artificial Intelligence System
+  for Automated Visual Inspection in Electronics Manufacturing
+2025-06-23 23:32:29,129 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:32:29,135 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Safe, Optimal, Real-time Trajectory Planning with a Parallel Constrained
+  Bernstein Algorithm
+2025-06-23 23:32:29,135 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PCBA_Production': 2 results
+2025-06-23 23:32:29,135 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Steel_Punching_and_Bending
+2025-06-23 23:32:53,456 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:32:53,473 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': Cold Isostatic Pressing to Improve the Mechanical Performance of
+  Additively Manufactured Metallic Components
+2025-06-23 23:33:48,015 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-23 23:33:48,037 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Steel_Punching_and_Bending': The Design and Technology Development of the JUNO Central Detector
+2025-06-23 23:33:48,039 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Steel_Punching_and_Bending': 2 results
+2025-06-23 23:33:48,040 - sustainable_solutions_generator - INFO - Generated evidence-based sustainability report
+2025-06-23 23:33:48,231 - sustainable_solutions_generator - INFO - Successfully generated PDF report: output\ECU_sample_/sustainable_solutions_report.pdf
+2025-06-23 23:33:48,231 - sustainable_solutions_generator - INFO - PDF report generated at output\ECU_sample_/sustainable_solutions_report.pdf
+2025-06-23 23:33:48,231 - sustainable_solutions_generator - INFO - Successfully generated sustainability solutions report at output\ECU_sample_/sustainable_solutions_report.txt
+2025-06-23 23:33:48,231 - sustainable_solutions_generator - INFO - Detailed analysis saved at output\ECU_sample_/detailed_sustainability_analysis.json

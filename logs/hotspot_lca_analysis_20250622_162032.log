@@ -1,0 +1,551 @@
+2025-06-22 16:20:47,347 - __main__ - INFO - New file uploaded with hash: 07f00236f99c3547817f41b6d2a5457a
+2025-06-22 16:20:47,348 - __main__ - INFO - Output folder set to: output/automotive_sample_input
+2025-06-22 16:20:47,348 - __main__ - INFO - Processing uploaded file: automotive_sample_input.txt
+2025-06-22 16:20:47,349 - __main__ - INFO - Project name: automotive_sample_input
+2025-06-22 16:20:47,350 - __main__ - INFO - Output folder: output/automotive_sample_input
+2025-06-22 16:20:48,030 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-22 16:20:48,561 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-22 16:20:48,563 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-22 16:20:48,564 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-22 16:20:48,565 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-22 16:20:48,565 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Sustainable Solutions, Visualization Generation
+2025-06-22 16:20:48,568 - __main__ - INFO - Starting complete LCA workflow for input file: temp/automotive_sample_input.txt
+2025-06-22 16:20:48,569 - __main__ - INFO - ============================================================
+2025-06-22 16:20:48,569 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-22 16:20:48,569 - __main__ - INFO - ============================================================
+2025-06-22 16:20:48,570 - lca_implementation - INFO - Using input file: temp/automotive_sample_input.txt
+2025-06-22 16:20:48,570 - lca_implementation - INFO - Using output folder: output/automotive_sample_input
+2025-06-22 16:20:48,587 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-22 16:20:48,587 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-22 16:23:36,343 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:23:36,350 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-22 16:23:36,351 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-22 16:23:49,467 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:23:49,469 - lca_implementation - INFO - Generated 10 search queries for hotspots
+2025-06-22 16:23:49,471 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 16:23:49,472 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 16:23:49,472 - __main__ - INFO - ============================================================
+2025-06-22 16:23:49,472 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-22 16:23:49,473 - __main__ - INFO - ============================================================
+2025-06-22 16:23:49,473 - __main__ - INFO - [SUCCESS] Extracted 10 search queries for hotspots:
+2025-06-22 16:23:49,473 - __main__ - INFO -   - Housing Production: Sustainable Injection Molding
+2025-06-22 16:23:49,473 - __main__ - INFO -   - Radiator Production: Energy Efficient Die Casting
+2025-06-22 16:23:49,474 - __main__ - INFO -   - PCBA Production: Low Energy Soldering
+2025-06-22 16:23:49,474 - __main__ - INFO -   - EMC Shield Production: Sustainable Steel Production
+2025-06-22 16:23:49,474 - __main__ - INFO -   - Transportation: Green Road Transport
+2025-06-22 16:23:49,474 - __main__ - INFO -   - ECU Operation: Low Power Electronics
+2025-06-22 16:23:49,475 - __main__ - INFO -   - ECU Standby: Energy Efficient Standby
+2025-06-22 16:23:49,475 - __main__ - INFO -   - Metal Recycling: High Rate Metal Recycling
+2025-06-22 16:23:49,475 - __main__ - INFO -   - Plastic Incineration: Sustainable Plastic Waste
+2025-06-22 16:23:49,475 - __main__ - INFO -   - PCBA Recycling: Efficient E Waste Recycling
+2025-06-22 16:23:49,476 - __main__ - INFO - ============================================================
+2025-06-22 16:23:49,476 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-22 16:23:49,476 - __main__ - INFO - ============================================================
+2025-06-22 16:23:49,477 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-22 16:23:49,477 - arxiv_paper_downloader - INFO - Query: Sustainable Injection Molding
+2025-06-22 16:23:49,478 - arxiv_paper_downloader - INFO - Converting query: Sustainable Injection Molding
+2025-06-22 16:23:49,478 - arxiv_paper_downloader - INFO - Original query: Sustainable Injection Molding
+2025-06-22 16:23:49,478 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable AND all:injection AND all:molding
+2025-06-22 16:23:49,479 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:sustainable%20AND%20all:injection%20AND%20all:molding&start=0&max_results=5
+2025-06-22 16:23:50,144 - arxiv_paper_downloader - INFO - Downloading paper 1: Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form
+  Factors
+2025-06-22 16:23:54,369 - arxiv_paper_downloader - INFO - Successfully downloaded: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-22 16:23:55,370 - arxiv_paper_downloader - INFO - Successfully downloaded 1 papers for hotspot 'Housing Production'
+2025-06-22 16:23:57,372 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-22 16:23:57,373 - arxiv_paper_downloader - INFO - Query: Energy Efficient Die Casting
+2025-06-22 16:23:57,376 - arxiv_paper_downloader - INFO - Converting query: Energy Efficient Die Casting
+2025-06-22 16:23:57,377 - arxiv_paper_downloader - INFO - Original query: Energy Efficient Die Casting
+2025-06-22 16:23:57,379 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy AND all:efficient AND all:die AND all:casting
+2025-06-22 16:23:57,380 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy%20AND%20all:efficient%20AND%20all:die%20AND%20all:casting&start=0&max_results=5
+2025-06-22 16:23:57,702 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Radiator Production'
+2025-06-22 16:23:59,704 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-22 16:23:59,704 - arxiv_paper_downloader - INFO - Query: Low Energy Soldering
+2025-06-22 16:23:59,704 - arxiv_paper_downloader - INFO - Converting query: Low Energy Soldering
+2025-06-22 16:23:59,704 - arxiv_paper_downloader - INFO - Original query: Low Energy Soldering
+2025-06-22 16:23:59,705 - arxiv_paper_downloader - INFO - ArXiv API query: all:low AND all:energy AND all:soldering
+2025-06-22 16:23:59,705 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:low%20AND%20all:energy%20AND%20all:soldering&start=0&max_results=5
+2025-06-22 16:24:00,058 - arxiv_paper_downloader - INFO - Downloading paper 1: A high entropy alloy as very low melting point solder for advanced
+  electronic packaging
+2025-06-22 16:24:00,673 - arxiv_paper_downloader - INFO - Successfully downloaded: A high entropy alloy as very low melting point solder for advanced electronic pa.pdf
+2025-06-22 16:24:01,674 - arxiv_paper_downloader - INFO - Downloading paper 2: Miniaturized liquid metal composite circuits with energy harvesting
+  coils for battery-free bioelectronics and optogenetics
+2025-06-22 16:24:03,217 - arxiv_paper_downloader - INFO - Successfully downloaded: Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf
+2025-06-22 16:24:04,220 - arxiv_paper_downloader - INFO - Downloading paper 3: Silicon vertex and tracking detector R&D for CLIC
+2025-06-22 16:24:04,873 - arxiv_paper_downloader - INFO - Successfully downloaded: Silicon vertex and tracking detector R_D for CLIC.pdf
+2025-06-22 16:24:05,875 - arxiv_paper_downloader - INFO - Downloading paper 4: Characterization of 128x128 MM-PAD-2.1 ASIC: A Fast Framing Hard X-Ray
+  Detector with High Dynamic Range
+2025-06-22 16:24:07,104 - arxiv_paper_downloader - INFO - Successfully downloaded: Characterization of 128x128 MM-PAD-2.1 ASIC_ A Fast Framing Hard X-Ray Detector.pdf
+2025-06-22 16:24:08,107 - arxiv_paper_downloader - INFO - Successfully downloaded 4 papers for hotspot 'PCBA Production'
+2025-06-22 16:24:10,112 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-22 16:24:10,113 - arxiv_paper_downloader - INFO - Query: Sustainable Steel Production
+2025-06-22 16:24:10,115 - arxiv_paper_downloader - INFO - Converting query: Sustainable Steel Production
+2025-06-22 16:24:10,115 - arxiv_paper_downloader - INFO - Original query: Sustainable Steel Production
+2025-06-22 16:24:10,116 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable AND all:steel AND all:production
+2025-06-22 16:24:10,117 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:sustainable%20AND%20all:steel%20AND%20all:production&start=0&max_results=5
+2025-06-22 16:24:10,435 - arxiv_paper_downloader - INFO - Downloading paper 1: Influence of microstructure and atomic-scale chemistry on iron ore
+  reduction with hydrogen at 700°C
+2025-06-22 16:24:11,903 - arxiv_paper_downloader - INFO - Successfully downloaded: Influence of microstructure and atomic-scale chemistry on iron ore reduction wit.pdf
+2025-06-22 16:24:12,904 - arxiv_paper_downloader - INFO - Downloading paper 2: Sustainable low-cost method for production of High entropy alloys from
+  alloy scraps
+2025-06-22 16:24:13,132 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable low-cost method for production of High entropy alloys from alloy scr.pdf
+2025-06-22 16:24:14,134 - arxiv_paper_downloader - INFO - Downloading paper 3: Energy Imports and Infrastructure in a Carbon-Neutral European Energy
+  System
+2025-06-22 16:24:36,808 - arxiv_paper_downloader - INFO - Successfully downloaded: Energy Imports and Infrastructure in a Carbon-Neutral European Energy System.pdf
+2025-06-22 16:24:37,809 - arxiv_paper_downloader - INFO - Downloading paper 4: Iron as a sustainable chemical carrier of renewable energy: Analysis of
+  opportunities and challenges for retrofitting coal-fired power plants
+2025-06-22 16:24:41,032 - arxiv_paper_downloader - INFO - Successfully downloaded: Iron as a sustainable chemical carrier of renewable energy_ Analysis of opportun.pdf
+2025-06-22 16:24:42,034 - arxiv_paper_downloader - INFO - Downloading paper 5: Sustainable steel through hydrogen plasma reduction of iron ore:
+  process, kinetics, microstructure, chemistry
+2025-06-22 16:24:57,261 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable steel through hydrogen plasma reduction of iron ore_ process_ kineti.pdf
+2025-06-22 16:24:58,262 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'EMC Shield Production'
+2025-06-22 16:25:00,270 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-22 16:25:00,272 - arxiv_paper_downloader - INFO - Query: Green Road Transport
+2025-06-22 16:25:00,276 - arxiv_paper_downloader - INFO - Converting query: Green Road Transport
+2025-06-22 16:25:00,277 - arxiv_paper_downloader - INFO - Original query: Green Road Transport
+2025-06-22 16:25:00,279 - arxiv_paper_downloader - INFO - ArXiv API query: all:green AND all:road AND all:transport
+2025-06-22 16:25:00,280 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:green%20AND%20all:road%20AND%20all:transport&start=0&max_results=5
+2025-06-22 16:25:00,696 - arxiv_paper_downloader - INFO - Downloading paper 1: Uninterrupted Maximum Flow on Signalized Traffic Networks
+2025-06-22 16:25:01,851 - arxiv_paper_downloader - INFO - Successfully downloaded: Uninterrupted Maximum Flow on Signalized Traffic Networks.pdf
+2025-06-22 16:25:02,852 - arxiv_paper_downloader - INFO - Downloading paper 2: The Green Choice: Learning and Influencing Human Decisions on Shared
+  Roads
+2025-06-22 16:25:03,711 - arxiv_paper_downloader - INFO - Successfully downloaded: The Green Choice_ Learning and Influencing Human Decisions on Shared Roads.pdf
+2025-06-22 16:25:04,712 - arxiv_paper_downloader - INFO - Downloading paper 3: Detection of Undeclared EV Charging Events in a Green Energy
+  Certification Scheme
+2025-06-22 16:25:14,178 - arxiv_paper_downloader - INFO - Successfully downloaded: Detection of Undeclared EV Charging Events in a Green Energy Certification Schem.pdf
+2025-06-22 16:25:15,180 - arxiv_paper_downloader - INFO - Downloading paper 4: Deep Reinforcement Learning for Traffic Light Control in Intelligent
+  Transportation Systems
+2025-06-22 16:25:15,913 - arxiv_paper_downloader - INFO - Successfully downloaded: Deep Reinforcement Learning for Traffic Light Control in Intelligent Transportat.pdf
+2025-06-22 16:25:16,915 - arxiv_paper_downloader - INFO - Downloading paper 5: Decision-making processes underlying pedestrian behaviours at signalised
+  crossings: Part 2. Do pedestrians show cultural herding behaviour ?
+2025-06-22 16:25:17,764 - arxiv_paper_downloader - INFO - Successfully downloaded: Decision-making processes underlying pedestrian behaviours at signalised crossin.pdf
+2025-06-22 16:25:18,766 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'Transportation'
+2025-06-22 16:25:20,771 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Operation
+2025-06-22 16:25:20,772 - arxiv_paper_downloader - INFO - Query: Low Power Electronics
+2025-06-22 16:25:20,805 - arxiv_paper_downloader - INFO - Converting query: Low Power Electronics
+2025-06-22 16:25:20,807 - arxiv_paper_downloader - INFO - Original query: Low Power Electronics
+2025-06-22 16:25:20,809 - arxiv_paper_downloader - INFO - ArXiv API query: all:low AND all:power AND all:electronics
+2025-06-22 16:25:20,810 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:low%20AND%20all:power%20AND%20all:electronics&start=0&max_results=5
+2025-06-22 16:25:21,165 - arxiv_paper_downloader - INFO - Downloading paper 1: Total Power and Low-energy Cut-off Time Evolution of Solar Flare
+  Accelerated Electrons Using X-Ray Observations and Warm-Target Model
+2025-06-22 16:25:21,926 - arxiv_paper_downloader - INFO - Successfully downloaded: Total Power and Low-energy Cut-off Time Evolution of Solar Flare Accelerated Ele.pdf
+2025-06-22 16:25:22,928 - arxiv_paper_downloader - INFO - Downloading paper 2: Electron power absorption in low pressure capacitively coupled
+  electronegative oxygen radio frequency plasmas
+2025-06-22 16:25:28,126 - arxiv_paper_downloader - INFO - Successfully downloaded: Electron power absorption in low pressure capacitively coupled electronegative o.pdf
+2025-06-22 16:25:29,128 - arxiv_paper_downloader - INFO - Downloading paper 3: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality
+2025-06-22 16:25:29,580 - arxiv_paper_downloader - INFO - Successfully downloaded: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality.pdf
+2025-06-22 16:25:30,582 - arxiv_paper_downloader - INFO - Downloading paper 4: A Low-Power Optical Electron Switch
+2025-06-22 16:25:31,475 - arxiv_paper_downloader - INFO - Successfully downloaded: A Low-Power Optical Electron Switch.pdf
+2025-06-22 16:25:32,476 - arxiv_paper_downloader - INFO - Downloading paper 5: Diagnosis of electron density and temperature by using collisional
+  radiative model in capacitively coupled Ar plasmas I: triple-frequency
+  discharges
+2025-06-22 16:25:33,872 - arxiv_paper_downloader - INFO - Successfully downloaded: Diagnosis of electron density and temperature by using collisional radiative mod.pdf
+2025-06-22 16:25:34,874 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'ECU Operation'
+2025-06-22 16:25:36,876 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Standby
+2025-06-22 16:25:36,876 - arxiv_paper_downloader - INFO - Query: Energy Efficient Standby
+2025-06-22 16:25:36,877 - arxiv_paper_downloader - INFO - Converting query: Energy Efficient Standby
+2025-06-22 16:25:36,877 - arxiv_paper_downloader - INFO - Original query: Energy Efficient Standby
+2025-06-22 16:25:36,878 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy AND all:efficient AND all:standby
+2025-06-22 16:25:36,878 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy%20AND%20all:efficient%20AND%20all:standby&start=0&max_results=5
+2025-06-22 16:25:37,215 - arxiv_paper_downloader - INFO - Downloading paper 1: Standby efficiency and thermocline degradation of a packed bed thermal
+  energy storage: An experimental study
+2025-06-22 16:26:03,849 - arxiv_paper_downloader - INFO - Successfully downloaded: Standby efficiency and thermocline degradation of a packed bed thermal energy st.pdf
+2025-06-22 16:26:04,851 - arxiv_paper_downloader - INFO - Downloading paper 2: A 1.2-V 162.9-pJ/cycle Bitmap Index Creation Core with 0.31-pW/bit
+  Standby Power on 65-nm SOTB
+2025-06-22 16:26:06,638 - arxiv_paper_downloader - INFO - Successfully downloaded: A 1.2-V 162.9-pJ_cycle Bitmap Index Creation Core with 0.31-pW_bit Standby Power.pdf
+2025-06-22 16:26:07,639 - arxiv_paper_downloader - INFO - Downloading paper 3: PV-Powered CoMP-Based Green Cellular Networks with a Standby Grid Supply
+2025-06-22 16:26:09,196 - arxiv_paper_downloader - INFO - Successfully downloaded: PV-Powered CoMP-Based Green Cellular Networks with a Standby Grid Supply.pdf
+2025-06-22 16:26:10,197 - arxiv_paper_downloader - INFO - Downloading paper 4: Energy Consumption Evaluation of Optane DC Persistent Memory for
+  Indexing Data Structures
+2025-06-22 16:26:11,102 - arxiv_paper_downloader - INFO - Successfully downloaded: Energy Consumption Evaluation of Optane DC Persistent Memory for Indexing Data S.pdf
+2025-06-22 16:26:12,103 - arxiv_paper_downloader - INFO - Downloading paper 5: CARAM: A Content-Aware Hybrid PCM/DRAM Main Memory System Framework
+2025-06-22 16:26:12,832 - arxiv_paper_downloader - INFO - Successfully downloaded: CARAM_ A Content-Aware Hybrid PCM_DRAM Main Memory System Framework.pdf
+2025-06-22 16:26:13,833 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'ECU Standby'
+2025-06-22 16:26:15,836 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Metal Recycling
+2025-06-22 16:26:15,836 - arxiv_paper_downloader - INFO - Query: High Rate Metal Recycling
+2025-06-22 16:26:15,838 - arxiv_paper_downloader - INFO - Converting query: High Rate Metal Recycling
+2025-06-22 16:26:15,839 - arxiv_paper_downloader - INFO - Original query: High Rate Metal Recycling
+2025-06-22 16:26:15,839 - arxiv_paper_downloader - INFO - ArXiv API query: all:high AND all:rate AND all:metal AND all:recycling
+2025-06-22 16:26:15,840 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:high%20AND%20all:rate%20AND%20all:metal%20AND%20all:recycling&start=0&max_results=5
+2025-06-22 16:26:16,217 - arxiv_paper_downloader - INFO - Downloading paper 1: Using multicomponent recycled electronic waste alloys to produce high
+  entropy alloys
+2025-06-22 16:26:16,996 - arxiv_paper_downloader - INFO - Successfully downloaded: Using multicomponent recycled electronic waste alloys to produce high entropy al.pdf
+2025-06-22 16:26:17,997 - arxiv_paper_downloader - INFO - Downloading paper 2: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at
+  Maximum Power Point
+2025-06-22 16:26:24,143 - arxiv_paper_downloader - INFO - Successfully downloaded: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at Maximum.pdf
+2025-06-22 16:26:25,145 - arxiv_paper_downloader - INFO - Downloading paper 3: The Effect of Galactic Feedback on Gas Accretion and Wind Recycling
+2025-06-22 16:26:25,398 - arxiv_paper_downloader - INFO - Successfully downloaded: The Effect of Galactic Feedback on Gas Accretion and Wind Recycling.pdf
+2025-06-22 16:26:26,400 - arxiv_paper_downloader - INFO - Downloading paper 4: The MOSDEF-LRIS Survey: Detection of Inflowing Gas Towards Three
+  Star-forming Galaxies at z ~ 2
+2025-06-22 16:26:27,005 - arxiv_paper_downloader - INFO - Successfully downloaded: The MOSDEF-LRIS Survey_ Detection of Inflowing Gas Towards Three Star-forming Ga.pdf
+2025-06-22 16:26:28,007 - arxiv_paper_downloader - INFO - Downloading paper 5: The slowest spinning X-ray pulsar in an extragalactic globular cluster
+2025-06-22 16:26:30,132 - arxiv_paper_downloader - INFO - Successfully downloaded: The slowest spinning X-ray pulsar in an extragalactic globular cluster.pdf
+2025-06-22 16:26:31,135 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'Metal Recycling'
+2025-06-22 16:26:33,144 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Plastic Incineration
+2025-06-22 16:26:33,144 - arxiv_paper_downloader - INFO - Query: Sustainable Plastic Waste
+2025-06-22 16:26:33,145 - arxiv_paper_downloader - INFO - Converting query: Sustainable Plastic Waste
+2025-06-22 16:26:33,145 - arxiv_paper_downloader - INFO - Original query: Sustainable Plastic Waste
+2025-06-22 16:26:33,145 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable AND all:plastic AND all:waste
+2025-06-22 16:26:33,145 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:sustainable%20AND%20all:plastic%20AND%20all:waste&start=0&max_results=5
+2025-06-22 16:26:33,474 - arxiv_paper_downloader - INFO - Downloading paper 1: A plastics hierarchy of fates: sustainable choices for a circular future
+2025-06-22 16:26:55,228 - arxiv_paper_downloader - INFO - Successfully downloaded: A plastics hierarchy of fates_ sustainable choices for a circular future.pdf
+2025-06-22 16:26:56,229 - arxiv_paper_downloader - INFO - Downloading paper 2: Impact of high-pressure torsion on hydrogen production from
+  photodegradation of polypropylene plastic wastes
+2025-06-22 16:26:57,067 - arxiv_paper_downloader - INFO - Successfully downloaded: Impact of high-pressure torsion on hydrogen production from photodegradation of.pdf
+2025-06-22 16:26:58,068 - arxiv_paper_downloader - INFO - Downloading paper 3: From Plastic Waste to Treasure: Selective Upcycling through Catalytic
+  Technologies
+2025-06-22 16:27:01,990 - arxiv_paper_downloader - INFO - Successfully downloaded: From Plastic Waste to Treasure_ Selective Upcycling through Catalytic Technologi.pdf
+2025-06-22 16:27:02,992 - arxiv_paper_downloader - INFO - Downloading paper 4: Impact of high-pressure columbite phase of titanium dioxide (TiO2) on
+  catalytic photoconversion of plastic waste and Simultaneous hydrogen (H2)
+  production
+2025-06-22 16:27:04,421 - arxiv_paper_downloader - INFO - Successfully downloaded: Impact of high-pressure columbite phase of titanium dioxide (TiO2) on catalytic.pdf
+2025-06-22 16:27:05,421 - arxiv_paper_downloader - INFO - Downloading paper 5: Suppressing Mechanical Property Variability in Recycled Plastics via
+  Bio-inspired Design
+2025-06-22 16:27:06,745 - arxiv_paper_downloader - INFO - Successfully downloaded: Suppressing Mechanical Property Variability in Recycled Plastics via Bio-inspire.pdf
+2025-06-22 16:27:07,747 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'Plastic Incineration'
+2025-06-22 16:27:09,751 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Recycling
+2025-06-22 16:27:09,752 - arxiv_paper_downloader - INFO - Query: Efficient E Waste Recycling
+2025-06-22 16:27:09,754 - arxiv_paper_downloader - INFO - Converting query: Efficient E Waste Recycling
+2025-06-22 16:27:09,755 - arxiv_paper_downloader - INFO - Original query: Efficient E Waste Recycling
+2025-06-22 16:27:09,756 - arxiv_paper_downloader - INFO - ArXiv API query: all:efficient AND all:waste AND all:recycling
+2025-06-22 16:27:09,757 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:efficient%20AND%20all:waste%20AND%20all:recycling&start=0&max_results=5
+2025-06-22 16:27:10,152 - arxiv_paper_downloader - INFO - Downloading paper 1: A Smart Recycling Bin Using Waste Image Classification At The Edge
+2025-06-22 16:27:12,317 - arxiv_paper_downloader - INFO - Successfully downloaded: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-22 16:27:13,318 - arxiv_paper_downloader - INFO - Downloading paper 2: Advancing Recycling Efficiency: A Comparative Analysis of Deep Learning
+  Models in Waste Classification
+2025-06-22 16:27:13,894 - arxiv_paper_downloader - INFO - Successfully downloaded: Advancing Recycling Efficiency_ A Comparative Analysis of Deep Learning Models i.pdf
+2025-06-22 16:27:14,895 - arxiv_paper_downloader - INFO - Downloading paper 3: Waste detection in Pomerania: non-profit project for detecting waste in
+  environment
+2025-06-22 16:27:23,353 - arxiv_paper_downloader - INFO - Successfully downloaded: Waste detection in Pomerania_ non-profit project for detecting waste in environm.pdf
+2025-06-22 16:27:24,355 - arxiv_paper_downloader - INFO - Downloading paper 4: Comparative Analysis of Multiple Deep CNN Models for Waste
+  Classification
+2025-06-22 16:27:26,866 - arxiv_paper_downloader - INFO - Successfully downloaded: Comparative Analysis of Multiple Deep CNN Models for Waste Classification.pdf
+2025-06-22 16:27:27,867 - arxiv_paper_downloader - INFO - Downloading paper 5: MWaste: A Deep Learning Approach to Manage Household Waste
+2025-06-22 16:27:29,727 - arxiv_paper_downloader - INFO - Successfully downloaded: MWaste_ A Deep Learning Approach to Manage Household Waste.pdf
+2025-06-22 16:27:30,728 - arxiv_paper_downloader - INFO - Successfully downloaded 5 papers for hotspot 'PCBA Recycling'
+2025-06-22 16:27:32,738 - arxiv_paper_downloader - INFO - Downloaded 40 papers total for 10 hotspots
+2025-06-22 16:27:32,739 - __main__ - INFO - [SUCCESS] Downloaded 40 papers for 10 hotspots
+2025-06-22 16:27:32,740 - __main__ - INFO - ============================================================
+2025-06-22 16:27:32,740 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-22 16:27:32,741 - __main__ - INFO - ============================================================
+2025-06-22 16:27:32,741 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-22 16:27:32,755 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-22 16:27:32,756 - pdf_processor - INFO - Processing hotspot directory: ECU_Operation
+2025-06-22 16:27:32,757 - pdf_processor - INFO - Found 5 PDF files in ECU_Operation
+2025-06-22 16:27:32,757 - pdf_processor - INFO - Processing: A Low-Power Optical Electron Switch.pdf
+2025-06-22 16:27:32,864 - pdf_processor - INFO - No references section found to remove
+2025-06-22 16:27:32,864 - pdf_processor - INFO - Successfully processed: A Low-Power Optical Electron Switch.pdf
+2025-06-22 16:27:32,864 - pdf_processor - INFO - Processing: Diagnosis of electron density and temperature by using collisional radiative mod.pdf
+2025-06-22 16:27:33,647 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-22 16:27:33,648 - pdf_processor - INFO - Text reduced from 22043 to 20533 characters
+2025-06-22 16:27:33,648 - pdf_processor - INFO - Successfully processed: Diagnosis of electron density and temperature by using collisional radiative mod.pdf
+2025-06-22 16:27:33,648 - pdf_processor - INFO - Processing: Electron power absorption in low pressure capacitively coupled electronegative o.pdf
+2025-06-22 16:27:33,873 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:27:33,873 - pdf_processor - INFO - Text reduced from 50283 to 45858 characters
+2025-06-22 16:27:33,874 - pdf_processor - INFO - Successfully processed: Electron power absorption in low pressure capacitively coupled electronegative o.pdf
+2025-06-22 16:27:33,874 - pdf_processor - INFO - Processing: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality.pdf
+2025-06-22 16:27:34,390 - pdf_processor - INFO - No references section found to remove
+2025-06-22 16:27:34,390 - pdf_processor - INFO - Successfully processed: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality.pdf
+2025-06-22 16:27:34,390 - pdf_processor - INFO - Processing: Total Power and Low-energy Cut-off Time Evolution of Solar Flare Accelerated Ele.pdf
+2025-06-22 16:27:37,559 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:27:37,559 - pdf_processor - INFO - Text reduced from 81377 to 73797 characters
+2025-06-22 16:27:37,560 - pdf_processor - INFO - Successfully processed: Total Power and Low-energy Cut-off Time Evolution of Solar Flare Accelerated Ele.pdf
+2025-06-22 16:27:37,560 - pdf_processor - INFO - Processing hotspot directory: ECU_Standby
+2025-06-22 16:27:37,561 - pdf_processor - INFO - Found 5 PDF files in ECU_Standby
+2025-06-22 16:27:37,561 - pdf_processor - INFO - Processing: A 1.2-V 162.9-pJ_cycle Bitmap Index Creation Core with 0.31-pW_bit Standby Power.pdf
+2025-06-22 16:27:37,716 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:27:37,717 - pdf_processor - INFO - Text reduced from 20045 to 16596 characters
+2025-06-22 16:27:37,717 - pdf_processor - INFO - Successfully processed: A 1.2-V 162.9-pJ_cycle Bitmap Index Creation Core with 0.31-pW_bit Standby Power.pdf
+2025-06-22 16:27:37,717 - pdf_processor - INFO - Processing: CARAM_ A Content-Aware Hybrid PCM_DRAM Main Memory System Framework.pdf
+2025-06-22 16:27:38,461 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:27:38,461 - pdf_processor - INFO - Text reduced from 33699 to 29432 characters
+2025-06-22 16:27:38,461 - pdf_processor - INFO - Successfully processed: CARAM_ A Content-Aware Hybrid PCM_DRAM Main Memory System Framework.pdf
+2025-06-22 16:27:38,461 - pdf_processor - INFO - Processing: Energy Consumption Evaluation of Optane DC Persistent Memory for Indexing Data S.pdf
+2025-06-22 16:27:39,047 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:27:39,048 - pdf_processor - INFO - Text reduced from 50496 to 42428 characters
+2025-06-22 16:27:39,048 - pdf_processor - INFO - Successfully processed: Energy Consumption Evaluation of Optane DC Persistent Memory for Indexing Data S.pdf
+2025-06-22 16:27:39,048 - pdf_processor - INFO - Processing: PV-Powered CoMP-Based Green Cellular Networks with a Standby Grid Supply.pdf
+2025-06-22 16:27:40,521 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-22 16:27:40,522 - pdf_processor - INFO - Text reduced from 62061 to 53327 characters
+2025-06-22 16:27:40,522 - pdf_processor - INFO - Successfully processed: PV-Powered CoMP-Based Green Cellular Networks with a Standby Grid Supply.pdf
+2025-06-22 16:27:40,522 - pdf_processor - INFO - Processing: Standby efficiency and thermocline degradation of a packed bed thermal energy st.pdf
+2025-06-22 16:27:40,748 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:27:40,749 - pdf_processor - INFO - Text reduced from 41037 to 34625 characters
+2025-06-22 16:27:40,749 - pdf_processor - INFO - Successfully processed: Standby efficiency and thermocline degradation of a packed bed thermal energy st.pdf
+2025-06-22 16:27:40,749 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-22 16:27:40,750 - pdf_processor - INFO - Found 5 PDF files in EMC_Shield_Production
+2025-06-22 16:27:40,750 - pdf_processor - INFO - Processing: Energy Imports and Infrastructure in a Carbon-Neutral European Energy System.pdf
+2025-06-22 16:28:31,347 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:31,347 - pdf_processor - INFO - Text reduced from 418475 to 137162 characters
+2025-06-22 16:28:31,347 - pdf_processor - INFO - Successfully processed: Energy Imports and Infrastructure in a Carbon-Neutral European Energy System.pdf
+2025-06-22 16:28:31,348 - pdf_processor - INFO - Processing: Influence of microstructure and atomic-scale chemistry on iron ore reduction wit.pdf
+2025-06-22 16:28:32,732 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:32,732 - pdf_processor - INFO - Text reduced from 69904 to 49930 characters
+2025-06-22 16:28:32,733 - pdf_processor - INFO - Successfully processed: Influence of microstructure and atomic-scale chemistry on iron ore reduction wit.pdf
+2025-06-22 16:28:32,733 - pdf_processor - INFO - Processing: Iron as a sustainable chemical carrier of renewable energy_ Analysis of opportun.pdf
+2025-06-22 16:28:33,671 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:33,672 - pdf_processor - INFO - Text reduced from 79493 to 60138 characters
+2025-06-22 16:28:33,672 - pdf_processor - INFO - Successfully processed: Iron as a sustainable chemical carrier of renewable energy_ Analysis of opportun.pdf
+2025-06-22 16:28:33,673 - pdf_processor - INFO - Processing: Sustainable low-cost method for production of High entropy alloys from alloy scr.pdf
+2025-06-22 16:28:33,850 - pdf_processor - INFO - No references section found to remove
+2025-06-22 16:28:33,851 - pdf_processor - INFO - Successfully processed: Sustainable low-cost method for production of High entropy alloys from alloy scr.pdf
+2025-06-22 16:28:33,851 - pdf_processor - INFO - Processing: Sustainable steel through hydrogen plasma reduction of iron ore_ process_ kineti.pdf
+2025-06-22 16:28:35,244 - pdf_processor - INFO - No references section found to remove
+2025-06-22 16:28:35,244 - pdf_processor - INFO - Successfully processed: Sustainable steel through hydrogen plasma reduction of iron ore_ process_ kineti.pdf
+2025-06-22 16:28:35,245 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-22 16:28:35,246 - pdf_processor - INFO - Found 1 PDF files in Housing_Production
+2025-06-22 16:28:35,247 - pdf_processor - INFO - Processing: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-22 16:28:35,627 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:28:35,627 - pdf_processor - INFO - Text reduced from 70847 to 57875 characters
+2025-06-22 16:28:35,627 - pdf_processor - INFO - Successfully processed: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-22 16:28:35,628 - pdf_processor - INFO - Processing hotspot directory: Metal_Recycling
+2025-06-22 16:28:35,628 - pdf_processor - INFO - Found 5 PDF files in Metal_Recycling
+2025-06-22 16:28:35,629 - pdf_processor - INFO - Processing: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at Maximum.pdf
+2025-06-22 16:28:46,557 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:46,557 - pdf_processor - INFO - Text reduced from 53946 to 37058 characters
+2025-06-22 16:28:46,558 - pdf_processor - INFO - Successfully processed: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at Maximum.pdf
+2025-06-22 16:28:46,558 - pdf_processor - INFO - Processing: The Effect of Galactic Feedback on Gas Accretion and Wind Recycling.pdf
+2025-06-22 16:28:47,334 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:47,334 - pdf_processor - INFO - Text reduced from 57186 to 51176 characters
+2025-06-22 16:28:47,334 - pdf_processor - INFO - Successfully processed: The Effect of Galactic Feedback on Gas Accretion and Wind Recycling.pdf
+2025-06-22 16:28:47,335 - pdf_processor - INFO - Processing: The MOSDEF-LRIS Survey_ Detection of Inflowing Gas Towards Three Star-forming Ga.pdf
+2025-06-22 16:28:48,024 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:28:48,025 - pdf_processor - INFO - Text reduced from 57914 to 49952 characters
+2025-06-22 16:28:48,025 - pdf_processor - INFO - Successfully processed: The MOSDEF-LRIS Survey_ Detection of Inflowing Gas Towards Three Star-forming Ga.pdf
+2025-06-22 16:28:48,026 - pdf_processor - INFO - Processing: The slowest spinning X-ray pulsar in an extragalactic globular cluster.pdf
+2025-06-22 16:28:50,388 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:28:50,388 - pdf_processor - INFO - Text reduced from 80133 to 65009 characters
+2025-06-22 16:28:50,389 - pdf_processor - INFO - Successfully processed: The slowest spinning X-ray pulsar in an extragalactic globular cluster.pdf
+2025-06-22 16:28:50,389 - pdf_processor - INFO - Processing: Using multicomponent recycled electronic waste alloys to produce high entropy al.pdf
+2025-06-22 16:28:51,355 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:51,355 - pdf_processor - INFO - Text reduced from 42170 to 29342 characters
+2025-06-22 16:28:51,356 - pdf_processor - INFO - Successfully processed: Using multicomponent recycled electronic waste alloys to produce high entropy al.pdf
+2025-06-22 16:28:51,356 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-22 16:28:51,357 - pdf_processor - INFO - Found 4 PDF files in PCBA_Production
+2025-06-22 16:28:51,357 - pdf_processor - INFO - Processing: A high entropy alloy as very low melting point solder for advanced electronic pa.pdf
+2025-06-22 16:28:51,773 - pdf_processor - INFO - No references section found to remove
+2025-06-22 16:28:51,773 - pdf_processor - INFO - Successfully processed: A high entropy alloy as very low melting point solder for advanced electronic pa.pdf
+2025-06-22 16:28:51,773 - pdf_processor - INFO - Processing: Characterization of 128x128 MM-PAD-2.1 ASIC_ A Fast Framing Hard X-Ray Detector.pdf
+2025-06-22 16:28:51,973 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:51,974 - pdf_processor - INFO - Text reduced from 40680 to 36378 characters
+2025-06-22 16:28:51,974 - pdf_processor - INFO - Successfully processed: Characterization of 128x128 MM-PAD-2.1 ASIC_ A Fast Framing Hard X-Ray Detector.pdf
+2025-06-22 16:28:51,974 - pdf_processor - INFO - Processing: Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf
+2025-06-22 16:28:57,735 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:57,736 - pdf_processor - INFO - Text reduced from 59010 to 46350 characters
+2025-06-22 16:28:57,736 - pdf_processor - INFO - Successfully processed: Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf
+2025-06-22 16:28:57,736 - pdf_processor - INFO - Processing: Silicon vertex and tracking detector R_D for CLIC.pdf
+2025-06-22 16:28:58,242 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:58,243 - pdf_processor - INFO - Text reduced from 15152 to 13152 characters
+2025-06-22 16:28:58,243 - pdf_processor - INFO - Successfully processed: Silicon vertex and tracking detector R_D for CLIC.pdf
+2025-06-22 16:28:58,243 - pdf_processor - INFO - Processing hotspot directory: PCBA_Recycling
+2025-06-22 16:28:58,244 - pdf_processor - INFO - Found 5 PDF files in PCBA_Recycling
+2025-06-22 16:28:58,245 - pdf_processor - INFO - Processing: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-22 16:28:58,554 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:58,555 - pdf_processor - INFO - Text reduced from 51944 to 42726 characters
+2025-06-22 16:28:58,555 - pdf_processor - INFO - Successfully processed: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-22 16:28:58,556 - pdf_processor - INFO - Processing: Advancing Recycling Efficiency_ A Comparative Analysis of Deep Learning Models i.pdf
+2025-06-22 16:28:59,612 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:28:59,612 - pdf_processor - INFO - Text reduced from 28535 to 25931 characters
+2025-06-22 16:28:59,613 - pdf_processor - INFO - Successfully processed: Advancing Recycling Efficiency_ A Comparative Analysis of Deep Learning Models i.pdf
+2025-06-22 16:28:59,613 - pdf_processor - INFO - Processing: Comparative Analysis of Multiple Deep CNN Models for Waste Classification.pdf
+2025-06-22 16:28:59,710 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:28:59,711 - pdf_processor - INFO - Text reduced from 21093 to 19082 characters
+2025-06-22 16:28:59,711 - pdf_processor - INFO - Successfully processed: Comparative Analysis of Multiple Deep CNN Models for Waste Classification.pdf
+2025-06-22 16:28:59,711 - pdf_processor - INFO - Processing: MWaste_ A Deep Learning Approach to Manage Household Waste.pdf
+2025-06-22 16:28:59,799 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:28:59,799 - pdf_processor - INFO - Text reduced from 18025 to 10576 characters
+2025-06-22 16:28:59,799 - pdf_processor - INFO - Successfully processed: MWaste_ A Deep Learning Approach to Manage Household Waste.pdf
+2025-06-22 16:28:59,800 - pdf_processor - INFO - Processing: Waste detection in Pomerania_ non-profit project for detecting waste in environm.pdf
+2025-06-22 16:29:00,042 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:00,042 - pdf_processor - INFO - Text reduced from 68524 to 54665 characters
+2025-06-22 16:29:00,043 - pdf_processor - INFO - Successfully processed: Waste detection in Pomerania_ non-profit project for detecting waste in environm.pdf
+2025-06-22 16:29:00,043 - pdf_processor - INFO - Processing hotspot directory: Plastic_Incineration
+2025-06-22 16:29:00,044 - pdf_processor - INFO - Found 5 PDF files in Plastic_Incineration
+2025-06-22 16:29:00,044 - pdf_processor - INFO - Processing: A plastics hierarchy of fates_ sustainable choices for a circular future.pdf
+2025-06-22 16:29:32,922 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:32,922 - pdf_processor - INFO - Text reduced from 89136 to 88949 characters
+2025-06-22 16:29:32,923 - pdf_processor - INFO - Successfully processed: A plastics hierarchy of fates_ sustainable choices for a circular future.pdf
+2025-06-22 16:29:32,923 - pdf_processor - INFO - Processing: From Plastic Waste to Treasure_ Selective Upcycling through Catalytic Technologi.pdf
+2025-06-22 16:29:34,888 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:34,888 - pdf_processor - INFO - Text reduced from 92850 to 78206 characters
+2025-06-22 16:29:34,889 - pdf_processor - INFO - Successfully processed: From Plastic Waste to Treasure_ Selective Upcycling through Catalytic Technologi.pdf
+2025-06-22 16:29:34,889 - pdf_processor - INFO - Processing: Impact of high-pressure columbite phase of titanium dioxide (TiO2) on catalytic.pdf
+2025-06-22 16:29:35,667 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:35,667 - pdf_processor - INFO - Text reduced from 58383 to 38308 characters
+2025-06-22 16:29:35,667 - pdf_processor - INFO - Successfully processed: Impact of high-pressure columbite phase of titanium dioxide (TiO2) on catalytic.pdf
+2025-06-22 16:29:35,668 - pdf_processor - INFO - Processing: Impact of high-pressure torsion on hydrogen production from photodegradation of.pdf
+2025-06-22 16:29:36,349 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:36,349 - pdf_processor - INFO - Text reduced from 38858 to 24436 characters
+2025-06-22 16:29:36,350 - pdf_processor - INFO - Successfully processed: Impact of high-pressure torsion on hydrogen production from photodegradation of.pdf
+2025-06-22 16:29:36,350 - pdf_processor - INFO - Processing: Suppressing Mechanical Property Variability in Recycled Plastics via Bio-inspire.pdf
+2025-06-22 16:29:37,763 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:37,764 - pdf_processor - INFO - Text reduced from 64609 to 43370 characters
+2025-06-22 16:29:37,764 - pdf_processor - INFO - Successfully processed: Suppressing Mechanical Property Variability in Recycled Plastics via Bio-inspire.pdf
+2025-06-22 16:29:37,765 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-22 16:29:37,765 - pdf_processor - INFO - Found 0 PDF files in Radiator_Production
+2025-06-22 16:29:37,766 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-22 16:29:37,766 - pdf_processor - INFO - Found 5 PDF files in Transportation
+2025-06-22 16:29:37,767 - pdf_processor - INFO - Processing: Decision-making processes underlying pedestrian behaviours at signalised crossin.pdf
+2025-06-22 16:29:38,912 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:38,913 - pdf_processor - INFO - Text reduced from 63811 to 41404 characters
+2025-06-22 16:29:38,913 - pdf_processor - INFO - Successfully processed: Decision-making processes underlying pedestrian behaviours at signalised crossin.pdf
+2025-06-22 16:29:38,913 - pdf_processor - INFO - Processing: Deep Reinforcement Learning for Traffic Light Control in Intelligent Transportat.pdf
+2025-06-22 16:29:39,683 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:29:39,683 - pdf_processor - INFO - Text reduced from 78948 to 44521 characters
+2025-06-22 16:29:39,684 - pdf_processor - INFO - Successfully processed: Deep Reinforcement Learning for Traffic Light Control in Intelligent Transportat.pdf
+2025-06-22 16:29:39,684 - pdf_processor - INFO - Processing: Detection of Undeclared EV Charging Events in a Green Energy Certification Schem.pdf
+2025-06-22 16:29:40,287 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:40,288 - pdf_processor - INFO - Text reduced from 63489 to 55426 characters
+2025-06-22 16:29:40,288 - pdf_processor - INFO - Successfully processed: Detection of Undeclared EV Charging Events in a Green Energy Certification Schem.pdf
+2025-06-22 16:29:40,288 - pdf_processor - INFO - Processing: The Green Choice_ Learning and Influencing Human Decisions on Shared Roads.pdf
+2025-06-22 16:29:40,649 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-22 16:29:40,650 - pdf_processor - INFO - Text reduced from 49891 to 39827 characters
+2025-06-22 16:29:40,650 - pdf_processor - INFO - Successfully processed: The Green Choice_ Learning and Influencing Human Decisions on Shared Roads.pdf
+2025-06-22 16:29:40,650 - pdf_processor - INFO - Processing: Uninterrupted Maximum Flow on Signalized Traffic Networks.pdf
+2025-06-22 16:29:42,410 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 16:29:42,411 - pdf_processor - INFO - Text reduced from 105494 to 87572 characters
+2025-06-22 16:29:42,411 - pdf_processor - INFO - Successfully processed: Uninterrupted Maximum Flow on Signalized Traffic Networks.pdf
+2025-06-22 16:29:42,411 - pdf_processor - INFO - Successfully processed 40 papers total
+2025-06-22 16:29:42,505 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-22 16:29:42,507 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\automotive_sample_input\processed_papers.json
+2025-06-22 16:29:42,507 - __main__ - INFO - ============================================================
+2025-06-22 16:29:42,507 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-22 16:29:42,508 - __main__ - INFO - ============================================================
+2025-06-22 16:29:42,508 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 16:29:42,509 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-22 16:29:42,509 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-22 16:29:42,835 - sustainable_solutions_generator - INFO - Analyzing 40 processed papers for hotspot solutions
+2025-06-22 16:29:42,836 - sustainable_solutions_generator - INFO - Analyzing 5 papers for hotspot: ECU_Operation
+2025-06-22 16:30:08,545 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:30:08,547 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Operation': Diagnosis of electron density and temperature by using collisional
+  radiative model in capacitively coupled Ar plasmas I: triple-frequency
+  discharges
+2025-06-22 16:30:08,863 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:30:08,864 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Operation': A Low-Power Optical Electron Switch
+2025-06-22 16:30:32,624 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:30:32,625 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Operation': Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality
+2025-06-22 16:30:39,137 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:30:39,141 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Operation': Electron power absorption in low pressure capacitively coupled
+  electronegative oxygen radio frequency plasmas
+2025-06-22 16:30:56,710 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:30:56,711 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Operation': Total Power and Low-energy Cut-off Time Evolution of Solar Flare
+  Accelerated Electrons Using X-Ray Observations and Warm-Target Model
+2025-06-22 16:30:56,711 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'ECU_Operation': 5 results
+2025-06-22 16:30:56,712 - sustainable_solutions_generator - INFO - Analyzing 5 papers for hotspot: ECU_Standby
+2025-06-22 16:31:17,379 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:31:17,382 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': A 1.2-V 162.9-pJ/cycle Bitmap Index Creation Core with 0.31-pW/bit
+  Standby Power on 65-nm SOTB
+2025-06-22 16:31:19,524 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:31:19,524 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': CARAM: A Content-Aware Hybrid PCM/DRAM Main Memory System Framework
+2025-06-22 16:31:34,895 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:31:34,898 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': Energy Consumption Evaluation of Optane DC Persistent Memory for
+  Indexing Data Structures
+2025-06-22 16:31:45,814 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:31:45,816 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': PV-Powered CoMP-Based Green Cellular Networks with a Standby Grid Supply
+2025-06-22 16:32:08,742 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:32:08,743 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'ECU_Standby': Standby efficiency and thermocline degradation of a packed bed thermal
+  energy storage: An experimental study
+2025-06-22 16:32:08,743 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'ECU_Standby': 5 results
+2025-06-22 16:32:08,744 - sustainable_solutions_generator - INFO - Analyzing 5 papers for hotspot: EMC_Shield_Production
+2025-06-22 16:32:32,828 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:32:32,831 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Influence of microstructure and atomic-scale chemistry on iron ore
+  reduction with hydrogen at 700°C
+2025-06-22 16:32:42,265 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:32:42,268 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Energy Imports and Infrastructure in a Carbon-Neutral European Energy
+  System
+2025-06-22 16:32:53,468 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:32:53,474 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Iron as a sustainable chemical carrier of renewable energy: Analysis of
+  opportunities and challenges for retrofitting coal-fired power plants
+2025-06-22 16:33:03,782 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:33:03,785 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Sustainable low-cost method for production of High entropy alloys from
+  alloy scraps
+2025-06-22 16:33:23,067 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:33:23,068 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'EMC_Shield_Production': Sustainable steel through hydrogen plasma reduction of iron ore:
+  process, kinetics, microstructure, chemistry
+2025-06-22 16:33:23,070 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'EMC_Shield_Production': 5 results
+2025-06-22 16:33:23,071 - sustainable_solutions_generator - INFO - Analyzing 1 papers for hotspot: Housing_Production
+2025-06-22 16:33:43,930 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:33:43,934 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Housing_Production': Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form
+  Factors
+2025-06-22 16:33:43,935 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Housing_Production': 1 results
+2025-06-22 16:33:43,936 - sustainable_solutions_generator - INFO - Analyzing 5 papers for hotspot: Metal_Recycling
+2025-06-22 16:34:03,774 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:34:03,776 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': The Effect of Galactic Feedback on Gas Accretion and Wind Recycling
+2025-06-22 16:34:15,366 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:34:15,367 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at
+  Maximum Power Point
+2025-06-22 16:34:30,295 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:34:30,300 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': The MOSDEF-LRIS Survey: Detection of Inflowing Gas Towards Three
+  Star-forming Galaxies at z ~ 2
+2025-06-22 16:34:39,199 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:34:39,200 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': The slowest spinning X-ray pulsar in an extragalactic globular cluster
+2025-06-22 16:34:49,380 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:34:49,381 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Metal_Recycling': Using multicomponent recycled electronic waste alloys to produce high
+  entropy alloys
+2025-06-22 16:34:49,382 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Metal_Recycling': 5 results
+2025-06-22 16:34:49,382 - sustainable_solutions_generator - INFO - Analyzing 4 papers for hotspot: PCBA_Production
+2025-06-22 16:35:14,127 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:35:14,128 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Characterization of 128x128 MM-PAD-2.1 ASIC: A Fast Framing Hard X-Ray
+  Detector with High Dynamic Range
+2025-06-22 16:35:16,668 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:35:16,669 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': A high entropy alloy as very low melting point solder for advanced
+  electronic packaging
+2025-06-22 16:35:38,308 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:35:38,309 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Miniaturized liquid metal composite circuits with energy harvesting
+  coils for battery-free bioelectronics and optogenetics
+2025-06-22 16:35:48,990 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:35:48,991 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Production': Silicon vertex and tracking detector R&D for CLIC
+2025-06-22 16:35:48,992 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PCBA_Production': 4 results
+2025-06-22 16:35:48,992 - sustainable_solutions_generator - INFO - Analyzing 5 papers for hotspot: PCBA_Recycling
+2025-06-22 16:36:13,424 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:36:13,430 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': A Smart Recycling Bin Using Waste Image Classification At The Edge
+2025-06-22 16:36:18,907 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:36:18,910 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': Advancing Recycling Efficiency: A Comparative Analysis of Deep Learning
+  Models in Waste Classification
+2025-06-22 16:36:36,892 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:36:36,893 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': Comparative Analysis of Multiple Deep CNN Models for Waste
+  Classification
+2025-06-22 16:36:48,400 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:36:48,403 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': MWaste: A Deep Learning Approach to Manage Household Waste
+2025-06-22 16:37:02,241 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 16:37:02,244 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'PCBA_Recycling': Waste detection in Pomerania: non-profit project for detecting waste in
+  environment
+2025-06-22 16:37:02,248 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'PCBA_Recycling': 5 results
+2025-06-22 16:37:02,249 - sustainable_solutions_generator - INFO - Analyzing 5 papers for hotspot: Plastic_Incineration
+2025-06-22 16:37:02,251 - sustainable_solutions_generator - ERROR - Error analyzing papers for hotspots: cannot schedule new futures after interpreter shutdown
+2025-06-22 16:37:02,256 - sustainable_solutions_generator - ERROR - Error generating solutions from hotspot analysis: cannot schedule new futures after interpreter shutdown
+2025-06-22 16:37:02,257 - __main__ - ERROR - Error in complete workflow execution: cannot schedule new futures after interpreter shutdown

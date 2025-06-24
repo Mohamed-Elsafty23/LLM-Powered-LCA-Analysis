@@ -1,0 +1,662 @@
+2025-06-18 20:24:10,537 - __main__ - INFO - New file uploaded with hash: 07f00236f99c3547817f41b6d2a5457a
+2025-06-18 20:24:10,537 - __main__ - INFO - Output folder set to: output/automotive_sample_input
+2025-06-18 20:24:10,537 - __main__ - INFO - Processing uploaded file: automotive_sample_input.txt
+2025-06-18 20:24:10,542 - __main__ - INFO - Project name: automotive_sample_input
+2025-06-18 20:24:10,542 - __main__ - INFO - Output folder: output/automotive_sample_input
+2025-06-18 20:24:11,325 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-18 20:24:11,964 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-18 20:24:11,966 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-18 20:24:11,966 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-18 20:24:11,966 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-18 20:24:11,966 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Sustainable Solutions, Visualization Generation
+2025-06-18 20:24:11,969 - __main__ - INFO - Starting complete LCA workflow for input file: temp/automotive_sample_input.txt
+2025-06-18 20:24:11,970 - __main__ - INFO - ============================================================
+2025-06-18 20:24:11,970 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-18 20:24:11,970 - __main__ - INFO - ============================================================
+2025-06-18 20:24:11,970 - lca_implementation - INFO - Using input file: temp/automotive_sample_input.txt
+2025-06-18 20:24:11,971 - lca_implementation - INFO - Using output folder: output/automotive_sample_input
+2025-06-18 20:24:11,972 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-18 20:24:11,973 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-18 20:25:36,646 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 20:25:36,646 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-18 20:25:36,646 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-18 20:25:46,693 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 20:25:46,709 - lca_implementation - INFO - Generated 8 search queries for hotspots
+2025-06-18 20:25:46,715 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 20:25:46,715 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 20:25:46,715 - __main__ - INFO - ============================================================
+2025-06-18 20:25:46,715 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-18 20:25:46,715 - __main__ - INFO - ============================================================
+2025-06-18 20:25:46,715 - __main__ - INFO - [SUCCESS] Extracted 8 search queries for hotspots:
+2025-06-18 20:25:46,722 - __main__ - INFO -   - Housing Production: sustainable injection molding
+2025-06-18 20:25:46,724 - __main__ - INFO -   - Radiator Production: energy efficient casting
+2025-06-18 20:25:46,725 - __main__ - INFO -   - PCBA Production: PCB recycling methods
+2025-06-18 20:25:46,725 - __main__ - INFO -   - EMC Shield Production: steel production sustainability
+2025-06-18 20:25:46,725 - __main__ - INFO -   - Transportation: energy efficient transport
+2025-06-18 20:25:46,725 - __main__ - INFO -   - ECU Operation: energy efficient electronics
+2025-06-18 20:25:46,725 - __main__ - INFO -   - Standby Power Consumption: low power consumption
+2025-06-18 20:25:46,725 - __main__ - INFO -   - Recycling and Disposal: electronic waste recycling
+2025-06-18 20:25:46,725 - __main__ - INFO - ============================================================
+2025-06-18 20:25:46,725 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-18 20:25:46,725 - __main__ - INFO - ============================================================
+2025-06-18 20:25:46,725 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-18 20:25:46,725 - arxiv_paper_downloader - INFO - Query: sustainable injection molding
+2025-06-18 20:25:46,734 - arxiv_paper_downloader - INFO - Converting query: sustainable injection molding
+2025-06-18 20:25:46,734 - arxiv_paper_downloader - INFO - Original query: sustainable injection molding
+2025-06-18 20:25:46,734 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable+OR+all:injection+OR+all:molding
+2025-06-18 20:25:46,734 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:sustainable+OR+all:injection+OR+all:molding&start=0&max_results=10
+2025-06-18 20:25:47,507 - arxiv_paper_downloader - INFO - Downloading paper 1: Environmental sustainability in basic research: a perspective from HECAP+
+2025-06-18 20:25:50,624 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 20:25:51,626 - arxiv_paper_downloader - INFO - Downloading paper 2: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Profitable Production
+2025-06-18 20:25:52,198 - arxiv_paper_downloader - INFO - Successfully downloaded: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Profitable Production.pdf
+2025-06-18 20:25:53,204 - arxiv_paper_downloader - INFO - Downloading paper 3: Quality Prediction in Injection Molding
+2025-06-18 20:25:54,476 - arxiv_paper_downloader - INFO - Successfully downloaded: Quality Prediction in Injection Molding.pdf
+2025-06-18 20:25:55,485 - arxiv_paper_downloader - INFO - Downloading paper 4: Surrogate Modelling for Injection Molding Processes using Machine Learning
+2025-06-18 20:25:56,352 - arxiv_paper_downloader - INFO - Successfully downloaded: Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf
+2025-06-18 20:25:57,355 - arxiv_paper_downloader - INFO - Downloading paper 5: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene Melt Flow during Injection Molding Process
+2025-06-18 20:26:13,287 - arxiv_paper_downloader - INFO - Successfully downloaded: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene Melt Flow during Inje.pdf
+2025-06-18 20:26:14,296 - arxiv_paper_downloader - INFO - Downloading paper 6: Progress in patterned wax stamp for prototyping of paper-based microfluidic analytical devices via injection molding
+2025-06-18 20:26:14,798 - arxiv_paper_downloader - INFO - Successfully downloaded: Progress in patterned wax stamp for prototyping of paper-based microfluidic analytical devices via i.pdf
+2025-06-18 20:26:15,800 - arxiv_paper_downloader - INFO - Downloading paper 7: Sustainability in HPC: Vision and Opportunities
+2025-06-18 20:26:15,945 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 20:26:16,961 - arxiv_paper_downloader - INFO - Downloading paper 8: Towards a 6G embedding sustainability
+2025-06-18 20:26:17,146 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a 6G embedding sustainability.pdf
+2025-06-18 20:26:18,150 - arxiv_paper_downloader - INFO - Downloading paper 9: Experiments in Sustainable Software Practices for Future Architectures
+2025-06-18 20:26:18,225 - arxiv_paper_downloader - INFO - Successfully downloaded: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 20:26:19,229 - arxiv_paper_downloader - INFO - Downloading paper 10: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11)
+2025-06-18 20:26:19,465 - arxiv_paper_downloader - INFO - Successfully downloaded: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 20:26:20,476 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Housing Production'
+2025-06-18 20:26:22,484 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-18 20:26:22,484 - arxiv_paper_downloader - INFO - Query: energy efficient casting
+2025-06-18 20:26:22,484 - arxiv_paper_downloader - INFO - Converting query: energy efficient casting
+2025-06-18 20:26:22,484 - arxiv_paper_downloader - INFO - Original query: energy efficient casting
+2025-06-18 20:26:22,484 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy+OR+all:efficient+OR+all:casting
+2025-06-18 20:26:22,484 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy+OR+all:efficient+OR+all:casting&start=0&max_results=10
+2025-06-18 20:26:23,081 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 20:26:23,663 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 20:26:24,672 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 20:26:25,845 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:26:26,846 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 20:26:27,087 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:26:28,096 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 20:26:28,256 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:26:29,268 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 20:26:29,726 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:26:30,732 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 20:26:30,868 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:26:31,878 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 20:26:32,145 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 20:26:33,150 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 20:26:33,373 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 20:26:34,374 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 20:26:34,520 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 20:26:35,522 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 20:26:35,747 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 20:26:36,750 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Radiator Production'
+2025-06-18 20:26:38,755 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-18 20:26:38,756 - arxiv_paper_downloader - INFO - Query: PCB recycling methods
+2025-06-18 20:26:38,759 - arxiv_paper_downloader - INFO - Converting query: PCB recycling methods
+2025-06-18 20:26:38,759 - arxiv_paper_downloader - INFO - Original query: PCB recycling methods
+2025-06-18 20:26:38,759 - arxiv_paper_downloader - INFO - ArXiv API query: all:pcb+OR+all:recycling+OR+all:methods
+2025-06-18 20:26:38,759 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:pcb+OR+all:recycling+OR+all:methods&start=0&max_results=10
+2025-06-18 20:26:39,271 - arxiv_paper_downloader - INFO - Downloading paper 1: ChangeChip: A Reference-Based Unsupervised Change Detection for PCB Defect Detection
+2025-06-18 20:26:45,772 - arxiv_paper_downloader - INFO - Successfully downloaded: ChangeChip_ A Reference-Based Unsupervised Change Detection for PCB Defect Detection.pdf
+2025-06-18 20:26:46,778 - arxiv_paper_downloader - INFO - Downloading paper 2: FPIC: A Novel Semantic Dataset for Optical PCB Assurance
+2025-06-18 20:26:49,674 - arxiv_paper_downloader - INFO - Successfully downloaded: FPIC_ A Novel Semantic Dataset for Optical PCB Assurance.pdf
+2025-06-18 20:26:50,677 - arxiv_paper_downloader - INFO - Downloading paper 3: Quantum authentication with key recycling
+2025-06-18 20:26:51,444 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum authentication with key recycling.pdf
+2025-06-18 20:26:52,454 - arxiv_paper_downloader - INFO - Downloading paper 4: Short-Recurrence and -Storage Recycling of large Krylov-Subspaces for Sequences of Linear Systems with changing Right-Hand-Sides
+2025-06-18 20:26:53,392 - arxiv_paper_downloader - INFO - Successfully downloaded: Short-Recurrence and -Storage Recycling of large Krylov-Subspaces for Sequences of Linear Systems wi.pdf
+2025-06-18 20:26:54,394 - arxiv_paper_downloader - INFO - Downloading paper 5: An in-Contact Robotic System for the Process of Desoldering PCB Components
+2025-06-18 20:26:55,192 - arxiv_paper_downloader - INFO - Successfully downloaded: An in-Contact Robotic System for the Process of Desoldering PCB Components.pdf
+2025-06-18 20:26:56,194 - arxiv_paper_downloader - INFO - Downloading paper 6: Turning Trash into Treasure: Accelerating Inference of Large Language Models with Token Recycling
+2025-06-18 20:26:56,825 - arxiv_paper_downloader - INFO - Successfully downloaded: Turning Trash into Treasure_ Accelerating Inference of Large Language Models with Token Recycling.pdf
+2025-06-18 20:26:57,826 - arxiv_paper_downloader - INFO - Downloading paper 7: PCB-RandNet: Rethinking Random Sampling for LIDAR Semantic Segmentation in Autonomous Driving Scene
+2025-06-18 20:26:58,713 - arxiv_paper_downloader - INFO - Successfully downloaded: PCB-RandNet_ Rethinking Random Sampling for LIDAR Semantic Segmentation in Autonomous Driving Scene.pdf
+2025-06-18 20:26:59,715 - arxiv_paper_downloader - INFO - Downloading paper 8: PCB Renewal: Iterative Reuse of PCB Substrates for Sustainable Electronic Making
+2025-06-18 20:27:21,212 - arxiv_paper_downloader - INFO - Successfully downloaded: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-18 20:27:22,228 - arxiv_paper_downloader - INFO - Downloading paper 9: A survey of subspace recycling iterative methods
+2025-06-18 20:27:22,886 - arxiv_paper_downloader - INFO - Successfully downloaded: A survey of subspace recycling iterative methods.pdf
+2025-06-18 20:27:23,887 - arxiv_paper_downloader - INFO - Downloading paper 10: YOLO-pdd: A Novel Multi-scale PCB Defect Detection Method Using Deep Representations with Sequential Images
+2025-06-18 20:27:24,366 - arxiv_paper_downloader - INFO - Successfully downloaded: YOLO-pdd_ A Novel Multi-scale PCB Defect Detection Method Using Deep Representations with Sequential.pdf
+2025-06-18 20:27:25,381 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'PCBA Production'
+2025-06-18 20:27:27,407 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-18 20:27:27,407 - arxiv_paper_downloader - INFO - Query: steel production sustainability
+2025-06-18 20:27:27,407 - arxiv_paper_downloader - INFO - Converting query: steel production sustainability
+2025-06-18 20:27:27,407 - arxiv_paper_downloader - INFO - Original query: steel production sustainability
+2025-06-18 20:27:27,407 - arxiv_paper_downloader - INFO - ArXiv API query: all:steel+OR+all:production+OR+all:sustainability
+2025-06-18 20:27:27,407 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:steel+OR+all:production+OR+all:sustainability&start=0&max_results=10
+2025-06-18 20:27:28,144 - arxiv_paper_downloader - INFO - Downloading paper 1: Bio-inspired Synthetic Ivory as a Sustainable Material for Piano Keys
+2025-06-18 20:27:28,448 - arxiv_paper_downloader - INFO - Successfully downloaded: Bio-inspired Synthetic Ivory as a Sustainable Material for Piano Keys.pdf
+2025-06-18 20:27:29,449 - arxiv_paper_downloader - INFO - Downloading paper 2: New Era of Artificial Intelligence in Education: Towards a Sustainable Multifaceted Revolution
+2025-06-18 20:27:30,746 - arxiv_paper_downloader - INFO - Successfully downloaded: New Era of Artificial Intelligence in Education_ Towards a Sustainable Multifaceted Revolution.pdf
+2025-06-18 20:27:31,747 - arxiv_paper_downloader - INFO - Downloading paper 3: Sustainability Assessment of Future Accelerators
+2025-06-18 20:27:32,547 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability Assessment of Future Accelerators.pdf
+2025-06-18 20:27:33,560 - arxiv_paper_downloader - INFO - Downloading paper 4: Effects of forecast errors on optimal utilisation in aggregate production planning with stochastic customer demand
+2025-06-18 20:27:34,196 - arxiv_paper_downloader - INFO - Successfully downloaded: Effects of forecast errors on optimal utilisation in aggregate production planning with stochastic c.pdf
+2025-06-18 20:27:35,210 - arxiv_paper_downloader - INFO - Downloading paper 5: Statistical analysis of the material, geometrical and imperfection characteristics of structural stainless steels and members
+2025-06-18 20:27:35,551 - arxiv_paper_downloader - INFO - Successfully downloaded: Statistical analysis of the material, geometrical and imperfection characteristics of structural sta.pdf
+2025-06-18 20:27:36,553 - arxiv_paper_downloader - INFO - Downloading paper 6: Sustainability: Delivering Agility's Promise
+2025-06-18 20:27:37,966 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability_ Delivering Agility's Promise.pdf
+2025-06-18 20:27:38,967 - arxiv_paper_downloader - INFO - Downloading paper 7: Software Sustainability: A Design Case for Achieving Sustainable Pension Services in Developing Country
+2025-06-18 20:27:39,230 - arxiv_paper_downloader - INFO - Successfully downloaded: Software Sustainability_ A Design Case for Achieving Sustainable Pension Services in Developing Coun.pdf
+2025-06-18 20:27:40,231 - arxiv_paper_downloader - INFO - Downloading paper 8: Sustainable Banking; Evaluation of the European Business Models
+2025-06-18 20:27:40,809 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable Banking; Evaluation of the European Business Models.pdf
+2025-06-18 20:27:41,811 - arxiv_paper_downloader - INFO - Downloading paper 9: Recommender Systems for Social Good: The Role of Accountability and Sustainability
+2025-06-18 20:27:42,084 - arxiv_paper_downloader - INFO - Successfully downloaded: Recommender Systems for Social Good_ The Role of Accountability and Sustainability.pdf
+2025-06-18 20:27:43,085 - arxiv_paper_downloader - INFO - Downloading paper 10: Prediction of Final Phosphorus Content of Steel in a Scrap-Based Electric Arc Furnace Using Artificial Neural Networks
+2025-06-18 20:27:44,420 - arxiv_paper_downloader - INFO - Successfully downloaded: Prediction of Final Phosphorus Content of Steel in a Scrap-Based Electric Arc Furnace Using Artifici.pdf
+2025-06-18 20:27:45,430 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'EMC Shield Production'
+2025-06-18 20:27:47,434 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-18 20:27:47,434 - arxiv_paper_downloader - INFO - Query: energy efficient transport
+2025-06-18 20:27:47,435 - arxiv_paper_downloader - INFO - Converting query: energy efficient transport
+2025-06-18 20:27:47,435 - arxiv_paper_downloader - INFO - Original query: energy efficient transport
+2025-06-18 20:27:47,435 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy+OR+all:efficient+OR+all:transport
+2025-06-18 20:27:47,435 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy+OR+all:efficient+OR+all:transport&start=0&max_results=10
+2025-06-18 20:27:48,032 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 20:27:48,530 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 20:27:49,533 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 20:27:50,568 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:27:51,572 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 20:27:51,905 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:27:52,906 - arxiv_paper_downloader - INFO - Downloading paper 4: Extracting the multimodal fingerprint of urban transportation networks
+2025-06-18 20:27:54,591 - arxiv_paper_downloader - INFO - Successfully downloaded: Extracting the multimodal fingerprint of urban transportation networks.pdf
+2025-06-18 20:27:55,604 - arxiv_paper_downloader - INFO - Downloading paper 5: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 20:27:55,767 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:27:56,769 - arxiv_paper_downloader - INFO - Downloading paper 6: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 20:27:57,263 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:27:58,267 - arxiv_paper_downloader - INFO - Downloading paper 7: Unpaired Image-to-Image Translation via Latent Energy Transport
+2025-06-18 20:28:30,623 - arxiv_paper_downloader - INFO - Successfully downloaded: Unpaired Image-to-Image Translation via Latent Energy Transport.pdf
+2025-06-18 20:28:31,625 - arxiv_paper_downloader - INFO - Downloading paper 8: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 20:28:31,736 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:28:32,737 - arxiv_paper_downloader - INFO - Downloading paper 9: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 20:28:32,993 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 20:28:34,006 - arxiv_paper_downloader - INFO - Downloading paper 10: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 20:28:34,225 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 20:28:35,228 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Transportation'
+2025-06-18 20:28:37,234 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Operation
+2025-06-18 20:28:37,234 - arxiv_paper_downloader - INFO - Query: energy efficient electronics
+2025-06-18 20:28:37,234 - arxiv_paper_downloader - INFO - Converting query: energy efficient electronics
+2025-06-18 20:28:37,234 - arxiv_paper_downloader - INFO - Original query: energy efficient electronics
+2025-06-18 20:28:37,234 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy+OR+all:efficient+OR+all:electronics
+2025-06-18 20:28:37,234 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy+OR+all:efficient+OR+all:electronics&start=0&max_results=10
+2025-06-18 20:28:37,897 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 20:28:38,414 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 20:28:39,416 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 20:28:40,408 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:28:41,410 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 20:28:41,630 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:28:42,641 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 20:28:42,763 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:28:43,779 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 20:28:44,248 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:28:45,249 - arxiv_paper_downloader - INFO - Downloading paper 6: Coulomb Blockade and Digital Single-Electron Devices
+2025-06-18 20:28:45,433 - arxiv_paper_downloader - INFO - Successfully downloaded: Coulomb Blockade and Digital Single-Electron Devices.pdf
+2025-06-18 20:28:46,435 - arxiv_paper_downloader - INFO - Downloading paper 7: Flexible transparent high-voltage diodes for energy management in wearable electronics
+2025-06-18 20:28:48,272 - arxiv_paper_downloader - INFO - Successfully downloaded: Flexible transparent high-voltage diodes for energy management in wearable electronics.pdf
+2025-06-18 20:28:49,276 - arxiv_paper_downloader - INFO - Downloading paper 8: Effect of strain and diameter on electronic and charge transport properties of indium arsenide nanowires
+2025-06-18 20:28:51,433 - arxiv_paper_downloader - INFO - Successfully downloaded: Effect of strain and diameter on electronic and charge transport properties of indium arsenide nanow.pdf
+2025-06-18 20:28:52,434 - arxiv_paper_downloader - INFO - Downloading paper 9: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 20:28:52,532 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:28:53,543 - arxiv_paper_downloader - INFO - Downloading paper 10: Floquet scattering matrix approach to the phase noise of a single-electron source in the adiabatic regime
+2025-06-18 20:28:54,327 - arxiv_paper_downloader - INFO - Successfully downloaded: Floquet scattering matrix approach to the phase noise of a single-electron source in the adiabatic r.pdf
+2025-06-18 20:28:55,332 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'ECU Operation'
+2025-06-18 20:28:57,338 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Standby Power Consumption
+2025-06-18 20:28:57,338 - arxiv_paper_downloader - INFO - Query: low power consumption
+2025-06-18 20:28:57,338 - arxiv_paper_downloader - INFO - Converting query: low power consumption
+2025-06-18 20:28:57,338 - arxiv_paper_downloader - INFO - Original query: low power consumption
+2025-06-18 20:28:57,340 - arxiv_paper_downloader - INFO - ArXiv API query: all:low+OR+all:power+OR+all:consumption
+2025-06-18 20:28:57,340 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:low+OR+all:power+OR+all:consumption&start=0&max_results=10
+2025-06-18 20:28:57,977 - arxiv_paper_downloader - INFO - Downloading paper 1: Power-consumption Backdoor in Quantum Key Distribution
+2025-06-18 20:28:59,003 - arxiv_paper_downloader - INFO - Successfully downloaded: Power-consumption Backdoor in Quantum Key Distribution.pdf
+2025-06-18 20:29:00,004 - arxiv_paper_downloader - INFO - Downloading paper 2: Superstructures at low spin - high spin transitions
+2025-06-18 20:29:00,291 - arxiv_paper_downloader - INFO - Successfully downloaded: Superstructures at low spin - high spin transitions.pdf
+2025-06-18 20:29:01,302 - arxiv_paper_downloader - INFO - Downloading paper 3: Field topologies in ideal and near ideal magnetohydrodynamics and vortex dynamics
+2025-06-18 20:29:01,947 - arxiv_paper_downloader - INFO - Successfully downloaded: Field topologies in ideal and near ideal magnetohydrodynamics and vortex dynamics.pdf
+2025-06-18 20:29:02,948 - arxiv_paper_downloader - INFO - Downloading paper 4: Bounds on the attractor dimension for magnetohydrodynamic channel flow with parallel magnetic field at low magnetic Reynolds number
+2025-06-18 20:29:03,419 - arxiv_paper_downloader - INFO - Successfully downloaded: Bounds on the attractor dimension for magnetohydrodynamic channel flow with parallel magnetic field .pdf
+2025-06-18 20:29:04,420 - arxiv_paper_downloader - INFO - Downloading paper 5: Parallel Gaussian Process Regression for Big Data: Low-Rank Representation Meets Markov Approximation
+2025-06-18 20:29:04,950 - arxiv_paper_downloader - INFO - Successfully downloaded: Parallel Gaussian Process Regression for Big Data_ Low-Rank Representation Meets Markov Approximatio.pdf
+2025-06-18 20:29:05,951 - arxiv_paper_downloader - INFO - Downloading paper 6: Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions
+2025-06-18 20:29:09,258 - arxiv_paper_downloader - INFO - Successfully downloaded: Deblur e-NeRF_ NeRF from Motion-Blurred Events under High-speed or Low-light Conditions.pdf
+2025-06-18 20:29:10,261 - arxiv_paper_downloader - INFO - Downloading paper 7: Development and high-power testing of an X-band dielectric-loaded power extractor
+2025-06-18 20:29:11,998 - arxiv_paper_downloader - INFO - Successfully downloaded: Development and high-power testing of an X-band dielectric-loaded power extractor.pdf
+2025-06-18 20:29:13,011 - arxiv_paper_downloader - INFO - Downloading paper 8: Low-Power consumption Franz-Keldysh effect plasmonic modulator
+2025-06-18 20:29:14,298 - arxiv_paper_downloader - INFO - Successfully downloaded: Low-Power consumption Franz-Keldysh effect plasmonic modulator.pdf
+2025-06-18 20:29:15,302 - arxiv_paper_downloader - INFO - Downloading paper 9: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality
+2025-06-18 20:29:15,878 - arxiv_paper_downloader - INFO - Successfully downloaded: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality.pdf
+2025-06-18 20:29:16,892 - arxiv_paper_downloader - INFO - Downloading paper 10: Orbital migration of low-mass planets in evolutionary radiative models: Avoiding catastrophic infall
+2025-06-18 20:29:18,049 - arxiv_paper_downloader - INFO - Successfully downloaded: Orbital migration of low-mass planets in evolutionary radiative models_ Avoiding catastrophic infall.pdf
+2025-06-18 20:29:19,050 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Standby Power Consumption'
+2025-06-18 20:29:21,055 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Recycling and Disposal
+2025-06-18 20:29:21,055 - arxiv_paper_downloader - INFO - Query: electronic waste recycling
+2025-06-18 20:29:21,055 - arxiv_paper_downloader - INFO - Converting query: electronic waste recycling
+2025-06-18 20:29:21,056 - arxiv_paper_downloader - INFO - Original query: electronic waste recycling
+2025-06-18 20:29:21,056 - arxiv_paper_downloader - INFO - ArXiv API query: all:electronic+OR+all:waste+OR+all:recycling
+2025-06-18 20:29:21,056 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:electronic+OR+all:waste+OR+all:recycling&start=0&max_results=10
+2025-06-18 20:29:21,475 - arxiv_paper_downloader - INFO - Downloading paper 1: Waste detection in Pomerania: non-profit project for detecting waste in environment
+2025-06-18 20:29:23,322 - arxiv_paper_downloader - INFO - Successfully downloaded: Waste detection in Pomerania_ non-profit project for detecting waste in environment.pdf
+2025-06-18 20:29:24,324 - arxiv_paper_downloader - INFO - Downloading paper 2: Optimization of waste collection through the sequencing of micro-routes and transfer station convenience analysis: an Argentinian case study
+2025-06-18 20:29:24,763 - arxiv_paper_downloader - INFO - Successfully downloaded: Optimization of waste collection through the sequencing of micro-routes and transfer station conveni.pdf
+2025-06-18 20:29:25,765 - arxiv_paper_downloader - INFO - Downloading paper 3: Measuring the Recyclability of Electronic Components to Assist Automatic Disassembly and Sorting Waste Printed Circuit Boards
+2025-06-18 20:29:26,912 - arxiv_paper_downloader - INFO - Successfully downloaded: Measuring the Recyclability of Electronic Components to Assist Automatic Disassembly and Sorting Was.pdf
+2025-06-18 20:29:27,914 - arxiv_paper_downloader - INFO - Downloading paper 4: First Lessons Learned of an Artificial Intelligence Robotic System for Autonomous Coarse Waste Recycling Using Multispectral Imaging-Based Methods
+2025-06-18 20:29:28,913 - arxiv_paper_downloader - INFO - Successfully downloaded: First Lessons Learned of an Artificial Intelligence Robotic System for Autonomous Coarse Waste Recyc.pdf
+2025-06-18 20:29:29,920 - arxiv_paper_downloader - INFO - Downloading paper 5: Using multicomponent recycled electronic waste alloys to produce high entropy alloys
+2025-06-18 20:29:30,667 - arxiv_paper_downloader - INFO - Successfully downloaded: Using multicomponent recycled electronic waste alloys to produce high entropy alloys.pdf
+2025-06-18 20:29:31,669 - arxiv_paper_downloader - INFO - Downloading paper 6: Image segmentation and classification of E-waste for waste segregation
+2025-06-18 20:29:32,183 - arxiv_paper_downloader - INFO - Successfully downloaded: Image segmentation and classification of E-waste for waste segregation.pdf
+2025-06-18 20:29:33,184 - arxiv_paper_downloader - INFO - Downloading paper 7: Solving the waste bin location problem with uncertain waste generation rate: a bi-objective robust optimization approach
+2025-06-18 20:29:33,754 - arxiv_paper_downloader - INFO - Successfully downloaded: Solving the waste bin location problem with uncertain waste generation rate_ a bi-objective robust o.pdf
+2025-06-18 20:29:34,757 - arxiv_paper_downloader - INFO - Downloading paper 8: A Smart Recycling Bin Using Waste Image Classification At The Edge
+2025-06-18 20:29:35,245 - arxiv_paper_downloader - INFO - Successfully downloaded: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-18 20:29:36,252 - arxiv_paper_downloader - INFO - Downloading paper 9: Towards artificially intelligent recycling Improving image processing for waste classification
+2025-06-18 20:29:37,215 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards artificially intelligent recycling Improving image processing for waste classification.pdf
+2025-06-18 20:29:38,221 - arxiv_paper_downloader - INFO - Downloading paper 10: Dual-Arm Telerobotic Platform for Robotic Hotbox Operations for Nuclear Waste Disposition in EM Sites
+2025-06-18 20:29:38,699 - arxiv_paper_downloader - INFO - Successfully downloaded: Dual-Arm Telerobotic Platform for Robotic Hotbox Operations for Nuclear Waste Disposition in EM Site.pdf
+2025-06-18 20:29:39,707 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Recycling and Disposal'
+2025-06-18 20:29:41,715 - arxiv_paper_downloader - INFO - Downloaded 80 papers total for 8 hotspots
+2025-06-18 20:29:41,715 - __main__ - INFO - [SUCCESS] Downloaded 80 papers for 8 hotspots
+2025-06-18 20:29:41,716 - __main__ - INFO - ============================================================
+2025-06-18 20:29:41,716 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-18 20:29:41,716 - __main__ - INFO - ============================================================
+2025-06-18 20:29:41,717 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-18 20:29:41,739 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-18 20:29:41,740 - pdf_processor - INFO - Processing hotspot directory: ECU_Operation
+2025-06-18 20:29:41,740 - pdf_processor - INFO - Found 10 PDF files in ECU_Operation
+2025-06-18 20:29:41,741 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:29:47,781 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:29:47,781 - pdf_processor - INFO - Text reduced from 166202 to 162488 characters
+2025-06-18 20:29:47,781 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:29:47,781 - pdf_processor - INFO - Processing: Coulomb Blockade and Digital Single-Electron Devices.pdf
+2025-06-18 20:29:48,904 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-18 20:29:48,905 - pdf_processor - INFO - Text reduced from 91983 to 75449 characters
+2025-06-18 20:29:48,905 - pdf_processor - INFO - Successfully processed: Coulomb Blockade and Digital Single-Electron Devices.pdf
+2025-06-18 20:29:48,906 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:29:50,057 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:29:50,057 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:29:50,057 - pdf_processor - INFO - Processing: Effect of strain and diameter on electronic and charge transport properties of indium arsenide nanow.pdf
+2025-06-18 20:29:50,381 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:29:50,381 - pdf_processor - INFO - Text reduced from 28469 to 22786 characters
+2025-06-18 20:29:50,381 - pdf_processor - INFO - Successfully processed: Effect of strain and diameter on electronic and charge transport properties of indium arsenide nanow.pdf
+2025-06-18 20:29:50,381 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:29:51,411 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:29:51,411 - pdf_processor - INFO - Text reduced from 59396 to 57381 characters
+2025-06-18 20:29:51,412 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:29:51,412 - pdf_processor - INFO - Processing: Flexible transparent high-voltage diodes for energy management in wearable electronics.pdf
+2025-06-18 20:29:52,187 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:29:52,187 - pdf_processor - INFO - Text reduced from 54094 to 30496 characters
+2025-06-18 20:29:52,187 - pdf_processor - INFO - Successfully processed: Flexible transparent high-voltage diodes for energy management in wearable electronics.pdf
+2025-06-18 20:29:52,187 - pdf_processor - INFO - Processing: Floquet scattering matrix approach to the phase noise of a single-electron source in the adiabatic r.pdf
+2025-06-18 20:29:52,455 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:29:52,456 - pdf_processor - INFO - Text reduced from 35927 to 28119 characters
+2025-06-18 20:29:52,456 - pdf_processor - INFO - Successfully processed: Floquet scattering matrix approach to the phase noise of a single-electron source in the adiabatic r.pdf
+2025-06-18 20:29:52,456 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:29:54,264 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:29:54,264 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 20:29:54,264 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:29:54,264 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:29:54,661 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:29:54,661 - pdf_processor - INFO - Text reduced from 26689 to 24151 characters
+2025-06-18 20:29:54,661 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:29:54,661 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 20:30:00,327 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:00,327 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 20:30:00,327 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-18 20:30:00,327 - pdf_processor - INFO - Found 10 PDF files in EMC_Shield_Production
+2025-06-18 20:30:00,327 - pdf_processor - INFO - Processing: Bio-inspired Synthetic Ivory as a Sustainable Material for Piano Keys.pdf
+2025-06-18 20:30:00,928 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:00,928 - pdf_processor - INFO - Successfully processed: Bio-inspired Synthetic Ivory as a Sustainable Material for Piano Keys.pdf
+2025-06-18 20:30:00,928 - pdf_processor - INFO - Processing: Effects of forecast errors on optimal utilisation in aggregate production planning with stochastic c.pdf
+2025-06-18 20:30:02,714 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:02,714 - pdf_processor - INFO - Text reduced from 71186 to 62382 characters
+2025-06-18 20:30:02,714 - pdf_processor - INFO - Successfully processed: Effects of forecast errors on optimal utilisation in aggregate production planning with stochastic c.pdf
+2025-06-18 20:30:02,714 - pdf_processor - INFO - Processing: New Era of Artificial Intelligence in Education_ Towards a Sustainable Multifaceted Revolution.pdf
+2025-06-18 20:30:03,185 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:03,186 - pdf_processor - INFO - Text reduced from 103068 to 81613 characters
+2025-06-18 20:30:03,186 - pdf_processor - INFO - Successfully processed: New Era of Artificial Intelligence in Education_ Towards a Sustainable Multifaceted Revolution.pdf
+2025-06-18 20:30:03,187 - pdf_processor - INFO - Processing: Prediction of Final Phosphorus Content of Steel in a Scrap-Based Electric Arc Furnace Using Artifici.pdf
+2025-06-18 20:30:04,132 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:04,132 - pdf_processor - INFO - Text reduced from 75272 to 53504 characters
+2025-06-18 20:30:04,132 - pdf_processor - INFO - Successfully processed: Prediction of Final Phosphorus Content of Steel in a Scrap-Based Electric Arc Furnace Using Artifici.pdf
+2025-06-18 20:30:04,132 - pdf_processor - INFO - Processing: Recommender Systems for Social Good_ The Role of Accountability and Sustainability.pdf
+2025-06-18 20:30:04,263 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:04,263 - pdf_processor - INFO - Text reduced from 11021 to 8983 characters
+2025-06-18 20:30:04,263 - pdf_processor - INFO - Successfully processed: Recommender Systems for Social Good_ The Role of Accountability and Sustainability.pdf
+2025-06-18 20:30:04,263 - pdf_processor - INFO - Processing: Software Sustainability_ A Design Case for Achieving Sustainable Pension Services in Developing Coun.pdf
+2025-06-18 20:30:04,609 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:04,609 - pdf_processor - INFO - Text reduced from 14374 to 11387 characters
+2025-06-18 20:30:04,609 - pdf_processor - INFO - Successfully processed: Software Sustainability_ A Design Case for Achieving Sustainable Pension Services in Developing Coun.pdf
+2025-06-18 20:30:04,609 - pdf_processor - INFO - Processing: Statistical analysis of the material, geometrical and imperfection characteristics of structural sta.pdf
+2025-06-18 20:30:06,334 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:06,334 - pdf_processor - INFO - Text reduced from 111853 to 68032 characters
+2025-06-18 20:30:06,334 - pdf_processor - INFO - Successfully processed: Statistical analysis of the material, geometrical and imperfection characteristics of structural sta.pdf
+2025-06-18 20:30:06,334 - pdf_processor - INFO - Processing: Sustainability Assessment of Future Accelerators.pdf
+2025-06-18 20:30:06,702 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:30:06,702 - pdf_processor - INFO - Text reduced from 75493 to 58640 characters
+2025-06-18 20:30:06,703 - pdf_processor - INFO - Successfully processed: Sustainability Assessment of Future Accelerators.pdf
+2025-06-18 20:30:06,703 - pdf_processor - INFO - Processing: Sustainability_ Delivering Agility's Promise.pdf
+2025-06-18 20:30:06,942 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:06,942 - pdf_processor - INFO - Text reduced from 69998 to 59809 characters
+2025-06-18 20:30:06,942 - pdf_processor - INFO - Successfully processed: Sustainability_ Delivering Agility's Promise.pdf
+2025-06-18 20:30:06,942 - pdf_processor - INFO - Processing: Sustainable Banking; Evaluation of the European Business Models.pdf
+2025-06-18 20:30:08,809 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:08,809 - pdf_processor - INFO - Text reduced from 69267 to 49094 characters
+2025-06-18 20:30:08,809 - pdf_processor - INFO - Successfully processed: Sustainable Banking; Evaluation of the European Business Models.pdf
+2025-06-18 20:30:08,809 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-18 20:30:08,814 - pdf_processor - INFO - Found 10 PDF files in Housing_Production
+2025-06-18 20:30:08,814 - pdf_processor - INFO - Processing: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 20:30:09,538 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:09,538 - pdf_processor - INFO - Text reduced from 64177 to 49026 characters
+2025-06-18 20:30:09,538 - pdf_processor - INFO - Successfully processed: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 20:30:09,538 - pdf_processor - INFO - Processing: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene Melt Flow during Inje.pdf
+2025-06-18 20:30:10,081 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:10,081 - pdf_processor - INFO - Text reduced from 48383 to 40136 characters
+2025-06-18 20:30:10,081 - pdf_processor - INFO - Successfully processed: Dimensional Analysis Theory and Molecular Dynamics Simulation of Polypropylene Melt Flow during Inje.pdf
+2025-06-18 20:30:10,081 - pdf_processor - INFO - Processing: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Profitable Production.pdf
+2025-06-18 20:30:12,347 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:12,347 - pdf_processor - INFO - Successfully processed: DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Profitable Production.pdf
+2025-06-18 20:30:12,347 - pdf_processor - INFO - Processing: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 20:30:15,156 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:15,156 - pdf_processor - INFO - Text reduced from 320863 to 252326 characters
+2025-06-18 20:30:15,156 - pdf_processor - INFO - Successfully processed: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 20:30:15,156 - pdf_processor - INFO - Processing: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 20:30:15,296 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:15,296 - pdf_processor - INFO - Text reduced from 14471 to 14343 characters
+2025-06-18 20:30:15,296 - pdf_processor - INFO - Successfully processed: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 20:30:15,296 - pdf_processor - INFO - Processing: Progress in patterned wax stamp for prototyping of paper-based microfluidic analytical devices via i.pdf
+2025-06-18 20:30:15,830 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:15,830 - pdf_processor - INFO - Successfully processed: Progress in patterned wax stamp for prototyping of paper-based microfluidic analytical devices via i.pdf
+2025-06-18 20:30:15,830 - pdf_processor - INFO - Processing: Quality Prediction in Injection Molding.pdf
+2025-06-18 20:30:16,379 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:16,379 - pdf_processor - INFO - Successfully processed: Quality Prediction in Injection Molding.pdf
+2025-06-18 20:30:16,380 - pdf_processor - INFO - Processing: Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf
+2025-06-18 20:30:16,529 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:16,529 - pdf_processor - INFO - Text reduced from 35350 to 30337 characters
+2025-06-18 20:30:16,529 - pdf_processor - INFO - Successfully processed: Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf
+2025-06-18 20:30:16,529 - pdf_processor - INFO - Processing: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 20:30:16,696 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:16,712 - pdf_processor - INFO - Text reduced from 32434 to 23466 characters
+2025-06-18 20:30:16,712 - pdf_processor - INFO - Successfully processed: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 20:30:16,712 - pdf_processor - INFO - Processing: Towards a 6G embedding sustainability.pdf
+2025-06-18 20:30:17,222 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:17,222 - pdf_processor - INFO - Text reduced from 35868 to 32870 characters
+2025-06-18 20:30:17,222 - pdf_processor - INFO - Successfully processed: Towards a 6G embedding sustainability.pdf
+2025-06-18 20:30:17,222 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-18 20:30:17,222 - pdf_processor - INFO - Found 10 PDF files in PCBA_Production
+2025-06-18 20:30:17,222 - pdf_processor - INFO - Processing: A survey of subspace recycling iterative methods.pdf
+2025-06-18 20:30:18,798 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:18,798 - pdf_processor - INFO - Text reduced from 145714 to 114733 characters
+2025-06-18 20:30:18,798 - pdf_processor - INFO - Successfully processed: A survey of subspace recycling iterative methods.pdf
+2025-06-18 20:30:18,798 - pdf_processor - INFO - Processing: An in-Contact Robotic System for the Process of Desoldering PCB Components.pdf
+2025-06-18 20:30:18,938 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:18,938 - pdf_processor - INFO - Text reduced from 20532 to 16732 characters
+2025-06-18 20:30:18,938 - pdf_processor - INFO - Successfully processed: An in-Contact Robotic System for the Process of Desoldering PCB Components.pdf
+2025-06-18 20:30:18,939 - pdf_processor - INFO - Processing: ChangeChip_ A Reference-Based Unsupervised Change Detection for PCB Defect Detection.pdf
+2025-06-18 20:30:19,111 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-18 20:30:19,111 - pdf_processor - INFO - Text reduced from 30541 to 24984 characters
+2025-06-18 20:30:19,111 - pdf_processor - INFO - Successfully processed: ChangeChip_ A Reference-Based Unsupervised Change Detection for PCB Defect Detection.pdf
+2025-06-18 20:30:19,111 - pdf_processor - INFO - Processing: FPIC_ A Novel Semantic Dataset for Optical PCB Assurance.pdf
+2025-06-18 20:30:19,656 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:19,656 - pdf_processor - INFO - Text reduced from 70442 to 57935 characters
+2025-06-18 20:30:19,656 - pdf_processor - INFO - Successfully processed: FPIC_ A Novel Semantic Dataset for Optical PCB Assurance.pdf
+2025-06-18 20:30:19,656 - pdf_processor - INFO - Processing: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-18 20:30:20,209 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:20,209 - pdf_processor - INFO - Text reduced from 97742 to 74366 characters
+2025-06-18 20:30:20,210 - pdf_processor - INFO - Successfully processed: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-18 20:30:20,210 - pdf_processor - INFO - Processing: PCB-RandNet_ Rethinking Random Sampling for LIDAR Semantic Segmentation in Autonomous Driving Scene.pdf
+2025-06-18 20:30:20,531 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-18 20:30:20,531 - pdf_processor - INFO - Text reduced from 38847 to 32393 characters
+2025-06-18 20:30:20,532 - pdf_processor - INFO - Successfully processed: PCB-RandNet_ Rethinking Random Sampling for LIDAR Semantic Segmentation in Autonomous Driving Scene.pdf
+2025-06-18 20:30:20,532 - pdf_processor - INFO - Processing: Quantum authentication with key recycling.pdf
+2025-06-18 20:30:22,612 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:22,613 - pdf_processor - INFO - Text reduced from 134952 to 124598 characters
+2025-06-18 20:30:22,613 - pdf_processor - INFO - Successfully processed: Quantum authentication with key recycling.pdf
+2025-06-18 20:30:22,613 - pdf_processor - INFO - Processing: Short-Recurrence and -Storage Recycling of large Krylov-Subspaces for Sequences of Linear Systems wi.pdf
+2025-06-18 20:30:24,329 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:30:24,329 - pdf_processor - INFO - Text reduced from 92279 to 87484 characters
+2025-06-18 20:30:24,329 - pdf_processor - INFO - Successfully processed: Short-Recurrence and -Storage Recycling of large Krylov-Subspaces for Sequences of Linear Systems wi.pdf
+2025-06-18 20:30:24,330 - pdf_processor - INFO - Processing: Turning Trash into Treasure_ Accelerating Inference of Large Language Models with Token Recycling.pdf
+2025-06-18 20:30:25,100 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:25,100 - pdf_processor - INFO - Text reduced from 63090 to 40691 characters
+2025-06-18 20:30:25,101 - pdf_processor - INFO - Successfully processed: Turning Trash into Treasure_ Accelerating Inference of Large Language Models with Token Recycling.pdf
+2025-06-18 20:30:25,101 - pdf_processor - INFO - Processing: YOLO-pdd_ A Novel Multi-scale PCB Defect Detection Method Using Deep Representations with Sequential.pdf
+2025-06-18 20:30:25,433 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:25,433 - pdf_processor - INFO - Text reduced from 50816 to 40638 characters
+2025-06-18 20:30:25,433 - pdf_processor - INFO - Successfully processed: YOLO-pdd_ A Novel Multi-scale PCB Defect Detection Method Using Deep Representations with Sequential.pdf
+2025-06-18 20:30:25,433 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-18 20:30:25,433 - pdf_processor - INFO - Found 10 PDF files in Radiator_Production
+2025-06-18 20:30:25,433 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 20:30:27,328 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:27,329 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 20:30:27,329 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 20:30:27,329 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:30:33,688 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:30:33,688 - pdf_processor - INFO - Text reduced from 166202 to 162488 characters
+2025-06-18 20:30:33,688 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:30:33,688 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:30:34,818 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:34,818 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:30:34,818 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:30:35,847 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:30:35,847 - pdf_processor - INFO - Text reduced from 59396 to 57381 characters
+2025-06-18 20:30:35,847 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:30:35,848 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:30:37,702 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:37,703 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 20:30:37,704 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:30:37,704 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 20:30:38,584 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:38,585 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 20:30:38,585 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 20:30:38,585 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 20:30:38,942 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:38,942 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 20:30:38,942 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 20:30:38,943 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:30:39,403 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:30:39,403 - pdf_processor - INFO - Text reduced from 26689 to 24151 characters
+2025-06-18 20:30:39,403 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:30:39,404 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 20:30:40,290 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:40,290 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 20:30:40,290 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 20:30:40,290 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 20:30:45,798 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:45,799 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 20:30:45,799 - pdf_processor - INFO - Processing hotspot directory: Recycling_and_Disposal
+2025-06-18 20:30:45,800 - pdf_processor - INFO - Found 10 PDF files in Recycling_and_Disposal
+2025-06-18 20:30:45,801 - pdf_processor - INFO - Processing: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-18 20:30:46,036 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:46,037 - pdf_processor - INFO - Text reduced from 51944 to 42726 characters
+2025-06-18 20:30:46,037 - pdf_processor - INFO - Successfully processed: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-18 20:30:46,037 - pdf_processor - INFO - Processing: Dual-Arm Telerobotic Platform for Robotic Hotbox Operations for Nuclear Waste Disposition in EM Site.pdf
+2025-06-18 20:30:46,099 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:46,099 - pdf_processor - INFO - Text reduced from 20815 to 18507 characters
+2025-06-18 20:30:46,099 - pdf_processor - INFO - Successfully processed: Dual-Arm Telerobotic Platform for Robotic Hotbox Operations for Nuclear Waste Disposition in EM Site.pdf
+2025-06-18 20:30:46,099 - pdf_processor - INFO - Processing: First Lessons Learned of an Artificial Intelligence Robotic System for Autonomous Coarse Waste Recyc.pdf
+2025-06-18 20:30:46,996 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:46,996 - pdf_processor - INFO - Text reduced from 53229 to 44720 characters
+2025-06-18 20:30:46,996 - pdf_processor - INFO - Successfully processed: First Lessons Learned of an Artificial Intelligence Robotic System for Autonomous Coarse Waste Recyc.pdf
+2025-06-18 20:30:46,996 - pdf_processor - INFO - Processing: Image segmentation and classification of E-waste for waste segregation.pdf
+2025-06-18 20:30:47,064 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:47,064 - pdf_processor - INFO - Text reduced from 10189 to 9214 characters
+2025-06-18 20:30:47,064 - pdf_processor - INFO - Successfully processed: Image segmentation and classification of E-waste for waste segregation.pdf
+2025-06-18 20:30:47,064 - pdf_processor - INFO - Processing: Measuring the Recyclability of Electronic Components to Assist Automatic Disassembly and Sorting Was.pdf
+2025-06-18 20:30:47,425 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:47,425 - pdf_processor - INFO - Text reduced from 31540 to 24223 characters
+2025-06-18 20:30:47,425 - pdf_processor - INFO - Successfully processed: Measuring the Recyclability of Electronic Components to Assist Automatic Disassembly and Sorting Was.pdf
+2025-06-18 20:30:47,425 - pdf_processor - INFO - Processing: Optimization of waste collection through the sequencing of micro-routes and transfer station conveni.pdf
+2025-06-18 20:30:48,482 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:48,484 - pdf_processor - INFO - Text reduced from 57342 to 48922 characters
+2025-06-18 20:30:48,484 - pdf_processor - INFO - Successfully processed: Optimization of waste collection through the sequencing of micro-routes and transfer station conveni.pdf
+2025-06-18 20:30:48,484 - pdf_processor - INFO - Processing: Solving the waste bin location problem with uncertain waste generation rate_ a bi-objective robust o.pdf
+2025-06-18 20:30:50,091 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:50,092 - pdf_processor - INFO - Text reduced from 75076 to 48320 characters
+2025-06-18 20:30:50,092 - pdf_processor - INFO - Successfully processed: Solving the waste bin location problem with uncertain waste generation rate_ a bi-objective robust o.pdf
+2025-06-18 20:30:50,092 - pdf_processor - INFO - Processing: Towards artificially intelligent recycling Improving image processing for waste classification.pdf
+2025-06-18 20:30:51,529 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:30:51,529 - pdf_processor - INFO - Text reduced from 44802 to 40763 characters
+2025-06-18 20:30:51,529 - pdf_processor - INFO - Successfully processed: Towards artificially intelligent recycling Improving image processing for waste classification.pdf
+2025-06-18 20:30:51,529 - pdf_processor - INFO - Processing: Using multicomponent recycled electronic waste alloys to produce high entropy alloys.pdf
+2025-06-18 20:30:52,499 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:52,499 - pdf_processor - INFO - Text reduced from 42170 to 29342 characters
+2025-06-18 20:30:52,499 - pdf_processor - INFO - Successfully processed: Using multicomponent recycled electronic waste alloys to produce high entropy alloys.pdf
+2025-06-18 20:30:52,499 - pdf_processor - INFO - Processing: Waste detection in Pomerania_ non-profit project for detecting waste in environment.pdf
+2025-06-18 20:30:52,749 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:52,750 - pdf_processor - INFO - Text reduced from 68524 to 54665 characters
+2025-06-18 20:30:52,750 - pdf_processor - INFO - Successfully processed: Waste detection in Pomerania_ non-profit project for detecting waste in environment.pdf
+2025-06-18 20:30:52,750 - pdf_processor - INFO - Processing hotspot directory: Standby_Power_Consumption
+2025-06-18 20:30:52,751 - pdf_processor - INFO - Found 10 PDF files in Standby_Power_Consumption
+2025-06-18 20:30:52,751 - pdf_processor - INFO - Processing: Bounds on the attractor dimension for magnetohydrodynamic channel flow with parallel magnetic field .pdf
+2025-06-18 20:30:53,761 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:30:53,761 - pdf_processor - INFO - Successfully processed: Bounds on the attractor dimension for magnetohydrodynamic channel flow with parallel magnetic field .pdf
+2025-06-18 20:30:53,761 - pdf_processor - INFO - Processing: Deblur e-NeRF_ NeRF from Motion-Blurred Events under High-speed or Low-light Conditions.pdf
+2025-06-18 20:30:55,716 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:30:55,716 - pdf_processor - INFO - Text reduced from 74216 to 45894 characters
+2025-06-18 20:30:55,716 - pdf_processor - INFO - Successfully processed: Deblur e-NeRF_ NeRF from Motion-Blurred Events under High-speed or Low-light Conditions.pdf
+2025-06-18 20:30:55,730 - pdf_processor - INFO - Processing: Development and high-power testing of an X-band dielectric-loaded power extractor.pdf
+2025-06-18 20:31:00,714 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:00,714 - pdf_processor - INFO - Successfully processed: Development and high-power testing of an X-band dielectric-loaded power extractor.pdf
+2025-06-18 20:31:00,716 - pdf_processor - INFO - Processing: Field topologies in ideal and near ideal magnetohydrodynamics and vortex dynamics.pdf
+2025-06-18 20:31:01,337 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:01,337 - pdf_processor - INFO - Successfully processed: Field topologies in ideal and near ideal magnetohydrodynamics and vortex dynamics.pdf
+2025-06-18 20:31:01,337 - pdf_processor - INFO - Processing: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality.pdf
+2025-06-18 20:31:01,839 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:01,839 - pdf_processor - INFO - Successfully processed: Laboratory Setup for Testing Low-Frequency Disturbances of Power Quality.pdf
+2025-06-18 20:31:01,840 - pdf_processor - INFO - Processing: Low-Power consumption Franz-Keldysh effect plasmonic modulator.pdf
+2025-06-18 20:31:01,998 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:31:01,998 - pdf_processor - INFO - Text reduced from 25280 to 1166 characters
+2025-06-18 20:31:01,998 - pdf_processor - INFO - Successfully processed: Low-Power consumption Franz-Keldysh effect plasmonic modulator.pdf
+2025-06-18 20:31:01,998 - pdf_processor - INFO - Processing: Orbital migration of low-mass planets in evolutionary radiative models_ Avoiding catastrophic infall.pdf
+2025-06-18 20:31:06,488 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 20:31:06,489 - pdf_processor - INFO - Text reduced from 27110 to 25431 characters
+2025-06-18 20:31:06,490 - pdf_processor - INFO - Successfully processed: Orbital migration of low-mass planets in evolutionary radiative models_ Avoiding catastrophic infall.pdf
+2025-06-18 20:31:06,490 - pdf_processor - INFO - Processing: Parallel Gaussian Process Regression for Big Data_ Low-Rank Representation Meets Markov Approximatio.pdf
+2025-06-18 20:31:07,261 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:31:07,262 - pdf_processor - INFO - Text reduced from 47993 to 35375 characters
+2025-06-18 20:31:07,262 - pdf_processor - INFO - Successfully processed: Parallel Gaussian Process Regression for Big Data_ Low-Rank Representation Meets Markov Approximatio.pdf
+2025-06-18 20:31:07,262 - pdf_processor - INFO - Processing: Power-consumption Backdoor in Quantum Key Distribution.pdf
+2025-06-18 20:31:07,805 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:07,805 - pdf_processor - INFO - Successfully processed: Power-consumption Backdoor in Quantum Key Distribution.pdf
+2025-06-18 20:31:07,805 - pdf_processor - INFO - Processing: Superstructures at low spin - high spin transitions.pdf
+2025-06-18 20:31:08,045 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:08,045 - pdf_processor - INFO - Successfully processed: Superstructures at low spin - high spin transitions.pdf
+2025-06-18 20:31:08,045 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-18 20:31:08,045 - pdf_processor - INFO - Found 10 PDF files in Transportation
+2025-06-18 20:31:08,045 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 20:31:09,715 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:31:09,715 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 20:31:09,715 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 20:31:09,715 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:31:15,743 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:31:15,743 - pdf_processor - INFO - Text reduced from 166202 to 162488 characters
+2025-06-18 20:31:15,743 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 20:31:15,743 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:31:16,868 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:16,868 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 20:31:16,868 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:31:17,841 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:31:17,841 - pdf_processor - INFO - Text reduced from 59396 to 57381 characters
+2025-06-18 20:31:17,841 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 20:31:17,841 - pdf_processor - INFO - Processing: Extracting the multimodal fingerprint of urban transportation networks.pdf
+2025-06-18 20:31:17,934 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:31:17,935 - pdf_processor - INFO - Text reduced from 15212 to 11438 characters
+2025-06-18 20:31:17,935 - pdf_processor - INFO - Successfully processed: Extracting the multimodal fingerprint of urban transportation networks.pdf
+2025-06-18 20:31:17,936 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:31:19,856 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:31:19,857 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 20:31:19,857 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 20:31:19,857 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 20:31:20,426 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 20:31:20,426 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 20:31:20,426 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 20:31:20,426 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:31:20,809 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:31:20,809 - pdf_processor - INFO - Text reduced from 26689 to 24151 characters
+2025-06-18 20:31:20,810 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 20:31:20,810 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 20:31:25,506 - pdf_processor - INFO - No references section found to remove
+2025-06-18 20:31:25,508 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 20:31:25,508 - pdf_processor - INFO - Processing: Unpaired Image-to-Image Translation via Latent Energy Transport.pdf
+2025-06-18 20:31:25,755 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-18 20:31:25,755 - pdf_processor - INFO - Text reduced from 45621 to 31401 characters
+2025-06-18 20:31:25,756 - pdf_processor - INFO - Successfully processed: Unpaired Image-to-Image Translation via Latent Energy Transport.pdf
+2025-06-18 20:31:25,756 - pdf_processor - INFO - Successfully processed 80 papers total
+2025-06-18 20:31:25,786 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 20:31:25,786 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 20:31:25,786 - __main__ - INFO - ============================================================
+2025-06-18 20:31:25,786 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-18 20:31:25,786 - __main__ - INFO - ============================================================
+2025-06-18 20:31:25,786 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 20:31:25,786 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-18 20:31:25,786 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-18 20:31:25,832 - sustainable_solutions_generator - INFO - Analyzing 66 processed papers for hotspot solutions
+2025-06-18 20:31:25,832 - sustainable_solutions_generator - INFO - Analyzing 10 papers for hotspot: Transportation
+2025-06-18 20:31:25,832 - sustainable_solutions_generator - ERROR - Error analyzing papers for hotspots: cannot schedule new futures after interpreter shutdown
+2025-06-18 20:31:25,832 - sustainable_solutions_generator - ERROR - Error generating solutions from hotspot analysis: cannot schedule new futures after interpreter shutdown
+2025-06-18 20:31:25,832 - __main__ - ERROR - Error in complete workflow execution: cannot schedule new futures after interpreter shutdown

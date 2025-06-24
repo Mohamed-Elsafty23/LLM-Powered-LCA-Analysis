@@ -1,0 +1,87 @@
+{
+  "hotspot_analysis": {
+    "production_hotspots": [
+      {
+        "hotspot_name": "PBT Injection Molding",
+        "impact_category": "Material extraction and processing",
+        "environmental_significance": "medium",
+        "impact_source": "Housing production",
+        "quantitative_impact": "37.45g PBT",
+        "description": "The production of PBT housing through injection molding may have environmental impacts related to material extraction and processing."
+      },
+      {
+        "hotspot_name": "Aluminium Die Casting",
+        "impact_category": "Material extraction and processing",
+        "environmental_significance": "high",
+        "impact_source": "Radiator production",
+        "quantitative_impact": "160.1g Aluminium",
+        "description": "The production of aluminium radiator through die casting may have significant environmental impacts related to material extraction and processing."
+      },
+      {
+        "hotspot_name": "PCBA Production",
+        "impact_category": "Material extraction and processing",
+        "environmental_significance": "medium",
+        "impact_source": "PCBA production",
+        "quantitative_impact": "40.7g PCB + 61.8g soldered components",
+        "description": "The production of PCBA through THT and SMD soldering may have environmental impacts related to material extraction and processing."
+      },
+      {
+        "hotspot_name": "Steel Punching and Bending",
+        "impact_category": "Material extraction and processing",
+        "environmental_significance": "low",
+        "impact_source": "EMC Shield production",
+        "quantitative_impact": "30.5g Steel",
+        "description": "The production of steel EMC shield through punching and bending may have relatively low environmental impacts related to material extraction and processing."
+      }
+    ],
+    "distribution_hotspots": [],
+    "use_hotspots": [],
+    "end_of_life_hotspots": [],
+    "overall_hotspot_ranking": [
+      {
+        "rank": 1,
+        "hotspot_name": "Aluminium Die Casting",
+        "life_cycle_phase": "production",
+        "environmental_significance": "high",
+        "priority_justification": "High weight of aluminium used in radiator production"
+      },
+      {
+        "rank": 2,
+        "hotspot_name": "PBT Injection Molding",
+        "life_cycle_phase": "production",
+        "environmental_significance": "medium",
+        "priority_justification": "Medium weight of PBT used in housing production"
+      },
+      {
+        "rank": 3,
+        "hotspot_name": "PCBA Production",
+        "life_cycle_phase": "production",
+        "environmental_significance": "medium",
+        "priority_justification": "Medium weight of PCB and soldered components used in PCBA production"
+      },
+      {
+        "rank": 4,
+        "hotspot_name": "Steel Punching and Bending",
+        "life_cycle_phase": "production",
+        "environmental_significance": "low",
+        "priority_justification": "Low weight of steel used in EMC shield production"
+      }
+    ],
+    "data_limitations": [
+      "Energy consumption data for production, distribution, use, and end-of-life phases",
+      "Material composition and recycling potential for each component",
+      "Transportation modes and distances for distribution phase",
+      "Use phase energy consumption and usage patterns",
+      "End-of-life recycling and disposal scenarios"
+    ]
+  },
+  "search_queries": {
+    "hotspot_queries": {
+      "PBT Injection Molding": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+      "Aluminium Die Casting": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+      "PCBA Production": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+      "Steel Punching and Bending": "punching and bending steel EMC shield material substitution studies resource reduction percentages"
+    },
+    "query_strategy": "The query construction approach focuses on combining specific component names, materials, manufacturing processes, and sustainability terms with quantitative metrics to target papers with concrete, measurable improvements. The queries aim to find research papers with specific energy or resource reduction percentages, process optimization techniques, quantitative efficiency improvements, material substitution studies, and parameter optimization research. By using exact terms from the input data, the queries ensure relevance and precision in finding papers that address the identified hotspots."
+  }
+}

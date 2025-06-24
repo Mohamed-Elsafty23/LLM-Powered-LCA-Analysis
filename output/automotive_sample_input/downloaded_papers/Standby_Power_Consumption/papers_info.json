@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Enabling Lower-Power Charge-Domain Nonvolatile In-Memory Computing with\n  Ferroelectric FETs",
+    "hotspot_name": "Standby Power Consumption",
+    "pdf_link": "http://arxiv.org/pdf/2102.01442v1",
+    "published_date": "2021-02-02T11:32:21Z",
+    "query": "electronic device standby power reduction energy efficient design methods",
+    "filename": "Enabling Lower-Power Charge-Domain Nonvolatile In-Memory Computing with Ferroele.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20standby%20power%20reduction%20energy%20efficient%20design%20methods&start=0&max_results=2"
+  },
+  {
+    "title": "Dynamic Power Reduction in a Novel CMOS 5T-SRAM for Low-Power SoC",
+    "hotspot_name": "Standby Power Consumption",
+    "pdf_link": "http://arxiv.org/pdf/1302.4464v1",
+    "published_date": "2013-02-18T21:24:22Z",
+    "query": "electronic device standby power reduction energy efficient design methods",
+    "filename": "Dynamic Power Reduction in a Novel CMOS 5T-SRAM for Low-Power SoC.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20standby%20power%20reduction%20energy%20efficient%20design%20methods&start=0&max_results=2"
+  }
+]

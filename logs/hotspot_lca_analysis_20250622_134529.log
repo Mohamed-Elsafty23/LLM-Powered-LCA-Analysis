@@ -1,0 +1,205 @@
+2025-06-22 13:46:35,496 - __main__ - INFO - New file uploaded with hash: 07f00236f99c3547817f41b6d2a5457a
+2025-06-22 13:46:35,499 - __main__ - INFO - Output folder set to: output/automotive_sample_input
+2025-06-22 13:46:35,500 - __main__ - INFO - Processing uploaded file: automotive_sample_input.txt
+2025-06-22 13:46:35,501 - __main__ - INFO - Project name: automotive_sample_input
+2025-06-22 13:46:35,502 - __main__ - INFO - Output folder: output/automotive_sample_input
+2025-06-22 13:46:36,297 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-22 13:46:36,853 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-22 13:46:36,855 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-22 13:46:36,855 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-22 13:46:36,856 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-22 13:46:36,856 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Sustainable Solutions, Visualization Generation
+2025-06-22 13:46:36,858 - __main__ - INFO - Starting complete LCA workflow for input file: temp/automotive_sample_input.txt
+2025-06-22 13:46:36,859 - __main__ - INFO - ============================================================
+2025-06-22 13:46:36,859 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-22 13:46:36,859 - __main__ - INFO - ============================================================
+2025-06-22 13:46:36,860 - lca_implementation - INFO - Using input file: temp/automotive_sample_input.txt
+2025-06-22 13:46:36,860 - lca_implementation - INFO - Using output folder: output/automotive_sample_input
+2025-06-22 13:46:36,875 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-22 13:46:36,876 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-22 13:48:03,528 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 13:48:03,532 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-22 13:48:03,533 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-22 13:48:14,934 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-22 13:48:14,935 - lca_implementation - INFO - Generated 9 search queries for hotspots
+2025-06-22 13:48:14,937 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 13:48:14,938 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 13:48:14,938 - __main__ - INFO - ============================================================
+2025-06-22 13:48:14,938 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-22 13:48:14,939 - __main__ - INFO - ============================================================
+2025-06-22 13:48:14,939 - __main__ - INFO - [SUCCESS] Extracted 9 search queries for hotspots:
+2025-06-22 13:48:14,939 - __main__ - INFO -   - Housing Production: Sustainable Injection Molding
+2025-06-22 13:48:14,940 - __main__ - INFO -   - Radiator Production: Energy Efficient Die Casting
+2025-06-22 13:48:14,940 - __main__ - INFO -   - PCBA Production: Low Energy Soldering
+2025-06-22 13:48:14,940 - __main__ - INFO -   - EMC Shield Production: Sustainable Steel Production
+2025-06-22 13:48:14,940 - __main__ - INFO -   - Transportation: Green Road Transport
+2025-06-22 13:48:14,941 - __main__ - INFO -   - ECU Operation: Low Power Electronics
+2025-06-22 13:48:14,941 - __main__ - INFO -   - Standby Power Consumption: Energy Efficient Standby
+2025-06-22 13:48:14,941 - __main__ - INFO -   - Incineration of Plastics: Plastic Waste Reduction
+2025-06-22 13:48:14,941 - __main__ - INFO -   - Specialized e-Waste Processing: E Waste Recycling
+2025-06-22 13:48:14,941 - __main__ - INFO - ============================================================
+2025-06-22 13:48:14,942 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-22 13:48:14,942 - __main__ - INFO - ============================================================
+2025-06-22 13:48:14,942 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-22 13:48:14,943 - arxiv_paper_downloader - INFO - Query: Sustainable Injection Molding
+2025-06-22 13:48:14,943 - arxiv_paper_downloader - INFO - Converting query: Sustainable Injection Molding
+2025-06-22 13:48:14,944 - arxiv_paper_downloader - INFO - Original query: Sustainable Injection Molding
+2025-06-22 13:48:14,944 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable AND all:injection AND all:molding
+2025-06-22 13:48:14,944 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:sustainable%20AND%20all:injection%20AND%20all:molding&start=0&max_results=2
+2025-06-22 13:48:15,587 - arxiv_paper_downloader - INFO - Downloading paper 1: Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form
+  Factors
+2025-06-22 13:48:17,929 - arxiv_paper_downloader - ERROR - Error downloading paper 1: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Housing_Production\\Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form\n  Factors.pdf'
+2025-06-22 13:48:17,929 - arxiv_paper_downloader - WARNING - Failed to download 1 papers for hotspot 'Housing Production'
+2025-06-22 13:48:17,929 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Housing Production'
+2025-06-22 13:48:19,932 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-22 13:48:19,932 - arxiv_paper_downloader - INFO - Query: Energy Efficient Die Casting
+2025-06-22 13:48:19,933 - arxiv_paper_downloader - INFO - Converting query: Energy Efficient Die Casting
+2025-06-22 13:48:19,933 - arxiv_paper_downloader - INFO - Original query: Energy Efficient Die Casting
+2025-06-22 13:48:19,933 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy AND all:efficient AND all:die AND all:casting
+2025-06-22 13:48:19,934 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy%20AND%20all:efficient%20AND%20all:die%20AND%20all:casting&start=0&max_results=2
+2025-06-22 13:48:20,274 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Radiator Production'
+2025-06-22 13:48:22,277 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-22 13:48:22,277 - arxiv_paper_downloader - INFO - Query: Low Energy Soldering
+2025-06-22 13:48:22,278 - arxiv_paper_downloader - INFO - Converting query: Low Energy Soldering
+2025-06-22 13:48:22,278 - arxiv_paper_downloader - INFO - Original query: Low Energy Soldering
+2025-06-22 13:48:22,278 - arxiv_paper_downloader - INFO - ArXiv API query: all:low AND all:energy AND all:soldering
+2025-06-22 13:48:22,279 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:low%20AND%20all:energy%20AND%20all:soldering&start=0&max_results=2
+2025-06-22 13:48:22,577 - arxiv_paper_downloader - INFO - Downloading paper 1: A high entropy alloy as very low melting point solder for advanced
+  electronic packaging
+2025-06-22 13:48:23,623 - arxiv_paper_downloader - ERROR - Error downloading paper 1: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\PCBA_Production\\A high entropy alloy as very low melting point solder for advanced\n  electronic packaging.pdf'
+2025-06-22 13:48:23,624 - arxiv_paper_downloader - INFO - Downloading paper 2: Miniaturized liquid metal composite circuits with energy harvesting
+  coils for battery-free bioelectronics and optogenetics
+2025-06-22 13:48:25,068 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\PCBA_Production\\Miniaturized liquid metal composite circuits with energy harvesting\n  coils for battery-free bioelec.pdf'
+2025-06-22 13:48:25,068 - arxiv_paper_downloader - WARNING - Failed to download 2 papers for hotspot 'PCBA Production'
+2025-06-22 13:48:25,069 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'PCBA Production'
+2025-06-22 13:48:27,071 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-22 13:48:27,071 - arxiv_paper_downloader - INFO - Query: Sustainable Steel Production
+2025-06-22 13:48:27,071 - arxiv_paper_downloader - INFO - Converting query: Sustainable Steel Production
+2025-06-22 13:48:27,073 - arxiv_paper_downloader - INFO - Original query: Sustainable Steel Production
+2025-06-22 13:48:27,073 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable AND all:steel AND all:production
+2025-06-22 13:48:27,073 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:sustainable%20AND%20all:steel%20AND%20all:production&start=0&max_results=2
+2025-06-22 13:48:27,546 - arxiv_paper_downloader - INFO - Downloading paper 1: Influence of microstructure and atomic-scale chemistry on iron ore
+  reduction with hydrogen at 700°C
+2025-06-22 13:48:29,412 - arxiv_paper_downloader - ERROR - Error downloading paper 1: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\EMC_Shield_Production\\Influence of microstructure and atomic-scale chemistry on iron ore\n  reduction with hydrogen at 700°.pdf'
+2025-06-22 13:48:29,413 - arxiv_paper_downloader - INFO - Downloading paper 2: Sustainable low-cost method for production of High entropy alloys from
+  alloy scraps
+2025-06-22 13:48:29,597 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\EMC_Shield_Production\\Sustainable low-cost method for production of High entropy alloys from\n  alloy scraps.pdf'
+2025-06-22 13:48:29,597 - arxiv_paper_downloader - WARNING - Failed to download 2 papers for hotspot 'EMC Shield Production'
+2025-06-22 13:48:29,597 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'EMC Shield Production'
+2025-06-22 13:48:31,599 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-22 13:48:31,599 - arxiv_paper_downloader - INFO - Query: Green Road Transport
+2025-06-22 13:48:31,600 - arxiv_paper_downloader - INFO - Converting query: Green Road Transport
+2025-06-22 13:48:31,601 - arxiv_paper_downloader - INFO - Original query: Green Road Transport
+2025-06-22 13:48:31,601 - arxiv_paper_downloader - INFO - ArXiv API query: all:green AND all:road AND all:transport
+2025-06-22 13:48:31,601 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:green%20AND%20all:road%20AND%20all:transport&start=0&max_results=2
+2025-06-22 13:48:31,942 - arxiv_paper_downloader - INFO - Downloading paper 1: Uninterrupted Maximum Flow on Signalized Traffic Networks
+2025-06-22 13:48:33,236 - arxiv_paper_downloader - INFO - Successfully downloaded: Uninterrupted Maximum Flow on Signalized Traffic Networks.pdf
+2025-06-22 13:48:34,237 - arxiv_paper_downloader - INFO - Downloading paper 2: The Green Choice: Learning and Influencing Human Decisions on Shared
+  Roads
+2025-06-22 13:48:35,265 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Transportation\\The Green Choice_ Learning and Influencing Human Decisions on Shared\n  Roads.pdf'
+2025-06-22 13:48:35,265 - arxiv_paper_downloader - WARNING - Failed to download 1 papers for hotspot 'Transportation'
+2025-06-22 13:48:35,265 - arxiv_paper_downloader - INFO - Successfully downloaded 1 papers for hotspot 'Transportation'
+2025-06-22 13:48:37,268 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Operation
+2025-06-22 13:48:37,268 - arxiv_paper_downloader - INFO - Query: Low Power Electronics
+2025-06-22 13:48:37,271 - arxiv_paper_downloader - INFO - Converting query: Low Power Electronics
+2025-06-22 13:48:37,272 - arxiv_paper_downloader - INFO - Original query: Low Power Electronics
+2025-06-22 13:48:37,272 - arxiv_paper_downloader - INFO - ArXiv API query: all:low AND all:power AND all:electronics
+2025-06-22 13:48:37,272 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:low%20AND%20all:power%20AND%20all:electronics&start=0&max_results=2
+2025-06-22 13:48:37,587 - arxiv_paper_downloader - INFO - Downloading paper 1: Total Power and Low-energy Cut-off Time Evolution of Solar Flare
+  Accelerated Electrons Using X-Ray Observations and Warm-Target Model
+2025-06-22 13:48:38,473 - arxiv_paper_downloader - ERROR - Error downloading paper 1: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\ECU_Operation\\Total Power and Low-energy Cut-off Time Evolution of Solar Flare\n  Accelerated Electrons Using X-Ray.pdf'
+2025-06-22 13:48:38,473 - arxiv_paper_downloader - INFO - Downloading paper 2: Electron power absorption in low pressure capacitively coupled
+  electronegative oxygen radio frequency plasmas
+2025-06-22 13:48:41,553 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\ECU_Operation\\Electron power absorption in low pressure capacitively coupled\n  electronegative oxygen radio freque.pdf'
+2025-06-22 13:48:41,553 - arxiv_paper_downloader - WARNING - Failed to download 2 papers for hotspot 'ECU Operation'
+2025-06-22 13:48:41,554 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'ECU Operation'
+2025-06-22 13:48:43,556 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Standby Power Consumption
+2025-06-22 13:48:43,556 - arxiv_paper_downloader - INFO - Query: Energy Efficient Standby
+2025-06-22 13:48:43,557 - arxiv_paper_downloader - INFO - Converting query: Energy Efficient Standby
+2025-06-22 13:48:43,557 - arxiv_paper_downloader - INFO - Original query: Energy Efficient Standby
+2025-06-22 13:48:43,558 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy AND all:efficient AND all:standby
+2025-06-22 13:48:43,558 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:energy%20AND%20all:efficient%20AND%20all:standby&start=0&max_results=2
+2025-06-22 13:48:43,875 - arxiv_paper_downloader - INFO - Downloading paper 1: Standby efficiency and thermocline degradation of a packed bed thermal
+  energy storage: An experimental study
+2025-06-22 13:48:52,892 - arxiv_paper_downloader - ERROR - Error downloading paper 1: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Standby_Power_Consumption\\Standby efficiency and thermocline degradation of a packed bed thermal\n  energy storage_ An experime.pdf'
+2025-06-22 13:48:52,893 - arxiv_paper_downloader - INFO - Downloading paper 2: A 1.2-V 162.9-pJ/cycle Bitmap Index Creation Core with 0.31-pW/bit
+  Standby Power on 65-nm SOTB
+2025-06-22 13:48:54,182 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Standby_Power_Consumption\\A 1.2-V 162.9-pJ_cycle Bitmap Index Creation Core with 0.31-pW_bit\n  Standby Power on 65-nm SOTB.pdf'
+2025-06-22 13:48:54,183 - arxiv_paper_downloader - WARNING - Failed to download 2 papers for hotspot 'Standby Power Consumption'
+2025-06-22 13:48:54,183 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Standby Power Consumption'
+2025-06-22 13:48:56,186 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Incineration of Plastics
+2025-06-22 13:48:56,186 - arxiv_paper_downloader - INFO - Query: Plastic Waste Reduction
+2025-06-22 13:48:56,186 - arxiv_paper_downloader - INFO - Converting query: Plastic Waste Reduction
+2025-06-22 13:48:56,187 - arxiv_paper_downloader - INFO - Original query: Plastic Waste Reduction
+2025-06-22 13:48:56,187 - arxiv_paper_downloader - INFO - ArXiv API query: all:plastic AND all:waste AND all:reduction
+2025-06-22 13:48:56,187 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:plastic%20AND%20all:waste%20AND%20all:reduction&start=0&max_results=2
+2025-06-22 13:48:56,553 - arxiv_paper_downloader - INFO - Downloading paper 1: Application of Computer Vision Techniques for Segregation of
+  PlasticWaste based on Resin Identification Code
+2025-06-22 13:48:57,896 - arxiv_paper_downloader - ERROR - Error downloading paper 1: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Incineration_of_Plastics\\Application of Computer Vision Techniques for Segregation of\n  PlasticWaste based on Resin Identific.pdf'
+2025-06-22 13:48:57,896 - arxiv_paper_downloader - INFO - Downloading paper 2: Systematic reduction of Hyperspectral Images for high-throughput Plastic
+  Characterization
+2025-06-22 13:48:58,617 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Incineration_of_Plastics\\Systematic reduction of Hyperspectral Images for high-throughput Plastic\n  Characterization.pdf'
+2025-06-22 13:48:58,618 - arxiv_paper_downloader - WARNING - Failed to download 2 papers for hotspot 'Incineration of Plastics'
+2025-06-22 13:48:58,618 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Incineration of Plastics'
+2025-06-22 13:49:00,621 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Specialized e-Waste Processing
+2025-06-22 13:49:00,621 - arxiv_paper_downloader - INFO - Query: E Waste Recycling
+2025-06-22 13:49:00,622 - arxiv_paper_downloader - INFO - Converting query: E Waste Recycling
+2025-06-22 13:49:00,622 - arxiv_paper_downloader - INFO - Original query: E Waste Recycling
+2025-06-22 13:49:00,622 - arxiv_paper_downloader - INFO - ArXiv API query: all:waste AND all:recycling
+2025-06-22 13:49:00,623 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:waste%20AND%20all:recycling&start=0&max_results=2
+2025-06-22 13:49:00,949 - arxiv_paper_downloader - INFO - Downloading paper 1: A Smart Recycling Bin Using Waste Image Classification At The Edge
+2025-06-22 13:49:01,464 - arxiv_paper_downloader - INFO - Successfully downloaded: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-22 13:49:02,465 - arxiv_paper_downloader - INFO - Downloading paper 2: Advancing Recycling Efficiency: A Comparative Analysis of Deep Learning
+  Models in Waste Classification
+2025-06-22 13:49:02,708 - arxiv_paper_downloader - ERROR - Error downloading paper 2: [Errno 22] Invalid argument: 'output\\automotive_sample_input\\downloaded_papers\\Specialized_e-Waste_Processing\\Advancing Recycling Efficiency_ A Comparative Analysis of Deep Learning\n  Models in Waste Classifica.pdf'
+2025-06-22 13:49:02,709 - arxiv_paper_downloader - WARNING - Failed to download 1 papers for hotspot 'Specialized e-Waste Processing'
+2025-06-22 13:49:02,709 - arxiv_paper_downloader - INFO - Successfully downloaded 1 papers for hotspot 'Specialized e-Waste Processing'
+2025-06-22 13:49:04,711 - arxiv_paper_downloader - INFO - Downloaded 2 papers total for 9 hotspots
+2025-06-22 13:49:04,711 - __main__ - INFO - [SUCCESS] Downloaded 2 papers for 9 hotspots
+2025-06-22 13:49:04,712 - __main__ - INFO - ============================================================
+2025-06-22 13:49:04,712 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-22 13:49:04,712 - __main__ - INFO - ============================================================
+2025-06-22 13:49:04,713 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-22 13:49:04,723 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-22 13:49:04,724 - pdf_processor - INFO - Processing hotspot directory: ECU_Operation
+2025-06-22 13:49:04,725 - pdf_processor - INFO - Found 0 PDF files in ECU_Operation
+2025-06-22 13:49:04,725 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-22 13:49:04,726 - pdf_processor - INFO - Found 0 PDF files in EMC_Shield_Production
+2025-06-22 13:49:04,726 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-22 13:49:04,727 - pdf_processor - INFO - Found 0 PDF files in Housing_Production
+2025-06-22 13:49:04,728 - pdf_processor - INFO - Processing hotspot directory: Incineration_of_Plastics
+2025-06-22 13:49:04,728 - pdf_processor - INFO - Found 0 PDF files in Incineration_of_Plastics
+2025-06-22 13:49:04,729 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-22 13:49:04,730 - pdf_processor - INFO - Found 0 PDF files in PCBA_Production
+2025-06-22 13:49:04,731 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-22 13:49:04,732 - pdf_processor - INFO - Found 0 PDF files in Radiator_Production
+2025-06-22 13:49:04,732 - pdf_processor - INFO - Processing hotspot directory: Specialized_e-Waste_Processing
+2025-06-22 13:49:04,733 - pdf_processor - INFO - Found 1 PDF files in Specialized_e-Waste_Processing
+2025-06-22 13:49:04,733 - pdf_processor - INFO - Processing: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-22 13:49:05,036 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 13:49:05,036 - pdf_processor - INFO - Text reduced from 51944 to 42726 characters
+2025-06-22 13:49:05,037 - pdf_processor - INFO - Successfully processed: A Smart Recycling Bin Using Waste Image Classification At The Edge.pdf
+2025-06-22 13:49:05,037 - pdf_processor - INFO - Processing hotspot directory: Standby_Power_Consumption
+2025-06-22 13:49:05,038 - pdf_processor - INFO - Found 0 PDF files in Standby_Power_Consumption
+2025-06-22 13:49:05,038 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-22 13:49:05,039 - pdf_processor - INFO - Found 1 PDF files in Transportation
+2025-06-22 13:49:05,039 - pdf_processor - INFO - Processing: Uninterrupted Maximum Flow on Signalized Traffic Networks.pdf
+2025-06-22 13:49:07,515 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-22 13:49:07,516 - pdf_processor - INFO - Text reduced from 105494 to 87572 characters
+2025-06-22 13:49:07,516 - pdf_processor - INFO - Successfully processed: Uninterrupted Maximum Flow on Signalized Traffic Networks.pdf
+2025-06-22 13:49:07,516 - pdf_processor - INFO - Successfully processed 2 papers total
+2025-06-22 13:49:07,521 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-22 13:49:07,522 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\automotive_sample_input\processed_papers.json
+2025-06-22 13:49:07,522 - __main__ - INFO - ============================================================
+2025-06-22 13:49:07,522 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-22 13:49:07,522 - __main__ - INFO - ============================================================
+2025-06-22 13:49:07,523 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-22 13:49:07,523 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-22 13:49:07,524 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-22 13:49:07,541 - sustainable_solutions_generator - INFO - Analyzing 2 processed papers for hotspot solutions
+2025-06-22 13:49:07,541 - sustainable_solutions_generator - INFO - Analyzing 1 papers for hotspot: Specialized_e-Waste_Processing
+2025-06-22 13:49:07,542 - sustainable_solutions_generator - ERROR - Error analyzing papers for hotspots: cannot schedule new futures after interpreter shutdown
+2025-06-22 13:49:07,542 - sustainable_solutions_generator - ERROR - Error generating solutions from hotspot analysis: cannot schedule new futures after interpreter shutdown
+2025-06-22 13:49:07,542 - __main__ - ERROR - Error in complete workflow execution: cannot schedule new futures after interpreter shutdown

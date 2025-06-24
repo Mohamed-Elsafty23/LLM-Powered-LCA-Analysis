@@ -1,0 +1,20 @@
+[
+  {
+    "title": "12-bit Delta-Sigma ADC operating at a temperature of up to 250C in\n  Standard 0.18 $\u03bc$m SOI CMOS",
+    "hotspot_name": "ECU Operation",
+    "pdf_link": "http://arxiv.org/pdf/2501.00482v1",
+    "published_date": "2024-12-31T15:11:05Z",
+    "query": "automotive electronics low power consumption design optimization techniques",
+    "filename": "12-bit Delta-Sigma ADC operating at a temperature of up to 250C in Standard 0.18.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=automotive%20electronics%20low%20power%20consumption%20design%20optimization%20techniques&start=0&max_results=2"
+  },
+  {
+    "title": "Optimizing RAG Techniques for Automotive Industry PDF Chatbots: A Case\n  Study with Locally Deployed Ollama Models",
+    "hotspot_name": "ECU Operation",
+    "pdf_link": "http://arxiv.org/pdf/2408.05933v1",
+    "published_date": "2024-08-12T06:16:37Z",
+    "query": "automotive electronics low power consumption design optimization techniques",
+    "filename": "Optimizing RAG Techniques for Automotive Industry PDF Chatbots_ A Case Study wit.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=automotive%20electronics%20low%20power%20consumption%20design%20optimization%20techniques&start=0&max_results=2"
+  }
+]

@@ -1,0 +1,3 @@
+2025-06-18 18:47:25,000 - arxiv_paper_downloader - INFO - Converting query: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing")
+2025-06-18 18:47:25,001 - arxiv_paper_downloader - INFO - Original query: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing")
+2025-06-18 18:47:25,001 - arxiv_paper_downloader - INFO - ArXiv API query: (all:punching+OR+all:steel+OR+all:energy+OR+all:sustainable)

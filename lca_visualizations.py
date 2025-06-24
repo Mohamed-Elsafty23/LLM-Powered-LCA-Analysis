@@ -20,9 +20,9 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class LCAVisualizationManager:
+class HotspotLCAVisualizationManager:
     def __init__(self, api_keys=None, base_url=None):
-        """Initialize the visualization manager with multiple API keys."""
+        """Initialize the hotspot LCA visualization manager with multiple API keys."""
         if api_keys is None:
             api_keys = [PRIMARY_API_KEY, SECONDARY_API_KEY]
         elif isinstance(api_keys, str):
@@ -48,7 +48,7 @@ class LCAVisualizationManager:
         if not self.clients:
             raise ValueError("No valid API keys provided")
             
-        logger.info(f"Initialized LCAVisualizationManager with {len(self.clients)} API clients")
+        logger.info(f"Initialized HotspotLCAVisualizationManager with {len(self.clients)} API clients")
 
     def _get_next_client(self):
         """Get the next available client in rotation."""
@@ -116,36 +116,36 @@ def get_llm_client():
     """Initialize and return OpenAI client (legacy function for backward compatibility)."""
     global _viz_manager
     if _viz_manager is None:
-        _viz_manager = LCAVisualizationManager()
+        _viz_manager = HotspotLCAVisualizationManager()
     return _viz_manager.clients[0]  # Return first client for backward compatibility
 
 def get_viz_manager():
     """Get or create the visualization manager."""
     global _viz_manager
     if _viz_manager is None:
-        _viz_manager = LCAVisualizationManager()
+        _viz_manager = HotspotLCAVisualizationManager()
     return _viz_manager
 
-def analyze_lca_data(lca_data):
-    """Use LLM to analyze LCA data and suggest visualizations."""
+def analyze_hotspot_data(hotspot_data):
+    """Use LLM to analyze hotspot LCA data and suggest visualizations."""
     viz_manager = get_viz_manager()
     
     prompt = f"""
-    Analyze this LCA data and suggest appropriate visualizations based ONLY on the data present in the input.
+    Analyze this hotspot LCA data and suggest appropriate visualizations based ONLY on the data present in the input.
     
     CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
-    - Only suggest visualizations for data fields that are explicitly present in the LCA data below
+    - Only suggest visualizations for data fields that are explicitly present in the hotspot data below
     - Do NOT suggest visualizations for data that might typically be in LCA reports but is missing from this input
     - Do NOT assume the presence of standard LCA categories if they are not in the provided data
-    - Base suggestions strictly on the actual structure and content of the provided data
+    - Base suggestions strictly on the actual structure and content of the provided hotspot data
     
     For each visualization:
     1. Identify the relevant data fields that are actually present in the input data
     2. Suggest the best chart type based on the available data structure
     3. Provide the data structure needed based on what is actually available
     
-    LCA Data:
-    {json.dumps(lca_data, indent=2)}
+    Hotspot LCA Data:
+    {json.dumps(hotspot_data, indent=2)}
     
     Return a JSON object with this structure:
     {{
@@ -162,11 +162,12 @@ def analyze_lca_data(lca_data):
     
     IMPORTANT: Your response must be valid JSON. Do not include any additional text or explanation.
     Only suggest visualizations for data that is explicitly present in the input above.
+    Focus on hotspot-specific visualizations like hotspot rankings, environmental significance comparisons, etc.
     """
     
     response = viz_manager._make_api_request(
         messages=[
-            {"role": "system", "content": "You are a data visualization expert. Return only valid JSON."},
+            {"role": "system", "content": "You are a data visualization expert specializing in environmental hotspot analysis. Return only valid JSON."},
             {"role": "user", "content": prompt}
         ],
         model="qwen2.5-coder-32b-instruct",
@@ -181,35 +182,36 @@ def analyze_lca_data(lca_data):
         print("Raw response:", response.choices[0].message.content)
         return {"visualizations": []}
 
-def extract_data_for_visualization(lca_data, visualization_spec):
+def extract_data_for_visualization(hotspot_data, visualization_spec):
     """Extract data for a specific visualization based on LLM suggestions."""
     viz_manager = get_viz_manager()
     
     prompt = f"""
-    Extract the necessary data for this visualization from the LCA data provided below.
+    Extract the necessary data for this visualization from the hotspot LCA data provided below.
     
     CRITICAL INSTRUCTIONS - PREVENTING HALLUCINATION:
-    - Extract ONLY data that is explicitly present in the LCA data below
+    - Extract ONLY data that is explicitly present in the hotspot LCA data below
     - Do NOT add or assume any data that is not explicitly provided
     - Do NOT fill in missing data with typical LCA values
     - If the required data for the visualization is not present, return an empty object
-    - Base extraction strictly on the actual content of the provided LCA data
+    - Base extraction strictly on the actual content of the provided hotspot LCA data
     
     Visualization Spec:
     {json.dumps(visualization_spec, indent=2)}
     
-    LCA Data:
-    {json.dumps(lca_data, indent=2)}
+    Hotspot LCA Data:
+    {json.dumps(hotspot_data, indent=2)}
     
     Return a JSON object with the extracted data in a format suitable for the specified chart type.
-    Only include data that is explicitly present in the LCA data above.
+    Only include data that is explicitly present in the hotspot LCA data above.
+    Focus on hotspot-specific data like environmental significance levels, hotspot rankings, etc.
     
     IMPORTANT: Your response must be valid JSON. Do not include any additional text or explanation.
     """
     
     response = viz_manager._make_api_request(
         messages=[
-            {"role": "system", "content": "You are a data extraction expert. Return only valid JSON."},
+            {"role": "system", "content": "You are a data extraction expert specializing in environmental hotspot data. Return only valid JSON."},
             {"role": "user", "content": prompt}
         ],
         model="qwen2.5-coder-32b-instruct",
@@ -238,11 +240,13 @@ def create_visualization(data, viz_type, name):
             chart_type = 'pie'
         elif 'line' in chart_type:
             chart_type = 'line'
+        elif 'scatter' in chart_type:
+            chart_type = 'scatter'
         else:
             chart_type = 'bar'  # default to bar chart
         
         # Prepare the prompt for the LLM
-        prompt = f"""Create a {chart_type} chart visualization for the following data:
+        prompt = f"""Create a {chart_type} chart visualization for the following hotspot LCA data:
 
 Data: {json.dumps(data, indent=2)}
 
@@ -255,57 +259,93 @@ REQUIREMENTS:
    - Create a pandas DataFrame or dictionary with the data
    - Create a Plotly figure using the data
    - Assign the figure to a variable named 'fig'
-5. For bar charts:
+5. For hotspot visualizations:
+   - Use appropriate colors for environmental significance (red for high, yellow for medium, green for low)
+   - Include hotspot rankings and environmental impact categories
+   - Show life cycle phases where hotspots occur
+6. For bar charts:
    - Use px.bar() with proper x and y values
    - Include title and labels
-   - Choose an appropriate color scheme based on the data type and context
    - Add hover template with value formatting
-6. For pie charts:
+7. For pie charts:
    - Use px.pie() with proper values and names
    - Include title and labels
-   - Choose an appropriate color scheme based on the data type and context
    - Add hover template with percentage formatting
-7. For line charts:
-   - Use px.line() with proper x and y values
+8. For scatter plots:
+   - Use px.scatter() with proper x and y values
    - Include title and labels
-   - Choose an appropriate color scheme based on the data type and context
    - Add hover template with value formatting
 
-8. For all charts:
+9. For all charts:
    - Use a clean, modern style
    - Add proper margins and padding
    - Use a white background
-   - Add grid lines for better readability
+   - Add grid lines for better readability (if applicable)
    - Format numbers appropriately
-   - Add hover information
+   - Add hover information (only for supported chart types)
    - Choose colors that are:
-     * Appropriate for the data type (e.g., sequential for continuous data, categorical for discrete data)
+     * Appropriate for environmental hotspot data
      * Accessible and distinguishable
      * Professional and visually appealing
-     * Contextually relevant (e.g., green for environmental data, blue for water-related data)
+     * Contextually relevant (e.g., red/yellow/green for significance levels)
 
-Example of correct executable code:
+CRITICAL PLOTLY CHART TYPE RULES:
+- For Indicator/Gauge charts (go.Indicator): DO NOT use hovertemplate, update_traces with hovertemplate, or hover-related parameters
+- For Scatter, Bar, Line charts (px or go): hovertemplate is supported
+- For Pie charts: hovertemplate is supported
+- Only apply hover formatting to chart types that support it
+
+Example of correct executable code for standard charts:
 import plotly.express as px
 import pandas as pd
 
 # Create data
-data = {{'Category': ['A', 'B'], 'Value': [10, 20]}}
+data = {{'Hotspot': ['A', 'B'], 'Significance': ['high', 'low']}}
 df = pd.DataFrame(data)
 
 # Create figure
-fig = px.{chart_type}(df, x='Category', y='Value', title='{name}')
+fig = px.{chart_type}(df, x='Hotspot', y='Significance', title='{name}')
 fig.update_layout(
     title_x=0.5,
     title_font_size=20,
-    showlegend=True,
     plot_bgcolor='white',
     paper_bgcolor='white',
     margin=dict(t=50, l=50, r=50, b=50),
     xaxis=dict(showgrid=True, gridcolor='#f0f0f0'),
     yaxis=dict(showgrid=True, gridcolor='#f0f0f0')
 )
+# ONLY add update_traces for charts that support hovertemplate
 fig.update_traces(
-    hovertemplate='%{{x}}: %{{y:,.2f}}<extra></extra>'
+    hovertemplate='%{{x}}: %{{y}}<extra></extra>'
+)
+
+Example for gauge/indicator charts:
+import plotly.graph_objects as go
+
+# Create data
+value = 15
+
+# Create figure
+fig = go.Figure(go.Indicator(
+    domain = {{'x': [0, 1], 'y': [0, 1]}},
+    value = value,
+    mode = "gauge+number",
+    title = {{'text': "Title"}},
+    gauge = {{
+        'axis': {{'range': [None, 25]}},
+        'bar': {{'color': "#1f77b4"}},
+        'steps': [...],
+        'threshold': {{...}}
+    }}
+))
+
+# Update layout (DO NOT use update_traces with hovertemplate for Indicator charts)
+fig.update_layout(
+    title_x=0.5,
+    title_font_size=20,
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    margin=dict(t=100, l=50, r=50, b=50)
 )
 
 Return ONLY the executable Python code without any function definitions, markdown formatting, comments, or explanations."""
@@ -313,7 +353,7 @@ Return ONLY the executable Python code without any function definitions, markdow
         # Get response from LLM
         response = viz_manager._make_api_request(
             messages=[
-                {"role": "system", "content": "You are a data visualization expert. Return only executable Python code that creates a Plotly visualization. Do not return function definitions or JSON."},
+                {"role": "system", "content": "You are a data visualization expert specializing in environmental hotspot visualizations. Return only executable Python code that creates a Plotly visualization. Do not return function definitions or JSON."},
                 {"role": "user", "content": prompt}
             ],
             model="llama-3.3-70b-instruct",
@@ -354,10 +394,10 @@ def ensure_visualization_dir(output_folder=None):
     """Ensure the visualization directory exists in the project-specific output folder."""
     if output_folder:
         # Use project-specific folder structure
-        viz_dir = Path(output_folder) / "visualizations" / "lca"
+        viz_dir = Path(output_folder) / "visualizations" / "hotspot_lca"
     else:
         # Fallback to default structure
-        viz_dir = Path("visualizations") / "lca"
+        viz_dir = Path("visualizations") / "hotspot_lca"
     
     # Create directory if it doesn't exist
     viz_dir.mkdir(parents=True, exist_ok=True)
@@ -394,10 +434,10 @@ def get_latest_visualizations(output_folder=None):
     """Get the latest visualizations from the specified output folder."""
     if output_folder:
         # Use project-specific folder structure
-        viz_base_dir = Path(output_folder) / "visualizations" / "lca"
+        viz_base_dir = Path(output_folder) / "visualizations" / "hotspot_lca"
     else:
         # Fallback to default structure
-        viz_base_dir = Path("visualizations") / "lca"
+        viz_base_dir = Path("visualizations") / "hotspot_lca"
     
     if not viz_base_dir.exists():
         return {}
@@ -420,8 +460,8 @@ def get_latest_visualizations(output_folder=None):
     
     return visualizations
 
-def create_all_visualizations(file_path="output/llm_based_lca_analysis.json"):
-    """Create and return all visualizations based on LLM analysis."""
+def create_all_visualizations(file_path="output/hotspot_lca_analysis.json"):
+    """Create and return all visualizations based on hotspot LCA analysis."""
     try:
         # Extract output folder from file path
         file_path_obj = Path(file_path)
@@ -430,18 +470,18 @@ def create_all_visualizations(file_path="output/llm_based_lca_analysis.json"):
             output_folder = file_path_obj.parent
         else:
             # Fallback to default
-            output_folder = Path("output/automotive_sample")
+            output_folder = Path("output/automotive_sample_input")
         
         # Ensure visualization directory exists
         viz_dir = ensure_visualization_dir(str(output_folder))
         
-        # Load LCA data
+        # Load hotspot LCA data
         with open(file_path, 'r') as f:
             data = json.load(f)
-        lca_data = data['lca_report']
+        hotspot_data = data.get('hotspot_analysis', {})
         
         # Get visualization suggestions from LLM
-        visualization_specs = analyze_lca_data(lca_data)
+        visualization_specs = analyze_hotspot_data(hotspot_data)
         
         # Create visualizations
         visualizations = {}
@@ -450,7 +490,7 @@ def create_all_visualizations(file_path="output/llm_based_lca_analysis.json"):
         for spec in visualization_specs.get('visualizations', []):
             try:
                 # Extract data for this visualization
-                extracted_data = extract_data_for_visualization(lca_data, spec)
+                extracted_data = extract_data_for_visualization(hotspot_data, spec)
                 
                 # Create the visualization
                 fig = create_visualization(extracted_data, spec['type'], spec['name'])
@@ -489,7 +529,7 @@ def create_all_visualizations(file_path="output/llm_based_lca_analysis.json"):
 if __name__ == "__main__":
     # Example usage
     visualizations, saved_files = create_all_visualizations()
-    print("\nSaved visualizations:")
+    print("\nSaved hotspot LCA visualizations:")
     for file_info in saved_files:
         print(f"\n{file_info['name']}:")
         print(f"  HTML: {file_info['html_path']}")

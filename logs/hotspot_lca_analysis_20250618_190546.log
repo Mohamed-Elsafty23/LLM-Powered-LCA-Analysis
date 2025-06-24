@@ -1,0 +1,156 @@
+2025-06-18 19:05:51,061 - __main__ - INFO - New file uploaded with hash: 07f00236f99c3547817f41b6d2a5457a
+2025-06-18 19:05:51,063 - __main__ - INFO - Output folder set to: output/automotive_sample_input
+2025-06-18 19:05:51,063 - __main__ - INFO - Processing uploaded file: automotive_sample_input.txt
+2025-06-18 19:05:51,063 - __main__ - INFO - Project name: automotive_sample_input
+2025-06-18 19:05:51,063 - __main__ - INFO - Output folder: output/automotive_sample_input
+2025-06-18 19:05:51,911 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-18 19:05:52,474 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-18 19:05:52,474 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-18 19:05:52,474 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-18 19:05:52,474 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-18 19:05:52,474 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Sustainable Solutions, Visualization Generation
+2025-06-18 19:05:52,574 - __main__ - INFO - Starting complete LCA workflow for input file: temp/automotive_sample_input.txt
+2025-06-18 19:05:52,574 - __main__ - INFO - ============================================================
+2025-06-18 19:05:52,574 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-18 19:05:52,574 - __main__ - INFO - ============================================================
+2025-06-18 19:05:52,574 - lca_implementation - INFO - Using input file: temp/automotive_sample_input.txt
+2025-06-18 19:05:52,574 - lca_implementation - INFO - Using output folder: output/automotive_sample_input
+2025-06-18 19:05:52,574 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-18 19:05:52,574 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-18 19:07:08,722 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:07:08,722 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-18 19:07:08,738 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-18 19:07:41,491 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:07:41,509 - lca_implementation - INFO - Generated 7 search queries for hotspots
+2025-06-18 19:07:41,515 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 19:07:41,516 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 19:07:41,518 - __main__ - INFO - ============================================================
+2025-06-18 19:07:41,519 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-18 19:07:41,520 - __main__ - INFO - ============================================================
+2025-06-18 19:07:41,521 - __main__ - INFO - [SUCCESS] Extracted 7 search queries for hotspots:
+2025-06-18 19:07:41,522 - __main__ - INFO -   - Housing Production: ("injection molding" OR "polybutylene terephthalate") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing production" OR "electronic control unit") AND ("production phase" OR "life cycle assessment")
+2025-06-18 19:07:41,523 - __main__ - INFO -   - Radiator Production: ("die casting" OR "aluminium manufacturing") AND ("energy reduction" OR "sustainable production") AND ("radiator production" OR "thermal management") AND ("production phase" OR "industrial ecology")
+2025-06-18 19:07:41,524 - __main__ - INFO -   - PCBA Production: ("reflow soldering" OR "wave soldering") AND ("energy efficient manufacturing" OR "green electronics") AND ("PCBA production" OR "printed circuit board assembly") AND ("production phase" OR "life cycle engineering")
+2025-06-18 19:07:41,525 - __main__ - INFO -   - EMC Shield Production: ("punching and bending" OR "steel manufacturing") AND ("energy conservation" OR "sustainable materials") AND ("EMC shield production" OR "electromagnetic compatibility") AND ("production phase" OR "environmental design")
+2025-06-18 19:07:41,527 - __main__ - INFO -   - Transportation: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("distribution phase" OR "supply chain management") AND ("electronic control unit" OR "automotive industry")
+2025-06-18 19:07:41,528 - __main__ - INFO -   - Energy Consumption: ("energy harvesting" OR "power management") AND ("energy efficiency" OR "sustainable electronics") AND ("use phase" OR "product design") AND ("electronic control unit" OR "automotive applications")
+2025-06-18 19:07:41,528 - __main__ - INFO -   - Waste Generation: ("waste reduction" OR "recycling technologies") AND ("end-of-life management" OR "sustainable waste disposal") AND ("end-of-life phase" OR "product take-back") AND ("electronic control unit" OR "electronic waste")
+2025-06-18 19:07:41,529 - __main__ - INFO - ============================================================
+2025-06-18 19:07:41,530 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-18 19:07:41,531 - __main__ - INFO - ============================================================
+2025-06-18 19:07:41,533 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-18 19:07:41,533 - arxiv_paper_downloader - INFO - Query: ("injection molding" OR "polybutylene terephthalate") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing production" OR "electronic control unit") AND ("production phase" OR "life cycle assessment")
+2025-06-18 19:07:41,533 - arxiv_paper_downloader - INFO - Converting query: ("injection molding" OR "polybutylene terephthalate") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing production" OR "electronic control unit") AND ("production phase" OR "life cycle assessment")
+2025-06-18 19:07:41,537 - arxiv_paper_downloader - INFO - Original query: ("injection molding" OR "polybutylene terephthalate") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing production" OR "electronic control unit") AND ("production phase" OR "life cycle assessment")
+2025-06-18 19:07:41,538 - arxiv_paper_downloader - INFO - ArXiv API query: (all:injection+OR+all:polybutylene+OR+all:energy+OR+all:sustainable+OR+all:housing+OR+all:electronic+OR+all:production+OR+all:life)
+2025-06-18 19:07:41,538 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Ainjection%2BOR%2Ball%3Apolybutylene%2BOR%2Ball%3Aenergy%2BOR%2Ball%3Asustainable%2BOR%2Ball%3Ahousing%2BOR%2Ball%3Aelectronic%2BOR%2Ball%3Aproduction%2BOR%2Ball%3Alife%29&start=0&max_results=10
+2025-06-18 19:07:42,331 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Housing Production'
+2025-06-18 19:07:44,334 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-18 19:07:44,335 - arxiv_paper_downloader - INFO - Query: ("die casting" OR "aluminium manufacturing") AND ("energy reduction" OR "sustainable production") AND ("radiator production" OR "thermal management") AND ("production phase" OR "industrial ecology")
+2025-06-18 19:07:44,335 - arxiv_paper_downloader - INFO - Converting query: ("die casting" OR "aluminium manufacturing") AND ("energy reduction" OR "sustainable production") AND ("radiator production" OR "thermal management") AND ("production phase" OR "industrial ecology")
+2025-06-18 19:07:44,336 - arxiv_paper_downloader - INFO - Original query: ("die casting" OR "aluminium manufacturing") AND ("energy reduction" OR "sustainable production") AND ("radiator production" OR "thermal management") AND ("production phase" OR "industrial ecology")
+2025-06-18 19:07:44,336 - arxiv_paper_downloader - INFO - ArXiv API query: (all:die+OR+all:aluminium+OR+all:energy+OR+all:sustainable+OR+all:radiator+OR+all:thermal+OR+all:production+OR+all:industrial)
+2025-06-18 19:07:44,337 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Adie%2BOR%2Ball%3Aaluminium%2BOR%2Ball%3Aenergy%2BOR%2Ball%3Asustainable%2BOR%2Ball%3Aradiator%2BOR%2Ball%3Athermal%2BOR%2Ball%3Aproduction%2BOR%2Ball%3Aindustrial%29&start=0&max_results=10
+2025-06-18 19:07:44,747 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Radiator Production'
+2025-06-18 19:07:46,757 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-18 19:07:46,757 - arxiv_paper_downloader - INFO - Query: ("reflow soldering" OR "wave soldering") AND ("energy efficient manufacturing" OR "green electronics") AND ("PCBA production" OR "printed circuit board assembly") AND ("production phase" OR "life cycle engineering")
+2025-06-18 19:07:46,757 - arxiv_paper_downloader - INFO - Converting query: ("reflow soldering" OR "wave soldering") AND ("energy efficient manufacturing" OR "green electronics") AND ("PCBA production" OR "printed circuit board assembly") AND ("production phase" OR "life cycle engineering")
+2025-06-18 19:07:46,759 - arxiv_paper_downloader - INFO - Original query: ("reflow soldering" OR "wave soldering") AND ("energy efficient manufacturing" OR "green electronics") AND ("PCBA production" OR "printed circuit board assembly") AND ("production phase" OR "life cycle engineering")
+2025-06-18 19:07:46,759 - arxiv_paper_downloader - INFO - ArXiv API query: (all:reflow+OR+all:wave+OR+all:energy+OR+all:green+OR+all:pcba+OR+all:printed+OR+all:production+OR+all:life)
+2025-06-18 19:07:46,759 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Areflow%2BOR%2Ball%3Awave%2BOR%2Ball%3Aenergy%2BOR%2Ball%3Agreen%2BOR%2Ball%3Apcba%2BOR%2Ball%3Aprinted%2BOR%2Ball%3Aproduction%2BOR%2Ball%3Alife%29&start=0&max_results=10
+2025-06-18 19:07:47,232 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'PCBA Production'
+2025-06-18 19:07:49,234 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-18 19:07:49,234 - arxiv_paper_downloader - INFO - Query: ("punching and bending" OR "steel manufacturing") AND ("energy conservation" OR "sustainable materials") AND ("EMC shield production" OR "electromagnetic compatibility") AND ("production phase" OR "environmental design")
+2025-06-18 19:07:49,235 - arxiv_paper_downloader - INFO - Converting query: ("punching and bending" OR "steel manufacturing") AND ("energy conservation" OR "sustainable materials") AND ("EMC shield production" OR "electromagnetic compatibility") AND ("production phase" OR "environmental design")
+2025-06-18 19:07:49,236 - arxiv_paper_downloader - INFO - Original query: ("punching and bending" OR "steel manufacturing") AND ("energy conservation" OR "sustainable materials") AND ("EMC shield production" OR "electromagnetic compatibility") AND ("production phase" OR "environmental design")
+2025-06-18 19:07:49,236 - arxiv_paper_downloader - INFO - ArXiv API query: (all:punching+OR+all:steel+OR+all:energy+OR+all:sustainable+OR+all:emc+OR+all:electromagnetic+OR+all:production+OR+all:environmental)
+2025-06-18 19:07:49,236 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Apunching%2BOR%2Ball%3Asteel%2BOR%2Ball%3Aenergy%2BOR%2Ball%3Asustainable%2BOR%2Ball%3Aemc%2BOR%2Ball%3Aelectromagnetic%2BOR%2Ball%3Aproduction%2BOR%2Ball%3Aenvironmental%29&start=0&max_results=10
+2025-06-18 19:07:49,636 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'EMC Shield Production'
+2025-06-18 19:07:51,639 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-18 19:07:51,640 - arxiv_paper_downloader - INFO - Query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("distribution phase" OR "supply chain management") AND ("electronic control unit" OR "automotive industry")
+2025-06-18 19:07:51,640 - arxiv_paper_downloader - INFO - Converting query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("distribution phase" OR "supply chain management") AND ("electronic control unit" OR "automotive industry")
+2025-06-18 19:07:51,641 - arxiv_paper_downloader - INFO - Original query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("distribution phase" OR "supply chain management") AND ("electronic control unit" OR "automotive industry")
+2025-06-18 19:07:51,641 - arxiv_paper_downloader - INFO - ArXiv API query: (all:road+OR+all:freight+OR+all:energy+OR+all:sustainable+OR+all:distribution+OR+all:supply+OR+all:electronic+OR+all:automotive)
+2025-06-18 19:07:51,641 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Aroad%2BOR%2Ball%3Afreight%2BOR%2Ball%3Aenergy%2BOR%2Ball%3Asustainable%2BOR%2Ball%3Adistribution%2BOR%2Ball%3Asupply%2BOR%2Ball%3Aelectronic%2BOR%2Ball%3Aautomotive%29&start=0&max_results=10
+2025-06-18 19:07:51,941 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Transportation'
+2025-06-18 19:07:53,946 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Energy Consumption
+2025-06-18 19:07:53,946 - arxiv_paper_downloader - INFO - Query: ("energy harvesting" OR "power management") AND ("energy efficiency" OR "sustainable electronics") AND ("use phase" OR "product design") AND ("electronic control unit" OR "automotive applications")
+2025-06-18 19:07:53,947 - arxiv_paper_downloader - INFO - Converting query: ("energy harvesting" OR "power management") AND ("energy efficiency" OR "sustainable electronics") AND ("use phase" OR "product design") AND ("electronic control unit" OR "automotive applications")
+2025-06-18 19:07:53,948 - arxiv_paper_downloader - INFO - Original query: ("energy harvesting" OR "power management") AND ("energy efficiency" OR "sustainable electronics") AND ("use phase" OR "product design") AND ("electronic control unit" OR "automotive applications")
+2025-06-18 19:07:53,948 - arxiv_paper_downloader - INFO - ArXiv API query: (all:energy+OR+all:power+OR+all:energy+OR+all:sustainable+OR+all:use+OR+all:product+OR+all:electronic+OR+all:automotive)
+2025-06-18 19:07:53,948 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Aenergy%2BOR%2Ball%3Apower%2BOR%2Ball%3Aenergy%2BOR%2Ball%3Asustainable%2BOR%2Ball%3Ause%2BOR%2Ball%3Aproduct%2BOR%2Ball%3Aelectronic%2BOR%2Ball%3Aautomotive%29&start=0&max_results=10
+2025-06-18 19:07:54,304 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Energy Consumption'
+2025-06-18 19:07:56,307 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Waste Generation
+2025-06-18 19:07:56,307 - arxiv_paper_downloader - INFO - Query: ("waste reduction" OR "recycling technologies") AND ("end-of-life management" OR "sustainable waste disposal") AND ("end-of-life phase" OR "product take-back") AND ("electronic control unit" OR "electronic waste")
+2025-06-18 19:07:56,307 - arxiv_paper_downloader - INFO - Converting query: ("waste reduction" OR "recycling technologies") AND ("end-of-life management" OR "sustainable waste disposal") AND ("end-of-life phase" OR "product take-back") AND ("electronic control unit" OR "electronic waste")
+2025-06-18 19:07:56,311 - arxiv_paper_downloader - INFO - Original query: ("waste reduction" OR "recycling technologies") AND ("end-of-life management" OR "sustainable waste disposal") AND ("end-of-life phase" OR "product take-back") AND ("electronic control unit" OR "electronic waste")
+2025-06-18 19:07:56,311 - arxiv_paper_downloader - INFO - ArXiv API query: (all:waste+OR+all:recycling+OR+all:end-of-life+OR+all:sustainable+OR+all:end-of-life+OR+all:product+OR+all:electronic+OR+all:electronic)
+2025-06-18 19:07:56,311 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=%28all%3Awaste%2BOR%2Ball%3Arecycling%2BOR%2Ball%3Aend-of-life%2BOR%2Ball%3Asustainable%2BOR%2Ball%3Aend-of-life%2BOR%2Ball%3Aproduct%2BOR%2Ball%3Aelectronic%2BOR%2Ball%3Aelectronic%29&start=0&max_results=10
+2025-06-18 19:07:56,669 - arxiv_paper_downloader - INFO - Successfully downloaded 0 papers for hotspot 'Waste Generation'
+2025-06-18 19:07:58,671 - arxiv_paper_downloader - INFO - Downloaded 0 papers total for 7 hotspots
+2025-06-18 19:07:58,672 - __main__ - INFO - [SUCCESS] Downloaded 0 papers for 7 hotspots
+2025-06-18 19:07:58,673 - __main__ - INFO - ============================================================
+2025-06-18 19:07:58,673 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-18 19:07:58,673 - __main__ - INFO - ============================================================
+2025-06-18 19:07:58,674 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-18 19:07:58,674 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-18 19:07:58,674 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-18 19:07:58,685 - pdf_processor - INFO - Found 0 PDF files in EMC_Shield_Production
+2025-06-18 19:07:58,685 - pdf_processor - INFO - Processing hotspot directory: Energy_Consumption
+2025-06-18 19:07:58,686 - pdf_processor - INFO - Found 0 PDF files in Energy_Consumption
+2025-06-18 19:07:58,686 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-18 19:07:58,687 - pdf_processor - INFO - Found 0 PDF files in Housing_Production
+2025-06-18 19:07:58,687 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-18 19:07:58,688 - pdf_processor - INFO - Found 0 PDF files in PCBA_Production
+2025-06-18 19:07:58,688 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-18 19:07:58,690 - pdf_processor - INFO - Found 0 PDF files in Radiator_Production
+2025-06-18 19:07:58,690 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-18 19:07:58,691 - pdf_processor - INFO - Found 0 PDF files in Transportation
+2025-06-18 19:07:58,691 - pdf_processor - INFO - Processing hotspot directory: Waste_Generation
+2025-06-18 19:07:58,692 - pdf_processor - INFO - Found 0 PDF files in Waste_Generation
+2025-06-18 19:07:58,692 - pdf_processor - INFO - Successfully processed 0 papers total
+2025-06-18 19:07:58,695 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 19:07:58,695 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 19:07:58,695 - __main__ - INFO - ============================================================
+2025-06-18 19:07:58,695 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-18 19:07:58,696 - __main__ - INFO - ============================================================
+2025-06-18 19:07:58,696 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 19:07:58,696 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-18 19:07:58,697 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-18 19:07:58,702 - sustainable_solutions_generator - INFO - Analyzing 0 processed papers for hotspot solutions
+2025-06-18 19:08:44,712 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:08:44,715 - sustainable_solutions_generator - INFO - Generated comprehensive sustainability report
+2025-06-18 19:08:44,721 - sustainable_solutions_generator - INFO - Successfully generated sustainability solutions report at output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-18 19:08:44,721 - sustainable_solutions_generator - INFO - Detailed analysis saved at output\automotive_sample_input/detailed_sustainability_analysis.json
+2025-06-18 19:08:44,722 - __main__ - INFO - [SUCCESS] Sustainability solutions report generated: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-18 19:08:44,722 - __main__ - INFO - ============================================================
+2025-06-18 19:08:44,722 - __main__ - INFO - WORKFLOW COMPLETION SUMMARY
+2025-06-18 19:08:44,722 - __main__ - INFO - ============================================================
+2025-06-18 19:08:44,724 - __main__ - INFO - [SUCCESS] Total workflow time: 172.15 seconds
+2025-06-18 19:08:44,724 - __main__ - INFO - [SUCCESS] Input file: temp/automotive_sample_input.txt
+2025-06-18 19:08:44,724 - __main__ - INFO - [SUCCESS] Output folder: output/automotive_sample_input
+2025-06-18 19:08:44,724 - __main__ - INFO - Generated files:
+2025-06-18 19:08:44,724 - __main__ - INFO -   [SUCCESS] input_file: temp/automotive_sample_input.txt
+2025-06-18 19:08:44,725 - __main__ - INFO -   [SUCCESS] output_folder: output/automotive_sample_input
+2025-06-18 19:08:44,725 - __main__ - INFO -   [SUCCESS] hotspot_analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 19:08:44,725 - __main__ - INFO -   [SUCCESS] processed_papers: output\automotive_sample_input\processed_papers.json
+2025-06-18 19:08:44,726 - __main__ - INFO -   [SUCCESS] sustainability_report: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-18 19:08:44,726 - __main__ - INFO -   [SUCCESS] detailed_analysis: output/automotive_sample_input/detailed_sustainability_analysis.json
+2025-06-18 19:08:44,726 - __main__ - INFO -   [SUCCESS] downloaded_papers_folder: output/automotive_sample_input/downloaded_papers
+2025-06-18 19:08:44,726 - __main__ - INFO -   [SUCCESS] query_mapping: output/automotive_sample_input/downloaded_papers/query_paper_mapping.json
+2025-06-18 19:08:45,250 - lca_visualizations - INFO - Initialized HotspotLCAVisualizationManager with 2 API clients
+2025-06-18 19:08:50,153 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:08:51,450 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:09:11,065 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:09:17,037 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:09:46,890 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:09:48,884 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:10:14,915 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:10:19,035 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:11:00,903 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:11:01,406 - __main__ - INFO - Hotspot LCA visualizations created successfully
+2025-06-18 19:11:01,903 - sustainable_solutions_visualizations - INFO - Initialized SolutionsVisualizationManager with 2 API clients
+2025-06-18 19:11:04,398 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:11:06,672 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:11:11,966 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 19:11:12,402 - __main__ - INFO - Sustainable solutions visualizations created successfully

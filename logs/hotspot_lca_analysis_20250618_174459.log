@@ -1,0 +1,167 @@
+2025-06-18 17:44:59,812 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-06-18 17:44:59,831 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+2025-06-18 17:44:59,842 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-06-18 17:45:00,471 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-18 17:45:00,994 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-18 17:45:00,995 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-18 17:45:00,995 - __main__ - INFO - Starting complete LCA workflow for input file: automotive_sample_input.txt
+2025-06-18 17:45:00,995 - __main__ - INFO - ============================================================
+2025-06-18 17:45:00,995 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-18 17:45:00,995 - __main__ - INFO - ============================================================
+2025-06-18 17:45:00,995 - lca_implementation - INFO - Using input file: automotive_sample_input.txt
+2025-06-18 17:45:00,995 - lca_implementation - INFO - Using output folder: output/automotive_sample_input
+2025-06-18 17:45:00,995 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-18 17:45:00,995 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-18 17:46:28,897 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 17:46:28,901 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-18 17:46:28,901 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-18 17:47:15,792 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 17:47:15,793 - lca_implementation - INFO - Generated 9 search queries for hotspots
+2025-06-18 17:47:15,794 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 17:47:15,798 - __main__ - INFO - ============================================================
+2025-06-18 17:47:15,800 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-18 17:47:15,800 - __main__ - INFO - ============================================================
+2025-06-18 17:47:15,801 - __main__ - INFO -   - Housing Production: ("injection molding" OR "plastic manufacturing") AND ("energy efficiency" OR "sustainable production") AND ("housing component" OR "electronic control unit") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:15,802 - __main__ - INFO -   - Radiator Production: ("die casting" OR "aluminum manufacturing") AND ("energy consumption reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:15,802 - __main__ - INFO -   - PCBA Production: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics manufacturing") AND ("printed circuit board" OR "electronic control unit") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:15,802 - __main__ - INFO -   - EMC Shield Production: ("punching and bending" OR "steel manufacturing") AND ("energy consumption reduction" OR "sustainable production") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:15,802 - __main__ - INFO -   - Transportation: ("road transport" OR "freight transportation") AND ("greenhouse gas emissions reduction" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:15,802 - __main__ - INFO -   - Energy Consumption: ("active power consumption" OR "standby power consumption") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive applications") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:15,803 - __main__ - INFO -   - Standby Power Consumption: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive applications") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:15,803 - __main__ - INFO -   - Incineration of Plastics: ("plastic incineration" OR "waste-to-energy") AND ("greenhouse gas emissions reduction" OR "sustainable waste management") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:15,803 - __main__ - INFO -   - Specialized E-Waste Processing: ("e-waste processing" OR "electronic waste recycling") AND ("toxicity reduction" OR "sustainable waste management") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:15,803 - __main__ - INFO - ============================================================
+2025-06-18 17:47:15,803 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-18 17:47:15,803 - __main__ - INFO - ============================================================
+2025-06-18 17:47:15,803 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-18 17:47:15,803 - arxiv_paper_downloader - INFO - Query: ("injection molding" OR "plastic manufacturing") AND ("energy efficiency" OR "sustainable production") AND ("housing component" OR "electronic control unit") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:15,805 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("injection+molding"+OR+"plastic+manufacturing")+AND+("energy+efficiency"+OR+"sustainable+production")+AND+("housing+component"+OR+"electronic+control+unit")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:16,347 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:18,358 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-18 17:47:18,358 - arxiv_paper_downloader - INFO - Query: ("die casting" OR "aluminum manufacturing") AND ("energy consumption reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:18,359 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("die+casting"+OR+"aluminum+manufacturing")+AND+("energy+consumption+reduction"+OR+"sustainable+manufacturing")+AND+("radiator+component"+OR+"thermal+management")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:18,592 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:20,593 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-18 17:47:20,593 - arxiv_paper_downloader - INFO - Query: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics manufacturing") AND ("printed circuit board" OR "electronic control unit") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:20,594 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("reflow+soldering"+OR+"wave+soldering"+OR+"PCB+assembly")+AND+("energy+efficiency"+OR+"sustainable+electronics+manufacturing")+AND+("printed+circuit+board"+OR+"electronic+control+unit")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:20,779 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:22,781 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-18 17:47:22,781 - arxiv_paper_downloader - INFO - Query: ("punching and bending" OR "steel manufacturing") AND ("energy consumption reduction" OR "sustainable production") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:22,879 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("punching+and+bending"+OR+"steel+manufacturing")+AND+("energy+consumption+reduction"+OR+"sustainable+production")+AND+("EMC+shield+component"+OR+"electromagnetic+compatibility")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:23,113 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:25,124 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-18 17:47:25,124 - arxiv_paper_downloader - INFO - Query: ("road transport" OR "freight transportation") AND ("greenhouse gas emissions reduction" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:25,128 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("road+transport"+OR+"freight+transportation")+AND+("greenhouse+gas+emissions+reduction"+OR+"sustainable+logistics")+AND+("electronic+control+unit"+OR+"automotive+components")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:25,347 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:27,352 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Energy Consumption
+2025-06-18 17:47:27,352 - arxiv_paper_downloader - INFO - Query: ("active power consumption" OR "standby power consumption") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive applications") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:27,352 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("active+power+consumption"+OR+"standby+power+consumption")+AND+("energy+efficiency"+OR+"sustainable+design")+AND+("electronic+control+unit"+OR+"automotive+applications")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:27,541 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:29,556 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Standby Power Consumption
+2025-06-18 17:47:29,556 - arxiv_paper_downloader - INFO - Query: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive applications") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:29,558 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("standby+power"+OR+"vampire+power")+AND+("energy+efficiency"+OR+"sustainable+design")+AND+("electronic+control+unit"+OR+"automotive+applications")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:29,747 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:31,760 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Incineration of Plastics
+2025-06-18 17:47:31,760 - arxiv_paper_downloader - INFO - Query: ("plastic incineration" OR "waste-to-energy") AND ("greenhouse gas emissions reduction" OR "sustainable waste management") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:31,760 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("plastic+incineration"+OR+"waste-to-energy")+AND+("greenhouse+gas+emissions+reduction"+OR+"sustainable+waste+management")+AND+("electronic+control+unit"+OR+"automotive+components")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:31,943 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:33,949 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Specialized E-Waste Processing
+2025-06-18 17:47:33,949 - arxiv_paper_downloader - INFO - Query: ("e-waste processing" OR "electronic waste recycling") AND ("toxicity reduction" OR "sustainable waste management") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:33,949 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("e-waste+processing"+OR+"electronic+waste+recycling")+AND+("toxicity+reduction"+OR+"sustainable+waste+management")+AND+("electronic+control+unit"+OR+"automotive+components")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:34,143 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:36,146 - arxiv_paper_downloader - INFO - Downloaded 0 papers total for 9 hotspots
+2025-06-18 17:47:36,146 - __main__ - INFO - ============================================================
+2025-06-18 17:47:36,146 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-18 17:47:36,146 - __main__ - INFO - ============================================================
+2025-06-18 17:47:36,146 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-18 17:47:36,164 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-18 17:47:36,165 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-18 17:47:36,166 - pdf_processor - INFO - Found 0 PDF files in EMC_Shield_Production
+2025-06-18 17:47:36,166 - pdf_processor - INFO - Processing hotspot directory: Energy_Consumption
+2025-06-18 17:47:36,167 - pdf_processor - INFO - Found 0 PDF files in Energy_Consumption
+2025-06-18 17:47:36,167 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-18 17:47:36,167 - pdf_processor - INFO - Found 0 PDF files in Housing_Production
+2025-06-18 17:47:36,167 - pdf_processor - INFO - Processing hotspot directory: Incineration_of_Plastics
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Found 0 PDF files in Incineration_of_Plastics
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Found 0 PDF files in PCBA_Production
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Found 0 PDF files in Radiator_Production
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Processing hotspot directory: Specialized_E-Waste_Processing
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Found 0 PDF files in Specialized_E-Waste_Processing
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Processing hotspot directory: Standby_Power_Consumption
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Found 0 PDF files in Standby_Power_Consumption
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Found 0 PDF files in Transportation
+2025-06-18 17:47:36,168 - pdf_processor - INFO - Successfully processed 0 papers total
+2025-06-18 17:47:36,172 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 17:47:36,173 - __main__ - INFO - ============================================================
+2025-06-18 17:47:36,174 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-18 17:47:36,174 - __main__ - INFO - ============================================================
+2025-06-18 17:47:36,174 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/automotive_sample_input/hotspot_lca_analysis.json
+2025-06-18 17:47:36,174 - sustainable_solutions_generator - INFO - Using output folder: output\automotive_sample_input
+2025-06-18 17:47:36,174 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\automotive_sample_input/sustainable_solutions_report.txt
+2025-06-18 17:47:36,175 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-18 17:47:36,175 - sustainable_solutions_generator - INFO - Found 9 search queries for hotspots
+2025-06-18 17:47:36,175 - sustainable_solutions_generator - INFO - Starting ArXiv paper download and processing...
+2025-06-18 17:47:36,176 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-18 17:47:36,176 - arxiv_paper_downloader - INFO - Query: ("injection molding" OR "plastic manufacturing") AND ("energy efficiency" OR "sustainable production") AND ("housing component" OR "electronic control unit") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:36,176 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("injection+molding"+OR+"plastic+manufacturing")+AND+("energy+efficiency"+OR+"sustainable+production")+AND+("housing+component"+OR+"electronic+control+unit")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:36,344 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:38,359 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-18 17:47:38,360 - arxiv_paper_downloader - INFO - Query: ("die casting" OR "aluminum manufacturing") AND ("energy consumption reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:38,362 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("die+casting"+OR+"aluminum+manufacturing")+AND+("energy+consumption+reduction"+OR+"sustainable+manufacturing")+AND+("radiator+component"+OR+"thermal+management")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:38,553 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:40,556 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-18 17:47:40,556 - arxiv_paper_downloader - INFO - Query: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics manufacturing") AND ("printed circuit board" OR "electronic control unit") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:40,556 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("reflow+soldering"+OR+"wave+soldering"+OR+"PCB+assembly")+AND+("energy+efficiency"+OR+"sustainable+electronics+manufacturing")+AND+("printed+circuit+board"+OR+"electronic+control+unit")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:40,761 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:42,770 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-18 17:47:42,770 - arxiv_paper_downloader - INFO - Query: ("punching and bending" OR "steel manufacturing") AND ("energy consumption reduction" OR "sustainable production") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:42,770 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("punching+and+bending"+OR+"steel+manufacturing")+AND+("energy+consumption+reduction"+OR+"sustainable+production")+AND+("EMC+shield+component"+OR+"electromagnetic+compatibility")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:42,941 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:44,958 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-18 17:47:44,958 - arxiv_paper_downloader - INFO - Query: ("road transport" OR "freight transportation") AND ("greenhouse gas emissions reduction" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:44,959 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("road+transport"+OR+"freight+transportation")+AND+("greenhouse+gas+emissions+reduction"+OR+"sustainable+logistics")+AND+("electronic+control+unit"+OR+"automotive+components")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:45,136 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:47,141 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Energy Consumption
+2025-06-18 17:47:47,142 - arxiv_paper_downloader - INFO - Query: ("active power consumption" OR "standby power consumption") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive applications") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:47,144 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("active+power+consumption"+OR+"standby+power+consumption")+AND+("energy+efficiency"+OR+"sustainable+design")+AND+("electronic+control+unit"+OR+"automotive+applications")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:47,394 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:49,408 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Standby Power Consumption
+2025-06-18 17:47:49,408 - arxiv_paper_downloader - INFO - Query: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive applications") AND ("life cycle assessment" OR "environmental impact reduction")
+2025-06-18 17:47:49,408 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("standby+power"+OR+"vampire+power")+AND+("energy+efficiency"+OR+"sustainable+design")+AND+("electronic+control+unit"+OR+"automotive+applications")+AND+("life+cycle+assessment"+OR+"environmental+impact+reduction")&start=0&max_results=10
+2025-06-18 17:47:49,594 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:51,598 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Incineration of Plastics
+2025-06-18 17:47:51,598 - arxiv_paper_downloader - INFO - Query: ("plastic incineration" OR "waste-to-energy") AND ("greenhouse gas emissions reduction" OR "sustainable waste management") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:51,598 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("plastic+incineration"+OR+"waste-to-energy")+AND+("greenhouse+gas+emissions+reduction"+OR+"sustainable+waste+management")+AND+("electronic+control+unit"+OR+"automotive+components")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:51,824 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:53,828 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Specialized E-Waste Processing
+2025-06-18 17:47:53,828 - arxiv_paper_downloader - INFO - Query: ("e-waste processing" OR "electronic waste recycling") AND ("toxicity reduction" OR "sustainable waste management") AND ("electronic control unit" OR "automotive components") AND ("life cycle assessment" OR "environmental impact mitigation")
+2025-06-18 17:47:53,828 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all:("e-waste+processing"+OR+"electronic+waste+recycling")+AND+("toxicity+reduction"+OR+"sustainable+waste+management")+AND+("electronic+control+unit"+OR+"automotive+components")+AND+("life+cycle+assessment"+OR+"environmental+impact+mitigation")&start=0&max_results=10
+2025-06-18 17:47:54,074 - arxiv_paper_downloader - ERROR - Error in single query search and download: HTTP Error 400: Bad Request
+2025-06-18 17:47:56,082 - arxiv_paper_downloader - INFO - Downloaded 0 papers total for 9 hotspots
+2025-06-18 17:47:56,082 - pdf_processor - INFO - Processing papers in: output\automotive_sample_input\downloaded_papers
+2025-06-18 17:47:56,102 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-18 17:47:56,109 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-18 17:47:56,111 - pdf_processor - INFO - Found 0 PDF files in EMC_Shield_Production
+2025-06-18 17:47:56,111 - pdf_processor - INFO - Processing hotspot directory: Energy_Consumption
+2025-06-18 17:47:56,112 - pdf_processor - INFO - Found 0 PDF files in Energy_Consumption
+2025-06-18 17:47:56,113 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-18 17:47:56,113 - pdf_processor - INFO - Found 0 PDF files in Housing_Production
+2025-06-18 17:47:56,114 - pdf_processor - INFO - Processing hotspot directory: Incineration_of_Plastics
+2025-06-18 17:47:56,114 - pdf_processor - INFO - Found 0 PDF files in Incineration_of_Plastics
+2025-06-18 17:47:56,115 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-18 17:47:56,116 - pdf_processor - INFO - Found 0 PDF files in PCBA_Production
+2025-06-18 17:47:56,116 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-18 17:47:56,118 - pdf_processor - INFO - Found 0 PDF files in Radiator_Production
+2025-06-18 17:47:56,118 - pdf_processor - INFO - Processing hotspot directory: Specialized_E-Waste_Processing
+2025-06-18 17:47:56,119 - pdf_processor - INFO - Found 0 PDF files in Specialized_E-Waste_Processing
+2025-06-18 17:47:56,119 - pdf_processor - INFO - Processing hotspot directory: Standby_Power_Consumption
+2025-06-18 17:47:56,119 - pdf_processor - INFO - Found 0 PDF files in Standby_Power_Consumption
+2025-06-18 17:47:56,119 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-18 17:47:56,119 - pdf_processor - INFO - Found 0 PDF files in Transportation
+2025-06-18 17:47:56,121 - pdf_processor - INFO - Successfully processed 0 papers total
+2025-06-18 17:47:56,122 - pdf_processor - INFO - Processed papers saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 17:47:56,122 - sustainable_solutions_generator - INFO - Papers downloaded and processed. Results saved to: output\automotive_sample_input\processed_papers.json
+2025-06-18 17:47:56,132 - sustainable_solutions_generator - INFO - Analyzing 0 processed papers for hotspot solutions

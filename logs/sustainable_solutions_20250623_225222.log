@@ -1,0 +1,2 @@
+2025-06-23 22:52:23,135 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-23 22:52:23,135 - sustainable_solutions_generator - ERROR - Error generating PDF report: "Style 'BodyText' already defined in stylesheet"

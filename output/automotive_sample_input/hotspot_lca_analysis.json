@@ -1,0 +1,141 @@
+{
+  "hotspot_analysis": {
+    "production_hotspots": [
+      {
+        "hotspot_name": "Housing Production",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "medium",
+        "impact_source": "Injection Molding Process",
+        "quantitative_impact": "0.8 kWh/kg",
+        "description": "The housing component production process consumes energy for injection molding, material preparation, and drying."
+      },
+      {
+        "hotspot_name": "Radiator Production",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "high",
+        "impact_source": "Die Casting Process",
+        "quantitative_impact": "1.2 kWh/kg",
+        "description": "The radiator component production process consumes energy for die casting, metal preparation, and melting."
+      },
+      {
+        "hotspot_name": "PCBA Production",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "low",
+        "impact_source": "Reflow Soldering and Wave Soldering",
+        "quantitative_impact": "0.5 kWh per board",
+        "description": "The PCBA component production process consumes energy for reflow soldering and wave soldering."
+      },
+      {
+        "hotspot_name": "EMC Shield Production",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "low",
+        "impact_source": "Punching and Bending Processes",
+        "quantitative_impact": "0.3 kWh/kg",
+        "description": "The EMC shield component production process consumes energy for punching and bending operations."
+      }
+    ],
+    "distribution_hotspots": [
+      {
+        "hotspot_name": "Transportation",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "medium",
+        "impact_source": "Road Transport",
+        "description": "The distribution process involves transportation over 500km via road transport, contributing to energy consumption and emissions."
+      }
+    ],
+    "use_hotspots": [
+      {
+        "hotspot_name": "ECU Operation",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "high",
+        "impact_source": "Active Power Consumption",
+        "quantitative_impact": "15W",
+        "description": "The ECU operates with an active power consumption of 15W, contributing to energy consumption and emissions during its lifetime."
+      },
+      {
+        "hotspot_name": "Standby Power Consumption",
+        "impact_category": "Energy Consumption",
+        "environmental_significance": "low",
+        "impact_source": "Standby Mode",
+        "quantitative_impact": "0.5W",
+        "description": "The ECU consumes power in standby mode, contributing to energy consumption and emissions during its lifetime."
+      }
+    ],
+    "end_of_life_hotspots": [
+      {
+        "hotspot_name": "Incineration of Plastics",
+        "impact_category": "Waste Management",
+        "environmental_significance": "high",
+        "impact_source": "Disposal Method",
+        "description": "The disposal method for plastics involves incineration, which can lead to emissions and environmental impacts."
+      },
+      {
+        "hotspot_name": "Specialized e-Waste Processing",
+        "impact_category": "Waste Management",
+        "environmental_significance": "medium",
+        "impact_source": "Disposal Method",
+        "description": "The disposal method for PCBA involves specialized e-waste processing, which can lead to environmental impacts and emissions."
+      }
+    ],
+    "overall_hotspot_ranking": [
+      {
+        "rank": 1,
+        "hotspot_name": "Radiator Production",
+        "life_cycle_phase": "Production",
+        "environmental_significance": "high",
+        "priority_justification": "High energy consumption during die casting process"
+      },
+      {
+        "rank": 2,
+        "hotspot_name": "ECU Operation",
+        "life_cycle_phase": "Use",
+        "environmental_significance": "high",
+        "priority_justification": "High active power consumption during operation"
+      },
+      {
+        "rank": 3,
+        "hotspot_name": "Incineration of Plastics",
+        "life_cycle_phase": "End-of-Life",
+        "environmental_significance": "high",
+        "priority_justification": "Potential emissions and environmental impacts from incineration"
+      },
+      {
+        "rank": 4,
+        "hotspot_name": "Housing Production",
+        "life_cycle_phase": "Production",
+        "environmental_significance": "medium",
+        "priority_justification": "Medium energy consumption during injection molding process"
+      },
+      {
+        "rank": 5,
+        "hotspot_name": "Transportation",
+        "life_cycle_phase": "Distribution",
+        "environmental_significance": "medium",
+        "priority_justification": "Medium energy consumption during road transport"
+      }
+    ],
+    "data_limitations": [
+      "Lack of explicit data on emissions and environmental impacts from production processes",
+      "No information on material extraction and processing impacts",
+      "Insufficient data on use phase emissions and environmental impacts",
+      "Limited information on end-of-life recycling and waste management impacts",
+      "No data on regional variations in production methods and environmental regulations"
+    ]
+  },
+  "search_queries": {
+    "hotspot_queries": {
+      "Housing Production": "injection molding process optimization energy efficiency plastic manufacturing",
+      "Radiator Production": "die casting aluminum sustainability energy reduction manufacturing",
+      "PCBA Production": "printed circuit board soldering energy efficient electronics manufacturing",
+      "EMC Shield Production": "steel punching and bending process optimization sustainable manufacturing",
+      "Transportation": "road transport logistics optimization fuel efficiency reduction strategies",
+      "ECU Operation": "automotive electronics low power consumption design optimization techniques",
+      "Standby Power Consumption": "electronic device standby power reduction energy efficient design methods",
+      "Incineration of Plastics": "plastic waste management sustainable disposal methods energy recovery techniques",
+      "Specialized e-Waste Processing": "electronic waste recycling sustainable processing methods environmental impact reduction"
+    },
+    "query_strategy": "process-specific sustainability optimization targeting"
+  },
+  "input_file": "temp/automotive_sample_input.txt",
+  "analysis_timestamp": "2025-06-22T23:26:54.369811"
+}

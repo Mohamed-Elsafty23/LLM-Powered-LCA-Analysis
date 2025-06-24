@@ -1,0 +1,188 @@
+{
+  "search_queries": {
+    "Housing Production": "injection molding process optimization energy efficiency plastic manufacturing",
+    "Radiator Production": "die casting aluminum sustainability energy reduction manufacturing",
+    "PCBA Production": "printed circuit board soldering energy efficient electronics manufacturing",
+    "EMC Shield Production": "steel punching and bending process optimization sustainable manufacturing",
+    "Transportation": "road transport logistics optimization fuel efficiency reduction strategies",
+    "ECU Operation": "automotive electronics low power consumption design optimization techniques",
+    "Standby Power Consumption": "electronic device standby power reduction energy efficient design methods",
+    "Incineration of Plastics": "plastic waste management sustainable disposal methods energy recovery techniques",
+    "Specialized e-Waste Processing": "electronic waste recycling sustainable processing methods environmental impact reduction"
+  },
+  "downloaded_papers": {
+    "Housing Production": [
+      {
+        "title": "DRL-Based Injection Molding Process Parameter Optimization for Adaptive\n  and Profitable Production",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2505.10988v1",
+        "published_date": "2025-05-16T08:35:31Z",
+        "query": "injection molding process optimization energy efficiency plastic manufacturing",
+        "filename": "DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Prof.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20process%20optimization%20energy%20efficiency%20plastic%20manufacturing&start=0&max_results=2"
+      },
+      {
+        "title": "Enhancing the Product Quality of the Injection Process Using eXplainable\n  Artificial Intelligence",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2503.02338v1",
+        "published_date": "2025-03-04T06:59:01Z",
+        "query": "injection molding process optimization energy efficiency plastic manufacturing",
+        "filename": "Enhancing the Product Quality of the Injection Process Using eXplainable Artific.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20process%20optimization%20energy%20efficiency%20plastic%20manufacturing&start=0&max_results=2"
+      }
+    ],
+    "Radiator Production": [
+      {
+        "title": "A process planning system with feature based neural network search\n  strategy for aluminum extrusion die manufacturing",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/0907.0611v1",
+        "published_date": "2009-07-03T12:08:13Z",
+        "query": "die casting aluminum sustainability energy reduction manufacturing",
+        "filename": "A process planning system with feature based neural network search strategy for.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminum%20sustainability%20energy%20reduction%20manufacturing&start=0&max_results=2"
+      },
+      {
+        "title": "Improved iron-tolerance in recycled aluminum alloys via direct strip\n  casting process",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2310.06327v1",
+        "published_date": "2023-10-10T05:53:40Z",
+        "query": "die casting aluminum sustainability energy reduction manufacturing",
+        "filename": "Improved iron-tolerance in recycled aluminum alloys via direct strip casting pro.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminum%20sustainability%20energy%20reduction%20manufacturing&start=0&max_results=2"
+      }
+    ],
+    "PCBA Production": [
+      {
+        "title": "SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in\n  Electronics Manufacturing Using Explainable Artificial Intelligence",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2211.10274v1",
+        "published_date": "2022-11-18T15:02:59Z",
+        "query": "printed circuit board soldering energy efficient electronics manufacturing",
+        "filename": "SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=printed%20circuit%20board%20soldering%20energy%20efficient%20electronics%20manufacturing&start=0&max_results=2"
+      },
+      {
+        "title": "Detecting Manufacturing Defects in PCBs via Data-Centric Machine\n  Learning on Solder Paste Inspection Features",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2309.03113v1",
+        "published_date": "2023-09-06T15:52:55Z",
+        "query": "printed circuit board soldering energy efficient electronics manufacturing",
+        "filename": "Detecting Manufacturing Defects in PCBs via Data-Centric Machine Learning on Sol.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=printed%20circuit%20board%20soldering%20energy%20efficient%20electronics%20manufacturing&start=0&max_results=2"
+      }
+    ],
+    "EMC Shield Production": [
+      {
+        "title": "Power consumption prediction for steel industry",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/2307.07597v1",
+        "published_date": "2023-07-14T19:41:53Z",
+        "query": "steel punching and bending process optimization sustainable manufacturing",
+        "filename": "Power consumption prediction for steel industry.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+      },
+      {
+        "title": "Cold Isostatic Pressing to Improve the Mechanical Performance of\n  Additively Manufactured Metallic Components",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/1908.03003v1",
+        "published_date": "2019-08-08T10:28:28Z",
+        "query": "steel punching and bending process optimization sustainable manufacturing",
+        "filename": "Cold Isostatic Pressing to Improve the Mechanical Performance of Additively Manu.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+      }
+    ],
+    "Transportation": [
+      {
+        "title": "Cyber-physical Control of Road Freight Transport",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/1507.03466v1",
+        "published_date": "2015-07-13T14:16:22Z",
+        "query": "road transport logistics optimization fuel efficiency reduction strategies",
+        "filename": "Cyber-physical Control of Road Freight Transport.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20logistics%20optimization%20fuel%20efficiency%20reduction%20strategies&start=0&max_results=2"
+      },
+      {
+        "title": "Urban Logistics in Amsterdam: A Modal Shift from Roadways to Waterway",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2309.00345v1",
+        "published_date": "2023-09-01T09:05:40Z",
+        "query": "road transport logistics optimization fuel efficiency reduction strategies",
+        "filename": "Urban Logistics in Amsterdam_ A Modal Shift from Roadways to Waterway.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20logistics%20optimization%20fuel%20efficiency%20reduction%20strategies&start=0&max_results=2"
+      }
+    ],
+    "ECU Operation": [
+      {
+        "title": "12-bit Delta-Sigma ADC operating at a temperature of up to 250C in\n  Standard 0.18 $\u03bc$m SOI CMOS",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2501.00482v1",
+        "published_date": "2024-12-31T15:11:05Z",
+        "query": "automotive electronics low power consumption design optimization techniques",
+        "filename": "12-bit Delta-Sigma ADC operating at a temperature of up to 250C in Standard 0.18.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=automotive%20electronics%20low%20power%20consumption%20design%20optimization%20techniques&start=0&max_results=2"
+      },
+      {
+        "title": "Optimizing RAG Techniques for Automotive Industry PDF Chatbots: A Case\n  Study with Locally Deployed Ollama Models",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2408.05933v1",
+        "published_date": "2024-08-12T06:16:37Z",
+        "query": "automotive electronics low power consumption design optimization techniques",
+        "filename": "Optimizing RAG Techniques for Automotive Industry PDF Chatbots_ A Case Study wit.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=automotive%20electronics%20low%20power%20consumption%20design%20optimization%20techniques&start=0&max_results=2"
+      }
+    ],
+    "Standby Power Consumption": [
+      {
+        "title": "Enabling Lower-Power Charge-Domain Nonvolatile In-Memory Computing with\n  Ferroelectric FETs",
+        "hotspot_name": "Standby Power Consumption",
+        "pdf_link": "http://arxiv.org/pdf/2102.01442v1",
+        "published_date": "2021-02-02T11:32:21Z",
+        "query": "electronic device standby power reduction energy efficient design methods",
+        "filename": "Enabling Lower-Power Charge-Domain Nonvolatile In-Memory Computing with Ferroele.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20standby%20power%20reduction%20energy%20efficient%20design%20methods&start=0&max_results=2"
+      },
+      {
+        "title": "Dynamic Power Reduction in a Novel CMOS 5T-SRAM for Low-Power SoC",
+        "hotspot_name": "Standby Power Consumption",
+        "pdf_link": "http://arxiv.org/pdf/1302.4464v1",
+        "published_date": "2013-02-18T21:24:22Z",
+        "query": "electronic device standby power reduction energy efficient design methods",
+        "filename": "Dynamic Power Reduction in a Novel CMOS 5T-SRAM for Low-Power SoC.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20standby%20power%20reduction%20energy%20efficient%20design%20methods&start=0&max_results=2"
+      }
+    ],
+    "Incineration of Plastics": [
+      {
+        "title": "Impact of high-pressure torsion on hydrogen production from\n  photodegradation of polypropylene plastic wastes",
+        "hotspot_name": "Incineration of Plastics",
+        "pdf_link": "http://arxiv.org/pdf/2408.10579v1",
+        "published_date": "2024-08-20T06:37:01Z",
+        "query": "plastic waste management sustainable disposal methods energy recovery techniques",
+        "filename": "Impact of high-pressure torsion on hydrogen production from photodegradation of.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20waste%20management%20sustainable%20disposal%20methods%20energy%20recovery%20techniques&start=0&max_results=2"
+      }
+    ],
+    "Specialized e-Waste Processing": [
+      {
+        "title": "Technological Progress and Obsolescence: Analyzing the Environmental\n  Economic Impacts of MacBook Pro I/O Devices",
+        "hotspot_name": "Specialized e-Waste Processing",
+        "pdf_link": "http://arxiv.org/pdf/2501.14758v1",
+        "published_date": "2024-12-23T16:26:01Z",
+        "query": "electronic waste recycling sustainable processing methods environmental impact reduction",
+        "filename": "Technological Progress and Obsolescence_ Analyzing the Environmental Economic Im.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20waste%20recycling%20sustainable%20processing%20methods%20environmental%20impact%20reduction&start=0&max_results=2"
+      },
+      {
+        "title": "Powering the Future: Innovations in Electric Vehicle Battery Recycling",
+        "hotspot_name": "Specialized e-Waste Processing",
+        "pdf_link": "http://arxiv.org/pdf/2412.20687v1",
+        "published_date": "2024-12-30T03:47:05Z",
+        "query": "electronic waste recycling sustainable processing methods environmental impact reduction",
+        "filename": "Powering the Future_ Innovations in Electric Vehicle Battery Recycling.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20waste%20recycling%20sustainable%20processing%20methods%20environmental%20impact%20reduction&start=0&max_results=2"
+      }
+    ]
+  },
+  "total_papers": 17,
+  "download_timestamp": "2025-06-22 23:28:05"
+}

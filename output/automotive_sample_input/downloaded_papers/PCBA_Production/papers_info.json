@@ -1,0 +1,20 @@
+[
+  {
+    "title": "SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in\n  Electronics Manufacturing Using Explainable Artificial Intelligence",
+    "hotspot_name": "PCBA Production",
+    "pdf_link": "http://arxiv.org/pdf/2211.10274v1",
+    "published_date": "2022-11-18T15:02:59Z",
+    "query": "printed circuit board soldering energy efficient electronics manufacturing",
+    "filename": "SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=printed%20circuit%20board%20soldering%20energy%20efficient%20electronics%20manufacturing&start=0&max_results=2"
+  },
+  {
+    "title": "Detecting Manufacturing Defects in PCBs via Data-Centric Machine\n  Learning on Solder Paste Inspection Features",
+    "hotspot_name": "PCBA Production",
+    "pdf_link": "http://arxiv.org/pdf/2309.03113v1",
+    "published_date": "2023-09-06T15:52:55Z",
+    "query": "printed circuit board soldering energy efficient electronics manufacturing",
+    "filename": "Detecting Manufacturing Defects in PCBs via Data-Centric Machine Learning on Sol.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=printed%20circuit%20board%20soldering%20energy%20efficient%20electronics%20manufacturing&start=0&max_results=2"
+  }
+]

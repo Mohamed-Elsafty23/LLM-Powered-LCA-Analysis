@@ -1,0 +1,16 @@
+The changes:
+link the raw input data to the LCA directly
+in the LCA phase make only the Hotspot analysis and focus to extract all relevant information from the raw input data do not miss anything or any component
+after the hotspot analysis in the LCA
+keep making the search query step
+then use the search query to get top 10 papers from Arxiv API (the code is in test.py file)
+download the papers and put them in the output folder in special folder, convert them to text (pdf_processor.py code) and add to use removing reference section approach used in data_extractor.py code but without using the llm to analyze the text of the papers
+after removing references section in the papers, make the sustainability report using the sustainable_solutions_generator.py code
+Consider these additional points in the sustainability report:
+    make it based in the LCA phases level and components level (combined)
+    do not make general information generic, use the specific information from the input raw data and LCA hotspot analysis (I noticed in the last version that there are sections without any important information like general talk) make it specific, concise without missing any important information
+    there are things in the sustainability report out of the LCA phases and components phases and they are very crucial. tell the llm if found anything out of the standard talk and will be helpful for the sustainability report Consider it immediately
+review the LLM prompts also to be robust
+consider downloading the papers pdf in specific folder
+do not generate one generic query for all hotspots, use multi query strategy by using query for every hotspot found
+save the search quries used with its papers

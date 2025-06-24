@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-06-22T23:38:15.287126",
+  "source_file": "output/automotive_sample_input/hotspot_lca_analysis.json",
+  "output_folder": "output\\automotive_sample_input",
+  "visualizations": [
+    {
+      "name": "Overall Hotspot Ranking",
+      "html_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Overall Hotspot Ranking.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Overall Hotspot Ranking.png"
+    },
+    {
+      "name": "Environmental Significance by Hotspot",
+      "html_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Environmental Significance by Hotspot.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Environmental Significance by Hotspot.png"
+    },
+    {
+      "name": "Quantitative Impact of Production Hotspots",
+      "html_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Quantitative Impact of Production Hotspots.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Quantitative Impact of Production Hotspots.png"
+    },
+    {
+      "name": "Energy Consumption in Use Phase",
+      "html_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Energy Consumption in Use Phase.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Energy Consumption in Use Phase.png"
+    },
+    {
+      "name": "Impact Category Distribution",
+      "html_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Impact Category Distribution.html",
+      "png_path": "output\\automotive_sample_input\\visualizations\\hotspot_lca\\2025_06_22_23_34\\Impact Category Distribution.png"
+    }
+  ]
+}

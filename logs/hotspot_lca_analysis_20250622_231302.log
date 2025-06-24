@@ -1,0 +1,6 @@
+2025-06-22 23:13:09,967 - __main__ - INFO - New file uploaded with hash: 07f00236f99c3547817f41b6d2a5457a
+2025-06-22 23:13:09,968 - __main__ - INFO - Output folder set to: output/automotive_sample_input
+2025-06-22 23:13:09,969 - __main__ - INFO - Processing uploaded file: automotive_sample_input.txt
+2025-06-22 23:13:09,969 - __main__ - INFO - Project name: automotive_sample_input
+2025-06-22 23:13:09,970 - __main__ - INFO - Output folder: output/automotive_sample_input
+2025-06-22 23:13:09,972 - __main__ - INFO - All analysis steps already completed, skipping to results

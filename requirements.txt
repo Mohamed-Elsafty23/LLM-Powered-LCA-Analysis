@@ -9,3 +9,4 @@ plotly
 kaleido
 faiss-cpu
 asyncio
+reportlab

@@ -1,0 +1,380 @@
+{
+  "search_queries": {
+    "PBT Injection Molding": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+    "Aluminium Die Casting": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+    "PCBA Production": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+    "Steel Punching and Bending": "punching and bending steel EMC shield material substitution studies resource reduction percentages"
+  },
+  "downloaded_papers": {
+    "PBT Injection Molding": [
+      {
+        "title": "DRL-Based Injection Molding Process Parameter Optimization for Adaptive\n  and Profitable Production",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2505.10988v1",
+        "published_date": "2025-05-16T08:35:31Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Prof.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Multi-Objective Population Based Training",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2306.01436v1",
+        "published_date": "2023-06-02T10:54:24Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Multi-Objective Population Based Training.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Simultaneous Training of First- and Second-Order Optimizers in\n  Population-Based Reinforcement Learning",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2408.15421v2",
+        "published_date": "2024-08-27T21:54:26Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Simultaneous Training of First- and Second-Order Optimizers in Population-Based.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Surrogate Modelling for Injection Molding Processes using Machine\n  Learning",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2107.14574v1",
+        "published_date": "2021-07-30T12:13:52Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Surrogate Modelling for Injection Molding Processes using Machine Learning.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Towards new methods for process adjustments based on parts quality\n  measurements",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/1707.01765v1",
+        "published_date": "2017-07-05T09:23:03Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Towards new methods for process adjustments based on parts quality measurements.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Shrink-Perturb Improves Architecture Mixing during Population Based\n  Training for Neural Architecture Search",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2307.15621v1",
+        "published_date": "2023-07-28T15:29:52Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Shrink-Perturb Improves Architecture Mixing during Population Based Training for.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Efficient quantum circuits for port-based teleportation",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2312.03188v2",
+        "published_date": "2023-12-05T23:39:04Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Efficient quantum circuits for port-based teleportation.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models\n  with Chordae Tendinae Made From 3D-Printable Molds",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/1904.03704v1",
+        "published_date": "2019-04-07T18:19:54Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Flexible and Comprehensive Patient-Specific Mitral Valve Silicone Models with Ch.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Generalized Population-Based Training for Hyperparameter Optimization in\n  Reinforcement Learning",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2404.08233v2",
+        "published_date": "2024-04-12T04:23:20Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Generalized Population-Based Training for Hyperparameter Optimization in Reinfor.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Efficient Algorithms for All Port-Based Teleportation Protocols",
+        "hotspot_name": "PBT Injection Molding",
+        "pdf_link": "http://arxiv.org/pdf/2311.12012v2",
+        "published_date": "2023-11-20T18:49:16Z",
+        "query": "injection molding PBT housing energy efficiency optimization cycle time reduction",
+        "filename": "Efficient Algorithms for All Port-Based Teleportation Protocols.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20pbt%20housing%20energy%20efficiency%20optimization%20cycle%20time%20reduction&start=0&max_results=10"
+      }
+    ],
+    "Aluminium Die Casting": [
+      {
+        "title": "An Innovative Line Balancing for the Aluminium Melting Process",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2504.02857v1",
+        "published_date": "2025-03-29T14:31:33Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "An Innovative Line Balancing for the Aluminium Melting Process.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "A process planning system with feature based neural network search\n  strategy for aluminum extrusion die manufacturing",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/0907.0611v1",
+        "published_date": "2009-07-03T12:08:13Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "A process planning system with feature based neural network search strategy for.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "A Novel Approach for Establishing Connectivity in Partitioned Mobile\n  Sensor Networks Using Beamforming Techniques",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2308.04797v1",
+        "published_date": "2023-08-09T08:35:00Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "A Novel Approach for Establishing Connectivity in Partitioned Mobile Sensor Netw.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "Power Reduction in FM Networks by Mixed-Integer Programming. A Case\n  Study",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2310.19492v1",
+        "published_date": "2023-10-30T12:32:50Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "Power Reduction in FM Networks by Mixed-Integer Programming. A Case Study.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "Information-Theoretic Study of Time-Domain Energy-Saving Techniques in\n  Radio Access",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2303.17898v2",
+        "published_date": "2023-03-31T08:57:20Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "Information-Theoretic Study of Time-Domain Energy-Saving Techniques in Radio Acc.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "Power-Constrained Trajectory Optimization for Wireless UAV Relays with\n  Random Requests",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2002.09617v2",
+        "published_date": "2020-02-22T04:09:51Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "Power-Constrained Trajectory Optimization for Wireless UAV Relays with Random Re.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "Direct Reuse of Aluminium and Copper Current Collectors from Spent\n  Lithium-ion Batteries",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2210.07678v1",
+        "published_date": "2022-10-14T10:01:44Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "Direct Reuse of Aluminium and Copper Current Collectors from Spent Lithium-ion B.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die\n  Castings",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/2403.09996v1",
+        "published_date": "2024-03-15T03:42:38Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "Optimization of Solidification in Die Casting using Numerical\n  Simulations and Machine Learning",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/1901.02364v2",
+        "published_date": "2019-01-08T15:28:33Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      },
+      {
+        "title": "Optimizing IoT Energy Efficiency on Edge (EEE): a Cross-layer Design in\n  a Cognitive Mesh Network",
+        "hotspot_name": "Aluminium Die Casting",
+        "pdf_link": "http://arxiv.org/pdf/1901.05494v2",
+        "published_date": "2019-01-11T02:33:01Z",
+        "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+        "filename": "Optimizing IoT Energy Efficiency on Edge (EEE)_ a Cross-layer Design in a Cognit.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+      }
+    ],
+    "PCBA Production": [
+      {
+        "title": "Separation of \u03b3/\u03c0^0 showers at high energies",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/hep-ex/9610005v3",
+        "published_date": "1996-10-08T13:22:55Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "Separation of \u03b3_\u03c0_0 showers at high energies.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "Polymerase/nicking enzyme powered dual-template multi-cycled G-triplex\n  machine for HIV-1 determination",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2006.15548v1",
+        "published_date": "2020-06-28T09:14:10Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "Polymerase_nicking enzyme powered dual-template multi-cycled G-triplex machine f.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "YOLO algorithm with hybrid attention feature pyramid network for solder\n  joint defect detection",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2401.01214v1",
+        "published_date": "2024-01-02T14:04:42Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "YOLO algorithm with hybrid attention feature pyramid network for solder joint de.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in\n  Electronics Manufacturing Using Explainable Artificial Intelligence",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2211.10274v1",
+        "published_date": "2022-11-18T15:02:59Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "Optimization simulation of reflow welding based on prediction of\n  regional center temperature field",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2206.10119v1",
+        "published_date": "2022-06-21T05:31:50Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "Optimization simulation of reflow welding based on prediction of regional center.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "DVQI: A Multi-task, Hardware-integrated Artificial Intelligence System\n  for Automated Visual Inspection in Electronics Manufacturing",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2312.09232v1",
+        "published_date": "2023-12-14T18:56:54Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "DVQI_ A Multi-task_ Hardware-integrated Artificial Intelligence System for Autom.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "Miniaturized liquid metal composite circuits with energy harvesting\n  coils for battery-free bioelectronics and optogenetics",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2501.11016v1",
+        "published_date": "2025-01-19T11:30:46Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "Miniaturized liquid metal composite circuits with energy harvesting coils for ba.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on\n  Laplace Transforms and Flexible Krylov Solvers",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/1409.2556v2",
+        "published_date": "2014-09-09T00:23:41Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "A Fast Algorithm for Parabolic PDE-based Inverse Problems Based on Laplace Trans.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "Convolutional Recurrent Reconstructive Network for Spatiotemporal\n  Anomaly Detection in Solder Paste Inspection",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/1908.08204v1",
+        "published_date": "2019-08-22T05:18:41Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "Convolutional Recurrent Reconstructive Network for Spatiotemporal Anomaly Detect.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      },
+      {
+        "title": "Grounding Stylistic Domain Generalization with Quantitative Domain Shift\n  Measures and Synthetic Scene Images",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2405.15961v1",
+        "published_date": "2024-05-24T22:13:31Z",
+        "query": "THT and SMD soldering PCBA production energy efficiency improvement quantitative efficiency gains",
+        "filename": "Grounding Stylistic Domain Generalization with Quantitative Domain Shift Measure.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=tht%20smd%20soldering%20pcba%20production%20energy%20efficiency%20improvement%20quantitative%20efficiency%20gains&start=0&max_results=10"
+      }
+    ],
+    "Steel Punching and Bending": [
+      {
+        "title": "Drawing of the wire of low-carbon steel: plasticity resource, optimal\n  reduction, structure, properties",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/1412.0157v1",
+        "published_date": "2014-11-29T21:42:44Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Drawing of the wire of low-carbon steel_ plasticity resource_ optimal reduction.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Evidence of strong electron correlation effects and magnetic topological\n  excitation in low carbon steel",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/2503.08822v1",
+        "published_date": "2025-03-11T18:53:56Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Evidence of strong electron correlation effects and magnetic topological excitat.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Bayesian Model Selection for Network Discrimination and Risk-informed\n  Decision Making in Material Flow Analysis",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/2501.05556v1",
+        "published_date": "2025-01-09T20:03:18Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Bayesian Model Selection for Network Discrimination and Risk-informed Decision M.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Highly flexible electromagnetic interference shielding films based on\n  ultrathin Ni/Ag composites on paper substrates",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/2005.04875v1",
+        "published_date": "2020-05-11T06:09:53Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Highly flexible electromagnetic interference shielding films based on ultrathin.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Air plasma key parameters for electromagnetic wave propagation at and\n  out of thermal equilibrium: applications to electromagnetic compatibility",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/1902.07026v1",
+        "published_date": "2019-02-19T12:38:27Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Air plasma key parameters for electromagnetic wave propagation at and out of the.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Simulation of conventional cold-formed steel sections formed from\n  Advanced High Strength Steel (AHSS)",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/1712.08037v1",
+        "published_date": "2017-12-21T16:02:50Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Simulation of conventional cold-formed steel sections formed from Advanced High.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Intelligent data collection for network discrimination in material flow\n  analysis using Bayesian optimal experimental design",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/2504.13382v1",
+        "published_date": "2025-04-18T00:04:12Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Intelligent data collection for network discrimination in material flow analysis.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Radiation Shielding Properties of $Nd_{0.6}Sr_{0.4}Mn_{1-y}Ni_{y}O_{3}$\n  Substitute with Different Concentrations of Nickle",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/2006.02525v1",
+        "published_date": "2020-04-22T04:46:27Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Radiation Shielding Properties of _Nd_0.6_Sr_0.4_Mn_1-y_Ni_y_O_3_ Substitute wit.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Neutron Activation Background in the NvDEx Experiment",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/2307.12785v1",
+        "published_date": "2023-07-24T13:33:15Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Neutron Activation Background in the NvDEx Experiment.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      },
+      {
+        "title": "Anisotropic behaviour law for sheets used in stamping: A comparative\n  study of steel and aluminium",
+        "hotspot_name": "Steel Punching and Bending",
+        "pdf_link": "http://arxiv.org/pdf/0801.3018v1",
+        "published_date": "2008-01-19T07:48:14Z",
+        "query": "punching and bending steel EMC shield material substitution studies resource reduction percentages",
+        "filename": "Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=punching%20bending%20steel%20emc%20shield%20material%20substitution%20studies%20resource%20reduction%20percentages&start=0&max_results=10"
+      }
+    ]
+  },
+  "total_papers": 40,
+  "download_timestamp": "2025-06-24 00:07:36"
+}

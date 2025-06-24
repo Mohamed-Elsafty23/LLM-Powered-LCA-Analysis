@@ -1,0 +1,1305 @@
+2025-06-18 18:23:22,409 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-06-18 18:23:22,504 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+2025-06-18 18:23:22,521 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-06-18 18:23:27,597 - __main__ - INFO - New file uploaded with hash: 07f00236f99c3547817f41b6d2a5457a
+2025-06-18 18:23:27,598 - __main__ - INFO - Output folder set to: output/automotive_sample_input
+2025-06-18 18:23:27,600 - __main__ - INFO - Processing uploaded file: automotive_sample_input.txt
+2025-06-18 18:23:27,602 - __main__ - INFO - Project name: automotive_sample_input
+2025-06-18 18:23:27,603 - __main__ - INFO - Output folder: output/automotive_sample_input
+2025-06-18 18:23:28,476 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-18 18:23:28,993 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-18 18:23:28,993 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-18 18:23:28,993 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-18 18:23:28,993 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-18 18:23:28,993 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Sustainable Solutions, Visualization Generation
+2025-06-18 18:23:28,993 - __main__ - INFO - Starting complete LCA workflow for input file: output/automotive_sample_input/temp_input.txt
+2025-06-18 18:23:28,993 - __main__ - INFO - ============================================================
+2025-06-18 18:23:28,993 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-18 18:23:28,993 - __main__ - INFO - ============================================================
+2025-06-18 18:23:28,993 - lca_implementation - INFO - Using input file: output/automotive_sample_input/temp_input.txt
+2025-06-18 18:23:28,993 - lca_implementation - INFO - Using output folder: output/temp_input
+2025-06-18 18:23:29,012 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-18 18:23:29,012 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-18 18:24:54,909 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 18:24:54,925 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-18 18:24:54,925 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-18 18:25:37,573 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-18 18:25:37,573 - lca_implementation - INFO - Generated 9 search queries for hotspots
+2025-06-18 18:25:37,573 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/temp_input/hotspot_lca_analysis.json
+2025-06-18 18:25:37,573 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/temp_input/hotspot_lca_analysis.json
+2025-06-18 18:25:37,573 - __main__ - INFO - ============================================================
+2025-06-18 18:25:37,573 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-18 18:25:37,573 - __main__ - INFO - ============================================================
+2025-06-18 18:25:37,581 - __main__ - INFO - [SUCCESS] Extracted 9 search queries for hotspots:
+2025-06-18 18:25:37,581 - __main__ - INFO -   - Housing Production: ("injection molding" OR "plastic production") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing component" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:25:37,581 - __main__ - INFO -   - Radiator Production: ("die casting" OR "aluminum production") AND ("energy reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:25:37,582 - __main__ - INFO -   - PCBA Production: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics") AND ("printed circuit board" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:25:37,582 - __main__ - INFO -   - EMC Shield Production: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:25:37,583 - __main__ - INFO -   - Transportation: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("distribution phase" OR "transportation process")
+2025-06-18 18:25:37,583 - __main__ - INFO -   - ECU Operation: ("active power consumption" OR "energy efficiency") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase") AND ("sustainable design" OR "energy reduction")
+2025-06-18 18:25:37,584 - __main__ - INFO -   - Standby Power Consumption: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase")
+2025-06-18 18:25:37,584 - __main__ - INFO -   - Incineration of Plastics: ("plastic incineration" OR "waste management") AND ("sustainable waste disposal" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("electronic control unit" OR "automotive components")
+2025-06-18 18:25:37,584 - __main__ - INFO -   - Specialized e-Waste Processing: ("e-waste processing" OR "electronic waste management") AND ("sustainable recycling" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("printed circuit board" OR "electronic control unit")
+2025-06-18 18:25:37,585 - __main__ - INFO - ============================================================
+2025-06-18 18:25:37,585 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-18 18:25:37,585 - __main__ - INFO - ============================================================
+2025-06-18 18:25:37,585 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-18 18:25:37,585 - arxiv_paper_downloader - INFO - Query: ("injection molding" OR "plastic production") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing component" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:25:37,585 - arxiv_paper_downloader - INFO - Original query: ("injection molding" OR "plastic production") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing component" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:25:37,585 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:25:37,585 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:25:38,481 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:25:41,494 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:25:42,495 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:25:45,937 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:25:46,939 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:25:47,892 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:25:48,893 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:25:51,536 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:25:52,537 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:25:53,608 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:25:54,618 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:25:54,985 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:25:56,001 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:25:56,919 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:25:57,920 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:25:58,877 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:25:59,878 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:26:00,306 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:26:01,307 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:26:01,814 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:26:02,815 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Housing Production'
+2025-06-18 18:26:04,817 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-18 18:26:04,817 - arxiv_paper_downloader - INFO - Query: ("die casting" OR "aluminum production") AND ("energy reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:26:04,819 - arxiv_paper_downloader - INFO - Original query: ("die casting" OR "aluminum production") AND ("energy reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:26:04,821 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:26:04,821 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:26:04,927 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:26:05,408 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:26:06,410 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:26:07,453 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:26:08,455 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:26:08,700 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:26:09,716 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:26:09,879 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:26:10,881 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:26:11,350 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:26:12,354 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:26:12,442 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:26:13,458 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:26:13,700 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:26:14,703 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:26:14,922 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:26:15,925 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:26:16,042 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:26:17,053 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:26:17,339 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:26:18,341 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Radiator Production'
+2025-06-18 18:26:20,343 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-18 18:26:20,343 - arxiv_paper_downloader - INFO - Query: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics") AND ("printed circuit board" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:26:20,344 - arxiv_paper_downloader - INFO - Original query: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics") AND ("printed circuit board" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:26:20,345 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:26:20,346 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:26:20,442 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:26:20,958 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:26:21,960 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:26:22,973 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:26:23,974 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:26:24,250 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:26:25,252 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:26:25,407 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:26:26,408 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:26:26,914 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:26:27,915 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:26:28,032 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:26:29,033 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:26:29,242 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:26:30,255 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:26:30,446 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:26:31,448 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:26:31,575 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:26:32,578 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:26:32,768 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:26:33,769 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'PCBA Production'
+2025-06-18 18:26:35,771 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-18 18:26:35,771 - arxiv_paper_downloader - INFO - Query: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:26:35,771 - arxiv_paper_downloader - INFO - Original query: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:26:35,773 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:26:35,773 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:26:35,876 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:26:36,393 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:26:37,400 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:26:38,437 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:26:39,439 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:26:39,708 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:26:40,713 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:26:40,867 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:26:41,869 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:26:42,327 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:26:43,344 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:26:43,446 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:26:44,451 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:26:44,683 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:26:45,689 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:26:45,923 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:26:46,929 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:26:47,090 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:26:48,092 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:26:48,297 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:26:49,299 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'EMC Shield Production'
+2025-06-18 18:26:51,306 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-18 18:26:51,307 - arxiv_paper_downloader - INFO - Query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("distribution phase" OR "transportation process")
+2025-06-18 18:26:51,311 - arxiv_paper_downloader - INFO - Original query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("distribution phase" OR "transportation process")
+2025-06-18 18:26:51,313 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:26:51,314 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:26:51,445 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:26:51,939 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:26:52,940 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:26:54,023 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:26:55,030 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:26:55,273 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:26:56,275 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:26:56,442 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:26:57,443 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:26:57,949 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:26:58,958 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:26:59,068 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:27:00,070 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:27:00,324 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:27:01,327 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:27:01,525 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:27:02,525 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:27:02,733 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:27:03,734 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:27:03,938 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:27:04,949 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Transportation'
+2025-06-18 18:27:06,952 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Operation
+2025-06-18 18:27:06,953 - arxiv_paper_downloader - INFO - Query: ("active power consumption" OR "energy efficiency") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase") AND ("sustainable design" OR "energy reduction")
+2025-06-18 18:27:06,960 - arxiv_paper_downloader - INFO - Original query: ("active power consumption" OR "energy efficiency") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase") AND ("sustainable design" OR "energy reduction")
+2025-06-18 18:27:06,962 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:27:06,963 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:27:07,100 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:27:07,577 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:27:08,578 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:27:09,613 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:27:10,616 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:27:10,893 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:27:11,894 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:27:12,190 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:27:13,191 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:27:13,679 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:27:14,682 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:27:14,799 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:27:15,800 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:27:16,025 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:27:17,087 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:27:17,295 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:27:18,297 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:27:18,451 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:27:19,452 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:27:19,651 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:27:20,655 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'ECU Operation'
+2025-06-18 18:27:22,657 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Standby Power Consumption
+2025-06-18 18:27:22,658 - arxiv_paper_downloader - INFO - Query: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase")
+2025-06-18 18:27:22,690 - arxiv_paper_downloader - INFO - Original query: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase")
+2025-06-18 18:27:22,690 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:27:22,691 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:27:22,795 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:27:23,295 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:27:24,296 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:27:25,343 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:27:26,353 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:27:26,610 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:27:27,613 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:27:27,773 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:27:28,779 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:27:29,266 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:27:30,275 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:27:30,375 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:27:31,387 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:27:31,612 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:27:32,616 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:27:33,534 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:27:34,536 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:27:35,859 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:27:36,860 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:27:37,209 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:27:38,211 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Standby Power Consumption'
+2025-06-18 18:27:40,214 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Incineration of Plastics
+2025-06-18 18:27:40,214 - arxiv_paper_downloader - INFO - Query: ("plastic incineration" OR "waste management") AND ("sustainable waste disposal" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("electronic control unit" OR "automotive components")
+2025-06-18 18:27:40,216 - arxiv_paper_downloader - INFO - Original query: ("plastic incineration" OR "waste management") AND ("sustainable waste disposal" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("electronic control unit" OR "automotive components")
+2025-06-18 18:27:40,216 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable
+2025-06-18 18:27:40,216 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Asustainable&start=0&max_results=10
+2025-06-18 18:27:40,601 - arxiv_paper_downloader - INFO - Downloading paper 1: Environmental sustainability in basic research: a perspective from HECAP+
+2025-06-18 18:27:47,839 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:27:48,840 - arxiv_paper_downloader - INFO - Downloading paper 2: Towards a 6G embedding sustainability
+2025-06-18 18:27:49,197 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:27:50,199 - arxiv_paper_downloader - INFO - Downloading paper 3: Sustainability in HPC: Vision and Opportunities
+2025-06-18 18:27:50,599 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:27:51,600 - arxiv_paper_downloader - INFO - Downloading paper 4: Experiments in Sustainable Software Practices for Future Architectures
+2025-06-18 18:27:51,980 - arxiv_paper_downloader - INFO - Successfully downloaded: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:27:52,983 - arxiv_paper_downloader - INFO - Downloading paper 5: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11)
+2025-06-18 18:27:53,646 - arxiv_paper_downloader - INFO - Successfully downloaded: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:27:54,648 - arxiv_paper_downloader - INFO - Downloading paper 6: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustainability
+2025-06-18 18:27:55,197 - arxiv_paper_downloader - INFO - Successfully downloaded: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:27:56,198 - arxiv_paper_downloader - INFO - Downloading paper 7: Benefits of Resource Strategy for Sustainable Materials Research and Development
+2025-06-18 18:27:57,829 - arxiv_paper_downloader - INFO - Successfully downloaded: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:27:58,831 - arxiv_paper_downloader - INFO - Downloading paper 8: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive Metadata Repositories
+2025-06-18 18:27:59,004 - arxiv_paper_downloader - INFO - Successfully downloaded: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:28:00,006 - arxiv_paper_downloader - INFO - Downloading paper 9: Towards a Software Product Sustainability Model
+2025-06-18 18:28:00,484 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:28:01,485 - arxiv_paper_downloader - INFO - Downloading paper 10: Sustainable Software Ecosystems for Open Science
+2025-06-18 18:28:02,182 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:28:03,183 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Incineration of Plastics'
+2025-06-18 18:28:05,186 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Specialized e-Waste Processing
+2025-06-18 18:28:05,186 - arxiv_paper_downloader - INFO - Query: ("e-waste processing" OR "electronic waste management") AND ("sustainable recycling" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("printed circuit board" OR "electronic control unit")
+2025-06-18 18:28:05,186 - arxiv_paper_downloader - INFO - Original query: ("e-waste processing" OR "electronic waste management") AND ("sustainable recycling" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("printed circuit board" OR "electronic control unit")
+2025-06-18 18:28:05,186 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable
+2025-06-18 18:28:05,186 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Asustainable&start=0&max_results=10
+2025-06-18 18:28:05,346 - arxiv_paper_downloader - INFO - Downloading paper 1: Environmental sustainability in basic research: a perspective from HECAP+
+2025-06-18 18:28:10,761 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:28:11,763 - arxiv_paper_downloader - INFO - Downloading paper 2: Towards a 6G embedding sustainability
+2025-06-18 18:28:12,060 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:28:13,061 - arxiv_paper_downloader - INFO - Downloading paper 3: Sustainability in HPC: Vision and Opportunities
+2025-06-18 18:28:13,279 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:28:14,280 - arxiv_paper_downloader - INFO - Downloading paper 4: Experiments in Sustainable Software Practices for Future Architectures
+2025-06-18 18:28:14,363 - arxiv_paper_downloader - INFO - Successfully downloaded: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:28:15,365 - arxiv_paper_downloader - INFO - Downloading paper 5: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11)
+2025-06-18 18:28:15,775 - arxiv_paper_downloader - INFO - Successfully downloaded: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:28:16,776 - arxiv_paper_downloader - INFO - Downloading paper 6: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustainability
+2025-06-18 18:28:16,940 - arxiv_paper_downloader - INFO - Successfully downloaded: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:28:17,950 - arxiv_paper_downloader - INFO - Downloading paper 7: Benefits of Resource Strategy for Sustainable Materials Research and Development
+2025-06-18 18:28:19,137 - arxiv_paper_downloader - INFO - Successfully downloaded: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:28:20,139 - arxiv_paper_downloader - INFO - Downloading paper 8: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive Metadata Repositories
+2025-06-18 18:28:20,227 - arxiv_paper_downloader - INFO - Successfully downloaded: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:28:21,228 - arxiv_paper_downloader - INFO - Downloading paper 9: Towards a Software Product Sustainability Model
+2025-06-18 18:28:21,441 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:28:22,443 - arxiv_paper_downloader - INFO - Downloading paper 10: Sustainable Software Ecosystems for Open Science
+2025-06-18 18:28:22,833 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:28:23,835 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Specialized e-Waste Processing'
+2025-06-18 18:28:25,986 - arxiv_paper_downloader - INFO - Downloaded 90 papers total for 9 hotspots
+2025-06-18 18:28:25,986 - __main__ - INFO - [SUCCESS] Downloaded 90 papers for 9 hotspots
+2025-06-18 18:28:25,986 - __main__ - INFO - ============================================================
+2025-06-18 18:28:25,986 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-18 18:28:25,993 - __main__ - INFO - ============================================================
+2025-06-18 18:28:25,993 - pdf_processor - INFO - Processing papers in: output\temp_input\downloaded_papers
+2025-06-18 18:28:26,017 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-18 18:28:26,017 - pdf_processor - INFO - Processing hotspot directory: ECU_Operation
+2025-06-18 18:28:26,017 - pdf_processor - INFO - Found 10 PDF files in ECU_Operation
+2025-06-18 18:28:26,017 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:28:27,674 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:27,674 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:28:27,674 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:28:27,674 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:28:33,246 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:33,247 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:28:33,247 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:28:34,395 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:34,395 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:28:34,396 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:28:35,388 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:35,389 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:28:35,389 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:28:37,097 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:37,098 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:28:37,098 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:28:37,099 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:28:37,690 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:37,691 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:28:37,691 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:28:37,691 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:28:38,043 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:38,043 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:28:38,043 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:28:38,043 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:28:38,376 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:38,376 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:28:38,376 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:28:39,090 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:39,090 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:28:39,090 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:28:39,090 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:28:43,925 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:43,925 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:28:43,925 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-18 18:28:43,925 - pdf_processor - INFO - Found 10 PDF files in EMC_Shield_Production
+2025-06-18 18:28:43,925 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:28:45,593 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:45,593 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:28:45,594 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:28:45,594 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:28:51,127 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:51,127 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:28:51,127 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:28:52,358 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:52,358 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:28:52,358 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:28:53,367 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:53,367 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:28:53,367 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:28:55,212 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:55,213 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:28:55,213 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:28:55,213 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:28:55,830 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:55,830 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:28:55,830 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:28:55,831 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:28:56,218 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:56,219 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:28:56,219 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:28:56,220 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:28:56,557 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:28:56,558 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:28:56,558 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:28:57,405 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:28:57,405 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:28:57,406 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:28:57,406 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:29:03,050 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:03,051 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:29:03,051 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-18 18:29:03,052 - pdf_processor - INFO - Found 10 PDF files in Housing_Production
+2025-06-18 18:29:03,052 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:29:04,925 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:04,925 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:29:04,926 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:29:04,926 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:29:10,663 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:10,663 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:29:10,664 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:29:11,967 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:11,968 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:29:11,968 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:29:12,948 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:12,948 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:29:12,949 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:29:14,874 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:14,874 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:29:14,875 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:29:14,875 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:29:15,506 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:15,507 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:29:15,507 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:29:15,507 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:29:15,844 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:15,844 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:29:15,844 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:29:15,845 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:29:16,235 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:16,235 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:29:16,236 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:29:16,974 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:16,975 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:29:16,975 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:29:16,975 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:29:22,775 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:22,775 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:29:22,775 - pdf_processor - INFO - Processing hotspot directory: Incineration_of_Plastics
+2025-06-18 18:29:22,775 - pdf_processor - INFO - Found 10 PDF files in Incineration_of_Plastics
+2025-06-18 18:29:22,775 - pdf_processor - INFO - Processing: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:29:22,925 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:29:22,926 - pdf_processor - INFO - Text reduced from 12302 to 10297 characters
+2025-06-18 18:29:22,926 - pdf_processor - INFO - Successfully processed: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:29:22,926 - pdf_processor - INFO - Processing: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:29:23,854 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:23,854 - pdf_processor - INFO - Text reduced from 64177 to 49026 characters
+2025-06-18 18:29:23,854 - pdf_processor - INFO - Successfully processed: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:29:23,865 - pdf_processor - INFO - Processing: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:29:25,109 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:25,109 - pdf_processor - INFO - Successfully processed: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:29:25,109 - pdf_processor - INFO - Processing: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:29:28,255 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:28,255 - pdf_processor - INFO - Text reduced from 320863 to 252326 characters
+2025-06-18 18:29:28,255 - pdf_processor - INFO - Successfully processed: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:29:28,255 - pdf_processor - INFO - Processing: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:29:28,457 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:28,457 - pdf_processor - INFO - Text reduced from 14471 to 14343 characters
+2025-06-18 18:29:28,457 - pdf_processor - INFO - Successfully processed: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:29:28,473 - pdf_processor - INFO - Processing: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:29:28,728 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:28,728 - pdf_processor - INFO - Successfully processed: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:29:28,728 - pdf_processor - INFO - Processing: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:29:28,926 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:29:28,926 - pdf_processor - INFO - Text reduced from 32434 to 23466 characters
+2025-06-18 18:29:28,926 - pdf_processor - INFO - Successfully processed: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:29:28,926 - pdf_processor - INFO - Processing: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:29:29,087 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:29,087 - pdf_processor - INFO - Successfully processed: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:29:29,087 - pdf_processor - INFO - Processing: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:29:29,553 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:29:29,553 - pdf_processor - INFO - Text reduced from 35868 to 32870 characters
+2025-06-18 18:29:29,553 - pdf_processor - INFO - Successfully processed: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:29:29,553 - pdf_processor - INFO - Processing: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:29:29,721 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:29,723 - pdf_processor - INFO - Successfully processed: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:29:29,723 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-18 18:29:29,724 - pdf_processor - INFO - Found 10 PDF files in PCBA_Production
+2025-06-18 18:29:29,724 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:29:31,366 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:31,366 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:29:31,367 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:29:31,367 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:29:37,147 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:37,148 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:29:37,148 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:29:38,475 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:38,475 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:29:38,475 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:29:39,705 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:39,705 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:29:39,706 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:29:41,542 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:41,542 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:29:41,543 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:29:41,544 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:29:42,147 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:42,157 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:29:42,157 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:29:42,157 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:29:42,528 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:42,528 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:29:42,529 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:29:42,529 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:29:43,053 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:43,053 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:29:43,053 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:29:43,815 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:43,816 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:29:43,816 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:29:43,816 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:29:48,924 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:48,924 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:29:48,924 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-18 18:29:48,924 - pdf_processor - INFO - Found 10 PDF files in Radiator_Production
+2025-06-18 18:29:48,924 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:29:50,622 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:29:50,622 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:29:50,622 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:29:50,622 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:29:56,468 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:56,468 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:29:56,468 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:29:57,814 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:57,815 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:29:57,815 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:29:58,746 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:29:58,746 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:29:58,746 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:00,504 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:00,504 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:30:00,504 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:00,520 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:30:01,128 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:01,128 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:30:01,128 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:30:01,129 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:30:01,438 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:01,438 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:30:01,438 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:30:01,438 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:30:01,835 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:01,835 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:30:01,836 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:30:02,558 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:02,558 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:30:02,559 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:30:02,559 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:30:07,803 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:07,803 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:30:07,803 - pdf_processor - INFO - Processing hotspot directory: Specialized_e-Waste_Processing
+2025-06-18 18:30:07,804 - pdf_processor - INFO - Found 10 PDF files in Specialized_e-Waste_Processing
+2025-06-18 18:30:07,804 - pdf_processor - INFO - Processing: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:30:07,967 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:30:07,967 - pdf_processor - INFO - Text reduced from 12302 to 10297 characters
+2025-06-18 18:30:07,967 - pdf_processor - INFO - Successfully processed: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:30:07,967 - pdf_processor - INFO - Processing: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:30:08,681 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:08,681 - pdf_processor - INFO - Text reduced from 64177 to 49026 characters
+2025-06-18 18:30:08,681 - pdf_processor - INFO - Successfully processed: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:30:08,681 - pdf_processor - INFO - Processing: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:30:09,656 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:09,656 - pdf_processor - INFO - Successfully processed: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:30:09,656 - pdf_processor - INFO - Processing: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:30:12,503 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:12,503 - pdf_processor - INFO - Text reduced from 320863 to 252326 characters
+2025-06-18 18:30:12,503 - pdf_processor - INFO - Successfully processed: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:30:12,503 - pdf_processor - INFO - Processing: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:30:12,723 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:12,723 - pdf_processor - INFO - Text reduced from 14471 to 14343 characters
+2025-06-18 18:30:12,723 - pdf_processor - INFO - Successfully processed: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:30:12,723 - pdf_processor - INFO - Processing: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:30:12,985 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:12,985 - pdf_processor - INFO - Successfully processed: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:30:12,985 - pdf_processor - INFO - Processing: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:30:13,202 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:30:13,202 - pdf_processor - INFO - Text reduced from 32434 to 23466 characters
+2025-06-18 18:30:13,202 - pdf_processor - INFO - Successfully processed: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:30:13,202 - pdf_processor - INFO - Processing: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:30:13,306 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:13,306 - pdf_processor - INFO - Successfully processed: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:30:13,306 - pdf_processor - INFO - Processing: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:30:13,736 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:30:13,736 - pdf_processor - INFO - Text reduced from 35868 to 32870 characters
+2025-06-18 18:30:13,752 - pdf_processor - INFO - Successfully processed: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:30:13,752 - pdf_processor - INFO - Processing: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:30:13,913 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:13,913 - pdf_processor - INFO - Successfully processed: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:30:13,913 - pdf_processor - INFO - Processing hotspot directory: Standby_Power_Consumption
+2025-06-18 18:30:13,913 - pdf_processor - INFO - Found 10 PDF files in Standby_Power_Consumption
+2025-06-18 18:30:13,913 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:30:15,576 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:15,576 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:30:15,576 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:30:15,576 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:30:21,240 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:21,240 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:30:21,240 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:30:22,434 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:22,434 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:30:22,434 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:30:23,460 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:23,460 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:30:23,461 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:25,420 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:25,420 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:30:25,420 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:25,420 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:30:26,045 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:26,046 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:30:26,046 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:30:26,046 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:30:26,380 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:26,380 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:30:26,380 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:30:26,381 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:30:26,715 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:26,715 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:30:26,715 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:30:27,444 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:27,444 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:30:27,444 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:30:27,444 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:30:32,623 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:32,623 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:30:32,623 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-18 18:30:32,623 - pdf_processor - INFO - Found 10 PDF files in Transportation
+2025-06-18 18:30:32,623 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:30:34,372 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:34,372 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:30:34,372 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:30:34,372 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:30:39,945 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:39,945 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:30:39,945 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:30:41,218 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:41,218 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:30:41,218 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:30:42,157 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:42,157 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:30:42,158 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:43,964 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:43,964 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:30:43,964 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:43,964 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:30:44,556 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:44,556 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:30:44,556 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:30:44,556 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:30:44,873 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:44,873 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:30:44,873 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:30:44,874 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:30:45,248 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:45,248 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:30:45,248 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:30:45,956 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:30:45,956 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:30:45,956 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:30:45,956 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:30:50,810 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:30:50,810 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:30:50,810 - pdf_processor - INFO - Successfully processed 90 papers total
+2025-06-18 18:30:50,939 - pdf_processor - INFO - Processed papers saved to: output\temp_input\processed_papers.json
+2025-06-18 18:30:50,939 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\temp_input\processed_papers.json
+2025-06-18 18:30:50,939 - __main__ - INFO - ============================================================
+2025-06-18 18:30:50,939 - __main__ - INFO - STEP 5: SUSTAINABILITY REPORT GENERATION
+2025-06-18 18:30:50,939 - __main__ - INFO - ============================================================
+2025-06-18 18:30:50,939 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/temp_input/hotspot_lca_analysis.json
+2025-06-18 18:30:50,939 - sustainable_solutions_generator - INFO - Using output folder: output\temp_input
+2025-06-18 18:30:50,939 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\temp_input/sustainable_solutions_report.txt
+2025-06-18 18:30:50,939 - sustainable_solutions_generator - INFO - Loaded raw input data
+2025-06-18 18:30:50,939 - sustainable_solutions_generator - INFO - Found 9 search queries for hotspots
+2025-06-18 18:30:50,939 - sustainable_solutions_generator - INFO - Starting ArXiv paper download and processing...
+2025-06-18 18:30:50,939 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Housing Production
+2025-06-18 18:30:50,939 - arxiv_paper_downloader - INFO - Query: ("injection molding" OR "plastic production") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing component" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:30:50,939 - arxiv_paper_downloader - INFO - Original query: ("injection molding" OR "plastic production") AND ("energy efficiency" OR "sustainable manufacturing") AND ("housing component" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:30:50,939 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:30:50,939 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:30:51,096 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:30:52,091 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:30:53,092 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:30:55,127 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:30:56,129 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:30:56,540 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:30:57,546 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:30:57,760 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:30:58,761 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:30:59,658 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:31:00,660 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:31:00,784 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:31:01,786 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:31:02,167 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:31:03,168 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:31:03,599 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:31:04,600 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:31:04,761 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:31:05,762 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:31:06,073 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:31:07,079 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Housing Production'
+2025-06-18 18:31:09,087 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Radiator Production
+2025-06-18 18:31:09,087 - arxiv_paper_downloader - INFO - Query: ("die casting" OR "aluminum production") AND ("energy reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:31:09,087 - arxiv_paper_downloader - INFO - Original query: ("die casting" OR "aluminum production") AND ("energy reduction" OR "sustainable manufacturing") AND ("radiator component" OR "thermal management") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:31:09,087 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:31:09,087 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:31:09,191 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:31:10,140 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:31:11,142 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:31:13,114 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:31:14,115 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:31:14,523 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:31:15,525 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:31:15,721 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:31:16,729 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:31:17,601 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:31:18,611 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:31:18,744 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:31:19,746 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:31:20,100 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:31:21,115 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:31:21,431 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:31:22,432 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:31:22,606 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:31:23,612 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:31:23,934 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:31:24,935 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Radiator Production'
+2025-06-18 18:31:26,939 - arxiv_paper_downloader - INFO - Searching papers for hotspot: PCBA Production
+2025-06-18 18:31:26,939 - arxiv_paper_downloader - INFO - Query: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics") AND ("printed circuit board" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:31:26,939 - arxiv_paper_downloader - INFO - Original query: ("reflow soldering" OR "wave soldering" OR "PCB assembly") AND ("energy efficiency" OR "sustainable electronics") AND ("printed circuit board" OR "electronic control unit") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:31:26,939 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:31:26,939 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:31:27,057 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:31:27,966 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:31:28,970 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:31:31,015 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:31:32,017 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:31:32,453 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:31:33,463 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:31:33,660 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:31:34,661 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:31:35,581 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:31:36,585 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:31:36,725 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:31:37,740 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:31:38,082 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:31:39,094 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:31:39,418 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:31:40,423 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:31:40,594 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:31:41,597 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:31:41,896 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:31:42,899 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'PCBA Production'
+2025-06-18 18:31:44,906 - arxiv_paper_downloader - INFO - Searching papers for hotspot: EMC Shield Production
+2025-06-18 18:31:44,906 - arxiv_paper_downloader - INFO - Query: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:31:44,907 - arxiv_paper_downloader - INFO - Original query: ("punching and bending" OR "steel production") AND ("energy reduction" OR "sustainable manufacturing") AND ("EMC shield component" OR "electromagnetic compatibility") AND ("production phase" OR "manufacturing process")
+2025-06-18 18:31:44,907 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:31:44,907 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:31:45,010 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:31:46,021 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:31:47,024 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:31:49,173 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:31:50,181 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:31:50,569 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:31:51,570 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:31:51,757 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:31:52,758 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:31:53,738 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:31:54,753 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:31:54,882 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:31:55,882 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:31:56,225 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:31:57,228 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:31:57,542 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:31:58,545 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:31:58,820 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:31:59,820 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:32:00,155 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:32:01,160 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'EMC Shield Production'
+2025-06-18 18:32:03,167 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-18 18:32:03,167 - arxiv_paper_downloader - INFO - Query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("distribution phase" OR "transportation process")
+2025-06-18 18:32:03,167 - arxiv_paper_downloader - INFO - Original query: ("road transport" OR "freight transportation") AND ("energy efficiency" OR "sustainable logistics") AND ("electronic control unit" OR "automotive components") AND ("distribution phase" OR "transportation process")
+2025-06-18 18:32:03,167 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:32:03,168 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:32:03,311 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:32:04,297 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:32:05,299 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:32:07,686 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:32:08,689 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:32:09,084 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:32:10,085 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:32:10,287 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:32:11,291 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:32:12,124 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:32:13,127 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:32:13,240 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:32:14,256 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:32:14,603 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:32:15,604 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:32:15,914 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:32:16,917 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:32:17,085 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:32:18,100 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:32:18,463 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:32:19,466 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Transportation'
+2025-06-18 18:32:21,469 - arxiv_paper_downloader - INFO - Searching papers for hotspot: ECU Operation
+2025-06-18 18:32:21,469 - arxiv_paper_downloader - INFO - Query: ("active power consumption" OR "energy efficiency") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase") AND ("sustainable design" OR "energy reduction")
+2025-06-18 18:32:21,470 - arxiv_paper_downloader - INFO - Original query: ("active power consumption" OR "energy efficiency") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase") AND ("sustainable design" OR "energy reduction")
+2025-06-18 18:32:21,470 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:32:21,470 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:32:21,573 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:32:22,484 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:32:23,496 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:32:25,605 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:32:26,616 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:32:27,013 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:32:28,019 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:32:28,225 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:32:29,227 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:32:30,108 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:32:31,110 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:32:31,226 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:32:32,228 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:32:32,637 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:32:33,638 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:32:33,969 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:32:34,971 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:32:35,142 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:32:36,143 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:32:36,452 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:32:37,454 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'ECU Operation'
+2025-06-18 18:32:39,456 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Standby Power Consumption
+2025-06-18 18:32:39,456 - arxiv_paper_downloader - INFO - Query: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase")
+2025-06-18 18:32:39,457 - arxiv_paper_downloader - INFO - Original query: ("standby power" OR "vampire power") AND ("energy efficiency" OR "sustainable design") AND ("electronic control unit" OR "automotive electronics") AND ("use phase" OR "operation phase")
+2025-06-18 18:32:39,457 - arxiv_paper_downloader - INFO - ArXiv API query: all:energy
+2025-06-18 18:32:39,458 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Aenergy&start=0&max_results=10
+2025-06-18 18:32:39,601 - arxiv_paper_downloader - INFO - Downloading paper 1: The Dark Energy Survey
+2025-06-18 18:32:40,581 - arxiv_paper_downloader - INFO - Successfully downloaded: The Dark Energy Survey.pdf
+2025-06-18 18:32:41,582 - arxiv_paper_downloader - INFO - Downloading paper 2: Large Synoptic Survey Telescope: Dark Energy Science Collaboration
+2025-06-18 18:32:43,655 - arxiv_paper_downloader - INFO - Successfully downloaded: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:32:44,658 - arxiv_paper_downloader - INFO - Downloading paper 3: Dark Energy and Cosmic Sound: w(z) Surveys with the Gemini/Subaru Wide-Field Multi-Object Spectrograph
+2025-06-18 18:32:45,101 - arxiv_paper_downloader - INFO - Successfully downloaded: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:32:46,103 - arxiv_paper_downloader - INFO - Downloading paper 4: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold
+2025-06-18 18:32:46,296 - arxiv_paper_downloader - INFO - Successfully downloaded: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:32:47,299 - arxiv_paper_downloader - INFO - Downloading paper 5: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass
+2025-06-18 18:32:48,282 - arxiv_paper_downloader - INFO - Successfully downloaded: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:32:49,285 - arxiv_paper_downloader - INFO - Downloading paper 6: Quantum Haplodynamics, Dark Matter and Dark Energy
+2025-06-18 18:32:49,407 - arxiv_paper_downloader - INFO - Successfully downloaded: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:32:50,407 - arxiv_paper_downloader - INFO - Downloading paper 7: On Extracting Thermal Parameters and Scenario in High-Energy Collisions
+2025-06-18 18:32:50,762 - arxiv_paper_downloader - INFO - Successfully downloaded: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:32:51,763 - arxiv_paper_downloader - INFO - Downloading paper 8: An analysis of transverse momentum spectra of various jets produced in high energy collisions
+2025-06-18 18:32:52,106 - arxiv_paper_downloader - INFO - Successfully downloaded: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:32:53,121 - arxiv_paper_downloader - INFO - Downloading paper 9: Searching for minimum in dependence of squared speed-of-sound on collision energy
+2025-06-18 18:32:53,290 - arxiv_paper_downloader - INFO - Successfully downloaded: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:32:54,299 - arxiv_paper_downloader - INFO - Downloading paper 10: On the Square Speed of Sound in High-Energy Collisions: Range of Values and How to Understand It
+2025-06-18 18:32:54,597 - arxiv_paper_downloader - INFO - Successfully downloaded: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:32:55,598 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Standby Power Consumption'
+2025-06-18 18:32:57,601 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Incineration of Plastics
+2025-06-18 18:32:57,601 - arxiv_paper_downloader - INFO - Query: ("plastic incineration" OR "waste management") AND ("sustainable waste disposal" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("electronic control unit" OR "automotive components")
+2025-06-18 18:32:57,601 - arxiv_paper_downloader - INFO - Original query: ("plastic incineration" OR "waste management") AND ("sustainable waste disposal" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("electronic control unit" OR "automotive components")
+2025-06-18 18:32:57,601 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable
+2025-06-18 18:32:57,601 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Asustainable&start=0&max_results=10
+2025-06-18 18:32:57,730 - arxiv_paper_downloader - INFO - Downloading paper 1: Environmental sustainability in basic research: a perspective from HECAP+
+2025-06-18 18:33:03,287 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:33:04,299 - arxiv_paper_downloader - INFO - Downloading paper 2: Towards a 6G embedding sustainability
+2025-06-18 18:33:04,553 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:33:05,568 - arxiv_paper_downloader - INFO - Downloading paper 3: Sustainability in HPC: Vision and Opportunities
+2025-06-18 18:33:05,784 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:33:06,787 - arxiv_paper_downloader - INFO - Downloading paper 4: Experiments in Sustainable Software Practices for Future Architectures
+2025-06-18 18:33:06,857 - arxiv_paper_downloader - INFO - Successfully downloaded: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:33:07,869 - arxiv_paper_downloader - INFO - Downloading paper 5: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11)
+2025-06-18 18:33:08,254 - arxiv_paper_downloader - INFO - Successfully downloaded: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:33:09,270 - arxiv_paper_downloader - INFO - Downloading paper 6: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustainability
+2025-06-18 18:33:09,589 - arxiv_paper_downloader - INFO - Successfully downloaded: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:33:10,591 - arxiv_paper_downloader - INFO - Downloading paper 7: Benefits of Resource Strategy for Sustainable Materials Research and Development
+2025-06-18 18:33:11,598 - arxiv_paper_downloader - INFO - Successfully downloaded: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:33:12,604 - arxiv_paper_downloader - INFO - Downloading paper 8: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive Metadata Repositories
+2025-06-18 18:33:12,699 - arxiv_paper_downloader - INFO - Successfully downloaded: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:33:13,700 - arxiv_paper_downloader - INFO - Downloading paper 9: Towards a Software Product Sustainability Model
+2025-06-18 18:33:13,897 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:33:14,898 - arxiv_paper_downloader - INFO - Downloading paper 10: Sustainable Software Ecosystems for Open Science
+2025-06-18 18:33:15,261 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:33:16,264 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Incineration of Plastics'
+2025-06-18 18:33:18,273 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Specialized e-Waste Processing
+2025-06-18 18:33:18,273 - arxiv_paper_downloader - INFO - Query: ("e-waste processing" OR "electronic waste management") AND ("sustainable recycling" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("printed circuit board" OR "electronic control unit")
+2025-06-18 18:33:18,275 - arxiv_paper_downloader - INFO - Original query: ("e-waste processing" OR "electronic waste management") AND ("sustainable recycling" OR "environmental impact reduction") AND ("end-of-life phase" OR "disposal process") AND ("printed circuit board" OR "electronic control unit")
+2025-06-18 18:33:18,276 - arxiv_paper_downloader - INFO - ArXiv API query: all:sustainable
+2025-06-18 18:33:18,278 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=all%3Asustainable&start=0&max_results=10
+2025-06-18 18:33:18,409 - arxiv_paper_downloader - INFO - Downloading paper 1: Environmental sustainability in basic research: a perspective from HECAP+
+2025-06-18 18:33:23,433 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:33:24,434 - arxiv_paper_downloader - INFO - Downloading paper 2: Towards a 6G embedding sustainability
+2025-06-18 18:33:24,720 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:33:25,722 - arxiv_paper_downloader - INFO - Downloading paper 3: Sustainability in HPC: Vision and Opportunities
+2025-06-18 18:33:26,026 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:33:27,029 - arxiv_paper_downloader - INFO - Downloading paper 4: Experiments in Sustainable Software Practices for Future Architectures
+2025-06-18 18:33:27,120 - arxiv_paper_downloader - INFO - Successfully downloaded: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:33:28,122 - arxiv_paper_downloader - INFO - Downloading paper 5: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11)
+2025-06-18 18:33:28,493 - arxiv_paper_downloader - INFO - Successfully downloaded: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:33:29,497 - arxiv_paper_downloader - INFO - Downloading paper 6: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustainability
+2025-06-18 18:33:29,606 - arxiv_paper_downloader - INFO - Successfully downloaded: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:33:30,608 - arxiv_paper_downloader - INFO - Downloading paper 7: Benefits of Resource Strategy for Sustainable Materials Research and Development
+2025-06-18 18:33:31,706 - arxiv_paper_downloader - INFO - Successfully downloaded: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:33:32,708 - arxiv_paper_downloader - INFO - Downloading paper 8: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive Metadata Repositories
+2025-06-18 18:33:32,773 - arxiv_paper_downloader - INFO - Successfully downloaded: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:33:33,781 - arxiv_paper_downloader - INFO - Downloading paper 9: Towards a Software Product Sustainability Model
+2025-06-18 18:33:33,989 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:33:35,005 - arxiv_paper_downloader - INFO - Downloading paper 10: Sustainable Software Ecosystems for Open Science
+2025-06-18 18:33:35,367 - arxiv_paper_downloader - INFO - Successfully downloaded: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:33:36,367 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Specialized e-Waste Processing'
+2025-06-18 18:33:38,392 - arxiv_paper_downloader - INFO - Downloaded 90 papers total for 9 hotspots
+2025-06-18 18:33:38,394 - pdf_processor - INFO - Processing papers in: output\temp_input\downloaded_papers
+2025-06-18 18:33:38,411 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-18 18:33:38,411 - pdf_processor - INFO - Processing hotspot directory: ECU_Operation
+2025-06-18 18:33:38,412 - pdf_processor - INFO - Found 10 PDF files in ECU_Operation
+2025-06-18 18:33:38,413 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:33:40,293 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:33:40,293 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:33:40,293 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:33:40,293 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:33:46,455 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:33:46,455 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:33:46,456 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:33:47,809 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:33:47,810 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:33:47,810 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:33:49,090 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:33:49,090 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:33:49,090 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:33:50,863 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:33:50,865 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:33:50,865 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:33:50,865 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:33:51,463 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:33:51,464 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:33:51,464 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:33:51,464 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:33:51,839 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:33:51,839 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:33:51,839 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:33:51,840 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:33:52,189 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:33:52,189 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:33:52,189 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:33:52,925 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:33:52,926 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:33:52,926 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:33:52,926 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:33:58,035 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:33:58,036 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:33:58,036 - pdf_processor - INFO - Processing hotspot directory: EMC_Shield_Production
+2025-06-18 18:33:58,038 - pdf_processor - INFO - Found 10 PDF files in EMC_Shield_Production
+2025-06-18 18:33:58,038 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:33:59,708 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:33:59,708 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:33:59,709 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:33:59,709 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:34:05,311 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:05,312 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:34:05,312 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:34:06,524 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:06,524 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:34:06,525 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:34:07,518 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:07,519 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:34:07,519 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:34:09,373 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:09,373 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:34:09,373 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:34:09,373 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:34:09,954 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:09,954 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:34:09,954 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:34:09,954 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:34:10,276 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:10,276 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:34:10,276 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:34:10,276 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:34:10,749 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:10,750 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:34:10,750 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:34:11,401 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:11,401 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:34:11,401 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:34:11,401 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:34:16,418 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:16,418 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:34:16,419 - pdf_processor - INFO - Processing hotspot directory: Housing_Production
+2025-06-18 18:34:16,420 - pdf_processor - INFO - Found 10 PDF files in Housing_Production
+2025-06-18 18:34:16,420 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:34:18,153 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:18,153 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:34:18,154 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:34:18,155 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:34:23,838 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:23,838 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:34:23,838 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:34:25,053 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:25,053 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:34:25,053 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:34:26,065 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:26,065 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:34:26,065 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:34:27,930 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:27,930 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:34:27,930 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:34:27,930 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:34:28,536 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:28,536 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:34:28,536 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:34:28,536 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:34:28,901 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:28,901 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:34:28,901 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:34:28,901 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:34:29,261 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:29,262 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:34:29,262 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:34:30,003 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:30,003 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:34:30,003 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:34:30,003 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:34:35,032 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:35,033 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:34:35,034 - pdf_processor - INFO - Processing hotspot directory: Incineration_of_Plastics
+2025-06-18 18:34:35,035 - pdf_processor - INFO - Found 10 PDF files in Incineration_of_Plastics
+2025-06-18 18:34:35,035 - pdf_processor - INFO - Processing: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:34:35,177 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:34:35,178 - pdf_processor - INFO - Text reduced from 12302 to 10297 characters
+2025-06-18 18:34:35,178 - pdf_processor - INFO - Successfully processed: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:34:35,179 - pdf_processor - INFO - Processing: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:34:35,834 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:35,834 - pdf_processor - INFO - Text reduced from 64177 to 49026 characters
+2025-06-18 18:34:35,834 - pdf_processor - INFO - Successfully processed: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:34:35,834 - pdf_processor - INFO - Processing: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:34:36,746 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:36,746 - pdf_processor - INFO - Successfully processed: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:34:36,746 - pdf_processor - INFO - Processing: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:34:39,530 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:39,530 - pdf_processor - INFO - Text reduced from 320863 to 252326 characters
+2025-06-18 18:34:39,530 - pdf_processor - INFO - Successfully processed: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:34:39,530 - pdf_processor - INFO - Processing: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:34:39,686 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:39,686 - pdf_processor - INFO - Text reduced from 14471 to 14343 characters
+2025-06-18 18:34:39,687 - pdf_processor - INFO - Successfully processed: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:34:39,687 - pdf_processor - INFO - Processing: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:34:40,000 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:40,001 - pdf_processor - INFO - Successfully processed: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:34:40,002 - pdf_processor - INFO - Processing: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:34:40,191 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:34:40,191 - pdf_processor - INFO - Text reduced from 32434 to 23466 characters
+2025-06-18 18:34:40,191 - pdf_processor - INFO - Successfully processed: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:34:40,191 - pdf_processor - INFO - Processing: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:34:40,278 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:40,278 - pdf_processor - INFO - Successfully processed: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:34:40,278 - pdf_processor - INFO - Processing: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:34:40,767 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:34:40,767 - pdf_processor - INFO - Text reduced from 35868 to 32870 characters
+2025-06-18 18:34:40,783 - pdf_processor - INFO - Successfully processed: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:34:40,785 - pdf_processor - INFO - Processing: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:34:40,888 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:40,888 - pdf_processor - INFO - Successfully processed: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:34:40,888 - pdf_processor - INFO - Processing hotspot directory: PCBA_Production
+2025-06-18 18:34:40,888 - pdf_processor - INFO - Found 10 PDF files in PCBA_Production
+2025-06-18 18:34:40,888 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:34:42,588 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:42,588 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:34:42,588 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:34:42,588 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:34:48,193 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:48,194 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:34:48,194 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:34:49,407 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:49,407 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:34:49,408 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:34:50,437 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:50,438 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:34:50,438 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:34:52,204 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:52,220 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:34:52,220 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:34:52,220 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:34:52,875 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:52,875 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:34:52,876 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:34:52,876 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:34:53,251 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:53,251 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:34:53,251 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:34:53,251 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:34:53,580 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:53,580 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:34:53,580 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:34:54,613 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:34:54,613 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:34:54,613 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:34:54,613 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:34:59,572 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:34:59,572 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:34:59,572 - pdf_processor - INFO - Processing hotspot directory: Radiator_Production
+2025-06-18 18:34:59,572 - pdf_processor - INFO - Found 10 PDF files in Radiator_Production
+2025-06-18 18:34:59,572 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:35:01,211 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:01,211 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:35:01,211 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:35:01,211 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:35:06,875 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:06,876 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:35:06,876 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:35:08,090 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:08,090 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:35:08,090 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:35:09,075 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:09,076 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:35:09,076 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:35:10,910 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:10,921 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:35:10,921 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:35:10,921 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:35:11,589 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:11,589 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:35:11,589 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:35:11,589 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:35:11,905 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:11,905 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:35:11,921 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:35:11,921 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:35:12,318 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:12,319 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:35:12,319 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:35:13,020 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:13,020 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:35:13,020 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:35:13,020 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:35:18,043 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:18,043 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:35:18,043 - pdf_processor - INFO - Processing hotspot directory: Specialized_e-Waste_Processing
+2025-06-18 18:35:18,043 - pdf_processor - INFO - Found 10 PDF files in Specialized_e-Waste_Processing
+2025-06-18 18:35:18,054 - pdf_processor - INFO - Processing: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:35:18,193 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:35:18,193 - pdf_processor - INFO - Text reduced from 12302 to 10297 characters
+2025-06-18 18:35:18,193 - pdf_processor - INFO - Successfully processed: A Proposal for the Measurement and Documentation of Research Software Sustainability in Interactive .pdf
+2025-06-18 18:35:18,193 - pdf_processor - INFO - Processing: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:35:18,890 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:18,890 - pdf_processor - INFO - Text reduced from 64177 to 49026 characters
+2025-06-18 18:35:18,890 - pdf_processor - INFO - Successfully processed: An Empirical Analysis of AI Contributions to Sustainable Cities (SDG11).pdf
+2025-06-18 18:35:18,890 - pdf_processor - INFO - Processing: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:35:19,840 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:19,840 - pdf_processor - INFO - Successfully processed: Benefits of Resource Strategy for Sustainable Materials Research and Development.pdf
+2025-06-18 18:35:19,840 - pdf_processor - INFO - Processing: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:35:22,739 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:22,739 - pdf_processor - INFO - Text reduced from 320863 to 252326 characters
+2025-06-18 18:35:22,739 - pdf_processor - INFO - Successfully processed: Environmental sustainability in basic research_ a perspective from HECAP+.pdf
+2025-06-18 18:35:22,739 - pdf_processor - INFO - Processing: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:35:22,961 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:22,961 - pdf_processor - INFO - Text reduced from 14471 to 14343 characters
+2025-06-18 18:35:22,961 - pdf_processor - INFO - Successfully processed: Experiments in Sustainable Software Practices for Future Architectures.pdf
+2025-06-18 18:35:22,961 - pdf_processor - INFO - Processing: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:35:23,227 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:23,228 - pdf_processor - INFO - Successfully processed: Initial Findings from a Study of Best Practices and Models for Cyberinfrastructure Software Sustaina.pdf
+2025-06-18 18:35:23,228 - pdf_processor - INFO - Processing: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:35:23,401 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:35:23,401 - pdf_processor - INFO - Text reduced from 32434 to 23466 characters
+2025-06-18 18:35:23,401 - pdf_processor - INFO - Successfully processed: Sustainability in HPC_ Vision and Opportunities.pdf
+2025-06-18 18:35:23,401 - pdf_processor - INFO - Processing: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:35:23,540 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:23,540 - pdf_processor - INFO - Successfully processed: Sustainable Software Ecosystems for Open Science.pdf
+2025-06-18 18:35:23,540 - pdf_processor - INFO - Processing: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:35:24,000 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-18 18:35:24,001 - pdf_processor - INFO - Text reduced from 35868 to 32870 characters
+2025-06-18 18:35:24,001 - pdf_processor - INFO - Successfully processed: Towards a 6G embedding sustainability.pdf
+2025-06-18 18:35:24,001 - pdf_processor - INFO - Processing: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:35:24,158 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:24,159 - pdf_processor - INFO - Successfully processed: Towards a Software Product Sustainability Model.pdf
+2025-06-18 18:35:24,159 - pdf_processor - INFO - Processing hotspot directory: Standby_Power_Consumption
+2025-06-18 18:35:24,159 - pdf_processor - INFO - Found 10 PDF files in Standby_Power_Consumption
+2025-06-18 18:35:24,160 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:35:25,785 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:25,786 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:35:25,787 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:35:25,787 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:35:31,333 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:31,334 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:35:31,335 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:35:32,463 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:32,463 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:35:32,463 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:35:33,486 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:33,486 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:35:33,486 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:35:35,318 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:35,318 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:35:35,318 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:35:35,318 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:35:35,902 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:35,902 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:35:35,902 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:35:35,902 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:35:36,278 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:36,278 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:35:36,278 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:35:36,278 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:35:36,601 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:36,601 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:35:36,601 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:35:37,343 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:37,343 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:35:37,343 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:35:37,344 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:35:42,140 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:42,140 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:35:42,140 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-18 18:35:42,155 - pdf_processor - INFO - Found 10 PDF files in Transportation
+2025-06-18 18:35:42,155 - pdf_processor - INFO - Processing: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:35:43,779 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:43,779 - pdf_processor - INFO - Text reduced from 60550 to 51731 characters
+2025-06-18 18:35:43,779 - pdf_processor - INFO - Successfully processed: An analysis of transverse momentum spectra of various jets produced in high energy collisions.pdf
+2025-06-18 18:35:43,780 - pdf_processor - INFO - Processing: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:35:49,572 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:49,572 - pdf_processor - INFO - Successfully processed: Calibration of centre-of-mass energies at LEP 2 for a precise measurement of the W boson mass.pdf
+2025-06-18 18:35:49,572 - pdf_processor - INFO - Processing: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:35:50,784 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:50,784 - pdf_processor - INFO - Successfully processed: Dark Energy and Cosmic Sound_ w(z) Surveys with the Gemini_Subaru Wide-Field Multi-Object Spectrogra.pdf
+2025-06-18 18:35:50,784 - pdf_processor - INFO - Processing: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:35:51,718 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:51,718 - pdf_processor - INFO - Successfully processed: Evaluation of the LEP Centre-of-Mass Energy Above the W-Pair Production Threshold.pdf
+2025-06-18 18:35:51,718 - pdf_processor - INFO - Processing: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:35:53,501 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:53,502 - pdf_processor - INFO - Text reduced from 412222 to 11015 characters
+2025-06-18 18:35:53,502 - pdf_processor - INFO - Successfully processed: Large Synoptic Survey Telescope_ Dark Energy Science Collaboration.pdf
+2025-06-18 18:35:53,503 - pdf_processor - INFO - Processing: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:35:54,091 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:54,091 - pdf_processor - INFO - Text reduced from 51789 to 35962 characters
+2025-06-18 18:35:54,091 - pdf_processor - INFO - Successfully processed: On Extracting Thermal Parameters and Scenario in High-Energy Collisions.pdf
+2025-06-18 18:35:54,091 - pdf_processor - INFO - Processing: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:35:54,414 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:54,415 - pdf_processor - INFO - Text reduced from 31482 to 24470 characters
+2025-06-18 18:35:54,415 - pdf_processor - INFO - Successfully processed: On the Square Speed of Sound in High-Energy Collisions_ Range of Values and How to Understand It.pdf
+2025-06-18 18:35:54,415 - pdf_processor - INFO - Processing: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:35:54,800 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:35:54,800 - pdf_processor - INFO - Successfully processed: Quantum Haplodynamics, Dark Matter and Dark Energy.pdf
+2025-06-18 18:35:54,800 - pdf_processor - INFO - Processing: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:35:55,466 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-18 18:35:55,466 - pdf_processor - INFO - Text reduced from 27794 to 22219 characters
+2025-06-18 18:35:55,467 - pdf_processor - INFO - Successfully processed: Searching for minimum in dependence of squared speed-of-sound on collision energy.pdf
+2025-06-18 18:35:55,467 - pdf_processor - INFO - Processing: The Dark Energy Survey.pdf
+2025-06-18 18:36:00,634 - pdf_processor - INFO - No references section found to remove
+2025-06-18 18:36:00,634 - pdf_processor - INFO - Successfully processed: The Dark Energy Survey.pdf
+2025-06-18 18:36:00,634 - pdf_processor - INFO - Successfully processed 90 papers total
+2025-06-18 18:36:00,667 - pdf_processor - INFO - Processed papers saved to: output\temp_input\processed_papers.json
+2025-06-18 18:36:00,667 - sustainable_solutions_generator - INFO - Papers downloaded and processed. Results saved to: output\temp_input\processed_papers.json
+2025-06-18 18:36:00,690 - sustainable_solutions_generator - ERROR - Error analyzing papers for hotspots: 'charmap' codec can't decode byte 0x81 in position 1315: character maps to <undefined>
+2025-06-18 18:36:00,690 - sustainable_solutions_generator - ERROR - Error generating solutions from hotspot analysis: 'charmap' codec can't decode byte 0x81 in position 1315: character maps to <undefined>
+2025-06-18 18:36:00,690 - __main__ - ERROR - Error in complete workflow execution: 'charmap' codec can't decode byte 0x81 in position 1315: character maps to <undefined>
