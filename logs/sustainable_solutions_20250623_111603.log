@@ -1,5 +1,0 @@
-2025-06-23 11:16:03,790 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
-2025-06-23 11:16:03,793 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/ECU_sample/hotspot_lca_analysis.json
-2025-06-23 11:16:03,793 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\ECU_sample/sustainable_solutions_report.txt
-2025-06-23 11:16:03,820 - sustainable_solutions_generator - INFO - Analyzing 8 processed papers for hotspot solutions
-2025-06-23 11:16:03,821 - sustainable_solutions_generator - INFO - Analyzing 2 papers for hotspot: Aluminium_Die_Casting

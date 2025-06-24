@@ -204,12 +204,10 @@ Return JSON with the following structure:
       "environmental_significance": "high/medium/low",
       "priority_justification": "string"
     }}
-  ],
-  "data_limitations": ["string"]
+  ]
 }}
 
-Only include hotspots that can be identified from the explicitly provided raw input data - omit empty or unknown fields completely.
-Include a "data_limitations" field listing what additional information would be needed for more complete hotspot analysis."""
+Only include hotspots that can be identified from the explicitly provided raw input data - omit empty or unknown fields completely."""
 
             messages = [
                 {"role": "system", "content": self.system_prompt},
@@ -232,43 +230,42 @@ Include a "data_limitations" field listing what additional information would be 
             raise
 
     def generate_search_queries_for_hotspots(self, hotspot_analysis: Dict[str, Any], raw_input_data: str) -> Dict[str, str]:
-        """Generate highly specific search queries for quantitative sustainability solutions."""
+        """Generate optimized search queries for finding relevant LCA and sustainability research papers."""
         try:
-            prompt = f"""Generate highly specific search queries to find research papers with quantitative sustainability solutions for each hotspot.
+            prompt = f"""Generate optimized search queries to find relevant research papers with quantitative LCA and sustainability data for each hotspot.
 
 Raw Input Data: {raw_input_data}
 
 Hotspot Analysis: {json.dumps(hotspot_analysis, indent=2)}
 
-REQUIREMENTS:
-1. Focus on the exact materials, processes, and parameters from the raw input data
-2. Target papers with:
-   - Specific energy/resource reduction percentages 
-   - Process optimization techniques
-   - Quantitative efficiency improvements
-   - Material substitution studies
-   - Parameter optimization research
+QUERY OPTIMIZATION REQUIREMENTS (based on ArXiv API best practices):
+1. Keep queries SHORT and FOCUSED (maximum 8-10 words)
+2. Use EXACT materials and processes from the input data
+3. Include specific LCA/sustainability terms for better relevance
+4. Prioritize quantitative research papers with measurable results
+5. Avoid overly long OR/AND constructions that reduce relevance
 
-For each hotspot, create queries that combine:
-- Component name (e.g. "Housing", "Radiator")
-- Material (e.g. "PBT", "Aluminium") 
-- Manufacturing process (e.g. "Injection Molding", "Die casting")
-- Sustainability terms (e.g. "energy efficiency", "optimization")
-- Quantitative metrics (e.g. "kWh reduction", "cycle time")
+REQUIRED QUERY COMPONENTS:
+- Material name (e.g., "PBT", "aluminium", "steel")
+- Manufacturing process (e.g., "injection molding", "die casting", "assembly")
+- LCA/sustainability keywords: "LCA", "environmental impact", "sustainability", "energy efficiency"
+- Quantitative terms: "optimization", "reduction", "efficiency", "assessment"
 
-Example query structure:
-"injection molding PBT housing energy efficiency optimization cycle time reduction"
+QUERY STRUCTURE EXAMPLES:
+✓ GOOD: "PBT injection molding LCA environmental impact"
+✓ GOOD: "aluminum die casting energy efficiency optimization"
+✓ GOOD: "PCB assembly sustainability environmental assessment"
+✗ AVOID: Long queries with multiple OR statements
 
-  OUTPUT FORMAT:
-  {{
-    "hotspot_queries": {{
-      "hotspot_name": "specific technical query using exact terms from input data",
-      ...
-    }},
-    "query_strategy": "description of query construction approach"
+OUTPUT FORMAT:
+{{
+  "hotspot_queries": {{
+    "hotspot_name": "short_focused_query_with_exact_materials_and_LCA_terms",
+    ...
   }}
+}}
 
-Focus on finding papers with concrete, measurable improvements. Avoid generic sustainability terms."""
+CRITICAL: Generate SHORT, FOCUSED queries that will find relevant LCA/sustainability papers with quantitative data."""
 
             messages = [
                 {"role": "system", "content": "You are an expert in generating precise research queries for sustainability solutions. Create targeted queries that will find engineering papers with quantitative process improvements and measurable environmental benefits."},

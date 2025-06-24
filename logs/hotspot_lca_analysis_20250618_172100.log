@@ -1,7 +1,0 @@
-2025-06-18 17:21:00,984 - faiss.loader - INFO - Loading faiss with AVX2 support.
-2025-06-18 17:21:01,011 - faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
-2025-06-18 17:21:01,017 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
-2025-06-18 17:21:18,365 - hotspot_lca_analyzer - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
-2025-06-18 17:21:18,886 - sustainable_solutions_generator - ERROR - Error initializing VectorSearch: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open vector_db/index.faiss for reading: No such file or directory
-2025-06-18 17:21:18,916 - __main__ - ERROR - Error initializing new workflow: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open vector_db/index.faiss for reading: No such file or directory
-2025-06-18 17:21:18,918 - __main__ - ERROR - Error in main workflow: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\faiss\faiss\impl\io.cpp:68: Error: 'f' failed: could not open vector_db/index.faiss for reading: No such file or directory

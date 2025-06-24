@@ -73,7 +73,7 @@ class NewLCAWorkflow:
         
         # Initialize workflow components
         self.hotspot_analyzer = HotspotLCAAnalyzer([PRIMARY_API_KEY, SECONDARY_API_KEY], BASE_URL)
-        self.arxiv_downloader = ArxivPaperDownloader(max_results_per_query=10)
+        self.arxiv_downloader = ArxivPaperDownloader(max_results_per_query=3)
         self.pdf_processor = PDFProcessor()
         self.solutions_generator = HotspotSustainableSolutionsGenerator(self.api_configs)
         
@@ -631,7 +631,7 @@ def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
             "ArXiv Paper Download": not file_status["downloaded_papers"],
             "PDF Processing": not file_status["processed_papers"],
             "Sustainable Solutions": not file_status["sustainable_solutions"],
-            "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
+            # "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
         }
     else:
         # If hotspot analysis is missing, run all steps
@@ -640,7 +640,7 @@ def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
             "ArXiv Paper Download": True,
             "PDF Processing": True,
             "Sustainable Solutions": True,
-            "Visualization Generation": True
+            # "Visualization Generation": True
         }
     
     return steps_to_run
@@ -649,7 +649,7 @@ def main():
     # Set page config with custom theme
     st.set_page_config(
         page_title="LLM-powered LCA Hotspot Analysis Tool",
-        page_icon="🔥",
+        # page_icon="🔥",
         layout="wide"
     )
     
@@ -865,7 +865,7 @@ def main():
     2. 📚 **ArXiv Paper Download** - Downloads relevant research papers for each hotspot
     3. 📄 **PDF Processing** - Extracts and processes paper content 
     4. 🌱 **Sustainability Solutions** - Generates data-driven sustainability recommendations
-    5. 📊 **Visualizations** - Creates interactive charts and reports
+    <!-- 5. 📊 **Visualizations** - Creates interactive charts and reports -->
     
     Upload a text file containing your raw input data to begin the analysis.
     """)
@@ -930,7 +930,7 @@ def main():
                             "ArXiv Paper Download": True,
                             "PDF Processing": True,
                             "Sustainable Solutions": True,
-                            "Visualization Generation": True
+                            # "Visualization Generation": True
                         }
                 
                 # Initialize components only if needed
@@ -953,14 +953,14 @@ def main():
                     "ArXiv Paper Download": False,
                     "PDF Processing": False,
                     "Sustainable Solutions": False,
-                    "Visualization Generation": False
+                    # "Visualization Generation": False
                 }
                 
                 # Check if we should run the complete workflow or partial workflow
                 if steps_to_run["Hotspot Analysis"]:
                     # Run complete workflow from input file
                     st.markdown("### Running Complete LCA Workflow")
-                    st.markdown("This will execute all 5 steps: Hotspot Analysis → ArXiv Download → PDF Processing → Sustainability Report → Visualizations")
+                    st.markdown("This will execute 4 steps: Hotspot Analysis → ArXiv Download → PDF Processing → Sustainability Report")
                     
                     with st.container():
                         # Save the input file content temporarily with proper naming
@@ -1002,7 +1002,7 @@ def main():
                             
                             # Update step status
                             steps["Hotspot Analysis"] = True
-                            for step in ["ArXiv Paper Download", "PDF Processing", "Sustainable Solutions", "Visualization Generation"]:
+                            for step in ["ArXiv Paper Download", "PDF Processing", "Sustainable Solutions"]: # , "Visualization Generation"]:
                                 steps[step] = True
                             
                             st.success("✓ Partial LCA workflow executed successfully!")
@@ -1015,31 +1015,32 @@ def main():
                         return
                 
                 # Generate visualizations if needed (they might not be included in workflow)
-                if not file_status.get("lca_visualizations") or not file_status.get("solutions_visualizations"):
-                    with st.container():
-                        st.markdown("### Generating Visualizations")
-                        st.markdown("Creating visualizations for hotspot analysis and sustainable solutions...")
-                        
-                        # Create hotspot LCA visualizations
-                        try:
-                            lca_visualizations, lca_saved_files = create_lca_visualizations(f"{output_folder}/hotspot_lca_analysis.json")
-                            logger.info("Hotspot LCA visualizations created successfully")
-                        except Exception as e:
-                            logger.error(f"Error creating hotspot LCA visualizations: {str(e)}")
-                            lca_visualizations = {}
-                            lca_saved_files = []
-                        
-                        # Create sustainable solutions visualizations
-                        try:
-                            solutions_visualizations, solutions_saved_files = create_solutions_visualizations(f"{output_folder}/sustainable_solutions_report.txt")
-                            logger.info("Sustainable solutions visualizations created successfully")
-                        except Exception as e:
-                            logger.error(f"Error creating sustainable solutions visualizations: {str(e)}")
-                            solutions_visualizations = {}
-                            solutions_saved_files = []
-                        
-                        steps["Visualization Generation"] = True
-                        st.success("✓ Visualizations generated")
+                # COMMENTED OUT - Visualization generation disabled
+                # if not file_status.get("lca_visualizations") or not file_status.get("solutions_visualizations"):
+                #     with st.container():
+                #         st.markdown("### Generating Visualizations")
+                #         st.markdown("Creating visualizations for hotspot analysis and sustainable solutions...")
+                #         
+                #         # Create hotspot LCA visualizations
+                #         try:
+                #             lca_visualizations, lca_saved_files = create_lca_visualizations(f"{output_folder}/hotspot_lca_analysis.json")
+                #             logger.info("Hotspot LCA visualizations created successfully")
+                #         except Exception as e:
+                #             logger.error(f"Error creating hotspot LCA visualizations: {str(e)}")
+                #             lca_visualizations = {}
+                #             lca_saved_files = []
+                #         
+                #         # Create sustainable solutions visualizations
+                #         try:
+                #             solutions_visualizations, solutions_saved_files = create_solutions_visualizations(f"{output_folder}/sustainable_solutions_report.txt")
+                #             logger.info("Sustainable solutions visualizations created successfully")
+                #         except Exception as e:
+                #             logger.error(f"Error creating sustainable solutions visualizations: {str(e)}")
+                #             solutions_visualizations = {}
+                #             solutions_saved_files = []
+                #         
+                #         steps["Visualization Generation"] = True
+                #         st.success("✓ Visualizations generated")
                 
                 # Mark analysis as completed
                 st.session_state.analysis_completed = True
@@ -1090,7 +1091,7 @@ def main():
             with tab2:
                 # Load and display sustainable solutions report
                 try:
-                    with open(f"{output_folder}/sustainable_solutions_report.txt", 'r') as f:
+                    with open(f"{output_folder}/sustainable_solutions_report.txt", 'r', encoding='utf-8') as f:
                         solutions_report = f.read()
                     format_solutions_report(solutions_report)
                 except FileNotFoundError:

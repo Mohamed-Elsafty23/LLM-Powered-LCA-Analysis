@@ -271,7 +271,7 @@ class ArxivPaperDownloader:
                         }
                         
                         papers_info.append(paper_info)
-                        logger.info(f"Successfully downloaded: {filename}")
+                        logger.info(f"Successfully downloaded: {safe_str(filename)}")
                         
                     else:
                         safe_title = safe_str(title)

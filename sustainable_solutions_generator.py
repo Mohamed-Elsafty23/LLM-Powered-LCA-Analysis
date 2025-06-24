@@ -155,6 +155,35 @@ class HotspotSustainableSolutionsGenerator:
         """Get output folder from hotspot analysis file path."""
         return str(Path(hotspot_file).parent)
     
+    def _extract_hotspot_context(self, hotspot_name: str, hotspot_analysis: Dict[str, Any], raw_input_data: str) -> str:
+        """Extract all hotspot data dynamically from hotspot analysis based on hotspot_name."""
+        try:
+            # Find the specific hotspot in the analysis
+            hotspot_details = None
+            production_hotspots = hotspot_analysis.get('hotspot_analysis', {}).get('production_hotspots', [])
+            
+            for hotspot in production_hotspots:
+                if hotspot.get('hotspot_name') == hotspot_name:
+                    hotspot_details = hotspot
+                    break
+            
+            if not hotspot_details:
+                return f"No hotspot data found for: {hotspot_name}"
+            
+            # Extract all fields dynamically (except hotspot_name to avoid redundancy)
+            context_parts = []
+            for key, value in hotspot_details.items():
+                if key != 'hotspot_name':  # Skip the name since it's already in the header
+                    # Format field names to be more readable
+                    formatted_key = key.replace('_', ' ').title()
+                    context_parts.append(f"{formatted_key}: {value}")
+            
+            return '\n'.join(context_parts) if context_parts else f"Limited context available for {hotspot_name}"
+            
+        except Exception as e:
+            logger.error(f"Error extracting hotspot context: {str(e)}")
+            return f"Context extraction failed for {hotspot_name}"
+    
     def analyze_paper_for_hotspot(self, paper_content: str, paper_metadata: Dict[str, Any], 
                                   hotspot_analysis: Dict[str, Any], raw_input_data: str, 
                                   api_client: APIClient) -> Dict[str, Any]:
@@ -162,6 +191,9 @@ class HotspotSustainableSolutionsGenerator:
         try:
             hotspot_name = paper_metadata.get('hotspot_name', 'unknown')
             title = paper_metadata.get('title', 'Unknown Title')
+            
+            # Extract specific hotspot context for dynamic analysis
+            hotspot_context = self._extract_hotspot_context(hotspot_name, hotspot_analysis, raw_input_data)
             
             prompt = f"""You are a quantitative research analyst. Extract ONLY explicit, measurable sustainability improvements from this research paper for the hotspot "{hotspot_name}".
 
@@ -171,6 +203,9 @@ PAPER CONTENT:
 PAPER TITLE: {title}
 TARGET HOTSPOT: {hotspot_name}
 
+HOTSPOT CONTEXT:
+{hotspot_context}
+
 STRICT EXTRACTION RULES:
 1. ONLY extract numbers explicitly stated in the paper
 2. Find percentages, energy reductions, efficiency improvements, cost savings
@@ -178,15 +213,40 @@ STRICT EXTRACTION RULES:
 4. Identify temperature, pressure, time, or material improvements with exact values
 5. NO estimates, NO generalizations, NO assumptions
 
-SEARCH FOR THESE PATTERNS:
-- "X% reduction in..."
-- "Y% improvement in..."
-- "reduced by X watts/kWh/MJ"
-- "increased efficiency by Y%"
-- "cycle time reduced from A to B"
+SEARCH FOR THESE MANUFACTURING-SPECIFIC SUSTAINABILITY PATTERNS:
+- "X% reduction in energy consumption"
+- "Y% improvement in material efficiency"
+- "Z% decrease in environmental impact"
+- "reduced CO2 emissions by X kg/unit"
+- "energy savings of X kWh/kg"
+- "cycle time reduced from A to B seconds/minutes"
 - "temperature optimized from X°C to Y°C"
 - "material waste decreased by Z%"
-- "energy consumption reduced by..."
+- "production efficiency increased by X%"
+- "LCA impact reduced by Y%"
+- "carbon footprint decreased by X%"
+- "recycling rate improved by Y%"
+- "resource utilization increased by Z%"
+- "process optimization achieving X% savings"
+- "sustainable manufacturing with Y% improvement"
+
+DYNAMIC SEARCH PRIORITIES BASED ON HOTSPOT CONTEXT:
+Based on the hotspot context provided, prioritize finding quantitative data related to:
+- If material processing: Look for melting temperature optimization, material utilization rates, alloy composition efficiency
+- If molding/forming: Search for cycle time reduction, pressure optimization, temperature control improvements  
+- If assembly/production: Focus on energy consumption per unit, defect reduction percentages, throughput improvements
+- If surface treatment: Target coating efficiency, chemical usage reduction, process time optimization
+- If any manufacturing process: Emphasize energy consumption reduction, waste minimization, and process efficiency gains
+
+SUSTAINABILITY FOCUS AREAS:
+Prioritize papers that explicitly mention:
+- Life Cycle Assessment (LCA) results with quantitative impacts
+- Carbon footprint measurements and reduction strategies  
+- Energy consumption analysis with specific savings
+- Material efficiency improvements with waste reduction percentages
+- Circular economy approaches with recycling/reuse rates
+- Environmental impact assessments with numerical outcomes
+- Sustainable manufacturing practices with measured benefits
 
 OUTPUT FORMAT (respond with ONLY the extracted data):
 
@@ -200,7 +260,45 @@ OUTPUT FORMAT (respond with ONLY the extracted data):
 [Specific process changes with measurable results]
 
 **RELEVANCE TO {hotspot_name}:**
-[How findings specifically apply to this hotspot]
+Systematically analyze the connections between the paper's findings and the target hotspot using this evidence-based framework:
+
+1. MATERIAL COMPATIBILITY ANALYSIS:
+   - Compare materials studied in the paper with hotspot materials from the context
+   - Identify shared material properties, thermal behaviors, processing characteristics
+   - Assess transferability of material-specific improvements and optimizations
+   - Look for similar alloys, polymers, or material families
+
+2. PROCESS ALIGNMENT ASSESSMENT:
+   - Compare manufacturing processes investigated in the paper with hotspot processes
+   - Identify similar equipment types, processing conditions, operational parameters
+   - Match temperature ranges, pressure requirements, cycle times, and energy inputs
+   - Evaluate process similarity on equipment, methods, and operational characteristics
+
+3. QUANTITATIVE SUSTAINABILITY BENEFIT TRANSLATION:
+   - Extract specific numerical improvements that could reduce hotspot environmental impact
+   - Calculate potential impact reduction based on hotspot material quantities and significance level
+   - Translate percentage improvements to actual environmental benefits (energy, emissions, waste)
+   - Identify measurable LCA impact reductions and sustainability metrics
+
+4. TECHNOLOGY AND METHOD ADAPTATION POTENTIAL:
+   - Assess which optimization techniques could be directly implemented for this hotspot
+   - Evaluate feasibility of control systems, algorithms, or process modifications
+   - Identify required adaptations for different scales, materials, or equipment
+   - Consider implementation complexity and potential sustainability gains
+
+EVIDENCE-BASED RELEVANCE REQUIREMENTS:
+- Reference specific quantitative data from the paper that supports each connection
+- Cross-reference paper findings with hotspot context (materials, quantities, significance)
+- Quantify potential environmental benefits using actual hotspot data when possible
+- Clearly distinguish between direct applications and adapted implementations
+- If no relevance exists, specify material/process/scale differences preventing application
+- Focus on sustainability impact potential rather than generic process similarities
+
+STRONG RELEVANCE EXAMPLE:
+"The paper's 25% energy reduction in injection molding (achieved through temperature optimization from 200°C to 180°C) directly applies to the hotspot's injection molding process. Given the hotspot context showing medium environmental significance for housing production, this temperature optimization could reduce energy consumption by approximately 25% for the specified material quantities, potentially decreasing the hotspot's overall environmental impact."
+
+WEAK RELEVANCE EXAMPLE:
+"No direct relevance to {hotspot_name}. The paper studies [specific domain] with no material overlap (paper materials: [X] vs. hotspot materials: [Y from context]). Process differences: paper examines [specific process] vs. hotspot process: [specific process from context]. Scale mismatch: [specific scale differences]. No quantitative sustainability metrics applicable to this manufacturing hotspot's environmental impact reduction."
 
 If NO quantitative data is found, respond with:
 "NO QUANTITATIVE SUSTAINABILITY DATA FOUND"
@@ -209,7 +307,7 @@ Do not make up numbers. Only report what is explicitly written in the paper."""
 
             response = api_client.client.chat.completions.create(
                 messages=[
-                    {"role": "system", "content": "You are a precise data extraction specialist. Extract only explicit quantitative sustainability data from research papers. Never estimate or infer numbers not directly stated. If no quantitative data exists, clearly state this fact."},
+                    {"role": "system", "content": "You are a precise sustainability research analyst specializing in Life Cycle Assessment (LCA) and manufacturing process optimization. Your expertise includes identifying quantitative environmental improvements, energy efficiency gains, material waste reduction, and sustainable manufacturing practices. Focus on extracting explicit numerical data from research papers that can directly reduce environmental impact. Prioritize findings related to: manufacturing energy consumption, material efficiency, waste reduction, process optimization, temperature/pressure optimization, cycle time improvements, recycling rates, carbon footprint reduction, and LCA impact measurements. For relevance analysis, establish concrete connections between paper findings and manufacturing hotspot characteristics, considering material compatibility, process similarity, quantitative applicability, and technology transfer potential. Never estimate numbers or make generic claims - only report explicit quantitative data with clear environmental benefits."},
                     {"role": "user", "content": prompt}
                 ],
                 model=api_client.model,

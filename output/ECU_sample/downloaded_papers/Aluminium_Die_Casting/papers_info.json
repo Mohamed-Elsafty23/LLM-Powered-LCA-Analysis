@@ -1,92 +1,29 @@
 [
   {
-    "title": "An Innovative Line Balancing for the Aluminium Melting Process",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/2504.02857v1",
-    "published_date": "2025-03-29T14:31:33Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "An Innovative Line Balancing for the Aluminium Melting Process.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "A process planning system with feature based neural network search\n  strategy for aluminum extrusion die manufacturing",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/0907.0611v1",
-    "published_date": "2009-07-03T12:08:13Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "A process planning system with feature based neural network search strategy for.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "A Novel Approach for Establishing Connectivity in Partitioned Mobile\n  Sensor Networks Using Beamforming Techniques",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/2308.04797v1",
-    "published_date": "2023-08-09T08:35:00Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "A Novel Approach for Establishing Connectivity in Partitioned Mobile Sensor Netw.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "Power Reduction in FM Networks by Mixed-Integer Programming. A Case\n  Study",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/2310.19492v1",
-    "published_date": "2023-10-30T12:32:50Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "Power Reduction in FM Networks by Mixed-Integer Programming. A Case Study.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "Information-Theoretic Study of Time-Domain Energy-Saving Techniques in\n  Radio Access",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/2303.17898v2",
-    "published_date": "2023-03-31T08:57:20Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "Information-Theoretic Study of Time-Domain Energy-Saving Techniques in Radio Acc.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "Power-Constrained Trajectory Optimization for Wireless UAV Relays with\n  Random Requests",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/2002.09617v2",
-    "published_date": "2020-02-22T04:09:51Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "Power-Constrained Trajectory Optimization for Wireless UAV Relays with Random Re.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "Direct Reuse of Aluminium and Copper Current Collectors from Spent\n  Lithium-ion Batteries",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/2210.07678v1",
-    "published_date": "2022-10-14T10:01:44Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "Direct Reuse of Aluminium and Copper Current Collectors from Spent Lithium-ion B.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
     "title": "MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die\n  Castings",
     "hotspot_name": "Aluminium Die Casting",
     "pdf_link": "http://arxiv.org/pdf/2403.09996v1",
     "published_date": "2024-03-15T03:42:38Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+    "query": "aluminium die casting energy efficiency optimization",
     "filename": "MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=3"
+  },
+  {
+    "title": "An Innovative Line Balancing for the Aluminium Melting Process",
+    "hotspot_name": "Aluminium Die Casting",
+    "pdf_link": "http://arxiv.org/pdf/2504.02857v1",
+    "published_date": "2025-03-29T14:31:33Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "An Innovative Line Balancing for the Aluminium Melting Process.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=3"
   },
   {
     "title": "Optimization of Solidification in Die Casting using Numerical\n  Simulations and Machine Learning",
     "hotspot_name": "Aluminium Die Casting",
     "pdf_link": "http://arxiv.org/pdf/1901.02364v2",
     "published_date": "2019-01-08T15:28:33Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
+    "query": "aluminium die casting energy efficiency optimization",
     "filename": "Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
-  },
-  {
-    "title": "Optimizing IoT Energy Efficiency on Edge (EEE): a Cross-layer Design in\n  a Cognitive Mesh Network",
-    "hotspot_name": "Aluminium Die Casting",
-    "pdf_link": "http://arxiv.org/pdf/1901.05494v2",
-    "published_date": "2019-01-11T02:33:01Z",
-    "query": "die casting aluminium radiator energy consumption reduction process optimization techniques",
-    "filename": "Optimizing IoT Energy Efficiency on Edge (EEE)_ a Cross-layer Design in a Cognit.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminium%20radiator%20energy%20consumption%20reduction%20process%20optimization%20techniques&start=0&max_results=10"
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=3"
   }
 ]
