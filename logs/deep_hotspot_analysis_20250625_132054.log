@@ -1,0 +1,186 @@
+2025-06-25 13:20:55,319 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 13:20:55,321 - deep_hotspot_analyzer - INFO - DEBUG: Found Housing section - Raw: 'Housing_Production', Processed: 'Housing Production'
+2025-06-25 13:20:55,322 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'DRL-Based Injection Molding Process Parameter Opti...'
+2025-06-25 13:20:55,322 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'Understanding the environmental impacts of virgin ...'
+2025-06-25 13:20:55,322 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'Environmentally-Extended Input-Output analyses eff...'
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mi...'
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - Hotspot 'Housing Production': Found 4 papers with quantitative data
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - Hotspot 'ECU Operation': Found 4 papers with quantitative data
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - Hotspot 'Metal Recycling': Found 9 papers with quantitative data
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - Hotspot 'ECU Standby Power': Found 10 papers with quantitative data
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - Hotspot 'EMC Shield Production': Found 8 papers with quantitative data
+2025-06-25 13:20:55,324 - deep_hotspot_analyzer - INFO - Hotspot 'PCBA Recycling': Found 10 papers with quantitative data
+2025-06-25 13:20:55,327 - deep_hotspot_analyzer - INFO - Hotspot 'PCBA Production': Found 9 papers with quantitative data
+2025-06-25 13:20:55,327 - deep_hotspot_analyzer - INFO - Hotspot 'Plastic Incineration': Found 9 papers with quantitative data
+2025-06-25 13:20:55,327 - deep_hotspot_analyzer - INFO - Hotspot 'Radiator Production': Found 10 papers with quantitative data
+2025-06-25 13:20:55,328 - deep_hotspot_analyzer - INFO - Hotspot 'Transportation': Found 10 papers with quantitative data
+2025-06-25 13:20:55,328 - deep_hotspot_analyzer - INFO - Parsed 10 hotspots from existing report
+2025-06-25 13:20:55,328 - deep_hotspot_analyzer - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 13:20:55,329 - deep_hotspot_analyzer - INFO - Processing hotspots sequentially to ensure reliable web search results...
+2025-06-25 13:20:55,329 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 1/10: Housing Production
+2025-06-25 13:21:19,203 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:21:19,206 - deep_hotspot_analyzer - INFO - LLM search decision for Housing Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "housing construction sustainability metrics"
+REASONING: The available papers lack specific quantitative data on sustainability improvements for the Housing_Production...
+2025-06-25 13:21:19,206 - deep_hotspot_analyzer - INFO - Performing web search for Housing Production: housing construction sustainability metrics
+2025-06-25 13:21:22,210 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): housing construction sustainability metrics
+2025-06-25 13:21:24,260 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:21:24,260 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'housing construction sustainability metrics' (total length: 2677 chars)
+2025-06-25 13:21:24,260 - deep_hotspot_analyzer - INFO - Web search returned 2677 characters of data for Housing Production
+2025-06-25 13:21:24,261 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for Housing Production: Found substantial data
+2025-06-25 13:21:24,261 - deep_hotspot_analyzer - INFO - Passing 2677 characters of web search data to LLM for Housing Production analysis
+2025-06-25 13:21:24,261 - deep_hotspot_analyzer - INFO - Web search data for Housing Production contains 5 search results
+2025-06-25 13:22:30,699 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:22:30,715 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Housing Production
+2025-06-25 13:22:30,715 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: Housing Production (1/10)
+2025-06-25 13:22:33,717 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 2/10: ECU Operation
+2025-06-25 13:22:57,671 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:22:57,673 - deep_hotspot_analyzer - INFO - LLM search decision for ECU Operation: SEARCH_NEEDED: YES
+SEARCH_QUERY: ECU manufacturing environmental impact
+REASONING: The available papers lack specific quantitative data on ECU (Engine Control Unit) manufacturing processes, such as ex...
+2025-06-25 13:22:57,674 - deep_hotspot_analyzer - INFO - Performing web search for ECU Operation: ECU manufacturing environmental impact
+2025-06-25 13:23:00,675 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): ECU manufacturing environmental impact
+2025-06-25 13:23:02,855 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:23:02,855 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'ECU manufacturing environmental impact' (total length: 3189 chars)
+2025-06-25 13:23:02,855 - deep_hotspot_analyzer - INFO - Web search returned 3189 characters of data for ECU Operation
+2025-06-25 13:23:02,855 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for ECU Operation: Found substantial data
+2025-06-25 13:23:02,855 - deep_hotspot_analyzer - INFO - Passing 3189 characters of web search data to LLM for ECU Operation analysis
+2025-06-25 13:23:02,855 - deep_hotspot_analyzer - INFO - Web search data for ECU Operation contains 5 search results
+2025-06-25 13:23:49,048 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:23:49,050 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: ECU Operation
+2025-06-25 13:23:49,050 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: ECU Operation (2/10)
+2025-06-25 13:23:52,051 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 3/10: Metal Recycling
+2025-06-25 13:24:15,457 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:24:15,459 - deep_hotspot_analyzer - INFO - LLM search decision for Metal Recycling: SEARCH_NEEDED: YES
+SEARCH_QUERY: metal recycling sustainability metrics
+REASONING: The available papers lack specific quantitative data on metal recycling, such as exact emission factors for metal rec...
+2025-06-25 13:24:15,459 - deep_hotspot_analyzer - INFO - Performing web search for Metal Recycling: metal recycling sustainability metrics
+2025-06-25 13:24:18,461 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): metal recycling sustainability metrics
+2025-06-25 13:24:20,450 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:24:20,450 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'metal recycling sustainability metrics' (total length: 2302 chars)
+2025-06-25 13:24:20,450 - deep_hotspot_analyzer - INFO - Web search returned 2302 characters of data for Metal Recycling
+2025-06-25 13:24:20,450 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for Metal Recycling: Found substantial data
+2025-06-25 13:24:20,450 - deep_hotspot_analyzer - INFO - Passing 2302 characters of web search data to LLM for Metal Recycling analysis
+2025-06-25 13:24:20,450 - deep_hotspot_analyzer - INFO - Web search data for Metal Recycling contains 5 search results
+2025-06-25 13:24:20,456 - openai._base_client - INFO - Retrying request to /chat/completions in 0.477693 seconds
+2025-06-25 13:25:26,567 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:25:26,581 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Metal Recycling
+2025-06-25 13:25:26,581 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: Metal Recycling (3/10)
+2025-06-25 13:25:29,584 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 4/10: ECU Standby Power
+2025-06-25 13:25:49,748 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:25:49,750 - deep_hotspot_analyzer - INFO - LLM search decision for ECU Standby Power: SEARCH_NEEDED: YES
+SEARCH_QUERY: ECU standby power reduction
+REASONING: The available papers lack specific quantitative data on standby power reduction in ECUs, such as exact emission factors, energy ...
+2025-06-25 13:25:49,750 - deep_hotspot_analyzer - INFO - Performing web search for ECU Standby Power: ECU standby power reduction
+2025-06-25 13:25:52,752 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): ECU standby power reduction
+2025-06-25 13:25:54,618 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:25:54,618 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'ECU standby power reduction' (total length: 1973 chars)
+2025-06-25 13:25:54,618 - deep_hotspot_analyzer - INFO - Web search returned 1973 characters of data for ECU Standby Power
+2025-06-25 13:25:54,618 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for ECU Standby Power: Found substantial data
+2025-06-25 13:25:54,618 - deep_hotspot_analyzer - INFO - Passing 1973 characters of web search data to LLM for ECU Standby Power analysis
+2025-06-25 13:25:54,618 - deep_hotspot_analyzer - INFO - Web search data for ECU Standby Power contains 5 search results
+2025-06-25 13:27:02,838 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:27:02,854 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: ECU Standby Power
+2025-06-25 13:27:02,854 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: ECU Standby Power (4/10)
+2025-06-25 13:27:05,857 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 5/10: EMC Shield Production
+2025-06-25 13:27:29,101 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:27:29,103 - deep_hotspot_analyzer - INFO - LLM search decision for EMC Shield Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "EMC shield production sustainability"
+REASONING: The available research papers lack specific quantitative data on sustainability improvements, such as GWP calculation...
+2025-06-25 13:27:29,104 - deep_hotspot_analyzer - INFO - Performing web search for EMC Shield Production: EMC shield production sustainability
+2025-06-25 13:27:32,106 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): EMC shield production sustainability
+2025-06-25 13:27:34,023 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:27:34,023 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'EMC shield production sustainability' (total length: 2322 chars)
+2025-06-25 13:27:34,023 - deep_hotspot_analyzer - INFO - Web search returned 2322 characters of data for EMC Shield Production
+2025-06-25 13:27:34,023 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for EMC Shield Production: Found substantial data
+2025-06-25 13:27:34,023 - deep_hotspot_analyzer - INFO - Passing 2322 characters of web search data to LLM for EMC Shield Production analysis
+2025-06-25 13:27:34,039 - deep_hotspot_analyzer - INFO - Web search data for EMC Shield Production contains 5 search results
+2025-06-25 13:28:35,604 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:28:35,604 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: EMC Shield Production
+2025-06-25 13:28:35,604 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: EMC Shield Production (5/10)
+2025-06-25 13:28:38,606 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 6/10: PCBA Recycling
+2025-06-25 13:29:03,184 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:29:03,188 - deep_hotspot_analyzer - INFO - LLM search decision for PCBA Recycling: SEARCH_NEEDED: YES
+SEARCH_QUERY: PCB recycling environmental impact
+REASONING: The available papers lack specific quantitative data on environmental impact reduction, energy consumption, and material ...
+2025-06-25 13:29:03,191 - deep_hotspot_analyzer - INFO - Performing web search for PCBA Recycling: PCB recycling environmental impact
+2025-06-25 13:29:06,193 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): PCB recycling environmental impact
+2025-06-25 13:29:10,705 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:29:10,720 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'PCB recycling environmental impact' (total length: 1762 chars)
+2025-06-25 13:29:10,720 - deep_hotspot_analyzer - INFO - Web search returned 1762 characters of data for PCBA Recycling
+2025-06-25 13:29:10,720 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for PCBA Recycling: Found substantial data
+2025-06-25 13:29:10,720 - deep_hotspot_analyzer - INFO - Passing 1762 characters of web search data to LLM for PCBA Recycling analysis
+2025-06-25 13:29:10,720 - deep_hotspot_analyzer - INFO - Web search data for PCBA Recycling contains 5 search results
+2025-06-25 13:30:20,149 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:30:20,156 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: PCBA Recycling
+2025-06-25 13:30:20,156 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: PCBA Recycling (6/10)
+2025-06-25 13:30:23,159 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 7/10: PCBA Production
+2025-06-25 13:31:14,176 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:31:14,176 - deep_hotspot_analyzer - INFO - LLM search decision for PCBA Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "PCB manufacturing sustainability metrics"
+REASONING: The available papers lack specific quantitative data on sustainability improvements for PCBA production, such as ...
+2025-06-25 13:31:14,176 - deep_hotspot_analyzer - INFO - Performing web search for PCBA Production: PCB manufacturing sustainability metrics
+2025-06-25 13:31:17,189 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): PCB manufacturing sustainability metrics
+2025-06-25 13:31:19,260 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:31:19,260 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'PCB manufacturing sustainability metrics' (total length: 3088 chars)
+2025-06-25 13:31:19,260 - deep_hotspot_analyzer - INFO - Web search returned 3088 characters of data for PCBA Production
+2025-06-25 13:31:19,260 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for PCBA Production: Found substantial data
+2025-06-25 13:31:19,260 - deep_hotspot_analyzer - INFO - Passing 3088 characters of web search data to LLM for PCBA Production analysis
+2025-06-25 13:31:19,260 - deep_hotspot_analyzer - INFO - Web search data for PCBA Production contains 5 search results
+2025-06-25 13:32:29,944 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:32:29,944 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: PCBA Production
+2025-06-25 13:32:29,944 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: PCBA Production (7/10)
+2025-06-25 13:32:32,953 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 8/10: Plastic Incineration
+2025-06-25 13:32:56,159 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:32:56,159 - deep_hotspot_analyzer - INFO - LLM search decision for Plastic Incineration: SEARCH_NEEDED: YES
+SEARCH_QUERY: plastic incineration emissions factors
+REASONING: The available papers lack specific quantitative data on emissions factors, energy consumption baselines, and material...
+2025-06-25 13:32:56,159 - deep_hotspot_analyzer - INFO - Performing web search for Plastic Incineration: plastic incineration emissions factors
+2025-06-25 13:32:59,173 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): plastic incineration emissions factors
+2025-06-25 13:33:00,959 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:33:00,959 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'plastic incineration emissions factors' (total length: 1926 chars)
+2025-06-25 13:33:00,959 - deep_hotspot_analyzer - INFO - Web search returned 1926 characters of data for Plastic Incineration
+2025-06-25 13:33:00,959 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for Plastic Incineration: Found substantial data
+2025-06-25 13:33:00,959 - deep_hotspot_analyzer - INFO - Passing 1926 characters of web search data to LLM for Plastic Incineration analysis
+2025-06-25 13:33:00,959 - deep_hotspot_analyzer - INFO - Web search data for Plastic Incineration contains 5 search results
+2025-06-25 13:34:20,807 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:34:20,807 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Plastic Incineration
+2025-06-25 13:34:20,807 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: Plastic Incineration (8/10)
+2025-06-25 13:34:23,809 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 9/10: Radiator Production
+2025-06-25 13:34:44,512 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:34:44,512 - deep_hotspot_analyzer - INFO - LLM search decision for Radiator Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "radiator production sustainability metrics"
+REASONING: The available papers lack specific quantitative data on sustainability metrics relevant to Radiator_Production,...
+2025-06-25 13:34:44,512 - deep_hotspot_analyzer - INFO - Performing web search for Radiator Production: radiator production sustainability metrics
+2025-06-25 13:34:47,525 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): radiator production sustainability metrics
+2025-06-25 13:34:49,464 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:34:49,464 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'radiator production sustainability metrics' (total length: 2532 chars)
+2025-06-25 13:34:49,464 - deep_hotspot_analyzer - INFO - Web search returned 2532 characters of data for Radiator Production
+2025-06-25 13:34:49,464 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for Radiator Production: Found substantial data
+2025-06-25 13:34:49,464 - deep_hotspot_analyzer - INFO - Passing 2532 characters of web search data to LLM for Radiator Production analysis
+2025-06-25 13:34:49,464 - deep_hotspot_analyzer - INFO - Web search data for Radiator Production contains 5 search results
+2025-06-25 13:35:45,017 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:35:45,019 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Radiator Production
+2025-06-25 13:35:45,019 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: Radiator Production (9/10)
+2025-06-25 13:35:48,023 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 10/10: Transportation
+2025-06-25 13:36:09,099 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:36:09,102 - deep_hotspot_analyzer - INFO - LLM search decision for Transportation: SEARCH_NEEDED: YES
+SEARCH_QUERY: transportation emissions reduction
+REASONING: The analysis of the provided research papers reveals a lack of specific quantitative data on sustainability improvements,...
+2025-06-25 13:36:09,103 - deep_hotspot_analyzer - INFO - Performing web search for Transportation: transportation emissions reduction
+2025-06-25 13:36:12,105 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): transportation emissions reduction
+2025-06-25 13:36:14,104 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:36:14,104 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'transportation emissions reduction' (total length: 2401 chars)
+2025-06-25 13:36:14,104 - deep_hotspot_analyzer - INFO - Web search returned 2401 characters of data for Transportation
+2025-06-25 13:36:14,104 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for Transportation: Found substantial data
+2025-06-25 13:36:14,104 - deep_hotspot_analyzer - INFO - Passing 2401 characters of web search data to LLM for Transportation analysis
+2025-06-25 13:36:14,104 - deep_hotspot_analyzer - INFO - Web search data for Transportation contains 5 search results
+2025-06-25 13:37:19,204 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:37:19,205 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Transportation
+2025-06-25 13:37:19,205 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: Transportation (10/10)
+2025-06-25 13:37:19,207 - deep_hotspot_analyzer - ERROR - PDF generation error: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 13:37:19,208 - deep_hotspot_analyzer - WARNING - PDF generation failed: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 13:37:19,209 - deep_hotspot_analyzer - INFO - Deep analysis completed successfully!
+2025-06-25 13:37:19,209 - deep_hotspot_analyzer - INFO - New deep hotspot analysis report: output\automotive_sample_input/deep_hotspot_lca_analysis.txt
+2025-06-25 13:37:19,210 - deep_hotspot_analyzer - INFO - Enhanced sustainability report: output\automotive_sample_input/enhanced_sustainability_solutions.txt
+2025-06-25 13:37:19,210 - deep_hotspot_analyzer - INFO - Original report preserved at: output/automotive_sample_input/sustainable_solutions_report.txt

@@ -1,0 +1,58 @@
+2025-06-25 12:56:57,408 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 12:56:57,408 - __main__ - INFO - DEBUG: Found Housing section - Raw: 'Housing_Production', Processed: 'Housing Production'
+2025-06-25 12:56:57,408 - __main__ - INFO - DEBUG: Housing paper found - 'DRL-Based Injection Molding Process Parameter Opti...'
+2025-06-25 12:56:57,408 - __main__ - INFO - DEBUG: Housing paper found - 'Understanding the environmental impacts of virgin ...'
+2025-06-25 12:56:57,408 - __main__ - INFO - DEBUG: Housing paper found - 'Environmentally-Extended Input-Output analyses eff...'
+2025-06-25 12:56:57,408 - __main__ - INFO - DEBUG: Housing paper found - 'A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mi...'
+2025-06-25 12:56:57,408 - __main__ - INFO - Hotspot 'Housing Production': Found 4 papers with quantitative data
+2025-06-25 12:56:57,420 - __main__ - INFO - Hotspot 'ECU Operation': Found 4 papers with quantitative data
+2025-06-25 12:56:57,420 - __main__ - INFO - Hotspot 'Metal Recycling': Found 9 papers with quantitative data
+2025-06-25 12:56:57,421 - __main__ - INFO - Hotspot 'ECU Standby Power': Found 10 papers with quantitative data
+2025-06-25 12:56:57,421 - __main__ - INFO - Hotspot 'EMC Shield Production': Found 8 papers with quantitative data
+2025-06-25 12:56:57,422 - __main__ - INFO - Hotspot 'PCBA Recycling': Found 10 papers with quantitative data
+2025-06-25 12:56:57,422 - __main__ - INFO - Hotspot 'PCBA Production': Found 9 papers with quantitative data
+2025-06-25 12:56:57,422 - __main__ - INFO - Hotspot 'Plastic Incineration': Found 9 papers with quantitative data
+2025-06-25 12:56:57,422 - __main__ - INFO - Hotspot 'Radiator Production': Found 10 papers with quantitative data
+2025-06-25 12:56:57,422 - __main__ - INFO - Hotspot 'Transportation': Found 10 papers with quantitative data
+2025-06-25 12:56:57,422 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 12:56:57,423 - __main__ - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 12:57:10,434 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:57:10,443 - __main__ - INFO - LLM search decision for ECU Operation: SEARCH_NEEDED: YES
+SEARCH_QUERY: "ECU manufacturing energy consumption kWh/unit"
+REASONING: The available papers lack specific quantitative data on energy consumption and GWP calculations for ECU manu...
+2025-06-25 12:57:10,444 - __main__ - INFO - Performing web search for ECU Operation: "ECU manufacturing energy consumption kWh/unit"
+2025-06-25 12:57:13,491 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:57:13,491 - __main__ - INFO - LLM search decision for Housing Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "GWP formula housing construction kgCO2eq/m2"
+REASONING: The available papers lack specific quantitative data on the environmental impacts of housing construction, suc...
+2025-06-25 12:57:13,491 - __main__ - INFO - Performing web search for Housing Production: "GWP formula housing construction kgCO2eq/m2"
+2025-06-25 12:57:13,962 - __main__ - WARNING - Web search returned no results for: "ECU manufacturing energy consumption kWh/unit" (attempt 1)
+2025-06-25 12:57:17,629 - __main__ - WARNING - Web search returned no results for: "GWP formula housing construction kgCO2eq/m2" (attempt 1)
+2025-06-25 12:57:18,516 - __main__ - WARNING - Web search returned no results for: "ECU manufacturing energy consumption kWh/unit" (attempt 2)
+2025-06-25 12:57:22,253 - __main__ - WARNING - Web search returned no results for: "GWP formula housing construction kgCO2eq/m2" (attempt 2)
+2025-06-25 12:57:23,893 - __main__ - WARNING - Web search returned no results for: "ECU manufacturing energy consumption kWh/unit" (attempt 3)
+2025-06-25 12:57:23,893 - __main__ - INFO - Web search returned 51 characters of data for ECU Operation
+2025-06-25 12:57:23,893 - __main__ - INFO - Short web search response for ECU Operation: 'No web search results found after multiple attempts'
+2025-06-25 12:57:23,893 - __main__ - WARNING - No substantial web search data being passed to LLM for ECU Operation (data length: 51)
+2025-06-25 12:57:23,893 - __main__ - INFO - Sample of short web search data: 'No web search results found after multiple attempts...'
+2025-06-25 12:57:27,502 - __main__ - WARNING - Web search returned no results for: "GWP formula housing construction kgCO2eq/m2" (attempt 3)
+2025-06-25 12:57:27,503 - __main__ - INFO - Web search returned 51 characters of data for Housing Production
+2025-06-25 12:57:27,505 - __main__ - INFO - Short web search response for Housing Production: 'No web search results found after multiple attempts'
+2025-06-25 12:57:27,506 - __main__ - WARNING - No substantial web search data being passed to LLM for Housing Production (data length: 51)
+2025-06-25 12:57:27,507 - __main__ - INFO - Sample of short web search data: 'No web search results found after multiple attempts...'
+2025-06-25 12:58:21,463 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:58:21,464 - __main__ - INFO - Completed deep analysis for hotspot: ECU Operation
+2025-06-25 12:58:23,446 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:58:23,446 - __main__ - INFO - Completed deep analysis for hotspot: Housing Production
+2025-06-25 12:58:40,932 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:58:40,934 - __main__ - INFO - LLM search decision for Metal Recycling: SEARCH_NEEDED: YES
+SEARCH_QUERY: "Metal recycling GWP calculation formula"
+REASONING: The available papers lack specific quantitative data on the sustainability benefits of metal recycling, such as ex...
+2025-06-25 12:58:40,935 - __main__ - INFO - Performing web search for Metal Recycling: "Metal recycling GWP calculation formula"
+2025-06-25 12:58:41,891 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:58:41,892 - __main__ - INFO - LLM search decision for ECU Standby Power: SEARCH_NEEDED: YES
+SEARCH_QUERY: "ECU standby power consumption reduction formulas"
+REASONING: The provided papers lack specific quantitative data on ECU standby power consumption reduction, such as e...
+2025-06-25 12:58:41,892 - __main__ - INFO - Performing web search for ECU Standby Power: "ECU standby power consumption reduction formulas"
+2025-06-25 12:58:44,673 - __main__ - WARNING - Web search returned no results for: "Metal recycling GWP calculation formula" (attempt 1)
+2025-06-25 12:58:45,612 - __main__ - WARNING - Web search returned no results for: "ECU standby power consumption reduction formulas" (attempt 1)

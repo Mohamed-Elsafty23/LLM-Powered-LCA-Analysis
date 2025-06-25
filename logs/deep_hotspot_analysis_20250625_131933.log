@@ -1,0 +1,15 @@
+2025-06-25 13:19:33,770 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 13:19:44,519 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:19:44,538 - deep_hotspot_analyzer - INFO - LLM search decision for Housing Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "housing construction carbon footprint"
+REASONING: The available research paper lacks specific GWP values and energy consumption data, which are crucial for a meaningf...
+2025-06-25 13:19:44,540 - deep_hotspot_analyzer - INFO - Performing web search for Housing Production: housing construction carbon footprint
+2025-06-25 13:19:47,542 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): housing construction carbon footprint
+2025-06-25 13:19:49,795 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:19:49,798 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'housing construction carbon footprint' (total length: 2448 chars)
+2025-06-25 13:19:49,798 - deep_hotspot_analyzer - INFO - Web search returned 2448 characters of data for Housing Production
+2025-06-25 13:19:49,798 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS for Housing Production: Found substantial data
+2025-06-25 13:19:49,798 - deep_hotspot_analyzer - INFO - Passing 2448 characters of web search data to LLM for Housing Production analysis
+2025-06-25 13:19:49,798 - deep_hotspot_analyzer - INFO - Web search data for Housing Production contains 5 search results
+2025-06-25 13:20:35,987 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:20:35,987 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Housing Production

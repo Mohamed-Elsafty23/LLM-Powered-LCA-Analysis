@@ -1,0 +1,22 @@
+2025-06-25 11:59:20,993 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 11:59:20,996 - __main__ - INFO - DEBUG: Found Housing section - Raw: 'Housing_Production', Processed: 'Housing Production'
+2025-06-25 11:59:20,996 - __main__ - INFO - DEBUG: Housing paper found - 'DRL-Based Injection Molding Process Parameter Opti...'
+2025-06-25 11:59:20,997 - __main__ - INFO - DEBUG: Housing paper found - 'Understanding the environmental impacts of virgin ...'
+2025-06-25 11:59:20,997 - __main__ - INFO - DEBUG: Housing paper found - 'Environmentally-Extended Input-Output analyses eff...'
+2025-06-25 11:59:20,997 - __main__ - INFO - DEBUG: Housing paper found - 'A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mi...'
+2025-06-25 11:59:20,999 - __main__ - INFO - Hotspot 'Housing Production': Found 4 papers with quantitative data
+2025-06-25 11:59:20,999 - __main__ - INFO - Hotspot 'ECU Operation': Found 4 papers with quantitative data
+2025-06-25 11:59:20,999 - __main__ - INFO - Hotspot 'Metal Recycling': Found 9 papers with quantitative data
+2025-06-25 11:59:21,000 - __main__ - INFO - Hotspot 'ECU Standby Power': Found 10 papers with quantitative data
+2025-06-25 11:59:21,000 - __main__ - INFO - Hotspot 'EMC Shield Production': Found 8 papers with quantitative data
+2025-06-25 11:59:21,000 - __main__ - INFO - Hotspot 'PCBA Recycling': Found 10 papers with quantitative data
+2025-06-25 11:59:21,000 - __main__ - INFO - Hotspot 'PCBA Production': Found 9 papers with quantitative data
+2025-06-25 11:59:21,001 - __main__ - INFO - Hotspot 'Plastic Incineration': Found 9 papers with quantitative data
+2025-06-25 11:59:21,001 - __main__ - INFO - Hotspot 'Radiator Production': Found 10 papers with quantitative data
+2025-06-25 11:59:21,001 - __main__ - INFO - Hotspot 'Transportation': Found 10 papers with quantitative data
+2025-06-25 11:59:21,002 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 11:59:21,002 - __main__ - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 11:59:36,336 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:59:36,339 - __main__ - INFO - Performing web search for Housing Production: "GWP formula housing materials kgCO2eq"
+2025-06-25 11:59:36,681 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:59:36,681 - __main__ - INFO - Performing web search for ECU Operation: "ECU manufacturing energy consumption kWh/unit"

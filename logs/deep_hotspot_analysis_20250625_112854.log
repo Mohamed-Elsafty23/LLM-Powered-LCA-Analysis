@@ -1,0 +1,28 @@
+2025-06-25 11:28:55,246 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'Housing Production': Found 0 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'ECU Operation': Found 1 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'Metal Recycling': Found 3 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'ECU Standby Power': Found 3 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'EMC Shield Production': Found 4 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'PCBA Recycling': Found 4 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'PCBA Production': Found 4 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'Plastic Incineration': Found 1 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'Radiator Production': Found 2 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Hotspot 'Transportation': Found 6 papers with quantitative data
+2025-06-25 11:28:55,246 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 11:28:55,246 - __main__ - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 11:28:55,263 - __main__ - WARNING - No papers found for hotspot: Housing Production
+2025-06-25 11:29:08,562 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:29:08,562 - __main__ - INFO - Performing web search for ECU Operation: "ECU manufacturing energy consumption kWh/unit"
+2025-06-25 11:29:19,770 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:29:19,771 - __main__ - INFO - Performing web search for Metal Recycling: "Metal recycling GWP calculation formula"
+2025-06-25 11:29:39,814 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:29:39,816 - __main__ - INFO - Completed deep analysis for hotspot: ECU Operation
+2025-06-25 11:29:39,819 - __main__ - INFO - Completed deep analysis for: ECU Operation
+2025-06-25 11:29:59,815 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:29:59,815 - __main__ - INFO - Performing web search for ECU Standby Power: "ECU standby power GWP formula kgCO2eq"
+2025-06-25 11:30:41,041 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:30:41,042 - __main__ - INFO - Completed deep analysis for hotspot: Metal Recycling
+2025-06-25 11:30:41,043 - __main__ - INFO - Completed deep analysis for: Metal Recycling
+2025-06-25 11:30:55,366 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:30:55,369 - __main__ - INFO - Performing web search for EMC Shield Production: "GWP calculation formula aluminum shielding kgCO2eq"

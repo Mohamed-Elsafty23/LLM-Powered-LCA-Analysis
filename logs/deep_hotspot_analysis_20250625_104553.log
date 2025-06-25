@@ -1,0 +1,14 @@
+2025-06-25 10:45:53,786 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 10:45:53,788 - __main__ - INFO - Removed existing detailed report: output\automotive_sample_input/sustainable_solutions_detailed_report.txt
+2025-06-25 10:45:53,789 - __main__ - INFO - Renamed existing report to: output\automotive_sample_input/sustainable_solutions_detailed_report.txt
+2025-06-25 10:45:53,790 - __main__ - INFO - Parsed 5 hotspots from existing report
+2025-06-25 10:45:53,790 - __main__ - WARNING - No relevant papers found for hotspot: Component Overview
+2025-06-25 10:45:53,790 - __main__ - WARNING - No relevant papers found for hotspot: Quantitative Findings from Research
+2025-06-25 10:45:53,790 - __main__ - WARNING - No relevant papers found for hotspot: Implementation-Ready Solutions
+2025-06-25 10:45:53,803 - __main__ - WARNING - No relevant papers found for hotspot: Key Metrics and Targets
+2025-06-25 10:45:53,803 - __main__ - WARNING - No relevant papers found for hotspot: Critical Gaps
+2025-06-25 10:45:53,805 - __main__ - ERROR - PDF generation error: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 10:45:53,805 - __main__ - WARNING - PDF generation failed: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 10:45:53,806 - __main__ - INFO - Deep analysis completed successfully!
+2025-06-25 10:45:53,807 - __main__ - INFO - New comprehensive report: output\automotive_sample_input/comprehensive_ecu_lca_analysis.txt
+2025-06-25 10:45:53,807 - __main__ - INFO - Original report renamed to: output\automotive_sample_input/sustainable_solutions_detailed_report.txt

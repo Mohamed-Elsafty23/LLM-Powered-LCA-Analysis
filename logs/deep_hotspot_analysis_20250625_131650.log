@@ -1,0 +1,3 @@
+2025-06-25 13:16:51,053 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 13:16:54,057 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): GWP formula housing construction kgCO2eq/m2
+2025-06-25 13:16:55,378 - deep_hotspot_analyzer - INFO - ✅ Web search SUCCESS: Found 5 results for 'GWP formula housing construction kgCO2eq/m2' (total length: 2311 chars)

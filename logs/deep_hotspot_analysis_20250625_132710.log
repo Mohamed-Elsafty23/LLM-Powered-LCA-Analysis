@@ -1,0 +1,185 @@
+2025-06-25 13:27:10,663 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 13:27:10,665 - __main__ - INFO - DEBUG: Found Housing section - Raw: 'Housing_Production', Processed: 'Housing Production'
+2025-06-25 13:27:10,665 - __main__ - INFO - DEBUG: Housing paper found - 'DRL-Based Injection Molding Process Parameter Opti...'
+2025-06-25 13:27:10,666 - __main__ - INFO - DEBUG: Housing paper found - 'Understanding the environmental impacts of virgin ...'
+2025-06-25 13:27:10,666 - __main__ - INFO - DEBUG: Housing paper found - 'Environmentally-Extended Input-Output analyses eff...'
+2025-06-25 13:27:10,666 - __main__ - INFO - DEBUG: Housing paper found - 'A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mi...'
+2025-06-25 13:27:10,668 - __main__ - INFO - Hotspot 'Housing Production': Found 4 papers with quantitative data
+2025-06-25 13:27:10,668 - __main__ - INFO - Hotspot 'ECU Operation': Found 4 papers with quantitative data
+2025-06-25 13:27:10,668 - __main__ - INFO - Hotspot 'Metal Recycling': Found 9 papers with quantitative data
+2025-06-25 13:27:10,669 - __main__ - INFO - Hotspot 'ECU Standby Power': Found 10 papers with quantitative data
+2025-06-25 13:27:10,669 - __main__ - INFO - Hotspot 'EMC Shield Production': Found 8 papers with quantitative data
+2025-06-25 13:27:10,669 - __main__ - INFO - Hotspot 'PCBA Recycling': Found 10 papers with quantitative data
+2025-06-25 13:27:10,670 - __main__ - INFO - Hotspot 'PCBA Production': Found 9 papers with quantitative data
+2025-06-25 13:27:10,671 - __main__ - INFO - Hotspot 'Plastic Incineration': Found 9 papers with quantitative data
+2025-06-25 13:27:10,671 - __main__ - INFO - Hotspot 'Radiator Production': Found 10 papers with quantitative data
+2025-06-25 13:27:10,672 - __main__ - INFO - Hotspot 'Transportation': Found 10 papers with quantitative data
+2025-06-25 13:27:10,672 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 13:27:10,672 - __main__ - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 13:27:10,672 - __main__ - INFO - Processing hotspots sequentially to ensure reliable web search results...
+2025-06-25 13:27:10,672 - __main__ - INFO - Starting analysis for hotspot 1/10: Housing Production
+2025-06-25 13:27:34,242 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:27:34,248 - __main__ - INFO - LLM search decision for Housing Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "housing construction sustainability metrics"
+REASONING: The available papers lack specific quantitative data on sustainability improvements for the Housing_Production...
+2025-06-25 13:27:34,248 - __main__ - INFO - Performing web search for Housing Production: housing construction sustainability metrics
+2025-06-25 13:27:37,255 - __main__ - INFO - Performing web search (attempt 1/2): housing construction sustainability metrics
+2025-06-25 13:27:38,465 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:27:38,465 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'housing construction sustainability metrics' (total length: 2677 chars)
+2025-06-25 13:27:38,465 - __main__ - INFO - Web search returned 2677 characters of data for Housing Production
+2025-06-25 13:27:38,465 - __main__ - INFO - ✅ Web search SUCCESS for Housing Production: Found substantial data
+2025-06-25 13:27:38,465 - __main__ - INFO - Passing 2677 characters of web search data to LLM for Housing Production analysis
+2025-06-25 13:27:38,465 - __main__ - INFO - Web search data for Housing Production contains 5 search results
+2025-06-25 13:28:47,998 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:28:48,000 - __main__ - INFO - Completed deep analysis for hotspot: Housing Production
+2025-06-25 13:28:48,000 - __main__ - INFO - ✅ Completed analysis for: Housing Production (1/10)
+2025-06-25 13:28:51,004 - __main__ - INFO - Starting analysis for hotspot 2/10: ECU Operation
+2025-06-25 13:29:15,422 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:29:15,435 - __main__ - INFO - LLM search decision for ECU Operation: SEARCH_NEEDED: YES
+SEARCH_QUERY: ECU manufacturing environmental impact
+REASONING: The available papers lack specific quantitative data on ECU (Engine Control Unit) manufacturing processes, such as ex...
+2025-06-25 13:29:15,436 - __main__ - INFO - Performing web search for ECU Operation: ECU manufacturing environmental impact
+2025-06-25 13:29:18,439 - __main__ - INFO - Performing web search (attempt 1/2): ECU manufacturing environmental impact
+2025-06-25 13:29:20,612 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:29:20,612 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'ECU manufacturing environmental impact' (total length: 3189 chars)
+2025-06-25 13:29:20,627 - __main__ - INFO - Web search returned 3189 characters of data for ECU Operation
+2025-06-25 13:29:20,627 - __main__ - INFO - ✅ Web search SUCCESS for ECU Operation: Found substantial data
+2025-06-25 13:29:20,627 - __main__ - INFO - Passing 3189 characters of web search data to LLM for ECU Operation analysis
+2025-06-25 13:29:20,627 - __main__ - INFO - Web search data for ECU Operation contains 5 search results
+2025-06-25 13:30:16,641 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:30:16,641 - __main__ - INFO - Completed deep analysis for hotspot: ECU Operation
+2025-06-25 13:30:16,641 - __main__ - INFO - ✅ Completed analysis for: ECU Operation (2/10)
+2025-06-25 13:30:19,649 - __main__ - INFO - Starting analysis for hotspot 3/10: Metal Recycling
+2025-06-25 13:31:06,830 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:31:06,830 - __main__ - INFO - LLM search decision for Metal Recycling: SEARCH_NEEDED: YES
+SEARCH_QUERY: "metal recycling sustainability metrics"
+REASONING: The available papers lack specific quantitative data on metal recycling, such as exact emission factors for metal r...
+2025-06-25 13:31:06,830 - __main__ - INFO - Performing web search for Metal Recycling: metal recycling sustainability metrics
+2025-06-25 13:31:09,832 - __main__ - INFO - Performing web search (attempt 1/2): metal recycling sustainability metrics
+2025-06-25 13:31:11,615 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:31:11,615 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'metal recycling sustainability metrics' (total length: 2302 chars)
+2025-06-25 13:31:11,615 - __main__ - INFO - Web search returned 2302 characters of data for Metal Recycling
+2025-06-25 13:31:11,615 - __main__ - INFO - ✅ Web search SUCCESS for Metal Recycling: Found substantial data
+2025-06-25 13:31:11,615 - __main__ - INFO - Passing 2302 characters of web search data to LLM for Metal Recycling analysis
+2025-06-25 13:31:11,615 - __main__ - INFO - Web search data for Metal Recycling contains 5 search results
+2025-06-25 13:32:06,745 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:32:06,745 - __main__ - INFO - Completed deep analysis for hotspot: Metal Recycling
+2025-06-25 13:32:06,745 - __main__ - INFO - ✅ Completed analysis for: Metal Recycling (3/10)
+2025-06-25 13:32:09,752 - __main__ - INFO - Starting analysis for hotspot 4/10: ECU Standby Power
+2025-06-25 13:32:32,986 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:32:32,989 - __main__ - INFO - LLM search decision for ECU Standby Power: SEARCH_NEEDED: YES
+SEARCH_QUERY: ECU standby power reduction
+REASONING: The available papers lack specific quantitative data on standby power reduction in ECUs, such as exact emission factors, energy ...
+2025-06-25 13:32:32,990 - __main__ - INFO - Performing web search for ECU Standby Power: ECU standby power reduction
+2025-06-25 13:32:35,990 - __main__ - INFO - Performing web search (attempt 1/2): ECU standby power reduction
+2025-06-25 13:32:37,431 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:32:37,431 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'ECU standby power reduction' (total length: 1973 chars)
+2025-06-25 13:32:37,431 - __main__ - INFO - Web search returned 1973 characters of data for ECU Standby Power
+2025-06-25 13:32:37,431 - __main__ - INFO - ✅ Web search SUCCESS for ECU Standby Power: Found substantial data
+2025-06-25 13:32:37,431 - __main__ - INFO - Passing 1973 characters of web search data to LLM for ECU Standby Power analysis
+2025-06-25 13:32:37,431 - __main__ - INFO - Web search data for ECU Standby Power contains 5 search results
+2025-06-25 13:33:41,159 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:33:41,159 - __main__ - INFO - Completed deep analysis for hotspot: ECU Standby Power
+2025-06-25 13:33:41,159 - __main__ - INFO - ✅ Completed analysis for: ECU Standby Power (4/10)
+2025-06-25 13:33:44,165 - __main__ - INFO - Starting analysis for hotspot 5/10: EMC Shield Production
+2025-06-25 13:34:08,764 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:34:08,764 - __main__ - INFO - LLM search decision for EMC Shield Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "EMC shield production sustainability"
+REASONING: The available research papers lack specific quantitative data on sustainability improvements, such as GWP calculation...
+2025-06-25 13:34:08,764 - __main__ - INFO - Performing web search for EMC Shield Production: EMC shield production sustainability
+2025-06-25 13:34:11,766 - __main__ - INFO - Performing web search (attempt 1/2): EMC shield production sustainability
+2025-06-25 13:34:14,012 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:34:14,012 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'EMC shield production sustainability' (total length: 2322 chars)
+2025-06-25 13:34:14,012 - __main__ - INFO - Web search returned 2322 characters of data for EMC Shield Production
+2025-06-25 13:34:14,012 - __main__ - INFO - ✅ Web search SUCCESS for EMC Shield Production: Found substantial data
+2025-06-25 13:34:14,012 - __main__ - INFO - Passing 2322 characters of web search data to LLM for EMC Shield Production analysis
+2025-06-25 13:34:14,012 - __main__ - INFO - Web search data for EMC Shield Production contains 5 search results
+2025-06-25 13:34:46,347 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:34:46,347 - __main__ - INFO - Completed deep analysis for hotspot: EMC Shield Production
+2025-06-25 13:34:46,347 - __main__ - INFO - ✅ Completed analysis for: EMC Shield Production (5/10)
+2025-06-25 13:34:49,360 - __main__ - INFO - Starting analysis for hotspot 6/10: PCBA Recycling
+2025-06-25 13:35:14,690 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:35:14,708 - __main__ - INFO - LLM search decision for PCBA Recycling: SEARCH_NEEDED: YES
+SEARCH_QUERY: PCB recycling environmental impact
+REASONING: The available papers lack specific quantitative data on energy consumption, material efficiency, and environmental impact...
+2025-06-25 13:35:14,708 - __main__ - INFO - Performing web search for PCBA Recycling: PCB recycling environmental impact
+2025-06-25 13:35:17,710 - __main__ - INFO - Performing web search (attempt 1/2): PCB recycling environmental impact
+2025-06-25 13:35:19,193 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:35:19,193 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'PCB recycling environmental impact' (total length: 1762 chars)
+2025-06-25 13:35:19,193 - __main__ - INFO - Web search returned 1762 characters of data for PCBA Recycling
+2025-06-25 13:35:19,193 - __main__ - INFO - ✅ Web search SUCCESS for PCBA Recycling: Found substantial data
+2025-06-25 13:35:19,193 - __main__ - INFO - Passing 1762 characters of web search data to LLM for PCBA Recycling analysis
+2025-06-25 13:35:19,193 - __main__ - INFO - Web search data for PCBA Recycling contains 5 search results
+2025-06-25 13:36:29,426 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:36:29,426 - __main__ - INFO - Completed deep analysis for hotspot: PCBA Recycling
+2025-06-25 13:36:29,426 - __main__ - INFO - ✅ Completed analysis for: PCBA Recycling (6/10)
+2025-06-25 13:36:32,440 - __main__ - INFO - Starting analysis for hotspot 7/10: PCBA Production
+2025-06-25 13:36:56,787 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:36:56,787 - __main__ - INFO - LLM search decision for PCBA Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "PCB manufacturing sustainability metrics"
+REASONING: The available papers lack specific quantitative data on sustainability improvements for PCBA production, such as ...
+2025-06-25 13:36:56,787 - __main__ - INFO - Performing web search for PCBA Production: PCB manufacturing sustainability metrics
+2025-06-25 13:36:59,797 - __main__ - INFO - Performing web search (attempt 1/2): PCB manufacturing sustainability metrics
+2025-06-25 13:37:01,911 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:37:01,911 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'PCB manufacturing sustainability metrics' (total length: 3088 chars)
+2025-06-25 13:37:01,911 - __main__ - INFO - Web search returned 3088 characters of data for PCBA Production
+2025-06-25 13:37:01,911 - __main__ - INFO - ✅ Web search SUCCESS for PCBA Production: Found substantial data
+2025-06-25 13:37:01,911 - __main__ - INFO - Passing 3088 characters of web search data to LLM for PCBA Production analysis
+2025-06-25 13:37:01,911 - __main__ - INFO - Web search data for PCBA Production contains 5 search results
+2025-06-25 13:38:28,240 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:38:28,242 - __main__ - INFO - Completed deep analysis for hotspot: PCBA Production
+2025-06-25 13:38:28,242 - __main__ - INFO - ✅ Completed analysis for: PCBA Production (7/10)
+2025-06-25 13:38:31,244 - __main__ - INFO - Starting analysis for hotspot 8/10: Plastic Incineration
+2025-06-25 13:38:50,549 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:38:50,549 - __main__ - INFO - LLM search decision for Plastic Incineration: SEARCH_NEEDED: YES
+SEARCH_QUERY: plastic incineration emissions factors
+REASONING: The available papers lack specific quantitative data on emissions factors, energy consumption baselines, and material...
+2025-06-25 13:38:50,549 - __main__ - INFO - Performing web search for Plastic Incineration: plastic incineration emissions factors
+2025-06-25 13:38:53,557 - __main__ - INFO - Performing web search (attempt 1/2): plastic incineration emissions factors
+2025-06-25 13:38:55,305 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:38:55,305 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'plastic incineration emissions factors' (total length: 1926 chars)
+2025-06-25 13:38:55,305 - __main__ - INFO - Web search returned 1926 characters of data for Plastic Incineration
+2025-06-25 13:38:55,305 - __main__ - INFO - ✅ Web search SUCCESS for Plastic Incineration: Found substantial data
+2025-06-25 13:38:55,305 - __main__ - INFO - Passing 1926 characters of web search data to LLM for Plastic Incineration analysis
+2025-06-25 13:38:55,321 - __main__ - INFO - Web search data for Plastic Incineration contains 5 search results
+2025-06-25 13:40:03,264 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:40:03,264 - __main__ - INFO - Completed deep analysis for hotspot: Plastic Incineration
+2025-06-25 13:40:03,265 - __main__ - INFO - ✅ Completed analysis for: Plastic Incineration (8/10)
+2025-06-25 13:40:06,267 - __main__ - INFO - Starting analysis for hotspot 9/10: Radiator Production
+2025-06-25 13:40:30,090 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:40:30,091 - __main__ - INFO - LLM search decision for Radiator Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "radiator production sustainability metrics"
+REASONING: The available papers lack specific quantitative data on sustainability metrics relevant to Radiator_Production,...
+2025-06-25 13:40:30,092 - __main__ - INFO - Performing web search for Radiator Production: radiator production sustainability metrics
+2025-06-25 13:40:33,095 - __main__ - INFO - Performing web search (attempt 1/2): radiator production sustainability metrics
+2025-06-25 13:40:34,417 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:40:34,417 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'radiator production sustainability metrics' (total length: 2532 chars)
+2025-06-25 13:40:34,417 - __main__ - INFO - Web search returned 2532 characters of data for Radiator Production
+2025-06-25 13:40:34,417 - __main__ - INFO - ✅ Web search SUCCESS for Radiator Production: Found substantial data
+2025-06-25 13:40:34,417 - __main__ - INFO - Passing 2532 characters of web search data to LLM for Radiator Production analysis
+2025-06-25 13:40:34,417 - __main__ - INFO - Web search data for Radiator Production contains 5 search results
+2025-06-25 13:41:17,896 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:41:17,900 - __main__ - INFO - Completed deep analysis for hotspot: Radiator Production
+2025-06-25 13:41:17,900 - __main__ - INFO - ✅ Completed analysis for: Radiator Production (9/10)
+2025-06-25 13:41:20,903 - __main__ - INFO - Starting analysis for hotspot 10/10: Transportation
+2025-06-25 13:41:44,354 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:41:44,355 - __main__ - INFO - LLM search decision for Transportation: SEARCH_NEEDED: YES
+SEARCH_QUERY: transportation emissions reduction
+REASONING: The analysis of the provided research papers highlights a lack of specific quantitative data on sustainability improvemen...
+2025-06-25 13:41:44,355 - __main__ - INFO - Performing web search for Transportation: transportation emissions reduction
+2025-06-25 13:41:47,357 - __main__ - INFO - Performing web search (attempt 1/2): transportation emissions reduction
+2025-06-25 13:41:48,660 - __main__ - INFO - Raw response type: <class 'dict'>, has results: True
+2025-06-25 13:41:48,661 - __main__ - INFO - ✅ Web search SUCCESS: Found 5 results for 'transportation emissions reduction' (total length: 2401 chars)
+2025-06-25 13:41:48,661 - __main__ - INFO - Web search returned 2401 characters of data for Transportation
+2025-06-25 13:41:48,662 - __main__ - INFO - ✅ Web search SUCCESS for Transportation: Found substantial data
+2025-06-25 13:41:48,662 - __main__ - INFO - Passing 2401 characters of web search data to LLM for Transportation analysis
+2025-06-25 13:41:48,662 - __main__ - INFO - Web search data for Transportation contains 5 search results
+2025-06-25 13:43:06,911 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:43:06,927 - __main__ - INFO - Completed deep analysis for hotspot: Transportation
+2025-06-25 13:43:06,927 - __main__ - INFO - ✅ Completed analysis for: Transportation (10/10)
+2025-06-25 13:43:06,927 - __main__ - ERROR - PDF generation error: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 13:43:06,927 - __main__ - WARNING - PDF generation failed: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 13:43:06,927 - __main__ - INFO - Deep analysis completed successfully!
+2025-06-25 13:43:06,927 - __main__ - INFO - New deep hotspot analysis report: output\automotive_sample_input/deep_hotspot_lca_analysis.txt
+2025-06-25 13:43:06,927 - __main__ - INFO - Enhanced sustainability report: output\automotive_sample_input/enhanced_sustainability_solutions.txt
+2025-06-25 13:43:06,927 - __main__ - INFO - Original report preserved at: output/automotive_sample_input/sustainable_solutions_report.txt

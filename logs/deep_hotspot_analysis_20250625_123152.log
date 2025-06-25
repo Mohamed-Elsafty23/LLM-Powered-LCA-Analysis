@@ -1,0 +1,23 @@
+2025-06-25 12:31:53,123 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 12:31:53,123 - deep_hotspot_analyzer - INFO - DEBUG: Found Housing section - Raw: 'Housing_Production', Processed: 'Housing Production'
+2025-06-25 12:31:53,123 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'DRL-Based Injection Molding Process Parameter Opti...'
+2025-06-25 12:31:53,123 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'Understanding the environmental impacts of virgin ...'
+2025-06-25 12:31:53,123 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'Environmentally-Extended Input-Output analyses eff...'
+2025-06-25 12:31:53,140 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mi...'
+2025-06-25 12:31:53,140 - deep_hotspot_analyzer - INFO - Hotspot 'Housing Production': Found 4 papers with quantitative data
+2025-06-25 12:31:53,141 - deep_hotspot_analyzer - INFO - Hotspot 'ECU Operation': Found 4 papers with quantitative data
+2025-06-25 12:31:53,141 - deep_hotspot_analyzer - INFO - Hotspot 'Metal Recycling': Found 9 papers with quantitative data
+2025-06-25 12:31:53,141 - deep_hotspot_analyzer - INFO - Hotspot 'ECU Standby Power': Found 10 papers with quantitative data
+2025-06-25 12:31:53,142 - deep_hotspot_analyzer - INFO - Hotspot 'EMC Shield Production': Found 8 papers with quantitative data
+2025-06-25 12:31:53,142 - deep_hotspot_analyzer - INFO - Hotspot 'PCBA Recycling': Found 10 papers with quantitative data
+2025-06-25 12:31:53,142 - deep_hotspot_analyzer - INFO - Hotspot 'PCBA Production': Found 9 papers with quantitative data
+2025-06-25 12:31:53,143 - deep_hotspot_analyzer - INFO - Hotspot 'Plastic Incineration': Found 9 papers with quantitative data
+2025-06-25 12:31:53,143 - deep_hotspot_analyzer - INFO - Hotspot 'Radiator Production': Found 10 papers with quantitative data
+2025-06-25 12:31:53,144 - deep_hotspot_analyzer - INFO - Hotspot 'Transportation': Found 10 papers with quantitative data
+2025-06-25 12:31:53,144 - deep_hotspot_analyzer - INFO - Parsed 10 hotspots from existing report
+2025-06-25 12:32:12,739 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:32:12,743 - deep_hotspot_analyzer - INFO - Performing web search for Housing Production: "GWP formula housing construction kgCO2eq/m2"
+2025-06-25 12:32:14,138 - deep_hotspot_analyzer - INFO - Web search returned 27 characters of data for Housing Production
+2025-06-25 12:32:14,138 - deep_hotspot_analyzer - INFO - No web search data being passed to LLM for Housing Production
+2025-06-25 12:33:14,072 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 12:33:14,074 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Housing Production

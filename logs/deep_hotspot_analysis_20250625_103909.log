@@ -1,0 +1,2 @@
+2025-06-25 10:39:10,327 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 10:39:10,340 - __main__ - ERROR - Error in deep analysis: [WinError 183] Cannot create a file when that file already exists: 'output\\automotive_sample_input\\sustainable_solutions_report.txt' -> 'output\\automotive_sample_input/sustainable_solutions_detailed_report.txt'

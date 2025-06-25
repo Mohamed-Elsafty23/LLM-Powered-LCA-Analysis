@@ -1,0 +1,50 @@
+2025-06-25 10:30:06,379 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 10:30:06,380 - __main__ - INFO - Renamed existing report to: output\automotive_sample_input/sustainable_solutions_detailed_report.txt
+2025-06-25 10:30:06,399 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 10:30:06,401 - __main__ - WARNING - No relevant papers found for hotspot: Housing Production
+2025-06-25 10:30:06,401 - __main__ - WARNING - No relevant papers found for hotspot: ECU Operation
+2025-06-25 10:30:11,875 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:30:11,889 - __main__ - INFO - Performing web search for Metal Recycling: Metal recycling energy consumption emissions
+2025-06-25 10:30:12,351 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:30:12,351 - __main__ - INFO - Performing web search for ECU Standby Power: ECU Standby Power consumption metrics
+2025-06-25 10:30:49,250 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:30:49,259 - __main__ - INFO - Completed deep analysis for hotspot: Metal Recycling
+2025-06-25 10:30:49,261 - __main__ - INFO - Completed deep analysis for: Metal Recycling
+2025-06-25 10:30:49,848 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:30:49,848 - __main__ - INFO - Completed deep analysis for hotspot: ECU Standby Power
+2025-06-25 10:30:49,848 - __main__ - INFO - Completed deep analysis for: ECU Standby Power
+2025-06-25 10:30:54,044 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:30:54,044 - __main__ - INFO - Performing web search for EMC Shield Production: EMC shield energy consumption data
+2025-06-25 10:30:55,657 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:30:55,659 - __main__ - INFO - Performing web search for PCBA Recycling: PCBA recycling energy consumption
+2025-06-25 10:31:16,510 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:31:16,511 - __main__ - INFO - Completed deep analysis for hotspot: EMC Shield Production
+2025-06-25 10:31:16,512 - __main__ - INFO - Completed deep analysis for: EMC Shield Production
+2025-06-25 10:31:20,829 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:31:20,830 - __main__ - INFO - Performing web search for PCBA Production: Energy consumption PCBA production
+2025-06-25 10:31:42,231 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:31:42,232 - __main__ - INFO - Completed deep analysis for hotspot: PCBA Recycling
+2025-06-25 10:31:42,233 - __main__ - INFO - Completed deep analysis for: PCBA Recycling
+2025-06-25 10:31:47,759 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:31:47,760 - __main__ - INFO - Performing web search for Plastic Incineration: Plastic incineration emissions data
+2025-06-25 10:32:00,577 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:32:00,577 - __main__ - INFO - Completed deep analysis for hotspot: PCBA Production
+2025-06-25 10:32:00,586 - __main__ - INFO - Completed deep analysis for: PCBA Production
+2025-06-25 10:32:06,420 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:32:06,421 - __main__ - INFO - Performing web search for Radiator Production: Energy consumption emissions data
+2025-06-25 10:32:26,304 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:32:26,305 - __main__ - INFO - Completed deep analysis for hotspot: Plastic Incineration
+2025-06-25 10:32:26,309 - __main__ - INFO - Completed deep analysis for: Plastic Incineration
+2025-06-25 10:32:32,912 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:32:32,912 - __main__ - INFO - Performing web search for Transportation: Energy efficiency transportation systems
+2025-06-25 10:32:36,259 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:32:36,260 - __main__ - INFO - Completed deep analysis for hotspot: Radiator Production
+2025-06-25 10:32:36,260 - __main__ - INFO - Completed deep analysis for: Radiator Production
+2025-06-25 10:33:15,814 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:33:15,815 - __main__ - INFO - Completed deep analysis for hotspot: Transportation
+2025-06-25 10:33:15,816 - __main__ - INFO - Completed deep analysis for: Transportation
+2025-06-25 10:33:15,818 - __main__ - ERROR - PDF generation error: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 10:33:15,818 - __main__ - WARNING - PDF generation failed: "Style 'BodyText' already defined in stylesheet"
+2025-06-25 10:33:15,820 - __main__ - INFO - Deep analysis completed successfully!
+2025-06-25 10:33:15,820 - __main__ - INFO - New comprehensive report: output\automotive_sample_input/comprehensive_ecu_lca_analysis.txt
+2025-06-25 10:33:15,820 - __main__ - INFO - Original report renamed to: output\automotive_sample_input/sustainable_solutions_detailed_report.txt

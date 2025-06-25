@@ -1,0 +1,19 @@
+2025-06-25 11:22:05,865 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'Housing Production': Found 0 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'ECU Operation': Found 0 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'Metal Recycling': Found 0 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'ECU Standby Power': Found 1 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'EMC Shield Production': Found 0 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'PCBA Recycling': Found 2 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'PCBA Production': Found 0 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'Plastic Incineration': Found 1 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'Radiator Production': Found 1 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Hotspot 'Transportation': Found 6 papers with quantitative data
+2025-06-25 11:22:05,865 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 11:22:05,865 - __main__ - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 11:22:05,881 - __main__ - WARNING - No relevant papers found for hotspot: Housing Production
+2025-06-25 11:22:05,882 - __main__ - WARNING - No relevant papers found for hotspot: ECU Operation
+2025-06-25 11:22:05,883 - __main__ - WARNING - No relevant papers found for hotspot: Metal Recycling
+2025-06-25 11:22:05,883 - __main__ - WARNING - No relevant papers found for hotspot: EMC Shield Production
+2025-06-25 11:22:17,295 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 11:22:17,304 - __main__ - INFO - Performing web search for ECU Standby Power: "ECU standby power consumption kWh/unit"

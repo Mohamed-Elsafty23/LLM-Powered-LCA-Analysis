@@ -1,0 +1,18 @@
+2025-06-25 13:18:02,788 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 13:18:13,318 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:18:13,318 - deep_hotspot_analyzer - INFO - LLM search decision for Housing Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "GWP formula housing production kgCO2eq/unit"
+REASONING: The available research paper lacks specific GWP values and energy consumption data for housing production proc...
+2025-06-25 13:18:13,318 - deep_hotspot_analyzer - INFO - Performing web search for Housing Production: "GWP formula housing production kgCO2eq/unit"
+2025-06-25 13:18:16,335 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): "GWP formula housing production kgCO2eq/unit"
+2025-06-25 13:18:18,995 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: False
+2025-06-25 13:18:18,995 - deep_hotspot_analyzer - WARNING - Web search returned no results for: "GWP formula housing production kgCO2eq/unit" (attempt 1)
+2025-06-25 13:18:24,000 - deep_hotspot_analyzer - INFO - Performing web search (attempt 2/2): "GWP formula housing production kgCO2eq/unit"
+2025-06-25 13:18:25,498 - deep_hotspot_analyzer - INFO - Raw response type: <class 'dict'>, has results: False
+2025-06-25 13:18:25,498 - deep_hotspot_analyzer - WARNING - Web search returned no results for: "GWP formula housing production kgCO2eq/unit" (attempt 2)
+2025-06-25 13:18:25,498 - deep_hotspot_analyzer - INFO - Web search returned 51 characters of data for Housing Production
+2025-06-25 13:18:25,498 - deep_hotspot_analyzer - INFO - Short web search response for Housing Production: 'No web search results found after multiple attempts'
+2025-06-25 13:18:25,498 - deep_hotspot_analyzer - WARNING - No substantial web search data being passed to LLM for Housing Production (data length: 51)
+2025-06-25 13:18:25,498 - deep_hotspot_analyzer - INFO - Sample of short web search data: 'No web search results found after multiple attempts...'
+2025-06-25 13:18:54,170 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:18:54,170 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Housing Production

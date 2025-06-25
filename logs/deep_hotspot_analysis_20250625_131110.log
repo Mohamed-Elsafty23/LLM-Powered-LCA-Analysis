@@ -1,0 +1,50 @@
+2025-06-25 13:11:11,464 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 13:11:11,464 - deep_hotspot_analyzer - INFO - DEBUG: Found Housing section - Raw: 'Housing_Production', Processed: 'Housing Production'
+2025-06-25 13:11:11,472 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'DRL-Based Injection Molding Process Parameter Opti...'
+2025-06-25 13:11:11,472 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'Understanding the environmental impacts of virgin ...'
+2025-06-25 13:11:11,472 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'Environmentally-Extended Input-Output analyses eff...'
+2025-06-25 13:11:11,474 - deep_hotspot_analyzer - INFO - DEBUG: Housing paper found - 'A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mi...'
+2025-06-25 13:11:11,474 - deep_hotspot_analyzer - INFO - Hotspot 'Housing Production': Found 4 papers with quantitative data
+2025-06-25 13:11:11,474 - deep_hotspot_analyzer - INFO - Hotspot 'ECU Operation': Found 4 papers with quantitative data
+2025-06-25 13:11:11,474 - deep_hotspot_analyzer - INFO - Hotspot 'Metal Recycling': Found 9 papers with quantitative data
+2025-06-25 13:11:11,474 - deep_hotspot_analyzer - INFO - Hotspot 'ECU Standby Power': Found 10 papers with quantitative data
+2025-06-25 13:11:11,477 - deep_hotspot_analyzer - INFO - Hotspot 'EMC Shield Production': Found 8 papers with quantitative data
+2025-06-25 13:11:11,477 - deep_hotspot_analyzer - INFO - Hotspot 'PCBA Recycling': Found 10 papers with quantitative data
+2025-06-25 13:11:11,477 - deep_hotspot_analyzer - INFO - Hotspot 'PCBA Production': Found 9 papers with quantitative data
+2025-06-25 13:11:11,478 - deep_hotspot_analyzer - INFO - Hotspot 'Plastic Incineration': Found 9 papers with quantitative data
+2025-06-25 13:11:11,478 - deep_hotspot_analyzer - INFO - Hotspot 'Radiator Production': Found 10 papers with quantitative data
+2025-06-25 13:11:11,478 - deep_hotspot_analyzer - INFO - Hotspot 'Transportation': Found 10 papers with quantitative data
+2025-06-25 13:11:11,478 - deep_hotspot_analyzer - INFO - Parsed 10 hotspots from existing report
+2025-06-25 13:11:11,478 - deep_hotspot_analyzer - INFO - Analyzing existing report: output/automotive_sample_input/sustainable_solutions_report.txt
+2025-06-25 13:11:11,479 - deep_hotspot_analyzer - INFO - Processing hotspots sequentially to ensure reliable web search results...
+2025-06-25 13:11:11,479 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 1/10: Housing Production
+2025-06-25 13:11:26,722 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:11:26,740 - deep_hotspot_analyzer - INFO - LLM search decision for Housing Production: SEARCH_NEEDED: YES
+SEARCH_QUERY: "GWP formula housing construction kgCO2eq/m2"
+REASONING: The available papers lack specific quantitative data on the environmental impacts of housing construction, par...
+2025-06-25 13:11:26,740 - deep_hotspot_analyzer - INFO - Performing web search for Housing Production: "GWP formula housing construction kgCO2eq/m2"
+2025-06-25 13:11:29,742 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): "GWP formula housing construction kgCO2eq/m2"
+2025-06-25 13:11:32,387 - deep_hotspot_analyzer - WARNING - Web search returned no results for: "GWP formula housing construction kgCO2eq/m2" (attempt 1)
+2025-06-25 13:11:37,403 - deep_hotspot_analyzer - INFO - Performing web search (attempt 2/2): "GWP formula housing construction kgCO2eq/m2"
+2025-06-25 13:11:38,644 - deep_hotspot_analyzer - WARNING - Web search returned no results for: "GWP formula housing construction kgCO2eq/m2" (attempt 2)
+2025-06-25 13:11:38,644 - deep_hotspot_analyzer - INFO - Web search returned 51 characters of data for Housing Production
+2025-06-25 13:11:38,644 - deep_hotspot_analyzer - INFO - Short web search response for Housing Production: 'No web search results found after multiple attempts'
+2025-06-25 13:11:38,644 - deep_hotspot_analyzer - WARNING - No substantial web search data being passed to LLM for Housing Production (data length: 51)
+2025-06-25 13:11:38,644 - deep_hotspot_analyzer - INFO - Sample of short web search data: 'No web search results found after multiple attempts...'
+2025-06-25 13:12:50,607 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:12:50,608 - deep_hotspot_analyzer - INFO - Completed deep analysis for hotspot: Housing Production
+2025-06-25 13:12:50,608 - deep_hotspot_analyzer - INFO - ✅ Completed analysis for: Housing Production (1/10)
+2025-06-25 13:12:53,613 - deep_hotspot_analyzer - INFO - Starting analysis for hotspot 2/10: ECU Operation
+2025-06-25 13:13:03,123 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 13:13:03,125 - deep_hotspot_analyzer - INFO - LLM search decision for ECU Operation: SEARCH_NEEDED: YES
+SEARCH_QUERY: "ECU manufacturing energy consumption kWh/unit"
+REASONING: The available papers lack specific quantitative data on energy consumption and GWP calculations for ECU manu...
+2025-06-25 13:13:03,126 - deep_hotspot_analyzer - INFO - Performing web search for ECU Operation: "ECU manufacturing energy consumption kWh/unit"
+2025-06-25 13:13:06,127 - deep_hotspot_analyzer - INFO - Performing web search (attempt 1/2): "ECU manufacturing energy consumption kWh/unit"
+2025-06-25 13:13:07,725 - deep_hotspot_analyzer - WARNING - Web search returned no results for: "ECU manufacturing energy consumption kWh/unit" (attempt 1)
+2025-06-25 13:13:12,726 - deep_hotspot_analyzer - INFO - Performing web search (attempt 2/2): "ECU manufacturing energy consumption kWh/unit"
+2025-06-25 13:13:14,382 - deep_hotspot_analyzer - WARNING - Web search returned no results for: "ECU manufacturing energy consumption kWh/unit" (attempt 2)
+2025-06-25 13:13:14,383 - deep_hotspot_analyzer - INFO - Web search returned 51 characters of data for ECU Operation
+2025-06-25 13:13:14,384 - deep_hotspot_analyzer - INFO - Short web search response for ECU Operation: 'No web search results found after multiple attempts'
+2025-06-25 13:13:14,385 - deep_hotspot_analyzer - WARNING - No substantial web search data being passed to LLM for ECU Operation (data length: 51)
+2025-06-25 13:13:14,386 - deep_hotspot_analyzer - INFO - Sample of short web search data: 'No web search results found after multiple attempts...'

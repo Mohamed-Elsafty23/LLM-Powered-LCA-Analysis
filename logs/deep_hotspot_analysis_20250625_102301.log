@@ -1,0 +1,9 @@
+2025-06-25 10:23:02,712 - __main__ - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 10:23:02,714 - __main__ - INFO - Renamed existing report to: output\automotive_sample_input/sustainable_solutions_detailed_report.txt
+2025-06-25 10:23:02,714 - __main__ - INFO - Parsed 10 hotspots from existing report
+2025-06-25 10:23:02,724 - __main__ - WARNING - No relevant papers found for hotspot: Housing Production
+2025-06-25 10:23:02,724 - __main__ - WARNING - No relevant papers found for hotspot: ECU Operation
+2025-06-25 10:23:08,573 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:23:08,597 - __main__ - INFO - Performing web search for Metal Recycling: Metal recycling energy consumption emissions
+2025-06-25 10:23:09,057 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 10:23:09,063 - __main__ - INFO - Performing web search for ECU Standby Power: ECU Standby Power consumption metrics
