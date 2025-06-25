@@ -9,6 +9,7 @@ from lca_implementation import HotspotLCAAnalyzer
 from arxiv_paper_downloader import ArxivPaperDownloader
 from pdf_processor import PDFProcessor
 from sustainable_solutions_generator import HotspotSustainableSolutionsGenerator
+from deep_hotspot_analyzer import DeepHotspotAnalyzer
 from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
 import queue
 import threading
@@ -76,6 +77,7 @@ class NewLCAWorkflow:
         self.arxiv_downloader = ArxivPaperDownloader(max_results_per_query=10)
         self.pdf_processor = PDFProcessor()
         self.solutions_generator = HotspotSustainableSolutionsGenerator(self.api_configs)
+        self.deep_analyzer = DeepHotspotAnalyzer(self.api_configs, "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")
         
         logger.info("Initialized NewLCAWorkflow with all components")
     
@@ -138,14 +140,23 @@ class NewLCAWorkflow:
             
             # Step 5: Generate comprehensive sustainability report
             logger.info("=" * 60)
-            logger.info("STEP 5: SUSTAINABILITY REPORT GENERATION")
+            logger.info("STEP 5: DETAILED SUSTAINABILITY REPORT GENERATION")
             logger.info("=" * 60)
             
-            solutions_report_file = self.solutions_generator.generate_solutions_from_hotspot_analysis(
+            detailed_solutions_report_file = self.solutions_generator.generate_solutions_from_hotspot_analysis(
                 hotspot_file
             )
             
-            logger.info(f"[SUCCESS] Sustainability solutions report generated: {solutions_report_file}")
+            logger.info(f"[SUCCESS] Detailed sustainability solutions report generated: {detailed_solutions_report_file}")
+            
+            # Step 6: Generate deep hotspot analysis report
+            logger.info("=" * 60)
+            logger.info("STEP 6: DEEP HOTSPOT ANALYSIS REPORT GENERATION")
+            logger.info("=" * 60)
+            
+            solutions_report_file = self.deep_analyzer.run_deep_analysis(detailed_solutions_report_file)
+            
+            logger.info(f"[SUCCESS] Final sustainability solutions report generated: {solutions_report_file}")
             
             # Calculate total workflow time
             workflow_time = time.time() - workflow_start_time
@@ -163,8 +174,9 @@ class NewLCAWorkflow:
                 "output_folder": self.hotspot_analyzer.output_folder,
                 "hotspot_analysis": hotspot_file,
                 "processed_papers": processed_papers_file,
+                "detailed_sustainability_report": detailed_solutions_report_file,
                 "sustainability_report": solutions_report_file,
-                "detailed_analysis": f"{self.hotspot_analyzer.output_folder}/detailed_sustainability_analysis.json",
+                "hotspot_lca_analysis_with_papers": f"{self.hotspot_analyzer.output_folder}/hotspot_lca_analysis_with_papers.json",
                 "downloaded_papers_folder": f"{self.hotspot_analyzer.output_folder}/downloaded_papers",
                 "query_mapping": f"{self.hotspot_analyzer.output_folder}/downloaded_papers/query_paper_mapping.json"
             }
@@ -593,6 +605,7 @@ def check_existing_files(output_folder: str) -> Dict[str, bool]:
         "hotspot_analysis": output_path / "hotspot_lca_analysis.json",
         "downloaded_papers": output_path / "downloaded_papers",
         "processed_papers": output_path / "processed_papers.json", 
+        "detailed_sustainable_solutions": output_path / "detailed_sustainable_solutions_report.txt",
         "sustainable_solutions": output_path / "sustainable_solutions_report.txt",
         "lca_visualizations": output_path / "visualizations" / "hotspot_lca",
         "solutions_visualizations": output_path / "visualizations" / "sustainable_solutions"
@@ -630,7 +643,8 @@ def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
             "Hotspot Analysis": False,
             "ArXiv Paper Download": not file_status["downloaded_papers"],
             "PDF Processing": not file_status["processed_papers"],
-            "Sustainable Solutions": not file_status["sustainable_solutions"],
+            "Detailed Sustainability Report": not file_status["detailed_sustainable_solutions"],
+            "Deep Hotspot Analysis": not file_status["sustainable_solutions"],
             # "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
         }
     else:
@@ -639,7 +653,8 @@ def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
             "Hotspot Analysis": True,
             "ArXiv Paper Download": True,
             "PDF Processing": True,
-            "Sustainable Solutions": True,
+            "Detailed Sustainability Report": True,
+            "Deep Hotspot Analysis": True,
             # "Visualization Generation": True
         }
     
@@ -864,8 +879,9 @@ def main():
     1. 🔥 **Hotspot Analysis** - Identifies environmental hotspots directly from raw input data
     2. 📚 **ArXiv Paper Download** - Downloads relevant research papers for each hotspot
     3. 📄 **PDF Processing** - Extracts and processes paper content 
-    4. 🌱 **Sustainability Solutions** - Generates data-driven sustainability recommendations
-    <!-- 5. 📊 **Visualizations** - Creates interactive charts and reports -->
+    4. 📊 **Detailed Sustainability Report** - Generates comprehensive sustainability analysis with research data
+    5. 🎯 **Deep Hotspot Analysis** - Performs focused quantitative analysis with web search augmentation
+    <!-- 6. 📊 **Visualizations** - Creates interactive charts and reports -->
     
     Upload a text file containing your raw input data to begin the analysis.
     """)
@@ -916,139 +932,112 @@ def main():
                     with col2:
                         force_rerun = st.button("🔄 Force Re-run All", help="Re-execute all analysis steps even if files exist")
                     
-                    if not force_rerun:
-                        st.session_state.analysis_completed = True
-                        st.session_state.analysis_results = {"output_folder": output_folder}
-                        # Skip to results display
-                        st.rerun()
-                        return
-                    else:
+                    if force_rerun:
                         st.info("🔄 Force re-running all analysis steps...")
                         # Override steps_to_run to force execution of all steps
                         steps_to_run = {
                             "Hotspot Analysis": True,
                             "ArXiv Paper Download": True,
                             "PDF Processing": True,
-                            "Sustainable Solutions": True,
+                            "Detailed Sustainability Report": True,
+                            "Deep Hotspot Analysis": True,
                             # "Visualization Generation": True
                         }
+                    else:
+                        # Set session state and skip to results
+                        st.session_state.analysis_completed = True
+                        st.session_state.analysis_results = {"output_folder": output_folder}
                 
-                # Initialize components only if needed
+                # Only run workflow if there are steps to execute
                 if any(steps_to_run.values()):
+                    # Initialize components only if needed
                     workflow = initialize_new_workflow()
                     logger.info("LCA workflow initialized successfully")
                 
-                # Log which steps will be executed
-                steps_to_execute = [step for step, will_run in steps_to_run.items() if will_run]
-                steps_to_skip = [step for step, will_run in steps_to_run.items() if not will_run]
-                
-                if steps_to_execute:
-                    logger.info(f"Steps to execute: {', '.join(steps_to_execute)}")
-                if steps_to_skip:
-                    logger.info(f"Steps to skip (already completed): {', '.join(steps_to_skip)}")
-                
-                # Create step display
-                steps = {
-                    "Hotspot Analysis": False,
-                    "ArXiv Paper Download": False,
-                    "PDF Processing": False,
-                    "Sustainable Solutions": False,
-                    # "Visualization Generation": False
-                }
-                
-                # Check if we should run the complete workflow or partial workflow
-                if steps_to_run["Hotspot Analysis"]:
-                    # Run complete workflow from input file
-                    st.markdown("### Running Complete LCA Workflow")
-                    st.markdown("This will execute 4 steps: Hotspot Analysis → ArXiv Download → PDF Processing → Sustainability Report")
+                    # Log which steps will be executed
+                    steps_to_execute = [step for step, will_run in steps_to_run.items() if will_run]
+                    steps_to_skip = [step for step, will_run in steps_to_run.items() if not will_run]
                     
-                    with st.container():
-                        # Save the input file content temporarily with proper naming
-                        input_filename = uploaded_file.name if uploaded_file else "automotive_sample_input.txt"
-                        temp_input_file = f"temp/{input_filename}"
-                        Path("temp").mkdir(parents=True, exist_ok=True)
-                        with open(temp_input_file, 'w', encoding='utf-8') as f:
-                            f.write(file_content)
-                        
-                        # Execute complete workflow
-                        workflow_outputs = workflow.execute_complete_workflow(temp_input_file)
-                        
-                        # Clean up temp file
-                        Path(temp_input_file).unlink(missing_ok=True)
-                        
-                        # Update step status
-                        for step in steps.keys():
-                            steps[step] = True
-                        
-                        st.success("✓ Complete LCA workflow executed successfully!")
-                        
-                        # Display workflow summary
-                        st.markdown("### Workflow Summary")
-                        for output_type, file_path in workflow_outputs.items():
-                            if Path(file_path).exists():
-                                st.markdown(f"✓ **{output_type.replace('_', ' ').title()}**: {file_path}")
-                            else:
-                                st.markdown(f"⚠️ **{output_type.replace('_', ' ').title()}**: {file_path} (not found)")
-                else:
-                    # Run partial workflow from existing hotspot analysis
-                    st.markdown("### Running Partial LCA Workflow")
-                    st.markdown("Hotspot analysis already exists. Running remaining steps...")
+                    if steps_to_execute:
+                        logger.info(f"Steps to execute: {', '.join(steps_to_execute)}")
+                    if steps_to_skip:
+                        logger.info(f"Steps to skip (already completed): {', '.join(steps_to_skip)}")
                     
-                    # Load existing hotspot analysis
-                    try:
-                        hotspot_file = f"{output_folder}/hotspot_lca_analysis.json"
-                        if Path(hotspot_file).exists():
-                            workflow_outputs = workflow.execute_workflow_from_hotspot_analysis(hotspot_file)
+                    # Create step display
+                    steps = {
+                        "Hotspot Analysis": False,
+                        "ArXiv Paper Download": False,
+                        "PDF Processing": False,
+                        "Detailed Sustainability Report": False,
+                        "Deep Hotspot Analysis": False,
+                        # "Visualization Generation": False
+                    }
+                    
+                    # Check if we should run the complete workflow or partial workflow
+                    if steps_to_run["Hotspot Analysis"]:
+                        # Run complete workflow from input file
+                        st.markdown("### Running Complete LCA Workflow")
+                        st.markdown("This will execute 6 steps: Hotspot Analysis → ArXiv Download → PDF Processing → Detailed Sustainability Report → Deep Hotspot Analysis")
+                        
+                        with st.container():
+                            # Save the input file content temporarily with proper naming
+                            input_filename = uploaded_file.name if uploaded_file else "automotive_sample_input.txt"
+                            temp_input_file = f"temp/{input_filename}"
+                            Path("temp").mkdir(parents=True, exist_ok=True)
+                            with open(temp_input_file, 'w', encoding='utf-8') as f:
+                                f.write(file_content)
+                            
+                            # Execute complete workflow
+                            workflow_outputs = workflow.execute_complete_workflow(temp_input_file)
+                            
+                            # Clean up temp file
+                            Path(temp_input_file).unlink(missing_ok=True)
                             
                             # Update step status
-                            steps["Hotspot Analysis"] = True
-                            for step in ["ArXiv Paper Download", "PDF Processing", "Sustainable Solutions"]: # , "Visualization Generation"]:
+                            for step in steps.keys():
                                 steps[step] = True
                             
-                            st.success("✓ Partial LCA workflow executed successfully!")
-                        else:
-                            st.error("Hotspot analysis file not found. Please run complete workflow.")
+                            st.success("✓ Complete LCA workflow executed successfully!")
+                            
+                            # Display workflow summary
+                            st.markdown("### Workflow Summary")
+                            for output_type, file_path in workflow_outputs.items():
+                                if Path(file_path).exists():
+                                    st.markdown(f"✓ **{output_type.replace('_', ' ').title()}**: {file_path}")
+                                else:
+                                    st.markdown(f"⚠️ **{output_type.replace('_', ' ').title()}**: {file_path} (not found)")
+                    else:
+                        # Run partial workflow from existing hotspot analysis
+                        st.markdown("### Running Partial LCA Workflow")
+                        st.markdown("Hotspot analysis already exists. Running remaining steps...")
+                        
+                        # Load existing hotspot analysis
+                        try:
+                            hotspot_file = f"{output_folder}/hotspot_lca_analysis.json"
+                            if Path(hotspot_file).exists():
+                                workflow_outputs = workflow.execute_workflow_from_hotspot_analysis(hotspot_file)
+                                
+                                # Update step status
+                                steps["Hotspot Analysis"] = True
+                                for step in ["ArXiv Paper Download", "PDF Processing", "Detailed Sustainability Report", "Deep Hotspot Analysis"]: # , "Visualization Generation"]:
+                                    steps[step] = True
+                                
+                                st.success("✓ Partial LCA workflow executed successfully!")
+                            else:
+                                st.error("Hotspot analysis file not found. Please run complete workflow.")
+                                return
+                        except Exception as e:
+                            st.error(f"Error running partial workflow: {str(e)}")
+                            logger.error(f"Error in partial workflow: {str(e)}")
                             return
-                    except Exception as e:
-                        st.error(f"Error running partial workflow: {str(e)}")
-                        logger.error(f"Error in partial workflow: {str(e)}")
-                        return
-                
-                # Generate visualizations if needed (they might not be included in workflow)
-                # COMMENTED OUT - Visualization generation disabled
-                # if not file_status.get("lca_visualizations") or not file_status.get("solutions_visualizations"):
-                #     with st.container():
-                #         st.markdown("### Generating Visualizations")
-                #         st.markdown("Creating visualizations for hotspot analysis and sustainable solutions...")
-                #         
-                #         # Create hotspot LCA visualizations
-                #         try:
-                #             lca_visualizations, lca_saved_files = create_lca_visualizations(f"{output_folder}/hotspot_lca_analysis.json")
-                #             logger.info("Hotspot LCA visualizations created successfully")
-                #         except Exception as e:
-                #             logger.error(f"Error creating hotspot LCA visualizations: {str(e)}")
-                #             lca_visualizations = {}
-                #             lca_saved_files = []
-                #         
-                #         # Create sustainable solutions visualizations
-                #         try:
-                #             solutions_visualizations, solutions_saved_files = create_solutions_visualizations(f"{output_folder}/sustainable_solutions_report.txt")
-                #             logger.info("Sustainable solutions visualizations created successfully")
-                #         except Exception as e:
-                #             logger.error(f"Error creating sustainable solutions visualizations: {str(e)}")
-                #             solutions_visualizations = {}
-                #             solutions_saved_files = []
-                #         
-                #         steps["Visualization Generation"] = True
-                #         st.success("✓ Visualizations generated")
-                
-                # Mark analysis as completed
-                st.session_state.analysis_completed = True
-                st.session_state.analysis_results = {"output_folder": output_folder}
-                
-                # Display success message
-                st.success("Analysis completed successfully!")
-                logger.info("Analysis completed successfully")
+                    
+                    # Mark analysis as completed after successful execution
+                    st.session_state.analysis_completed = True
+                    st.session_state.analysis_results = {"output_folder": output_folder}
+                    
+                    # Display success message
+                    st.success("Analysis completed successfully!")
+                    logger.info("Analysis completed successfully")
                 
             except Exception as e:
                 error_msg = f"An error occurred during analysis: {str(e)}"
@@ -1073,85 +1062,83 @@ def main():
                 # Reset session state to force re-analysis
                 st.session_state.analysis_completed = False
                 st.session_state.analysis_results = None
-                st.rerun()
-                return
-            
-            # Create tabs for different reports
-            tab1, tab2, tab3 = st.tabs(["📊 Hotspot Analysis", "🌱 Sustainable Solutions", "📈 Visualization"])
-            
-            with tab1:
-                # Load and display hotspot analysis report
-                try:
-                    with open(f"{output_folder}/hotspot_lca_analysis.json", 'r') as f:
-                        hotspot_data = json.load(f)
-                    format_hotspot_report(hotspot_data)
-                except FileNotFoundError:
-                    st.error("Hotspot analysis file not found. Please run the analysis again.")
-            
-            with tab2:
-                # Load and display sustainable solutions report
-                try:
-                    with open(f"{output_folder}/sustainable_solutions_report.txt", 'r', encoding='utf-8') as f:
-                        solutions_report = f.read()
-                    format_solutions_report(solutions_report)
-                except FileNotFoundError:
-                    st.error("Sustainable solutions report file not found. Please run the analysis again.")
-            
-            with tab3:
-                # Create sub-tabs for different visualizations
-                viz_tab1, viz_tab2 = st.tabs(["📊 Hotspot Analysis Visualizations", "🌱 Sustainable Solutions Visualizations"])
+            else:
+                # Create tabs for different reports
+                tab1, tab2, tab3 = st.tabs(["📊 Hotspot Analysis", "🌱 Sustainable Solutions", "📈 Visualization"])
                 
-                with viz_tab1:
-                    st.subheader("Hotspot Analysis Visualizations")
-                    # Load visualizations from files
-                    lca_viz, _ = load_visualizations(output_folder)
-                    
-                    # Display visualizations
-                    for name, html_content in lca_viz.items():
-                        st.markdown(f"### {name.replace('_', ' ').title()}")
-                        st.components.v1.html(
-                            f'''
-                            <div style="
-                                width: 100%;
-                                height: 800px;
-                                overflow: auto;
-                                border: 1px solid #ddd;
-                                border-radius: 5px;
-                                padding: 10px;
-                                margin: 10px 0;
-                            ">
-                                {html_content}
-                            </div>
-                            ''',
-                            height=800,
-                            scrolling=True
-                        )
+                with tab1:
+                    # Load and display hotspot analysis report
+                    try:
+                        with open(f"{output_folder}/hotspot_lca_analysis.json", 'r') as f:
+                            hotspot_data = json.load(f)
+                        format_hotspot_report(hotspot_data)
+                    except FileNotFoundError:
+                        st.error("Hotspot analysis file not found. Please run the analysis again.")
                 
-                with viz_tab2:
-                    st.subheader("Sustainable Solutions Visualizations")
-                    # Load visualizations from files
-                    _, solutions_viz = load_visualizations(output_folder)
+                with tab2:
+                    # Load and display sustainable solutions report
+                    try:
+                        with open(f"{output_folder}/sustainable_solutions_report.txt", 'r', encoding='utf-8') as f:
+                            solutions_report = f.read()
+                        format_solutions_report(solutions_report)
+                    except FileNotFoundError:
+                        st.error("Sustainable solutions report file not found. Please run the analysis again.")
+                
+                with tab3:
+                    # Create sub-tabs for different visualizations
+                    viz_tab1, viz_tab2 = st.tabs(["📊 Hotspot Analysis Visualizations", "🌱 Sustainable Solutions Visualizations"])
                     
-                    # Display visualizations
-                    for name, html_content in solutions_viz.items():
-                        st.markdown(f"### {name.replace('_', ' ').title()}")
-                        st.components.v1.html(
-                            f'''
-                            <div style="
-                                width: 100%;
-                                height: 800px;
-                                overflow: auto;
-                                border: 1px solid #ddd;
-                                border-radius: 5px;
-                                padding: 10px;
-                                margin: 10px 0;
-                            ">
-                                {html_content}
-                            </div>
-                            ''',
-                            height=800,
-                            scrolling=True
-                        )
+                    with viz_tab1:
+                        st.subheader("Hotspot Analysis Visualizations")
+                        # Load visualizations from files
+                        lca_viz, _ = load_visualizations(output_folder)
+                        
+                        # Display visualizations
+                        for name, html_content in lca_viz.items():
+                            st.markdown(f"### {name.replace('_', ' ').title()}")
+                            st.components.v1.html(
+                                f'''
+                                <div style="
+                                    width: 100%;
+                                    height: 800px;
+                                    overflow: auto;
+                                    border: 1px solid #ddd;
+                                    border-radius: 5px;
+                                    padding: 10px;
+                                    margin: 10px 0;
+                                ">
+                                    {html_content}
+                                </div>
+                                ''',
+                                height=800,
+                                scrolling=True
+                            )
+                    
+                    with viz_tab2:
+                        st.subheader("Sustainable Solutions Visualizations")
+                        # Load visualizations from files
+                        _, solutions_viz = load_visualizations(output_folder)
+                        
+                        # Display visualizations
+                        for name, html_content in solutions_viz.items():
+                            st.markdown(f"### {name.replace('_', ' ').title()}")
+                            st.components.v1.html(
+                                f'''
+                                <div style="
+                                    width: 100%;
+                                    height: 800px;
+                                    overflow: auto;
+                                    border: 1px solid #ddd;
+                                    border-radius: 5px;
+                                    padding: 10px;
+                                    margin: 10px 0;
+                                ">
+                                    {html_content}
+                                </div>
+                                ''',
+                                height=800,
+                                scrolling=True
+                            )
     else:
         # Reset session state when no file is uploaded, but preserve output folder for default
         if st.session_state.analysis_completed:

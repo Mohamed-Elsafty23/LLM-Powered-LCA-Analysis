@@ -14,4 +14,5 @@ RAW input data
 hotspot analysis for the raw input directly
 for every hotspot, generate specific search query 
 for each search query, get papers from arXiv API, make pdf processing for them 
-make the sustainability report based on evidence based for the hotspot analyses and papers got
+make the sustainability report based on evidence based for the hotspot analyses, papers got from arXiv, and web search tool if needed more quatative information
+

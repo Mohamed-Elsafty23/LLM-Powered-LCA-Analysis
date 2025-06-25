@@ -939,7 +939,7 @@ Do not make up numbers. Only report what is explicitly written in the paper."""
             
             # Set default output path if not provided
             if output_path is None:
-                output_path = f"{self.output_folder}/sustainable_solutions_report.txt"
+                output_path = f"{self.output_folder}/detailed_sustainable_solutions_report.txt"
             elif not str(output_path).startswith(self.output_folder):
                 filename = Path(output_path).name
                 output_path = f"{self.output_folder}/{filename}"
@@ -1011,14 +1011,14 @@ Please complete the paper download and processing steps first."""
             
             # Generate PDF version
             try:
-                pdf_output_path = f"{self.output_folder}/sustainable_solutions_report.pdf"
+                pdf_output_path = f"{self.output_folder}/detailed_sustainable_solutions_report.pdf"
                 self.generate_pdf_report(output_path, pdf_output_path)
                 logger.info(f"PDF report generated at {pdf_output_path}")
             except Exception as e:
                 logger.warning(f"Failed to generate PDF report: {str(e)}")
             
             # Also save the detailed analysis data
-            detailed_output_path = f"{self.output_folder}/detailed_sustainability_analysis.json"
+            detailed_output_path = f"{self.output_folder}/hotspot_lca_analysis_with_papers.json"
             with open(detailed_output_path, 'w', encoding='utf-8') as f:
                 json.dump(final_report, f, indent=2, ensure_ascii=False)
             

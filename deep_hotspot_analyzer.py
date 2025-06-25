@@ -116,8 +116,16 @@ class DeepHotspotAnalyzer:
             logger.error(f"API request failed: {str(e)}")
             raise
 
-    def _web_search_for_quantitative_data(self, search_query: str) -> str:
-        """Perform web search for additional quantitative data."""
+    def _web_search_for_quantitative_data(self, search_query: str) -> Dict[str, Any]:
+        """Perform web search for additional quantitative data and return structured results."""
+        search_metadata = {
+            "search_query": search_query,
+            "search_results": [],
+            "formatted_content": "",
+            "success": False,
+            "error_message": None
+        }
+        
         max_retries = 2  # Reduced retries since we're now sequential
         for attempt in range(max_retries):
             try:
@@ -138,31 +146,45 @@ class DeepHotspotAnalyzer:
                 if not response:
                     logger.warning(f"Web search returned empty response for: {search_query} (attempt {attempt + 1})")
                     if attempt == max_retries - 1:
-                        return "Web search returned empty response after multiple attempts"
+                        search_metadata["error_message"] = "Web search returned empty response after multiple attempts"
+                        search_metadata["formatted_content"] = search_metadata["error_message"]
+                        return search_metadata
                     continue
                 
                 if not response.get('results'):
                     logger.warning(f"Web search returned no results for: {search_query} (attempt {attempt + 1})")
                     if attempt == max_retries - 1:
-                        return "No web search results found after multiple attempts"
+                        search_metadata["error_message"] = "No web search results found after multiple attempts"
+                        search_metadata["formatted_content"] = search_metadata["error_message"]
+                        return search_metadata
                     continue
                 
                 results = response.get('results', [])
                 if len(results) == 0:
                     logger.warning(f"Web search results array empty for: {search_query} (attempt {attempt + 1})")
                     if attempt == max_retries - 1:
-                        return "No web search results found after multiple attempts"
+                        search_metadata["error_message"] = "No web search results found after multiple attempts"
+                        search_metadata["formatted_content"] = search_metadata["error_message"]
+                        return search_metadata
                     continue
                 
                 # If we get here, we have valid results
-                search_results = []
+                search_results_formatted = []
                 for i, result in enumerate(results[:3]):  # Top 3 results
                     title = result.get('title', 'Unknown Title')
                     url = result.get('url', 'Unknown URL')
                     content = result.get('content', 'No content available')
                     
-                    # Format each result clearly
-                    search_results.append(f"""
+                    # Store structured result metadata
+                    search_metadata["search_results"].append({
+                        "rank": i + 1,
+                        "title": title,
+                        "url": url,
+                        "content": content
+                    })
+                    
+                    # Format each result clearly for LLM processing
+                    search_results_formatted.append(f"""
 WEB SEARCH RESULT {i+1}:
 Title: {title}
 URL: {url}
@@ -174,24 +196,31 @@ Citation Format: [{title}] (URL: {url})
                 formatted_results = f"""
 === WEB SEARCH RESULTS FOR QUERY: "{search_query}" ===
 
-{chr(10).join(search_results)}
+{chr(10).join(search_results_formatted)}
 
 === END OF WEB SEARCH RESULTS ===
 
 IMPORTANT: Use these web search results ONLY if they contain relevant quantitative data (numbers, percentages, formulas, metrics) that can help with sustainability analysis. Each piece of quantitative data used from web search MUST be cited with the format: [Title] (URL: full_url)
 """
                 
+                search_metadata["formatted_content"] = formatted_results
+                search_metadata["success"] = True
+                
                 logger.info(f"✅ Web search SUCCESS: Found {len(results)} results for '{search_query}' (total length: {len(formatted_results)} chars)")
-                return formatted_results
+                return search_metadata
                 
             except Exception as e:
                 logger.error(f"Web search failed for query '{search_query}' (attempt {attempt + 1}): {str(e)}")
                 if attempt == max_retries - 1:
-                    return f"Web search failed for query: {search_query} - Error: {str(e)}"
+                    search_metadata["error_message"] = f"Web search failed for query: {search_query} - Error: {str(e)}"
+                    search_metadata["formatted_content"] = search_metadata["error_message"]
+                    return search_metadata
                 continue
         
         # This shouldn't be reached, but just in case
-        return f"Web search failed for query: {search_query} - Maximum retries exceeded"
+        search_metadata["error_message"] = f"Web search failed for query: {search_query} - Maximum retries exceeded"
+        search_metadata["formatted_content"] = search_metadata["error_message"]
+        return search_metadata
 
     def parse_existing_report(self, report_file: str) -> Dict[str, Dict[str, Any]]:
         """Parse the existing sustainability report to extract hotspot data and papers."""
@@ -283,42 +312,54 @@ IMPORTANT: Use these web search results ONLY if they contain relevant quantitati
 AVAILABLE RESEARCH PAPERS ({len(all_papers)} papers):
 {chr(10).join([f"- {paper['title']}: {paper['content']}..." for paper in all_papers])}
 
-DECISION: Do you need additional specific quantitative data to provide a meaningful sustainability analysis?
+DECISION: Do you need additional specific CALCULATION METHODS, METRICS, or FORMULAS to quantitatively measure sustainability improvements?
 
-ASSESSMENT CRITERIA - Search is needed if papers lack:
-1. Specific GWP calculation formulas (kgCO2eq/unit, kgCO2eq/kWh)
-2. Exact emission factors for materials/processes
-3. Energy consumption baselines (kWh/kg, MJ/unit)
-4. Material efficiency metrics (yield %, waste reduction %)
-5. Industry-standard sustainability benchmarks
-6. Process optimization formulas (temperature, pressure, time)
-7. Recycling rate calculations or recovery percentages
+CRITICAL ASSESSMENT - Search is SPECIFICALLY needed if papers lack:
+1. **CALCULATION FORMULAS**: Missing specific mathematical equations to calculate:
+   - GWP formulas (kgCO2eq = emission_factor × activity_data)
+   - Energy efficiency calculations (η = useful_output/total_input)
+   - Material utilization ratios (yield = output_mass/input_mass)
+   - Improvement percentage formulas (% = (new-old)/old × 100)
+
+2. **MEASUREMENT METRICS**: Missing precise units and measurement methods for:
+   - Baseline values (current performance numbers)
+   - Target values (improvement goals with specific numbers)
+   - Conversion factors between units
+   - Industry standard benchmarks with numerical thresholds
+
+3. **QUANTIFICATION METHODS**: Missing procedures to calculate:
+   - Before/after comparison methodologies
+   - Performance improvement quantification
+   - Cost-benefit calculation methods
+   - ROI formulas for sustainability investments
+
+SEARCH QUERY FOCUS - Target searches for:
+- Exact calculation methods and mathematical formulas
+- Measurement protocols and quantification standards
+- Industry-specific metrics and conversion factors
+- Baseline data and benchmark values for comparison
 
 SEARCH QUERY REQUIREMENTS:
-- Use BROADER terms that are more likely to find results
-- Start with general concepts, then add technical terms
-- Avoid overly specific unit combinations that might not exist
-- Focus on common sustainability terms and materials
-- Max 6 words for better matching
+- Include terms like: "calculation", "formula", "measurement", "quantification"
+- Target specific calculation methods, not general information
+- Focus on mathematical approaches to measure improvements
+- Max 6-8 words focusing on quantitative methods
 
-CITATION REQUIREMENT: Remember that ALL findings in your final analysis must include proper citations with paper titles and PDF links.
+CITATION REQUIREMENT: ALL findings must include proper citations with paper titles and PDF links.
 
 Respond with:
 SEARCH_NEEDED: [YES/NO]
-SEARCH_QUERY: [broader search terms more likely to find results, max 6 words]
-REASONING: [what specific quantitative data is missing and why it's needed for actionable analysis]
+SEARCH_QUERY: [specific terms targeting calculation methods/formulas, max 8 words]
+REASONING: [what specific calculation methods/formulas are missing and needed to quantify improvements]
 
-EXAMPLES OF GOOD SEARCH QUERIES:
-- "aluminum die casting environmental impact"
-- "housing construction carbon footprint"
-- "PCB manufacturing energy consumption"
-- "steel recycling sustainability benefits"
-- "plastic injection molding GWP"
-- "electronic waste recycling efficiency\""""
+EXAMPLES OF TARGETED SEARCH QUERIES:
+- "aluminum die casting energy efficiency calculation formula"
+- "GWP calculation method electronic components manufacturing"
+- "material utilization measurement formula injection molding"\""""
 
             search_response = api_client.client.chat.completions.create(
                 messages=[
-                    {"role": "system", "content": "You are a sustainability researcher who determines when specific technical data is needed for quantitative analysis. When searching, use precise technical terms targeting exact formulas, metrics, and calculation methods, not general topics."},
+                    {"role": "system", "content": "You are a sustainability measurement specialist who identifies when specific CALCULATION METHODS, FORMULAS, and QUANTIFICATION METRICS are needed for rigorous sustainability analysis. Focus on mathematical approaches to measure improvements, not general environmental information. Search decisions should target: 1) Specific calculation formulas (e.g., GWP equations, efficiency ratios) 2) Measurement protocols and standards 3) Baseline data for comparison 4) Quantitative benchmarks. Only recommend searches for precise mathematical tools needed to calculate and measure sustainability improvements."},
                     {"role": "user", "content": search_decision_prompt}
                 ],
                 model=api_client.model,
@@ -332,27 +373,34 @@ EXAMPLES OF GOOD SEARCH QUERIES:
             # Debug: Log the LLM's search decision
             logger.info(f"LLM search decision for {hotspot_name}: {search_decision[:200]}...")
             
+            # Initialize search metadata
+            search_metadata = None
+            additional_data = ""
+            
             # Perform web search if needed
             if "SEARCH_NEEDED: YES" in search_decision:
                 search_query_match = re.search(r'SEARCH_QUERY:\s*([^\n]+)', search_decision)
                 if search_query_match:
                     search_query = search_query_match.group(1).strip().strip('"')  # Remove quotes if present
                     logger.info(f"Performing web search for {hotspot_name}: {search_query}")
-                    additional_data = self._web_search_for_quantitative_data(search_query)
+                    search_metadata = self._web_search_for_quantitative_data(search_query)
+                    additional_data = search_metadata["formatted_content"]
                     
                     # If the primary search fails, try a simpler fallback query
-                    if len(additional_data) < 100 and "No web search results found" in additional_data:
+                    if not search_metadata["success"] and search_metadata.get("error_message"):
                         # Create a simpler fallback query based on hotspot name
                         fallback_query = f"{hotspot_name.lower().replace(' ', ' ')} environmental impact"
                         logger.info(f"Primary search failed, trying fallback query: {fallback_query}")
-                        additional_data = self._web_search_for_quantitative_data(fallback_query)
+                        fallback_metadata = self._web_search_for_quantitative_data(fallback_query)
+                        if fallback_metadata["success"]:
+                            search_metadata = fallback_metadata
+                            additional_data = fallback_metadata["formatted_content"]
                     
                     # Debug logging
-                    logger.info(f"Web search returned {len(additional_data)} characters of data for {hotspot_name}")
-                    if len(additional_data) < 100:  # Log short responses to debug
-                        logger.info(f"Short web search response for {hotspot_name}: '{additional_data}'")
+                    if search_metadata["success"]:
+                        logger.info(f"✅ Web search SUCCESS for {hotspot_name}: Found {len(search_metadata['search_results'])} results")
                     else:
-                        logger.info(f"✅ Web search SUCCESS for {hotspot_name}: Found substantial data")
+                        logger.warning(f"❌ Web search failed for {hotspot_name}: {search_metadata.get('error_message', 'Unknown error')}")
                 else:
                     logger.warning(f"SEARCH_NEEDED: YES but no search query found for {hotspot_name}")
             else:
@@ -466,7 +514,9 @@ CRITICAL REQUIREMENTS:
                 "relevant_papers_count": len(all_papers),
                 "papers_analyzed": [paper['title'] for paper in all_papers],
                 "web_search_performed": "SEARCH_NEEDED: YES" in search_decision,
-                "search_query": search_query_match.group(1).strip() if "SEARCH_NEEDED: YES" in search_decision and search_query_match else None
+                "search_metadata": search_metadata if search_metadata else None,
+                "search_query": search_metadata["search_query"] if search_metadata else None,
+                "search_results": search_metadata["search_results"] if search_metadata else []
             }
             
         except Exception as e:
@@ -583,41 +633,25 @@ CRITICAL REQUIREMENTS:
             comprehensive_report = self.generate_comprehensive_lca_report(hotspot_analyses, current_report_path)
             
             # Save new comprehensive report with unique name
-            new_report_path = f"{self.output_folder}/deep_hotspot_lca_analysis.txt"
+            new_report_path = f"{self.output_folder}/sustainable_solutions_report.txt"
             with open(new_report_path, 'w', encoding='utf-8') as f:
                 f.write(comprehensive_report)
             
-            # Also save as enhanced sustainability report
-            enhanced_report_path = f"{self.output_folder}/enhanced_sustainability_solutions.txt"
-            with open(enhanced_report_path, 'w', encoding='utf-8') as f:
-                f.write(comprehensive_report)
+            # Save search metadata to JSON file
+            search_metadata_path = f"{self.output_folder}/web_search_metadata.json"
+            self._save_search_metadata(hotspot_analyses, search_metadata_path)
             
             # Generate PDF version
             try:
-                pdf_path = f"{self.output_folder}/deep_hotspot_lca_analysis.pdf"
+                pdf_path = f"{self.output_folder}/sustainable_solutions_report.pdf"
                 self._generate_professional_pdf(comprehensive_report, pdf_path)
                 logger.info(f"Generated PDF report: {pdf_path}")
             except Exception as e:
                 logger.warning(f"PDF generation failed: {str(e)}")
             
-            # Save detailed analysis data
-            analysis_data = {
-                "analysis_metadata": {
-                    "generation_timestamp": datetime.now().isoformat(),
-                    "total_hotspots_analyzed": len(hotspot_analyses),
-                    "methodology": "Deep quantitative LCA following ISO 14040/44",
-                    "data_sources": "Peer-reviewed research literature with web search augmentation"
-                },
-                "hotspot_analyses": hotspot_analyses,
-                "original_report_path": current_report_path
-            }
-            
-            with open(f"{self.output_folder}/deep_analysis_metadata.json", 'w', encoding='utf-8') as f:
-                json.dump(analysis_data, f, indent=2, ensure_ascii=False)
-            
             logger.info(f"Deep analysis completed successfully!")
-            logger.info(f"New deep hotspot analysis report: {new_report_path}")
-            logger.info(f"Enhanced sustainability report: {enhanced_report_path}")
+            logger.info(f"New sustainability solutions report: {new_report_path}")
+            logger.info(f"Search metadata saved to: {search_metadata_path}")
             logger.info(f"Original report preserved at: {current_report_path}")
             
             return new_report_path
@@ -704,6 +738,29 @@ CRITICAL REQUIREMENTS:
             
         except Exception as e:
             logger.error(f"PDF generation error: {str(e)}")
+            raise
+
+    def _save_search_metadata(self, hotspot_analyses: List[Dict[str, Any]], search_metadata_path: str):
+        """Save search metadata to a JSON file."""
+        try:
+            metadata = []
+            for analysis in hotspot_analyses:
+                if analysis['web_search_performed']:
+                    metadata.append({
+                        "hotspot_name": analysis['hotspot_name'],
+                        "search_query": analysis['search_query'],
+                        "search_results": analysis['search_results'],
+                        "relevant_papers_count": analysis['relevant_papers_count'],
+                        "papers_analyzed": analysis['papers_analyzed'],
+                        "web_search_performed": analysis['web_search_performed'],
+                        "search_metadata": analysis['search_metadata']
+                    })
+            
+            with open(search_metadata_path, 'w', encoding='utf-8') as f:
+                json.dump(metadata, f)
+            
+        except Exception as e:
+            logger.error(f"Error saving search metadata: {str(e)}")
             raise
 
 def main():

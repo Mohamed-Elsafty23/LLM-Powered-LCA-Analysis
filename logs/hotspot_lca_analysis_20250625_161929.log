@@ -1,0 +1,865 @@
+2025-06-25 16:19:39,974 - __main__ - INFO - New file uploaded with hash: 224a6d71837a461e644f59ca4858cabb
+2025-06-25 16:19:39,979 - __main__ - INFO - Output folder set to: output/solar_panel_sample
+2025-06-25 16:19:39,980 - __main__ - INFO - Processing uploaded file: solar_panel_sample.txt
+2025-06-25 16:19:39,981 - __main__ - INFO - Project name: solar_panel_sample
+2025-06-25 16:19:39,981 - __main__ - INFO - Output folder: output/solar_panel_sample
+2025-06-25 16:19:40,851 - lca_implementation - INFO - Initialized HotspotLCAAnalyzer with 2 API clients
+2025-06-25 16:19:41,584 - sustainable_solutions_generator - INFO - Initialized HotspotSustainableSolutionsGenerator with 2 API clients
+2025-06-25 16:19:42,185 - deep_hotspot_analyzer - INFO - Initialized DeepHotspotAnalyzer with 2 API clients
+2025-06-25 16:19:42,185 - __main__ - INFO - Initialized NewLCAWorkflow with all components
+2025-06-25 16:19:42,185 - __main__ - INFO - New LCA workflow initialized successfully
+2025-06-25 16:19:42,185 - __main__ - INFO - LCA workflow initialized successfully
+2025-06-25 16:19:42,186 - __main__ - INFO - Steps to execute: Hotspot Analysis, ArXiv Paper Download, PDF Processing, Detailed Sustainability Report, Deep Hotspot Analysis
+2025-06-25 16:19:42,189 - __main__ - INFO - Starting complete LCA workflow for input file: temp/solar_panel_sample.txt
+2025-06-25 16:19:42,189 - __main__ - INFO - ============================================================
+2025-06-25 16:19:42,191 - __main__ - INFO - STEP 1: HOTSPOT ANALYSIS
+2025-06-25 16:19:42,191 - __main__ - INFO - ============================================================
+2025-06-25 16:19:42,192 - lca_implementation - INFO - Using input file: temp/solar_panel_sample.txt
+2025-06-25 16:19:42,192 - lca_implementation - INFO - Using output folder: output/solar_panel_sample
+2025-06-25 16:19:42,208 - lca_implementation - INFO - Raw input data loaded successfully
+2025-06-25 16:19:42,209 - lca_implementation - INFO - Starting hotspot analysis...
+2025-06-25 16:20:59,010 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:20:59,015 - lca_implementation - INFO - Hotspot analysis completed successfully
+2025-06-25 16:20:59,016 - lca_implementation - INFO - Generating search queries for hotspots...
+2025-06-25 16:21:10,472 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:21:10,473 - lca_implementation - INFO - Generated 9 improved search queries for hotspots
+2025-06-25 16:21:10,475 - lca_implementation - INFO - Hotspot LCA analysis completed successfully. Results saved to output/solar_panel_sample/hotspot_lca_analysis.json
+2025-06-25 16:21:10,475 - __main__ - INFO - [SUCCESS] Hotspot analysis completed. Results saved to: output/solar_panel_sample/hotspot_lca_analysis.json
+2025-06-25 16:21:10,476 - __main__ - INFO - ============================================================
+2025-06-25 16:21:10,476 - __main__ - INFO - STEP 2: SEARCH QUERY EXTRACTION
+2025-06-25 16:21:10,476 - __main__ - INFO - ============================================================
+2025-06-25 16:21:10,477 - __main__ - INFO - [SUCCESS] Extracted 9 search queries for hotspots:
+2025-06-25 16:21:10,477 - __main__ - INFO -   - Solar Panel Production: Silicon purification LCA energy efficiency
+2025-06-25 16:21:10,477 - __main__ - INFO -   - Inverter Production: PCB assembly sustainability environmental impact
+2025-06-25 16:21:10,478 - __main__ - INFO -   - Battery Storage Production: Lithium cell assembly LCA optimization
+2025-06-25 16:21:10,478 - __main__ - INFO -   - Mounting System Production: Steel cutting LCA environmental assessment
+2025-06-25 16:21:10,478 - __main__ - INFO -   - Monitoring System Production: PCB assembly sustainability energy efficiency
+2025-06-25 16:21:10,478 - __main__ - INFO -   - Transportation: Road transport greenhouse gas emissions reduction
+2025-06-25 16:21:10,479 - __main__ - INFO -   - Energy Production: Solar energy conversion LCA environmental impact
+2025-06-25 16:21:10,479 - __main__ - INFO -   - Recycling: Solar panel recycling LCA material recovery
+2025-06-25 16:21:10,479 - __main__ - INFO -   - Disposal: Electronic waste disposal LCA environmental assessment
+2025-06-25 16:21:10,479 - __main__ - INFO - ============================================================
+2025-06-25 16:21:10,480 - __main__ - INFO - STEP 3: ARXIV PAPER DOWNLOAD
+2025-06-25 16:21:10,480 - __main__ - INFO - ============================================================
+2025-06-25 16:21:10,481 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Solar Panel Production
+2025-06-25 16:21:10,481 - arxiv_paper_downloader - INFO - Query: Silicon purification LCA energy efficiency
+2025-06-25 16:21:10,481 - arxiv_paper_downloader - INFO - Converting query: Silicon purification LCA energy efficiency
+2025-06-25 16:21:10,482 - arxiv_paper_downloader - INFO - Original query: Silicon purification LCA energy efficiency
+2025-06-25 16:21:10,482 - arxiv_paper_downloader - INFO - ArXiv API query: silicon purification lca energy efficiency
+2025-06-25 16:21:10,482 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=silicon%20purification%20lca%20energy%20efficiency&start=0&max_results=10
+2025-06-25 16:21:11,251 - arxiv_paper_downloader - INFO - Downloading paper 1: Implementing and Benchmarking the Locally Competitive Algorithm on the
+  Loihi 2 Neuromorphic Processor
+2025-06-25 16:21:11,733 - arxiv_paper_downloader - INFO - Successfully downloaded: Implementing and Benchmarking the Locally Competitive Algorithm on the Loihi 2 N.pdf
+2025-06-25 16:21:12,735 - arxiv_paper_downloader - INFO - Downloading paper 2: UMG silicon for solar PV: from defects detection to PV module
+  degradation
+2025-06-25 16:21:13,769 - arxiv_paper_downloader - INFO - Successfully downloaded: UMG silicon for solar PV_ from defects detection to PV module degradation.pdf
+2025-06-25 16:21:14,771 - arxiv_paper_downloader - INFO - Downloading paper 3: ViT-LCA: A Neuromorphic Approach for Vision Transformers
+2025-06-25 16:21:14,932 - arxiv_paper_downloader - INFO - Successfully downloaded: ViT-LCA_ A Neuromorphic Approach for Vision Transformers.pdf
+2025-06-25 16:21:15,933 - arxiv_paper_downloader - INFO - Downloading paper 4: LCA and energy efficiency in buildings: mapping more than twenty years
+  of research
+2025-06-25 16:21:16,379 - arxiv_paper_downloader - INFO - Successfully downloaded: LCA and energy efficiency in buildings_ mapping more than twenty years of resear.pdf
+2025-06-25 16:21:17,382 - arxiv_paper_downloader - INFO - Downloading paper 5: D-SELD: Dataset-Scalable Exemplar LCA-Decoder
+2025-06-25 16:21:17,783 - arxiv_paper_downloader - INFO - Successfully downloaded: D-SELD_ Dataset-Scalable Exemplar LCA-Decoder.pdf
+2025-06-25 16:21:18,785 - arxiv_paper_downloader - INFO - Downloading paper 6: WARP-LCA: Efficient Convolutional Sparse Coding with Locally Competitive
+  Algorithm
+2025-06-25 16:21:21,523 - arxiv_paper_downloader - INFO - Successfully downloaded: WARP-LCA_ Efficient Convolutional Sparse Coding with Locally Competitive Algorit.pdf
+2025-06-25 16:21:22,524 - arxiv_paper_downloader - INFO - Downloading paper 7: Upgraded Metallurgical Grade Silicon for solar electricity production: a
+  comparative Life Cycle Assessment
+2025-06-25 16:21:23,053 - arxiv_paper_downloader - INFO - Successfully downloaded: Upgraded Metallurgical Grade Silicon for solar electricity production_ a compara.pdf
+2025-06-25 16:21:24,056 - arxiv_paper_downloader - INFO - Downloading paper 8: Latent Space Bayesian Optimization with Latent Data Augmentation for
+  Enhanced Exploration
+2025-06-25 16:21:26,942 - arxiv_paper_downloader - INFO - Successfully downloaded: Latent Space Bayesian Optimization with Latent Data Augmentation for Enhanced Ex.pdf
+2025-06-25 16:21:27,943 - arxiv_paper_downloader - INFO - Downloading paper 9: Environmentally-Extended Input-Output analyses efficiently sketch
+  large-scale environmental transition plans -- illustration by Canada's road
+  industry
+2025-06-25 16:21:29,970 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:21:30,971 - arxiv_paper_downloader - INFO - Downloading paper 10: Life-Cycle Emissions of AI Hardware: A Cradle-To-Grave Approach and
+  Generational Trends
+2025-06-25 16:21:31,654 - arxiv_paper_downloader - INFO - Successfully downloaded: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:21:32,656 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Solar Panel Production'
+2025-06-25 16:21:34,660 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Inverter Production
+2025-06-25 16:21:34,661 - arxiv_paper_downloader - INFO - Query: PCB assembly sustainability environmental impact
+2025-06-25 16:21:34,664 - arxiv_paper_downloader - INFO - Converting query: PCB assembly sustainability environmental impact
+2025-06-25 16:21:34,665 - arxiv_paper_downloader - INFO - Original query: PCB assembly sustainability environmental impact
+2025-06-25 16:21:34,666 - arxiv_paper_downloader - INFO - ArXiv API query: pcb assembly sustainability environmental impact
+2025-06-25 16:21:34,667 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20impact&start=0&max_results=10
+2025-06-25 16:21:35,130 - arxiv_paper_downloader - INFO - Downloading paper 1: PCB Renewal: Iterative Reuse of PCB Substrates for Sustainable
+  Electronic Making
+2025-06-25 16:21:40,768 - arxiv_paper_downloader - INFO - Successfully downloaded: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-25 16:21:41,769 - arxiv_paper_downloader - INFO - Downloading paper 2: Recyclable vitrimer-based printed circuit board for circular electronics
+2025-06-25 16:21:42,269 - arxiv_paper_downloader - INFO - Successfully downloaded: Recyclable vitrimer-based printed circuit board for circular electronics.pdf
+2025-06-25 16:21:43,271 - arxiv_paper_downloader - INFO - Downloading paper 3: Employment, labor productivity and environmental sustainability:
+  Firm-level evidence from transition
+2025-06-25 16:21:43,794 - arxiv_paper_downloader - INFO - Successfully downloaded: Employment_ labor productivity and environmental sustainability_ Firm-level evid.pdf
+2025-06-25 16:21:44,796 - arxiv_paper_downloader - INFO - Downloading paper 4: PCBot: a Minimalist Robot Designed for Swarm Applications
+2025-06-25 16:21:48,203 - arxiv_paper_downloader - INFO - Successfully downloaded: PCBot_ a Minimalist Robot Designed for Swarm Applications.pdf
+2025-06-25 16:21:49,204 - arxiv_paper_downloader - INFO - Downloading paper 5: Chlorine and Bromine Isotope Fractionation of Halogenated Organic
+  Pollutants on Gas Chromatography Columns
+2025-06-25 16:21:52,053 - arxiv_paper_downloader - INFO - Successfully downloaded: Chlorine and Bromine Isotope Fractionation of Halogenated Organic Pollutants on.pdf
+2025-06-25 16:21:53,054 - arxiv_paper_downloader - INFO - Downloading paper 6: System Support for Environmentally Sustainable Computing in Data Centers
+2025-06-25 16:21:53,306 - arxiv_paper_downloader - INFO - Successfully downloaded: System Support for Environmentally Sustainable Computing in Data Centers.pdf
+2025-06-25 16:21:54,308 - arxiv_paper_downloader - INFO - Downloading paper 7: Crosswashing in Sustainable Investing: Unveiling Strategic Practices
+  Impacting ESG Scores
+2025-06-25 16:21:54,496 - arxiv_paper_downloader - INFO - Successfully downloaded: Crosswashing in Sustainable Investing_ Unveiling Strategic Practices Impacting E.pdf
+2025-06-25 16:21:55,498 - arxiv_paper_downloader - INFO - Downloading paper 8: Balancing Innovation and Sustainability: Addressing the Environmental
+  Impact of Bitcoin Mining
+2025-06-25 16:21:55,637 - arxiv_paper_downloader - INFO - Successfully downloaded: Balancing Innovation and Sustainability_ Addressing the Environmental Impact of.pdf
+2025-06-25 16:21:56,638 - arxiv_paper_downloader - INFO - Downloading paper 9: Recommender Systems for Social Good: The Role of Accountability and
+  Sustainability
+2025-06-25 16:21:56,860 - arxiv_paper_downloader - INFO - Successfully downloaded: Recommender Systems for Social Good_ The Role of Accountability and Sustainabili.pdf
+2025-06-25 16:21:57,861 - arxiv_paper_downloader - INFO - Downloading paper 10: Observing spin Hall effect of pseudo-thermal light through weak
+  measurement
+2025-06-25 16:21:58,185 - arxiv_paper_downloader - INFO - Successfully downloaded: Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf
+2025-06-25 16:21:59,187 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Inverter Production'
+2025-06-25 16:22:01,189 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Battery Storage Production
+2025-06-25 16:22:01,189 - arxiv_paper_downloader - INFO - Query: Lithium cell assembly LCA optimization
+2025-06-25 16:22:01,190 - arxiv_paper_downloader - INFO - Converting query: Lithium cell assembly LCA optimization
+2025-06-25 16:22:01,191 - arxiv_paper_downloader - INFO - Original query: Lithium cell assembly LCA optimization
+2025-06-25 16:22:01,192 - arxiv_paper_downloader - INFO - ArXiv API query: lithium cell assembly lca optimization
+2025-06-25 16:22:01,192 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=lithium%20cell%20assembly%20lca%20optimization&start=0&max_results=10
+2025-06-25 16:22:02,206 - arxiv_paper_downloader - INFO - Downloading paper 1: Data-Driven Approach to Learning Optimal Forms of Constitutive Relations
+  in Models Describing Lithium Plating in Battery Cells
+2025-06-25 16:22:04,630 - arxiv_paper_downloader - INFO - Successfully downloaded: Data-Driven Approach to Learning Optimal Forms of Constitutive Relations in Mode.pdf
+2025-06-25 16:22:05,631 - arxiv_paper_downloader - INFO - Downloading paper 2: Layered Cellular Automata
+2025-06-25 16:22:10,363 - arxiv_paper_downloader - INFO - Successfully downloaded: Layered Cellular Automata.pdf
+2025-06-25 16:22:11,365 - arxiv_paper_downloader - INFO - Downloading paper 3: Listing, Verifying and Counting Lowest Common Ancestors in DAGs:
+  Algorithms and Fine-Grained Lower Bounds
+2025-06-25 16:22:11,932 - arxiv_paper_downloader - INFO - Successfully downloaded: Listing_ Verifying and Counting Lowest Common Ancestors in DAGs_ Algorithms and.pdf
+2025-06-25 16:22:12,934 - arxiv_paper_downloader - INFO - Downloading paper 4: WARP-LCA: Efficient Convolutional Sparse Coding with Locally Competitive
+  Algorithm
+2025-06-25 16:22:15,697 - arxiv_paper_downloader - INFO - Successfully downloaded: WARP-LCA_ Efficient Convolutional Sparse Coding with Locally Competitive Algorit.pdf
+2025-06-25 16:22:16,698 - arxiv_paper_downloader - INFO - Downloading paper 5: Graded lithium-ion battery pouch cells to homogenise current
+  distributions and mitigate lithium plating
+2025-06-25 16:22:18,912 - arxiv_paper_downloader - INFO - Successfully downloaded: Graded lithium-ion battery pouch cells to homogenise current distributions and m.pdf
+2025-06-25 16:22:19,914 - arxiv_paper_downloader - INFO - Downloading paper 6: Latent Space Bayesian Optimization with Latent Data Augmentation for
+  Enhanced Exploration
+2025-06-25 16:22:20,964 - arxiv_paper_downloader - INFO - Successfully downloaded: Latent Space Bayesian Optimization with Latent Data Augmentation for Enhanced Ex.pdf
+2025-06-25 16:22:21,965 - arxiv_paper_downloader - INFO - Downloading paper 7: Nanostructured S@VACNTs Cathode with Lithium Sulfate Barrier Layer for
+  Exceptionally Stable Cycling in Lithium-Sulfur Batteries
+2025-06-25 16:22:24,135 - arxiv_paper_downloader - INFO - Successfully downloaded: Nanostructured S_VACNTs Cathode with Lithium Sulfate Barrier Layer for Exception.pdf
+2025-06-25 16:22:25,135 - arxiv_paper_downloader - INFO - Downloading paper 8: Luminance Component Analysis for Exposure Correction
+2025-06-25 16:22:29,332 - arxiv_paper_downloader - INFO - Successfully downloaded: Luminance Component Analysis for Exposure Correction.pdf
+2025-06-25 16:22:30,333 - arxiv_paper_downloader - INFO - Downloading paper 9: Methods pressure control apparatus for lithium metal battery
+2025-06-25 16:22:30,612 - arxiv_paper_downloader - INFO - Successfully downloaded: Methods pressure control apparatus for lithium metal battery.pdf
+2025-06-25 16:22:31,614 - arxiv_paper_downloader - INFO - Downloading paper 10: Contribution of X-ray experiments and modeling to the understanding of
+  the heterogeneous lithiation of graphite electrodes
+2025-06-25 16:22:33,104 - arxiv_paper_downloader - INFO - Successfully downloaded: Contribution of X-ray experiments and modeling to the understanding of the heter.pdf
+2025-06-25 16:22:34,106 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Battery Storage Production'
+2025-06-25 16:22:36,110 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Mounting System Production
+2025-06-25 16:22:36,110 - arxiv_paper_downloader - INFO - Query: Steel cutting LCA environmental assessment
+2025-06-25 16:22:36,111 - arxiv_paper_downloader - INFO - Converting query: Steel cutting LCA environmental assessment
+2025-06-25 16:22:36,111 - arxiv_paper_downloader - INFO - Original query: Steel cutting LCA environmental assessment
+2025-06-25 16:22:36,111 - arxiv_paper_downloader - INFO - ArXiv API query: steel cutting lca environmental assessment
+2025-06-25 16:22:36,111 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=steel%20cutting%20lca%20environmental%20assessment&start=0&max_results=10
+2025-06-25 16:22:36,963 - arxiv_paper_downloader - INFO - Downloading paper 1: A life cycle model for high-speed rail infrastructure: environmental
+  inventories and assessment of the Tours-Bordeaux railway in France
+2025-06-25 16:22:38,123 - arxiv_paper_downloader - INFO - Successfully downloaded: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:22:39,125 - arxiv_paper_downloader - INFO - Downloading paper 2: Environmental performance of shared micromobility and personal
+  alternatives using integrated modal LCA
+2025-06-25 16:22:39,651 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental performance of shared micromobility and personal alternatives usin.pdf
+2025-06-25 16:22:40,653 - arxiv_paper_downloader - INFO - Downloading paper 3: Novel Data Models for Inter-operable LCA Frameworks
+2025-06-25 16:22:41,348 - arxiv_paper_downloader - INFO - Successfully downloaded: Novel Data Models for Inter-operable LCA Frameworks.pdf
+2025-06-25 16:22:42,350 - arxiv_paper_downloader - INFO - Downloading paper 4: The environmental value of transport infrastructure in the UK: an
+  EXIOBASE analysis
+2025-06-25 16:22:42,535 - arxiv_paper_downloader - INFO - Successfully downloaded: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:22:43,537 - arxiv_paper_downloader - INFO - Downloading paper 5: Space debris through the prism of the environmental performance of space
+  systems: the case of Sentinel-3 redesigned mission
+2025-06-25 16:22:43,928 - arxiv_paper_downloader - INFO - Successfully downloaded: Space debris through the prism of the environmental performance of space systems.pdf
+2025-06-25 16:22:44,929 - arxiv_paper_downloader - INFO - Downloading paper 6: Incorporating Sustainability in Electronics Design: Obstacles and
+  Opportunities
+2025-06-25 16:22:45,917 - arxiv_paper_downloader - INFO - Successfully downloaded: Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf
+2025-06-25 16:22:46,918 - arxiv_paper_downloader - INFO - Downloading paper 7: Environmentally-Extended Input-Output analyses efficiently sketch
+  large-scale environmental transition plans -- illustration by Canada's road
+  industry
+2025-06-25 16:22:48,799 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:22:49,801 - arxiv_paper_downloader - INFO - Downloading paper 8: Understanding the environmental impacts of virgin aggregates: critical
+  literature review and primary comprehensive Life Cycle Assessments
+2025-06-25 16:22:52,331 - arxiv_paper_downloader - INFO - Successfully downloaded: Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf
+2025-06-25 16:22:53,333 - arxiv_paper_downloader - INFO - Downloading paper 9: All you can stream: Investigating the role of user behavior for
+  greenhouse gas intensity of video streaming
+2025-06-25 16:22:53,642 - arxiv_paper_downloader - INFO - Successfully downloaded: All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf
+2025-06-25 16:22:54,644 - arxiv_paper_downloader - INFO - Downloading paper 10: A life cycle assessment of the ISIS-II Neutron and Muon Source
+2025-06-25 16:22:54,864 - arxiv_paper_downloader - INFO - Successfully downloaded: A life cycle assessment of the ISIS-II Neutron and Muon Source.pdf
+2025-06-25 16:22:55,865 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Mounting System Production'
+2025-06-25 16:22:57,867 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Monitoring System Production
+2025-06-25 16:22:57,867 - arxiv_paper_downloader - INFO - Query: PCB assembly sustainability energy efficiency
+2025-06-25 16:22:57,893 - arxiv_paper_downloader - INFO - Converting query: PCB assembly sustainability energy efficiency
+2025-06-25 16:22:57,894 - arxiv_paper_downloader - INFO - Original query: PCB assembly sustainability energy efficiency
+2025-06-25 16:22:57,895 - arxiv_paper_downloader - INFO - ArXiv API query: pcb assembly sustainability energy efficiency
+2025-06-25 16:22:57,895 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20energy%20efficiency&start=0&max_results=10
+2025-06-25 16:22:58,303 - arxiv_paper_downloader - INFO - Downloading paper 1: PCB Renewal: Iterative Reuse of PCB Substrates for Sustainable
+  Electronic Making
+2025-06-25 16:23:03,391 - arxiv_paper_downloader - INFO - Successfully downloaded: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-25 16:23:04,392 - arxiv_paper_downloader - INFO - Downloading paper 2: Capacitive-Tuned SIW Evanescent-Mode Cavity for Resonant Microwave
+  Plasma Jet
+2025-06-25 16:23:04,948 - arxiv_paper_downloader - INFO - Successfully downloaded: Capacitive-Tuned SIW Evanescent-Mode Cavity for Resonant Microwave Plasma Jet.pdf
+2025-06-25 16:23:05,950 - arxiv_paper_downloader - INFO - Downloading paper 3: A compact linear accelerator based on a scalable
+  microelectromechanical-system RF-structure
+2025-06-25 16:23:07,000 - arxiv_paper_downloader - INFO - Successfully downloaded: A compact linear accelerator based on a scalable microelectromechanical-system R.pdf
+2025-06-25 16:23:08,001 - arxiv_paper_downloader - INFO - Downloading paper 4: Detecting Manufacturing Defects in PCBs via Data-Centric Machine
+  Learning on Solder Paste Inspection Features
+2025-06-25 16:23:08,238 - arxiv_paper_downloader - INFO - Successfully downloaded: Detecting Manufacturing Defects in PCBs via Data-Centric Machine Learning on Sol.pdf
+2025-06-25 16:23:09,239 - arxiv_paper_downloader - INFO - Downloading paper 5: Observing spin Hall effect of pseudo-thermal light through weak
+  measurement
+2025-06-25 16:23:09,553 - arxiv_paper_downloader - INFO - Successfully downloaded: Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf
+2025-06-25 16:23:10,554 - arxiv_paper_downloader - INFO - Downloading paper 6: PCB-Vision: A Multiscene RGB-Hyperspectral Benchmark Dataset of Printed
+  Circuit Boards
+2025-06-25 16:23:11,885 - arxiv_paper_downloader - INFO - Successfully downloaded: PCB-Vision_ A Multiscene RGB-Hyperspectral Benchmark Dataset of Printed Circuit.pdf
+2025-06-25 16:23:12,887 - arxiv_paper_downloader - INFO - Downloading paper 7: Efficient Pretraining Model based on Multi-Scale Local Visual Field
+  Feature Reconstruction for PCB CT Image Element Segmentation
+2025-06-25 16:23:14,043 - arxiv_paper_downloader - INFO - Successfully downloaded: Efficient Pretraining Model based on Multi-Scale Local Visual Field Feature Reco.pdf
+2025-06-25 16:23:15,047 - arxiv_paper_downloader - INFO - Downloading paper 8: A Packaging Method for ALPIDE Integration Enabling Flexible and
+  Low-Material-Budget Designs
+2025-06-25 16:23:16,985 - arxiv_paper_downloader - INFO - Successfully downloaded: A Packaging Method for ALPIDE Integration Enabling Flexible and Low-Material-Bud.pdf
+2025-06-25 16:23:17,986 - arxiv_paper_downloader - INFO - Downloading paper 9: Online PCB Defect Detector On A New PCB Defect Dataset
+2025-06-25 16:23:18,369 - arxiv_paper_downloader - INFO - Successfully downloaded: Online PCB Defect Detector On A New PCB Defect Dataset.pdf
+2025-06-25 16:23:19,371 - arxiv_paper_downloader - INFO - Downloading paper 10: An in-Contact Robotic System for the Process of Desoldering PCB
+  Components
+2025-06-25 16:23:20,652 - arxiv_paper_downloader - INFO - Successfully downloaded: An in-Contact Robotic System for the Process of Desoldering PCB Components.pdf
+2025-06-25 16:23:21,654 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Monitoring System Production'
+2025-06-25 16:23:23,656 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Transportation
+2025-06-25 16:23:23,656 - arxiv_paper_downloader - INFO - Query: Road transport greenhouse gas emissions reduction
+2025-06-25 16:23:23,657 - arxiv_paper_downloader - INFO - Converting query: Road transport greenhouse gas emissions reduction
+2025-06-25 16:23:23,657 - arxiv_paper_downloader - INFO - Original query: Road transport greenhouse gas emissions reduction
+2025-06-25 16:23:23,658 - arxiv_paper_downloader - INFO - ArXiv API query: road transport greenhouse gas emissions reduction
+2025-06-25 16:23:23,658 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=road%20transport%20greenhouse%20gas%20emissions%20reduction&start=0&max_results=10
+2025-06-25 16:23:29,100 - arxiv_paper_downloader - INFO - Downloading paper 1: Towards Indirect Top-Down Road Transport Emissions Estimation
+2025-06-25 16:23:30,589 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards Indirect Top-Down Road Transport Emissions Estimation.pdf
+2025-06-25 16:23:31,590 - arxiv_paper_downloader - INFO - Downloading paper 2: Integrated assessment modelling as a positive science: private passenger
+  road transport policies to meet a climate target well below 2$^\circ$C
+2025-06-25 16:23:32,688 - arxiv_paper_downloader - INFO - Successfully downloaded: Integrated assessment modelling as a positive science_ private passenger road tr.pdf
+2025-06-25 16:23:33,689 - arxiv_paper_downloader - INFO - Downloading paper 3: Interpretable and Actionable Vehicular Greenhouse Gas Emission
+  Prediction at Road link-level
+2025-06-25 16:23:34,439 - arxiv_paper_downloader - INFO - Successfully downloaded: Interpretable and Actionable Vehicular Greenhouse Gas Emission Prediction at Roa.pdf
+2025-06-25 16:23:35,442 - arxiv_paper_downloader - INFO - Downloading paper 4: Deep Learning Innovations for Energy Efficiency: Advances in
+  Non-Intrusive Load Monitoring and EV Charging Optimization for a Sustainable
+  Grid
+2025-06-25 16:23:39,083 - arxiv_paper_downloader - INFO - Successfully downloaded: Deep Learning Innovations for Energy Efficiency_ Advances in Non-Intrusive Load.pdf
+2025-06-25 16:23:40,084 - arxiv_paper_downloader - INFO - Downloading paper 5: Examining Passenger Vehicle Miles Traveled and Carbon Emissions in the
+  Boston Metropolitan Area
+2025-06-25 16:23:40,689 - arxiv_paper_downloader - INFO - Successfully downloaded: Examining Passenger Vehicle Miles Traveled and Carbon Emissions in the Boston Me.pdf
+2025-06-25 16:23:41,691 - arxiv_paper_downloader - INFO - Downloading paper 6: Impact of consumer preferences on decarbonization of transport sector in
+  India
+2025-06-25 16:23:42,669 - arxiv_paper_downloader - INFO - Successfully downloaded: Impact of consumer preferences on decarbonization of transport sector in India.pdf
+2025-06-25 16:23:43,671 - arxiv_paper_downloader - INFO - Downloading paper 7: New approach for a stable multi-criteria ridesharing system
+2025-06-25 16:23:45,112 - arxiv_paper_downloader - INFO - Successfully downloaded: New approach for a stable multi-criteria ridesharing system.pdf
+2025-06-25 16:23:46,114 - arxiv_paper_downloader - INFO - Downloading paper 8: Are EVs Cleaner Than We Think? Evaluating Consequential Greenhouse Gas
+  Emissions from EV Charging
+2025-06-25 16:23:48,465 - arxiv_paper_downloader - INFO - Successfully downloaded: Are EVs Cleaner Than We Think_ Evaluating Consequential Greenhouse Gas Emissions.pdf
+2025-06-25 16:23:49,467 - arxiv_paper_downloader - INFO - Downloading paper 9: Greenhouse Gas Emission Prediction on Road Network using Deep Sequence
+  Learning
+2025-06-25 16:23:51,334 - arxiv_paper_downloader - INFO - Successfully downloaded: Greenhouse Gas Emission Prediction on Road Network using Deep Sequence Learning.pdf
+2025-06-25 16:23:52,336 - arxiv_paper_downloader - INFO - Downloading paper 10: Systemic Decarbonization of Road Freight Transport: A Comprehensive
+  Total Cost of Ownership Model
+2025-06-25 16:23:53,358 - arxiv_paper_downloader - INFO - Successfully downloaded: Systemic Decarbonization of Road Freight Transport_ A Comprehensive Total Cost o.pdf
+2025-06-25 16:23:54,359 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Transportation'
+2025-06-25 16:23:56,360 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Energy Production
+2025-06-25 16:23:56,360 - arxiv_paper_downloader - INFO - Query: Solar energy conversion LCA environmental impact
+2025-06-25 16:23:56,360 - arxiv_paper_downloader - INFO - Converting query: Solar energy conversion LCA environmental impact
+2025-06-25 16:23:56,362 - arxiv_paper_downloader - INFO - Original query: Solar energy conversion LCA environmental impact
+2025-06-25 16:23:56,362 - arxiv_paper_downloader - INFO - ArXiv API query: solar energy conversion lca environmental impact
+2025-06-25 16:23:56,362 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=solar%20energy%20conversion%20lca%20environmental%20impact&start=0&max_results=10
+2025-06-25 16:23:56,780 - arxiv_paper_downloader - INFO - Downloading paper 1: The environmental value of transport infrastructure in the UK: an
+  EXIOBASE analysis
+2025-06-25 16:23:56,941 - arxiv_paper_downloader - INFO - Successfully downloaded: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:23:57,942 - arxiv_paper_downloader - INFO - Downloading paper 2: Environmental performance of shared micromobility and personal
+  alternatives using integrated modal LCA
+2025-06-25 16:23:58,454 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmental performance of shared micromobility and personal alternatives usin.pdf
+2025-06-25 16:23:59,456 - arxiv_paper_downloader - INFO - Downloading paper 3: Novel Data Models for Inter-operable LCA Frameworks
+2025-06-25 16:23:59,732 - arxiv_paper_downloader - INFO - Successfully downloaded: Novel Data Models for Inter-operable LCA Frameworks.pdf
+2025-06-25 16:24:00,734 - arxiv_paper_downloader - INFO - Downloading paper 4: Environmentally-Extended Input-Output analyses efficiently sketch
+  large-scale environmental transition plans -- illustration by Canada's road
+  industry
+2025-06-25 16:24:02,860 - arxiv_paper_downloader - INFO - Successfully downloaded: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:24:03,862 - arxiv_paper_downloader - INFO - Downloading paper 5: Understanding the environmental impacts of virgin aggregates: critical
+  literature review and primary comprehensive Life Cycle Assessments
+2025-06-25 16:24:06,239 - arxiv_paper_downloader - INFO - Successfully downloaded: Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf
+2025-06-25 16:24:07,241 - arxiv_paper_downloader - INFO - Downloading paper 6: A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using
+  Sphera LCA and ecoinvent Databases
+2025-06-25 16:24:07,467 - arxiv_paper_downloader - INFO - Successfully downloaded: A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using Sphera LC.pdf
+2025-06-25 16:24:08,468 - arxiv_paper_downloader - INFO - Downloading paper 7: A life cycle model for high-speed rail infrastructure: environmental
+  inventories and assessment of the Tours-Bordeaux railway in France
+2025-06-25 16:24:09,593 - arxiv_paper_downloader - INFO - Successfully downloaded: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:24:10,594 - arxiv_paper_downloader - INFO - Downloading paper 8: Life-Cycle Emissions of AI Hardware: A Cradle-To-Grave Approach and
+  Generational Trends
+2025-06-25 16:24:11,209 - arxiv_paper_downloader - INFO - Successfully downloaded: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:24:12,210 - arxiv_paper_downloader - INFO - Downloading paper 9: All you can stream: Investigating the role of user behavior for
+  greenhouse gas intensity of video streaming
+2025-06-25 16:24:12,468 - arxiv_paper_downloader - INFO - Successfully downloaded: All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf
+2025-06-25 16:24:13,469 - arxiv_paper_downloader - INFO - Downloading paper 10: Life Cycle Assessment of high rate algal ponds for wastewater treatment
+  and resource recovery
+2025-06-25 16:24:13,846 - arxiv_paper_downloader - INFO - Successfully downloaded: Life Cycle Assessment of high rate algal ponds for wastewater treatment and reso.pdf
+2025-06-25 16:24:14,848 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Energy Production'
+2025-06-25 16:24:16,850 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Recycling
+2025-06-25 16:24:16,851 - arxiv_paper_downloader - INFO - Query: Solar panel recycling LCA material recovery
+2025-06-25 16:24:16,852 - arxiv_paper_downloader - INFO - Converting query: Solar panel recycling LCA material recovery
+2025-06-25 16:24:16,852 - arxiv_paper_downloader - INFO - Original query: Solar panel recycling LCA material recovery
+2025-06-25 16:24:16,854 - arxiv_paper_downloader - INFO - ArXiv API query: solar panel recycling lca material recovery
+2025-06-25 16:24:16,855 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=solar%20panel%20recycling%20lca%20material%20recovery&start=0&max_results=10
+2025-06-25 16:24:17,403 - arxiv_paper_downloader - INFO - Downloading paper 1: Towards long term sustainability of c-Si solar panels: the environmental
+  benefits of glass sheet recovery
+2025-06-25 16:24:28,763 - arxiv_paper_downloader - INFO - Successfully downloaded: Towards long term sustainability of c-Si solar panels_ the environmental benefit.pdf
+2025-06-25 16:24:29,766 - arxiv_paper_downloader - INFO - Downloading paper 2: Recycling rejected silicon wafers and dies for high grade PV cells
+2025-06-25 16:24:30,188 - arxiv_paper_downloader - INFO - Successfully downloaded: Recycling rejected silicon wafers and dies for high grade PV cells.pdf
+2025-06-25 16:24:31,188 - arxiv_paper_downloader - INFO - Downloading paper 3: Blockchain-enabled Circular Economy -- Collaborative Responsibility in
+  Solar Panel Recycling
+2025-06-25 16:24:31,515 - arxiv_paper_downloader - INFO - Successfully downloaded: Blockchain-enabled Circular Economy -- Collaborative Responsibility in Solar Pan.pdf
+2025-06-25 16:24:32,515 - arxiv_paper_downloader - INFO - Downloading paper 4: Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form
+  Factors
+2025-06-25 16:24:34,737 - arxiv_paper_downloader - INFO - Successfully downloaded: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-25 16:24:35,738 - arxiv_paper_downloader - INFO - Downloading paper 5: Role of photon recycling in perovskite solar cells
+2025-06-25 16:24:36,421 - arxiv_paper_downloader - INFO - Successfully downloaded: Role of photon recycling in perovskite solar cells.pdf
+2025-06-25 16:24:37,423 - arxiv_paper_downloader - INFO - Downloading paper 6: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at
+  Maximum Power Point
+2025-06-25 16:24:39,512 - arxiv_paper_downloader - INFO - Successfully downloaded: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at Maximum.pdf
+2025-06-25 16:24:40,513 - arxiv_paper_downloader - INFO - Downloading paper 7: Measuring the Recyclability of Electronic Components to Assist Automatic
+  Disassembly and Sorting Waste Printed Circuit Boards
+2025-06-25 16:24:40,873 - arxiv_paper_downloader - INFO - Successfully downloaded: Measuring the Recyclability of Electronic Components to Assist Automatic Disasse.pdf
+2025-06-25 16:24:41,874 - arxiv_paper_downloader - INFO - Downloading paper 8: Recyclable vitrimer-based printed circuit board for circular electronics
+2025-06-25 16:24:42,299 - arxiv_paper_downloader - INFO - Successfully downloaded: Recyclable vitrimer-based printed circuit board for circular electronics.pdf
+2025-06-25 16:24:43,300 - arxiv_paper_downloader - INFO - Downloading paper 9: Life Cycle Analysis of the GRAND Experiment
+2025-06-25 16:24:43,936 - arxiv_paper_downloader - INFO - Successfully downloaded: Life Cycle Analysis of the GRAND Experiment.pdf
+2025-06-25 16:24:44,937 - arxiv_paper_downloader - INFO - Downloading paper 10: Convergence Speed of a Dynamical System for Sparse Recovery
+2025-06-25 16:24:45,087 - arxiv_paper_downloader - INFO - Successfully downloaded: Convergence Speed of a Dynamical System for Sparse Recovery.pdf
+2025-06-25 16:24:46,089 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Recycling'
+2025-06-25 16:24:48,090 - arxiv_paper_downloader - INFO - Searching papers for hotspot: Disposal
+2025-06-25 16:24:48,090 - arxiv_paper_downloader - INFO - Query: Electronic waste disposal LCA environmental assessment
+2025-06-25 16:24:48,092 - arxiv_paper_downloader - INFO - Converting query: Electronic waste disposal LCA environmental assessment
+2025-06-25 16:24:48,092 - arxiv_paper_downloader - INFO - Original query: Electronic waste disposal LCA environmental assessment
+2025-06-25 16:24:48,093 - arxiv_paper_downloader - INFO - ArXiv API query: electronic waste disposal lca environmental assessment
+2025-06-25 16:24:48,093 - arxiv_paper_downloader - INFO - ArXiv API URL: http://export.arxiv.org/api/query?search_query=electronic%20waste%20disposal%20lca%20environmental%20assessment&start=0&max_results=10
+2025-06-25 16:24:53,548 - arxiv_paper_downloader - INFO - Downloading paper 1: Incorporating Sustainability in Electronics Design: Obstacles and
+  Opportunities
+2025-06-25 16:24:55,466 - arxiv_paper_downloader - INFO - Successfully downloaded: Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf
+2025-06-25 16:24:56,467 - arxiv_paper_downloader - INFO - Downloading paper 2: Enhancing Spatio-Temporal Resolution of Process-Based Life Cycle
+  Analysis with Model-Based Systems Engineering \& Hetero-functional Graph
+  Theory
+2025-06-25 16:25:04,918 - arxiv_paper_downloader - INFO - Successfully downloaded: Enhancing Spatio-Temporal Resolution of Process-Based Life Cycle Analysis with M.pdf
+2025-06-25 16:25:05,920 - arxiv_paper_downloader - INFO - Downloading paper 3: Technological Progress and Obsolescence: Analyzing the Environmental
+  Economic Impacts of MacBook Pro I/O Devices
+2025-06-25 16:25:07,145 - arxiv_paper_downloader - INFO - Successfully downloaded: Technological Progress and Obsolescence_ Analyzing the Environmental Economic Im.pdf
+2025-06-25 16:25:08,147 - arxiv_paper_downloader - INFO - Downloading paper 4: Space debris through the prism of the environmental performance of space
+  systems: the case of Sentinel-3 redesigned mission
+2025-06-25 16:25:08,519 - arxiv_paper_downloader - INFO - Successfully downloaded: Space debris through the prism of the environmental performance of space systems.pdf
+2025-06-25 16:25:09,521 - arxiv_paper_downloader - INFO - Downloading paper 5: The environmental value of transport infrastructure in the UK: an
+  EXIOBASE analysis
+2025-06-25 16:25:09,704 - arxiv_paper_downloader - INFO - Successfully downloaded: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:25:10,705 - arxiv_paper_downloader - INFO - Downloading paper 6: Solid Waste Detection, Monitoring and Mapping in Remote Sensing Images:
+  A Survey
+2025-06-25 16:25:11,073 - arxiv_paper_downloader - INFO - Successfully downloaded: Solid Waste Detection_ Monitoring and Mapping in Remote Sensing Images_ A Survey.pdf
+2025-06-25 16:25:12,074 - arxiv_paper_downloader - INFO - Downloading paper 7: Life-Cycle Emissions of AI Hardware: A Cradle-To-Grave Approach and
+  Generational Trends
+2025-06-25 16:25:12,711 - arxiv_paper_downloader - INFO - Successfully downloaded: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:25:13,712 - arxiv_paper_downloader - INFO - Downloading paper 8: Feasibility of Direct Disposal of Salt Waste from Electochemical
+  Processing of Spent Nuclear Fuel
+2025-06-25 16:25:13,835 - arxiv_paper_downloader - INFO - Successfully downloaded: Feasibility of Direct Disposal of Salt Waste from Electochemical Processing of S.pdf
+2025-06-25 16:25:14,836 - arxiv_paper_downloader - INFO - Downloading paper 9: Illegal Waste Detection in Remote Sensing Images: A Case Study
+2025-06-25 16:25:15,221 - arxiv_paper_downloader - INFO - Successfully downloaded: Illegal Waste Detection in Remote Sensing Images_ A Case Study.pdf
+2025-06-25 16:25:16,222 - arxiv_paper_downloader - INFO - Downloading paper 10: A life cycle model for high-speed rail infrastructure: environmental
+  inventories and assessment of the Tours-Bordeaux railway in France
+2025-06-25 16:25:17,311 - arxiv_paper_downloader - INFO - Successfully downloaded: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:25:18,313 - arxiv_paper_downloader - INFO - Successfully downloaded 10 papers for hotspot 'Disposal'
+2025-06-25 16:25:20,319 - arxiv_paper_downloader - INFO - Downloaded 90 papers total for 9 hotspots
+2025-06-25 16:25:20,319 - __main__ - INFO - [SUCCESS] Downloaded 90 papers for 9 hotspots
+2025-06-25 16:25:20,320 - __main__ - INFO - ============================================================
+2025-06-25 16:25:20,320 - __main__ - INFO - STEP 4: PDF PROCESSING
+2025-06-25 16:25:20,320 - __main__ - INFO - ============================================================
+2025-06-25 16:25:20,320 - pdf_processor - INFO - Processing papers in: output\solar_panel_sample\downloaded_papers
+2025-06-25 16:25:20,332 - pdf_processor - INFO - Loaded query-paper mapping
+2025-06-25 16:25:20,333 - pdf_processor - INFO - Processing hotspot directory: Battery_Storage_Production
+2025-06-25 16:25:20,334 - pdf_processor - INFO - Found 10 PDF files in Battery_Storage_Production
+2025-06-25 16:25:20,334 - pdf_processor - INFO - Processing: Contribution of X-ray experiments and modeling to the understanding of the heter.pdf
+2025-06-25 16:25:21,050 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:21,050 - pdf_processor - INFO - Text reduced from 65491 to 44073 characters
+2025-06-25 16:25:21,051 - pdf_processor - INFO - Successfully processed: Contribution of X-ray experiments and modeling to the understanding of the heter.pdf
+2025-06-25 16:25:21,051 - pdf_processor - INFO - Processing: Data-Driven Approach to Learning Optimal Forms of Constitutive Relations in Mode.pdf
+2025-06-25 16:25:28,048 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:28,048 - pdf_processor - INFO - Text reduced from 191137 to 167526 characters
+2025-06-25 16:25:28,049 - pdf_processor - INFO - Successfully processed: Data-Driven Approach to Learning Optimal Forms of Constitutive Relations in Mode.pdf
+2025-06-25 16:25:28,049 - pdf_processor - INFO - Processing: Graded lithium-ion battery pouch cells to homogenise current distributions and m.pdf
+2025-06-25 16:25:30,663 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:30,663 - pdf_processor - INFO - Text reduced from 58173 to 43899 characters
+2025-06-25 16:25:30,664 - pdf_processor - INFO - Successfully processed: Graded lithium-ion battery pouch cells to homogenise current distributions and m.pdf
+2025-06-25 16:25:30,664 - pdf_processor - INFO - Processing: Latent Space Bayesian Optimization with Latent Data Augmentation for Enhanced Ex.pdf
+2025-06-25 16:25:35,628 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:35,628 - pdf_processor - INFO - Text reduced from 75733 to 68010 characters
+2025-06-25 16:25:35,629 - pdf_processor - INFO - Successfully processed: Latent Space Bayesian Optimization with Latent Data Augmentation for Enhanced Ex.pdf
+2025-06-25 16:25:35,629 - pdf_processor - INFO - Processing: Layered Cellular Automata.pdf
+2025-06-25 16:25:39,905 - pdf_processor - INFO - Removed references section starting with: '
+Bibliography'
+2025-06-25 16:25:39,906 - pdf_processor - INFO - Text reduced from 311692 to 13056 characters
+2025-06-25 16:25:39,906 - pdf_processor - INFO - Successfully processed: Layered Cellular Automata.pdf
+2025-06-25 16:25:39,907 - pdf_processor - INFO - Processing: Listing_ Verifying and Counting Lowest Common Ancestors in DAGs_ Algorithms and.pdf
+2025-06-25 16:25:40,959 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:40,959 - pdf_processor - INFO - Text reduced from 78468 to 70672 characters
+2025-06-25 16:25:40,960 - pdf_processor - INFO - Successfully processed: Listing_ Verifying and Counting Lowest Common Ancestors in DAGs_ Algorithms and.pdf
+2025-06-25 16:25:40,960 - pdf_processor - INFO - Processing: Luminance Component Analysis for Exposure Correction.pdf
+2025-06-25 16:25:41,521 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:41,521 - pdf_processor - INFO - Text reduced from 49884 to 30289 characters
+2025-06-25 16:25:41,522 - pdf_processor - INFO - Successfully processed: Luminance Component Analysis for Exposure Correction.pdf
+2025-06-25 16:25:41,522 - pdf_processor - INFO - Processing: Methods pressure control apparatus for lithium metal battery.pdf
+2025-06-25 16:25:41,870 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:25:41,871 - pdf_processor - INFO - Successfully processed: Methods pressure control apparatus for lithium metal battery.pdf
+2025-06-25 16:25:41,871 - pdf_processor - INFO - Processing: Nanostructured S_VACNTs Cathode with Lithium Sulfate Barrier Layer for Exception.pdf
+2025-06-25 16:25:42,799 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:25:42,799 - pdf_processor - INFO - Successfully processed: Nanostructured S_VACNTs Cathode with Lithium Sulfate Barrier Layer for Exception.pdf
+2025-06-25 16:25:42,799 - pdf_processor - INFO - Processing: WARP-LCA_ Efficient Convolutional Sparse Coding with Locally Competitive Algorit.pdf
+2025-06-25 16:25:44,710 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-25 16:25:44,711 - pdf_processor - INFO - Text reduced from 71123 to 50744 characters
+2025-06-25 16:25:44,711 - pdf_processor - INFO - Successfully processed: WARP-LCA_ Efficient Convolutional Sparse Coding with Locally Competitive Algorit.pdf
+2025-06-25 16:25:44,711 - pdf_processor - INFO - Processing hotspot directory: Disposal
+2025-06-25 16:25:44,713 - pdf_processor - INFO - Found 10 PDF files in Disposal
+2025-06-25 16:25:44,713 - pdf_processor - INFO - Processing: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:25:47,376 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:47,377 - pdf_processor - INFO - Text reduced from 78675 to 69644 characters
+2025-06-25 16:25:47,377 - pdf_processor - INFO - Successfully processed: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:25:47,377 - pdf_processor - INFO - Processing: Enhancing Spatio-Temporal Resolution of Process-Based Life Cycle Analysis with M.pdf
+2025-06-25 16:25:47,838 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:47,839 - pdf_processor - INFO - Text reduced from 45341 to 38931 characters
+2025-06-25 16:25:47,839 - pdf_processor - INFO - Successfully processed: Enhancing Spatio-Temporal Resolution of Process-Based Life Cycle Analysis with M.pdf
+2025-06-25 16:25:47,839 - pdf_processor - INFO - Processing: Feasibility of Direct Disposal of Salt Waste from Electochemical Processing of S.pdf
+2025-06-25 16:25:48,287 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:25:48,287 - pdf_processor - INFO - Text reduced from 37671 to 35710 characters
+2025-06-25 16:25:48,287 - pdf_processor - INFO - Successfully processed: Feasibility of Direct Disposal of Salt Waste from Electochemical Processing of S.pdf
+2025-06-25 16:25:48,288 - pdf_processor - INFO - Processing: Illegal Waste Detection in Remote Sensing Images_ A Case Study.pdf
+2025-06-25 16:25:49,919 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:49,919 - pdf_processor - INFO - Text reduced from 48870 to 40041 characters
+2025-06-25 16:25:49,919 - pdf_processor - INFO - Successfully processed: Illegal Waste Detection in Remote Sensing Images_ A Case Study.pdf
+2025-06-25 16:25:49,920 - pdf_processor - INFO - Processing: Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf
+2025-06-25 16:25:50,938 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:50,939 - pdf_processor - INFO - Text reduced from 104760 to 81206 characters
+2025-06-25 16:25:50,939 - pdf_processor - INFO - Successfully processed: Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf
+2025-06-25 16:25:50,940 - pdf_processor - INFO - Processing: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:25:51,755 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:25:51,756 - pdf_processor - INFO - Text reduced from 96243 to 83738 characters
+2025-06-25 16:25:51,756 - pdf_processor - INFO - Successfully processed: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:25:51,756 - pdf_processor - INFO - Processing: Solid Waste Detection_ Monitoring and Mapping in Remote Sensing Images_ A Survey.pdf
+2025-06-25 16:25:54,516 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:25:54,516 - pdf_processor - INFO - Successfully processed: Solid Waste Detection_ Monitoring and Mapping in Remote Sensing Images_ A Survey.pdf
+2025-06-25 16:25:54,516 - pdf_processor - INFO - Processing: Space debris through the prism of the environmental performance of space systems.pdf
+2025-06-25 16:25:55,218 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:25:55,218 - pdf_processor - INFO - Successfully processed: Space debris through the prism of the environmental performance of space systems.pdf
+2025-06-25 16:25:55,219 - pdf_processor - INFO - Processing: Technological Progress and Obsolescence_ Analyzing the Environmental Economic Im.pdf
+2025-06-25 16:25:55,559 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-25 16:25:55,559 - pdf_processor - INFO - Text reduced from 61225 to 43728 characters
+2025-06-25 16:25:55,560 - pdf_processor - INFO - Successfully processed: Technological Progress and Obsolescence_ Analyzing the Environmental Economic Im.pdf
+2025-06-25 16:25:55,560 - pdf_processor - INFO - Processing: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:25:56,862 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:25:56,863 - pdf_processor - INFO - Text reduced from 90855 to 71036 characters
+2025-06-25 16:25:56,863 - pdf_processor - INFO - Successfully processed: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:25:56,863 - pdf_processor - INFO - Processing hotspot directory: Energy_Production
+2025-06-25 16:25:56,864 - pdf_processor - INFO - Found 10 PDF files in Energy_Production
+2025-06-25 16:25:56,865 - pdf_processor - INFO - Processing: A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using Sphera LC.pdf
+2025-06-25 16:25:58,267 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:25:58,267 - pdf_processor - INFO - Text reduced from 59174 to 50923 characters
+2025-06-25 16:25:58,268 - pdf_processor - INFO - Successfully processed: A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using Sphera LC.pdf
+2025-06-25 16:25:58,268 - pdf_processor - INFO - Processing: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:26:01,036 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:01,036 - pdf_processor - INFO - Text reduced from 78675 to 69644 characters
+2025-06-25 16:26:01,037 - pdf_processor - INFO - Successfully processed: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:26:01,037 - pdf_processor - INFO - Processing: All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf
+2025-06-25 16:26:02,269 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:02,270 - pdf_processor - INFO - Successfully processed: All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf
+2025-06-25 16:26:02,270 - pdf_processor - INFO - Processing: Environmental performance of shared micromobility and personal alternatives usin.pdf
+2025-06-25 16:26:11,298 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:11,298 - pdf_processor - INFO - Text reduced from 103611 to 68215 characters
+2025-06-25 16:26:11,298 - pdf_processor - INFO - Successfully processed: Environmental performance of shared micromobility and personal alternatives usin.pdf
+2025-06-25 16:26:11,299 - pdf_processor - INFO - Processing: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:26:14,356 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:14,357 - pdf_processor - INFO - Text reduced from 87199 to 70884 characters
+2025-06-25 16:26:14,357 - pdf_processor - INFO - Successfully processed: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:26:14,357 - pdf_processor - INFO - Processing: Life Cycle Assessment of high rate algal ponds for wastewater treatment and reso.pdf
+2025-06-25 16:26:16,331 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:16,332 - pdf_processor - INFO - Successfully processed: Life Cycle Assessment of high rate algal ponds for wastewater treatment and reso.pdf
+2025-06-25 16:26:16,332 - pdf_processor - INFO - Processing: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:26:16,970 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:16,971 - pdf_processor - INFO - Text reduced from 96243 to 83738 characters
+2025-06-25 16:26:16,971 - pdf_processor - INFO - Successfully processed: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:26:16,972 - pdf_processor - INFO - Processing: Novel Data Models for Inter-operable LCA Frameworks.pdf
+2025-06-25 16:26:17,894 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:17,896 - pdf_processor - INFO - Successfully processed: Novel Data Models for Inter-operable LCA Frameworks.pdf
+2025-06-25 16:26:17,896 - pdf_processor - INFO - Processing: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:26:18,956 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:18,957 - pdf_processor - INFO - Text reduced from 90855 to 71036 characters
+2025-06-25 16:26:18,957 - pdf_processor - INFO - Successfully processed: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:26:18,957 - pdf_processor - INFO - Processing: Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf
+2025-06-25 16:26:23,798 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:23,799 - pdf_processor - INFO - Text reduced from 119714 to 82239 characters
+2025-06-25 16:26:23,799 - pdf_processor - INFO - Successfully processed: Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf
+2025-06-25 16:26:23,799 - pdf_processor - INFO - Processing hotspot directory: Inverter_Production
+2025-06-25 16:26:23,800 - pdf_processor - INFO - Found 10 PDF files in Inverter_Production
+2025-06-25 16:26:23,800 - pdf_processor - INFO - Processing: Balancing Innovation and Sustainability_ Addressing the Environmental Impact of.pdf
+2025-06-25 16:26:24,468 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:24,468 - pdf_processor - INFO - Text reduced from 66963 to 48593 characters
+2025-06-25 16:26:24,468 - pdf_processor - INFO - Successfully processed: Balancing Innovation and Sustainability_ Addressing the Environmental Impact of.pdf
+2025-06-25 16:26:24,469 - pdf_processor - INFO - Processing: Chlorine and Bromine Isotope Fractionation of Halogenated Organic Pollutants on.pdf
+2025-06-25 16:26:27,995 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:27,995 - pdf_processor - INFO - Successfully processed: Chlorine and Bromine Isotope Fractionation of Halogenated Organic Pollutants on.pdf
+2025-06-25 16:26:27,996 - pdf_processor - INFO - Processing: Crosswashing in Sustainable Investing_ Unveiling Strategic Practices Impacting E.pdf
+2025-06-25 16:26:28,659 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:28,659 - pdf_processor - INFO - Text reduced from 81689 to 71550 characters
+2025-06-25 16:26:28,660 - pdf_processor - INFO - Successfully processed: Crosswashing in Sustainable Investing_ Unveiling Strategic Practices Impacting E.pdf
+2025-06-25 16:26:28,660 - pdf_processor - INFO - Processing: Employment_ labor productivity and environmental sustainability_ Firm-level evid.pdf
+2025-06-25 16:26:30,531 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:30,531 - pdf_processor - INFO - Successfully processed: Employment_ labor productivity and environmental sustainability_ Firm-level evid.pdf
+2025-06-25 16:26:30,531 - pdf_processor - INFO - Processing: Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf
+2025-06-25 16:26:30,697 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:30,697 - pdf_processor - INFO - Text reduced from 22190 to 17101 characters
+2025-06-25 16:26:30,697 - pdf_processor - INFO - Successfully processed: Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf
+2025-06-25 16:26:30,697 - pdf_processor - INFO - Processing: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-25 16:26:31,533 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:31,533 - pdf_processor - INFO - Text reduced from 97742 to 74366 characters
+2025-06-25 16:26:31,534 - pdf_processor - INFO - Successfully processed: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-25 16:26:31,534 - pdf_processor - INFO - Processing: PCBot_ a Minimalist Robot Designed for Swarm Applications.pdf
+2025-06-25 16:26:34,084 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:34,085 - pdf_processor - INFO - Text reduced from 35973 to 31850 characters
+2025-06-25 16:26:34,085 - pdf_processor - INFO - Successfully processed: PCBot_ a Minimalist Robot Designed for Swarm Applications.pdf
+2025-06-25 16:26:34,085 - pdf_processor - INFO - Processing: Recommender Systems for Social Good_ The Role of Accountability and Sustainabili.pdf
+2025-06-25 16:26:34,250 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:34,250 - pdf_processor - INFO - Text reduced from 11021 to 8983 characters
+2025-06-25 16:26:34,251 - pdf_processor - INFO - Successfully processed: Recommender Systems for Social Good_ The Role of Accountability and Sustainabili.pdf
+2025-06-25 16:26:34,251 - pdf_processor - INFO - Processing: Recyclable vitrimer-based printed circuit board for circular electronics.pdf
+2025-06-25 16:26:34,956 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:34,957 - pdf_processor - INFO - Successfully processed: Recyclable vitrimer-based printed circuit board for circular electronics.pdf
+2025-06-25 16:26:34,957 - pdf_processor - INFO - Processing: System Support for Environmentally Sustainable Computing in Data Centers.pdf
+2025-06-25 16:26:36,247 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-25 16:26:36,248 - pdf_processor - INFO - Text reduced from 40918 to 32005 characters
+2025-06-25 16:26:36,248 - pdf_processor - INFO - Successfully processed: System Support for Environmentally Sustainable Computing in Data Centers.pdf
+2025-06-25 16:26:36,248 - pdf_processor - INFO - Processing hotspot directory: Monitoring_System_Production
+2025-06-25 16:26:36,249 - pdf_processor - INFO - Found 10 PDF files in Monitoring_System_Production
+2025-06-25 16:26:36,250 - pdf_processor - INFO - Processing: A compact linear accelerator based on a scalable microelectromechanical-system R.pdf
+2025-06-25 16:26:36,490 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:36,490 - pdf_processor - INFO - Successfully processed: A compact linear accelerator based on a scalable microelectromechanical-system R.pdf
+2025-06-25 16:26:36,491 - pdf_processor - INFO - Processing: A Packaging Method for ALPIDE Integration Enabling Flexible and Low-Material-Bud.pdf
+2025-06-25 16:26:36,632 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:36,633 - pdf_processor - INFO - Text reduced from 15257 to 12599 characters
+2025-06-25 16:26:36,633 - pdf_processor - INFO - Successfully processed: A Packaging Method for ALPIDE Integration Enabling Flexible and Low-Material-Bud.pdf
+2025-06-25 16:26:36,633 - pdf_processor - INFO - Processing: An in-Contact Robotic System for the Process of Desoldering PCB Components.pdf
+2025-06-25 16:26:36,773 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:36,773 - pdf_processor - INFO - Text reduced from 20532 to 16732 characters
+2025-06-25 16:26:36,773 - pdf_processor - INFO - Successfully processed: An in-Contact Robotic System for the Process of Desoldering PCB Components.pdf
+2025-06-25 16:26:36,773 - pdf_processor - INFO - Processing: Capacitive-Tuned SIW Evanescent-Mode Cavity for Resonant Microwave Plasma Jet.pdf
+2025-06-25 16:26:37,353 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:37,354 - pdf_processor - INFO - Text reduced from 38309 to 31188 characters
+2025-06-25 16:26:37,354 - pdf_processor - INFO - Successfully processed: Capacitive-Tuned SIW Evanescent-Mode Cavity for Resonant Microwave Plasma Jet.pdf
+2025-06-25 16:26:37,355 - pdf_processor - INFO - Processing: Detecting Manufacturing Defects in PCBs via Data-Centric Machine Learning on Sol.pdf
+2025-06-25 16:26:37,492 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:37,493 - pdf_processor - INFO - Text reduced from 21268 to 19306 characters
+2025-06-25 16:26:37,493 - pdf_processor - INFO - Successfully processed: Detecting Manufacturing Defects in PCBs via Data-Centric Machine Learning on Sol.pdf
+2025-06-25 16:26:37,493 - pdf_processor - INFO - Processing: Efficient Pretraining Model based on Multi-Scale Local Visual Field Feature Reco.pdf
+2025-06-25 16:26:37,771 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:37,771 - pdf_processor - INFO - Text reduced from 34905 to 28017 characters
+2025-06-25 16:26:37,771 - pdf_processor - INFO - Successfully processed: Efficient Pretraining Model based on Multi-Scale Local Visual Field Feature Reco.pdf
+2025-06-25 16:26:37,772 - pdf_processor - INFO - Processing: Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf
+2025-06-25 16:26:37,895 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:37,896 - pdf_processor - INFO - Text reduced from 22190 to 17101 characters
+2025-06-25 16:26:37,896 - pdf_processor - INFO - Successfully processed: Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf
+2025-06-25 16:26:37,896 - pdf_processor - INFO - Processing: Online PCB Defect Detector On A New PCB Defect Dataset.pdf
+2025-06-25 16:26:38,130 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-25 16:26:38,130 - pdf_processor - INFO - Text reduced from 23673 to 18316 characters
+2025-06-25 16:26:38,130 - pdf_processor - INFO - Successfully processed: Online PCB Defect Detector On A New PCB Defect Dataset.pdf
+2025-06-25 16:26:38,130 - pdf_processor - INFO - Processing: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-25 16:26:38,817 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:38,818 - pdf_processor - INFO - Text reduced from 97742 to 74366 characters
+2025-06-25 16:26:38,818 - pdf_processor - INFO - Successfully processed: PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf
+2025-06-25 16:26:38,818 - pdf_processor - INFO - Processing: PCB-Vision_ A Multiscene RGB-Hyperspectral Benchmark Dataset of Printed Circuit.pdf
+2025-06-25 16:26:39,216 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:39,216 - pdf_processor - INFO - Text reduced from 78461 to 67375 characters
+2025-06-25 16:26:39,216 - pdf_processor - INFO - Successfully processed: PCB-Vision_ A Multiscene RGB-Hyperspectral Benchmark Dataset of Printed Circuit.pdf
+2025-06-25 16:26:39,217 - pdf_processor - INFO - Processing hotspot directory: Mounting_System_Production
+2025-06-25 16:26:39,217 - pdf_processor - INFO - Found 10 PDF files in Mounting_System_Production
+2025-06-25 16:26:39,218 - pdf_processor - INFO - Processing: A life cycle assessment of the ISIS-II Neutron and Muon Source.pdf
+2025-06-25 16:26:39,319 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:39,319 - pdf_processor - INFO - Text reduced from 12789 to 11160 characters
+2025-06-25 16:26:39,319 - pdf_processor - INFO - Successfully processed: A life cycle assessment of the ISIS-II Neutron and Muon Source.pdf
+2025-06-25 16:26:39,320 - pdf_processor - INFO - Processing: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:26:42,056 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:42,056 - pdf_processor - INFO - Text reduced from 78675 to 69644 characters
+2025-06-25 16:26:42,056 - pdf_processor - INFO - Successfully processed: A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf
+2025-06-25 16:26:42,057 - pdf_processor - INFO - Processing: All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf
+2025-06-25 16:26:43,210 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:43,210 - pdf_processor - INFO - Successfully processed: All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf
+2025-06-25 16:26:43,210 - pdf_processor - INFO - Processing: Environmental performance of shared micromobility and personal alternatives usin.pdf
+2025-06-25 16:26:52,336 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:52,337 - pdf_processor - INFO - Text reduced from 103611 to 68215 characters
+2025-06-25 16:26:52,337 - pdf_processor - INFO - Successfully processed: Environmental performance of shared micromobility and personal alternatives usin.pdf
+2025-06-25 16:26:52,337 - pdf_processor - INFO - Processing: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:26:57,034 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:26:57,035 - pdf_processor - INFO - Text reduced from 87199 to 70884 characters
+2025-06-25 16:26:57,035 - pdf_processor - INFO - Successfully processed: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:26:57,035 - pdf_processor - INFO - Processing: Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf
+2025-06-25 16:26:57,938 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:26:57,938 - pdf_processor - INFO - Text reduced from 104760 to 81206 characters
+2025-06-25 16:26:57,938 - pdf_processor - INFO - Successfully processed: Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf
+2025-06-25 16:26:57,939 - pdf_processor - INFO - Processing: Novel Data Models for Inter-operable LCA Frameworks.pdf
+2025-06-25 16:26:59,115 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:59,115 - pdf_processor - INFO - Successfully processed: Novel Data Models for Inter-operable LCA Frameworks.pdf
+2025-06-25 16:26:59,115 - pdf_processor - INFO - Processing: Space debris through the prism of the environmental performance of space systems.pdf
+2025-06-25 16:26:59,900 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:26:59,911 - pdf_processor - INFO - Successfully processed: Space debris through the prism of the environmental performance of space systems.pdf
+2025-06-25 16:26:59,915 - pdf_processor - INFO - Processing: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:27:01,165 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:01,165 - pdf_processor - INFO - Text reduced from 90855 to 71036 characters
+2025-06-25 16:27:01,166 - pdf_processor - INFO - Successfully processed: The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf
+2025-06-25 16:27:01,166 - pdf_processor - INFO - Processing: Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf
+2025-06-25 16:27:06,762 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:06,762 - pdf_processor - INFO - Text reduced from 119714 to 82239 characters
+2025-06-25 16:27:06,762 - pdf_processor - INFO - Successfully processed: Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf
+2025-06-25 16:27:06,763 - pdf_processor - INFO - Processing hotspot directory: Recycling
+2025-06-25 16:27:06,764 - pdf_processor - INFO - Found 10 PDF files in Recycling
+2025-06-25 16:27:06,764 - pdf_processor - INFO - Processing: Blockchain-enabled Circular Economy -- Collaborative Responsibility in Solar Pan.pdf
+2025-06-25 16:27:07,887 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:07,888 - pdf_processor - INFO - Text reduced from 80944 to 68043 characters
+2025-06-25 16:27:07,888 - pdf_processor - INFO - Successfully processed: Blockchain-enabled Circular Economy -- Collaborative Responsibility in Solar Pan.pdf
+2025-06-25 16:27:07,889 - pdf_processor - INFO - Processing: Convergence Speed of a Dynamical System for Sparse Recovery.pdf
+2025-06-25 16:27:08,401 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:08,402 - pdf_processor - INFO - Text reduced from 49568 to 44296 characters
+2025-06-25 16:27:08,402 - pdf_processor - INFO - Successfully processed: Convergence Speed of a Dynamical System for Sparse Recovery.pdf
+2025-06-25 16:27:08,402 - pdf_processor - INFO - Processing: Life Cycle Analysis of the GRAND Experiment.pdf
+2025-06-25 16:27:08,937 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:08,938 - pdf_processor - INFO - Text reduced from 68080 to 59523 characters
+2025-06-25 16:27:08,938 - pdf_processor - INFO - Successfully processed: Life Cycle Analysis of the GRAND Experiment.pdf
+2025-06-25 16:27:08,938 - pdf_processor - INFO - Processing: Measuring the Recyclability of Electronic Components to Assist Automatic Disasse.pdf
+2025-06-25 16:27:09,431 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:09,431 - pdf_processor - INFO - Text reduced from 31540 to 24223 characters
+2025-06-25 16:27:09,431 - pdf_processor - INFO - Successfully processed: Measuring the Recyclability of Electronic Components to Assist Automatic Disasse.pdf
+2025-06-25 16:27:09,432 - pdf_processor - INFO - Processing: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-25 16:27:09,894 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:09,894 - pdf_processor - INFO - Text reduced from 70847 to 57875 characters
+2025-06-25 16:27:09,894 - pdf_processor - INFO - Successfully processed: Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf
+2025-06-25 16:27:09,895 - pdf_processor - INFO - Processing: Recyclable vitrimer-based printed circuit board for circular electronics.pdf
+2025-06-25 16:27:10,562 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:27:10,562 - pdf_processor - INFO - Successfully processed: Recyclable vitrimer-based printed circuit board for circular electronics.pdf
+2025-06-25 16:27:10,562 - pdf_processor - INFO - Processing: Recycling rejected silicon wafers and dies for high grade PV cells.pdf
+2025-06-25 16:27:10,768 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:10,768 - pdf_processor - INFO - Text reduced from 20395 to 16809 characters
+2025-06-25 16:27:10,769 - pdf_processor - INFO - Successfully processed: Recycling rejected silicon wafers and dies for high grade PV cells.pdf
+2025-06-25 16:27:10,769 - pdf_processor - INFO - Processing: Role of photon recycling in perovskite solar cells.pdf
+2025-06-25 16:27:11,200 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:11,201 - pdf_processor - INFO - Text reduced from 26866 to 21033 characters
+2025-06-25 16:27:11,201 - pdf_processor - INFO - Successfully processed: Role of photon recycling in perovskite solar cells.pdf
+2025-06-25 16:27:11,201 - pdf_processor - INFO - Processing: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at Maximum.pdf
+2025-06-25 16:27:24,131 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:24,131 - pdf_processor - INFO - Text reduced from 53946 to 37058 characters
+2025-06-25 16:27:24,132 - pdf_processor - INFO - Successfully processed: State-of-the-Art Perovskite Solar Cells Benefit from Photon Recycling at Maximum.pdf
+2025-06-25 16:27:24,132 - pdf_processor - INFO - Processing: Towards long term sustainability of c-Si solar panels_ the environmental benefit.pdf
+2025-06-25 16:27:24,306 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:27:24,306 - pdf_processor - INFO - Successfully processed: Towards long term sustainability of c-Si solar panels_ the environmental benefit.pdf
+2025-06-25 16:27:24,307 - pdf_processor - INFO - Processing hotspot directory: Solar_Panel_Production
+2025-06-25 16:27:24,308 - pdf_processor - INFO - Found 10 PDF files in Solar_Panel_Production
+2025-06-25 16:27:24,309 - pdf_processor - INFO - Processing: D-SELD_ Dataset-Scalable Exemplar LCA-Decoder.pdf
+2025-06-25 16:27:24,876 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:24,876 - pdf_processor - INFO - Text reduced from 52540 to 36690 characters
+2025-06-25 16:27:24,876 - pdf_processor - INFO - Successfully processed: D-SELD_ Dataset-Scalable Exemplar LCA-Decoder.pdf
+2025-06-25 16:27:24,877 - pdf_processor - INFO - Processing: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:27:28,335 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:28,336 - pdf_processor - INFO - Text reduced from 87199 to 70884 characters
+2025-06-25 16:27:28,336 - pdf_processor - INFO - Successfully processed: Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf
+2025-06-25 16:27:28,336 - pdf_processor - INFO - Processing: Implementing and Benchmarking the Locally Competitive Algorithm on the Loihi 2 N.pdf
+2025-06-25 16:27:28,934 - pdf_processor - INFO - Removed references section starting with: '
+REFERENCES'
+2025-06-25 16:27:28,934 - pdf_processor - INFO - Text reduced from 26307 to 20179 characters
+2025-06-25 16:27:28,935 - pdf_processor - INFO - Successfully processed: Implementing and Benchmarking the Locally Competitive Algorithm on the Loihi 2 N.pdf
+2025-06-25 16:27:28,935 - pdf_processor - INFO - Processing: Latent Space Bayesian Optimization with Latent Data Augmentation for Enhanced Ex.pdf
+2025-06-25 16:27:33,855 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:33,855 - pdf_processor - INFO - Text reduced from 75733 to 68010 characters
+2025-06-25 16:27:33,855 - pdf_processor - INFO - Successfully processed: Latent Space Bayesian Optimization with Latent Data Augmentation for Enhanced Ex.pdf
+2025-06-25 16:27:33,856 - pdf_processor - INFO - Processing: LCA and energy efficiency in buildings_ mapping more than twenty years of resear.pdf
+2025-06-25 16:27:35,286 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:35,287 - pdf_processor - INFO - Text reduced from 68846 to 49998 characters
+2025-06-25 16:27:35,287 - pdf_processor - INFO - Successfully processed: LCA and energy efficiency in buildings_ mapping more than twenty years of resear.pdf
+2025-06-25 16:27:35,287 - pdf_processor - INFO - Processing: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:27:35,914 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:35,914 - pdf_processor - INFO - Text reduced from 96243 to 83738 characters
+2025-06-25 16:27:35,914 - pdf_processor - INFO - Successfully processed: Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf
+2025-06-25 16:27:35,914 - pdf_processor - INFO - Processing: UMG silicon for solar PV_ from defects detection to PV module degradation.pdf
+2025-06-25 16:27:36,754 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:36,754 - pdf_processor - INFO - Text reduced from 51431 to 39485 characters
+2025-06-25 16:27:36,755 - pdf_processor - INFO - Successfully processed: UMG silicon for solar PV_ from defects detection to PV module degradation.pdf
+2025-06-25 16:27:36,755 - pdf_processor - INFO - Processing: Upgraded Metallurgical Grade Silicon for solar electricity production_ a compara.pdf
+2025-06-25 16:27:39,277 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:27:39,277 - pdf_processor - INFO - Successfully processed: Upgraded Metallurgical Grade Silicon for solar electricity production_ a compara.pdf
+2025-06-25 16:27:39,278 - pdf_processor - INFO - Processing: ViT-LCA_ A Neuromorphic Approach for Vision Transformers.pdf
+2025-06-25 16:27:39,559 - pdf_processor - INFO - Removed references section starting with: 'REFERENCES
+'
+2025-06-25 16:27:39,560 - pdf_processor - INFO - Text reduced from 26781 to 19495 characters
+2025-06-25 16:27:39,560 - pdf_processor - INFO - Successfully processed: ViT-LCA_ A Neuromorphic Approach for Vision Transformers.pdf
+2025-06-25 16:27:39,560 - pdf_processor - INFO - Processing: WARP-LCA_ Efficient Convolutional Sparse Coding with Locally Competitive Algorit.pdf
+2025-06-25 16:27:41,239 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-25 16:27:41,239 - pdf_processor - INFO - Text reduced from 71123 to 50744 characters
+2025-06-25 16:27:41,240 - pdf_processor - INFO - Successfully processed: WARP-LCA_ Efficient Convolutional Sparse Coding with Locally Competitive Algorit.pdf
+2025-06-25 16:27:41,240 - pdf_processor - INFO - Processing hotspot directory: Transportation
+2025-06-25 16:27:41,241 - pdf_processor - INFO - Found 10 PDF files in Transportation
+2025-06-25 16:27:41,241 - pdf_processor - INFO - Processing: Are EVs Cleaner Than We Think_ Evaluating Consequential Greenhouse Gas Emissions.pdf
+2025-06-25 16:27:41,807 - pdf_processor - INFO - Removed references section starting with: 'References
+'
+2025-06-25 16:27:41,807 - pdf_processor - INFO - Text reduced from 70572 to 47074 characters
+2025-06-25 16:27:41,807 - pdf_processor - INFO - Successfully processed: Are EVs Cleaner Than We Think_ Evaluating Consequential Greenhouse Gas Emissions.pdf
+2025-06-25 16:27:41,808 - pdf_processor - INFO - Processing: Deep Learning Innovations for Energy Efficiency_ Advances in Non-Intrusive Load.pdf
+2025-06-25 16:27:51,147 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:27:51,147 - pdf_processor - INFO - Successfully processed: Deep Learning Innovations for Energy Efficiency_ Advances in Non-Intrusive Load.pdf
+2025-06-25 16:27:51,148 - pdf_processor - INFO - Processing: Examining Passenger Vehicle Miles Traveled and Carbon Emissions in the Boston Me.pdf
+2025-06-25 16:27:52,078 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:52,079 - pdf_processor - INFO - Text reduced from 54555 to 46742 characters
+2025-06-25 16:27:52,079 - pdf_processor - INFO - Successfully processed: Examining Passenger Vehicle Miles Traveled and Carbon Emissions in the Boston Me.pdf
+2025-06-25 16:27:52,080 - pdf_processor - INFO - Processing: Greenhouse Gas Emission Prediction on Road Network using Deep Sequence Learning.pdf
+2025-06-25 16:27:52,453 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:27:52,453 - pdf_processor - INFO - Text reduced from 50243 to 41297 characters
+2025-06-25 16:27:52,454 - pdf_processor - INFO - Successfully processed: Greenhouse Gas Emission Prediction on Road Network using Deep Sequence Learning.pdf
+2025-06-25 16:27:52,454 - pdf_processor - INFO - Processing: Impact of consumer preferences on decarbonization of transport sector in India.pdf
+2025-06-25 16:27:55,188 - pdf_processor - INFO - Removed references section starting with: 'references
+'
+2025-06-25 16:27:55,188 - pdf_processor - INFO - Text reduced from 71810 to 36542 characters
+2025-06-25 16:27:55,188 - pdf_processor - INFO - Successfully processed: Impact of consumer preferences on decarbonization of transport sector in India.pdf
+2025-06-25 16:27:55,189 - pdf_processor - INFO - Processing: Integrated assessment modelling as a positive science_ private passenger road tr.pdf
+2025-06-25 16:28:01,638 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:28:01,639 - pdf_processor - INFO - Text reduced from 332477 to 291506 characters
+2025-06-25 16:28:01,639 - pdf_processor - INFO - Successfully processed: Integrated assessment modelling as a positive science_ private passenger road tr.pdf
+2025-06-25 16:28:01,639 - pdf_processor - INFO - Processing: Interpretable and Actionable Vehicular Greenhouse Gas Emission Prediction at Roa.pdf
+2025-06-25 16:28:03,963 - pdf_processor - INFO - No references section found to remove
+2025-06-25 16:28:03,963 - pdf_processor - INFO - Successfully processed: Interpretable and Actionable Vehicular Greenhouse Gas Emission Prediction at Roa.pdf
+2025-06-25 16:28:03,964 - pdf_processor - INFO - Processing: New approach for a stable multi-criteria ridesharing system.pdf
+2025-06-25 16:28:05,551 - pdf_processor - INFO - Removed references section starting with: 'references
+'
+2025-06-25 16:28:05,551 - pdf_processor - INFO - Text reduced from 150585 to 54206 characters
+2025-06-25 16:28:05,552 - pdf_processor - INFO - Successfully processed: New approach for a stable multi-criteria ridesharing system.pdf
+2025-06-25 16:28:05,552 - pdf_processor - INFO - Processing: Systemic Decarbonization of Road Freight Transport_ A Comprehensive Total Cost o.pdf
+2025-06-25 16:28:06,330 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:28:06,331 - pdf_processor - INFO - Text reduced from 73287 to 62459 characters
+2025-06-25 16:28:06,331 - pdf_processor - INFO - Successfully processed: Systemic Decarbonization of Road Freight Transport_ A Comprehensive Total Cost o.pdf
+2025-06-25 16:28:06,331 - pdf_processor - INFO - Processing: Towards Indirect Top-Down Road Transport Emissions Estimation.pdf
+2025-06-25 16:28:06,632 - pdf_processor - INFO - Removed references section starting with: '
+References'
+2025-06-25 16:28:06,632 - pdf_processor - INFO - Text reduced from 44200 to 34434 characters
+2025-06-25 16:28:06,632 - pdf_processor - INFO - Successfully processed: Towards Indirect Top-Down Road Transport Emissions Estimation.pdf
+2025-06-25 16:28:06,633 - pdf_processor - INFO - Successfully processed 90 papers total
+2025-06-25 16:28:06,765 - pdf_processor - INFO - Processed papers saved to: output\solar_panel_sample\processed_papers.json
+2025-06-25 16:28:06,767 - __main__ - INFO - [SUCCESS] Papers processed and references removed. Results saved to: output\solar_panel_sample\processed_papers.json
+2025-06-25 16:28:06,767 - __main__ - INFO - ============================================================
+2025-06-25 16:28:06,767 - __main__ - INFO - STEP 5: DETAILED SUSTAINABILITY REPORT GENERATION
+2025-06-25 16:28:06,767 - __main__ - INFO - ============================================================
+2025-06-25 16:28:06,768 - sustainable_solutions_generator - INFO - Using hotspot analysis: output/solar_panel_sample/hotspot_lca_analysis.json
+2025-06-25 16:28:06,768 - sustainable_solutions_generator - INFO - Solutions report will be saved to: output\solar_panel_sample/detailed_sustainable_solutions_report.txt
+2025-06-25 16:28:06,820 - sustainable_solutions_generator - INFO - Analyzing 71 processed papers for hotspot solutions
+2025-06-25 16:28:06,821 - sustainable_solutions_generator - INFO - Analyzing 8 papers for hotspot: Battery_Storage_Production
+2025-06-25 16:28:18,181 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:28:18,182 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Data-Driven Approach to Learning Optimal Forms of Constitutive Relations
+  in Models Describing Lithium Plating in Battery Cells
+2025-06-25 16:29:04,839 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:29:04,840 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Graded lithium-ion battery pouch cells to homogenise current
+  distributions and mitigate lithium plating
+2025-06-25 16:29:06,556 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:29:06,558 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Layered Cellular Automata
+2025-06-25 16:29:07,009 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:29:07,010 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Contribution of X-ray experiments and modeling to the understanding of
+  the heterogeneous lithiation of graphite electrodes
+2025-06-25 16:29:31,090 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:29:31,091 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Luminance Component Analysis for Exposure Correction
+2025-06-25 16:29:56,283 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:29:56,284 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Listing, Verifying and Counting Lowest Common Ancestors in DAGs:
+  Algorithms and Fine-Grained Lower Bounds
+2025-06-25 16:30:30,582 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:30:30,584 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Methods pressure control apparatus for lithium metal battery
+2025-06-25 16:30:52,547 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:30:52,548 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Battery_Storage_Production': Nanostructured S@VACNTs Cathode with Lithium Sulfate Barrier Layer for
+  Exceptionally Stable Cycling in Lithium-Sulfur Batteries
+2025-06-25 16:30:52,549 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Battery_Storage_Production': 8 results
+2025-06-25 16:30:52,549 - sustainable_solutions_generator - INFO - Analyzing 10 papers for hotspot: Solar_Panel_Production
+2025-06-25 16:30:56,942 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:30:56,943 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': Latent Space Bayesian Optimization with Latent Data Augmentation for
+  Enhanced Exploration
+2025-06-25 16:31:10,593 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:31:10,597 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': WARP-LCA: Efficient Convolutional Sparse Coding with Locally Competitive
+  Algorithm
+2025-06-25 16:31:25,333 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:31:25,336 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': Environmentally-Extended Input-Output analyses efficiently sketch
+  large-scale environmental transition plans -- illustration by Canada's road
+  industry
+2025-06-25 16:31:39,522 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:31:39,525 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': Life-Cycle Emissions of AI Hardware: A Cradle-To-Grave Approach and
+  Generational Trends
+2025-06-25 16:31:44,569 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:31:44,572 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': D-SELD: Dataset-Scalable Exemplar LCA-Decoder
+2025-06-25 16:32:05,485 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:32:05,488 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': LCA and energy efficiency in buildings: mapping more than twenty years
+  of research
+2025-06-25 16:32:14,919 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:32:14,920 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': Implementing and Benchmarking the Locally Competitive Algorithm on the
+  Loihi 2 Neuromorphic Processor
+2025-06-25 16:33:09,937 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:33:09,938 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': UMG silicon for solar PV: from defects detection to PV module
+  degradation
+2025-06-25 16:33:10,617 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:33:10,618 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': Upgraded Metallurgical Grade Silicon for solar electricity production: a
+  comparative Life Cycle Assessment
+2025-06-25 16:33:36,127 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:33:36,128 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Solar_Panel_Production': ViT-LCA: A Neuromorphic Approach for Vision Transformers
+2025-06-25 16:33:36,128 - sustainable_solutions_generator - INFO - Completed analysis for hotspot 'Solar_Panel_Production': 10 results
+2025-06-25 16:33:36,129 - sustainable_solutions_generator - INFO - Analyzing 9 papers for hotspot: Mounting_System_Production
+2025-06-25 16:34:09,278 - httpx - INFO - HTTP Request: POST https://chat-ai.academiccloud.de/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 16:34:09,282 - sustainable_solutions_generator - INFO - Analyzed paper for hotspot 'Mounting_System_Production': Incorporating Sustainability in Electronics Design: Obstacles and
+  Opportunities
