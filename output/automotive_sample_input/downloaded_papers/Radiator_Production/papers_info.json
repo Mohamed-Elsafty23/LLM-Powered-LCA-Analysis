@@ -1,20 +1,92 @@
 [
   {
+    "title": "MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die\n  Castings",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/2403.09996v1",
+    "published_date": "2024-03-15T03:42:38Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "An Innovative Line Balancing for the Aluminium Melting Process",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/2504.02857v1",
+    "published_date": "2025-03-29T14:31:33Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "An Innovative Line Balancing for the Aluminium Melting Process.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "Optimization of Solidification in Die Casting using Numerical\n  Simulations and Machine Learning",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/1901.02364v2",
+    "published_date": "2019-01-08T15:28:33Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "A direction preserving discretization for computing phase-space\n  densities",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/2106.14506v1",
+    "published_date": "2021-06-28T09:42:17Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "A direction preserving discretization for computing phase-space densities.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "Thermofluid topology optimization for cooling channel design",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/2302.04745v2",
+    "published_date": "2023-02-09T16:28:47Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "Thermofluid topology optimization for cooling channel design.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "Discrete flow mapping: transport of phase space densities on\n  triangulated surfaces",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/1303.4249v2",
+    "published_date": "2013-03-18T13:46:32Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "Discrete flow mapping_ transport of phase space densities on triangulated surfac.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "FADO: Floorplan-Aware Directive Optimization for High-Level Synthesis\n  Designs on Multi-Die FPGAs",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/2212.11582v3",
+    "published_date": "2022-12-22T10:18:35Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "FADO_ Floorplan-Aware Directive Optimization for High-Level Synthesis Designs on.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
     "title": "A process planning system with feature based neural network search\n  strategy for aluminum extrusion die manufacturing",
     "hotspot_name": "Radiator Production",
     "pdf_link": "http://arxiv.org/pdf/0907.0611v1",
     "published_date": "2009-07-03T12:08:13Z",
-    "query": "die casting aluminum sustainability energy reduction manufacturing",
+    "query": "aluminium die casting energy efficiency optimization",
     "filename": "A process planning system with feature based neural network search strategy for.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminum%20sustainability%20energy%20reduction%20manufacturing&start=0&max_results=2"
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
   },
   {
-    "title": "Improved iron-tolerance in recycled aluminum alloys via direct strip\n  casting process",
+    "title": "Tracing the phase transition of Al-bearing species from molecules to\n  dust in AGB winds. Constraining the presence of gas-phase (Al2O3)n clusters",
     "hotspot_name": "Radiator Production",
-    "pdf_link": "http://arxiv.org/pdf/2310.06327v1",
-    "published_date": "2023-10-10T05:53:40Z",
-    "query": "die casting aluminum sustainability energy reduction manufacturing",
-    "filename": "Improved iron-tolerance in recycled aluminum alloys via direct strip casting pro.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminum%20sustainability%20energy%20reduction%20manufacturing&start=0&max_results=2"
+    "pdf_link": "http://arxiv.org/pdf/1704.05237v2",
+    "published_date": "2017-04-18T08:50:27Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "Tracing the phase transition of Al-bearing species from molecules to dust in AGB.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+  },
+  {
+    "title": "Fabrication of quantum emitters in aluminium nitride by Al-ion\n  implantation and thermal annealing",
+    "hotspot_name": "Radiator Production",
+    "pdf_link": "http://arxiv.org/pdf/2310.20540v1",
+    "published_date": "2023-10-31T15:21:58Z",
+    "query": "aluminium die casting energy efficiency optimization",
+    "filename": "Fabrication of quantum emitters in aluminium nitride by Al-ion implantation and.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
   }
 ]

@@ -40,7 +40,7 @@
         "impact_category": "Energy Consumption",
         "environmental_significance": "medium",
         "impact_source": "Road Transport",
-        "description": "The distribution process involves transportation over 500km via road transport, contributing to energy consumption and emissions."
+        "description": "The distribution process involves transportation over 500km via road transport, which consumes energy."
       }
     ],
     "use_hotspots": [
@@ -50,31 +50,41 @@
         "environmental_significance": "high",
         "impact_source": "Active Power Consumption",
         "quantitative_impact": "15W",
-        "description": "The ECU operates with an active power consumption of 15W, contributing to energy consumption and emissions during its lifetime."
+        "description": "The ECU operates with an active power consumption of 15W, which is a significant energy-related hotspot."
       },
       {
-        "hotspot_name": "Standby Power Consumption",
+        "hotspot_name": "ECU Standby Power",
         "impact_category": "Energy Consumption",
         "environmental_significance": "low",
-        "impact_source": "Standby Mode",
+        "impact_source": "Standby Power Consumption",
         "quantitative_impact": "0.5W",
-        "description": "The ECU consumes power in standby mode, contributing to energy consumption and emissions during its lifetime."
+        "description": "The ECU consumes standby power of 0.5W, which is a relatively low energy-related hotspot."
       }
     ],
     "end_of_life_hotspots": [
       {
-        "hotspot_name": "Incineration of Plastics",
-        "impact_category": "Waste Management",
+        "hotspot_name": "Metal Recycling",
+        "impact_category": "Material Recovery",
         "environmental_significance": "high",
-        "impact_source": "Disposal Method",
-        "description": "The disposal method for plastics involves incineration, which can lead to emissions and environmental impacts."
+        "impact_source": "Recycling Process",
+        "quantitative_impact": "95% metal recovery",
+        "description": "The end-of-life process involves metal recycling with a high recovery rate of 95%."
       },
       {
-        "hotspot_name": "Specialized e-Waste Processing",
+        "hotspot_name": "Plastic Incineration",
         "impact_category": "Waste Management",
         "environmental_significance": "medium",
-        "impact_source": "Disposal Method",
-        "description": "The disposal method for PCBA involves specialized e-waste processing, which can lead to environmental impacts and emissions."
+        "impact_source": "Incineration Process",
+        "quantitative_impact": "70% plastic recovery",
+        "description": "The end-of-life process involves plastic incineration with a moderate recovery rate of 70%."
+      },
+      {
+        "hotspot_name": "PCBA Recycling",
+        "impact_category": "Material Recovery",
+        "environmental_significance": "high",
+        "impact_source": "Specialized E-waste Processing",
+        "quantitative_impact": "85% PCB recovery",
+        "description": "The end-of-life process involves PCBA recycling with a high recovery rate of 85%."
       }
     ],
     "overall_hotspot_ranking": [
@@ -94,10 +104,10 @@
       },
       {
         "rank": 3,
-        "hotspot_name": "Incineration of Plastics",
+        "hotspot_name": "Metal Recycling",
         "life_cycle_phase": "End-of-Life",
         "environmental_significance": "high",
-        "priority_justification": "Potential emissions and environmental impacts from incineration"
+        "priority_justification": "High metal recovery rate during recycling process"
       },
       {
         "rank": 4,
@@ -113,29 +123,20 @@
         "environmental_significance": "medium",
         "priority_justification": "Medium energy consumption during road transport"
       }
-    ],
-    "data_limitations": [
-      "Lack of explicit data on emissions and environmental impacts from production processes",
-      "No information on material extraction and processing impacts",
-      "Insufficient data on use phase emissions and environmental impacts",
-      "Limited information on end-of-life recycling and waste management impacts",
-      "No data on regional variations in production methods and environmental regulations"
     ]
   },
   "search_queries": {
     "hotspot_queries": {
-      "Housing Production": "injection molding process optimization energy efficiency plastic manufacturing",
-      "Radiator Production": "die casting aluminum sustainability energy reduction manufacturing",
-      "PCBA Production": "printed circuit board soldering energy efficient electronics manufacturing",
-      "EMC Shield Production": "steel punching and bending process optimization sustainable manufacturing",
-      "Transportation": "road transport logistics optimization fuel efficiency reduction strategies",
-      "ECU Operation": "automotive electronics low power consumption design optimization techniques",
-      "Standby Power Consumption": "electronic device standby power reduction energy efficient design methods",
-      "Incineration of Plastics": "plastic waste management sustainable disposal methods energy recovery techniques",
-      "Specialized e-Waste Processing": "electronic waste recycling sustainable processing methods environmental impact reduction"
-    },
-    "query_strategy": "process-specific sustainability optimization targeting"
-  },
-  "input_file": "temp/automotive_sample_input.txt",
-  "analysis_timestamp": "2025-06-22T23:26:54.369811"
+      "Housing Production": "PBT injection molding LCA environmental impact",
+      "Radiator Production": "aluminium die casting energy efficiency optimization",
+      "PCBA Production": "PCB assembly sustainability environmental assessment",
+      "EMC Shield Production": "steel punching LCA energy reduction",
+      "Transportation": "road transport energy efficiency optimization",
+      "ECU Operation": "electronic device energy consumption LCA assessment",
+      "ECU Standby Power": "standby power reduction sustainability optimization",
+      "Metal Recycling": "metal recycling LCA environmental impact assessment",
+      "Plastic Incineration": "plastic incineration energy recovery optimization",
+      "PCBA Recycling": "PCB recycling sustainability environmental assessment"
+    }
+  }
 }

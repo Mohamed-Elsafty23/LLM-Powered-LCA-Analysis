@@ -1,4 +1,5 @@
 The changes:
+remove component analsis
 link the raw input data to the LCA directly
 in the LCA phase make only the Hotspot analysis and focus to extract all relevant information from the raw input data do not miss anything or any component
 after the hotspot analysis in the LCA

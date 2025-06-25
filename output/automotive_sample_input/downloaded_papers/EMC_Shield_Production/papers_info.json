@@ -1,20 +1,92 @@
 [
   {
-    "title": "Power consumption prediction for steel industry",
+    "title": "Fast Privacy-Preserving Punch Cards",
     "hotspot_name": "EMC Shield Production",
-    "pdf_link": "http://arxiv.org/pdf/2307.07597v1",
-    "published_date": "2023-07-14T19:41:53Z",
-    "query": "steel punching and bending process optimization sustainable manufacturing",
-    "filename": "Power consumption prediction for steel industry.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+    "pdf_link": "http://arxiv.org/pdf/2006.06079v3",
+    "published_date": "2020-06-10T21:49:15Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "Fast Privacy-Preserving Punch Cards.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
   },
   {
-    "title": "Cold Isostatic Pressing to Improve the Mechanical Performance of\n  Additively Manufactured Metallic Components",
+    "title": "MICZ-Kepler = dynamics on the cone over the rotation group",
     "hotspot_name": "EMC Shield Production",
-    "pdf_link": "http://arxiv.org/pdf/1908.03003v1",
-    "published_date": "2019-08-08T10:28:28Z",
-    "query": "steel punching and bending process optimization sustainable manufacturing",
-    "filename": "Cold Isostatic Pressing to Improve the Mechanical Performance of Additively Manu.pdf",
-    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+    "pdf_link": "http://arxiv.org/pdf/1305.1063v1",
+    "published_date": "2013-05-05T22:56:34Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "MICZ-Kepler _ dynamics on the cone over the rotation group.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "A life cycle model for high-speed rail infrastructure: environmental\n  inventories and assessment of the Tours-Bordeaux railway in France",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/2501.10458v1",
+    "published_date": "2025-01-14T22:34:02Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "Anisotropic behaviour law for sheets used in stamping: A comparative\n  study of steel and aluminium",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/0801.3018v1",
+    "published_date": "2008-01-19T07:48:14Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "Implementing and Benchmarking the Locally Competitive Algorithm on the\n  Loihi 2 Neuromorphic Processor",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/2307.13762v1",
+    "published_date": "2023-07-25T18:43:08Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "Implementing and Benchmarking the Locally Competitive Algorithm on the Loihi 2 N.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "Novel Data Models for Inter-operable LCA Frameworks",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/2405.10235v1",
+    "published_date": "2024-05-16T16:36:16Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "Novel Data Models for Inter-operable LCA Frameworks.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "475\u00b0C aging embrittlement of partially recrystallized FeCrAl ODS\n  ferritic steels after simulated tube process",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/2310.13842v2",
+    "published_date": "2023-10-20T22:31:18Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "475_C aging embrittlement of partially recrystallized FeCrAl ODS ferritic steels.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "Linear Non-Gaussian Component Analysis via Maximum Likelihood",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/1511.01609v3",
+    "published_date": "2015-11-05T05:12:27Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "Linear Non-Gaussian Component Analysis via Maximum Likelihood.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "Fracture toughness characterization through notched small punch test\n  specimens",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/1711.02406v1",
+    "published_date": "2017-11-07T11:25:47Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "Fracture toughness characterization through notched small punch test specimens.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+  },
+  {
+    "title": "ViT-LCA: A Neuromorphic Approach for Vision Transformers",
+    "hotspot_name": "EMC Shield Production",
+    "pdf_link": "http://arxiv.org/pdf/2411.00140v2",
+    "published_date": "2024-10-31T18:41:30Z",
+    "query": "steel punching LCA energy reduction",
+    "filename": "ViT-LCA_ A Neuromorphic Approach for Vision Transformers.pdf",
+    "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
   }
 ]

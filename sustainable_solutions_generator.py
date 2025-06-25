@@ -515,9 +515,9 @@ Do not make up numbers. Only report what is explicitly written in the paper."""
         
         # ECU Component Analysis
         report_sections.append("**ECU COMPONENT ANALYSIS**")
-        report_sections.append("")
-        report_sections.append("Based on the ECU sample input data:")
-        report_sections.append("")
+        # report_sections.append("")
+        # report_sections.append("Based on the ECU sample input data:")
+        # report_sections.append("")
         
         for component, details in ecu_components.items():
             if details:

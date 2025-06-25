@@ -73,7 +73,7 @@ class NewLCAWorkflow:
         
         # Initialize workflow components
         self.hotspot_analyzer = HotspotLCAAnalyzer([PRIMARY_API_KEY, SECONDARY_API_KEY], BASE_URL)
-        self.arxiv_downloader = ArxivPaperDownloader(max_results_per_query=3)
+        self.arxiv_downloader = ArxivPaperDownloader(max_results_per_query=10)
         self.pdf_processor = PDFProcessor()
         self.solutions_generator = HotspotSustainableSolutionsGenerator(self.api_configs)
         

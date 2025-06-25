@@ -1,188 +1,929 @@
 {
   "search_queries": {
-    "Housing Production": "injection molding process optimization energy efficiency plastic manufacturing",
-    "Radiator Production": "die casting aluminum sustainability energy reduction manufacturing",
-    "PCBA Production": "printed circuit board soldering energy efficient electronics manufacturing",
-    "EMC Shield Production": "steel punching and bending process optimization sustainable manufacturing",
-    "Transportation": "road transport logistics optimization fuel efficiency reduction strategies",
-    "ECU Operation": "automotive electronics low power consumption design optimization techniques",
-    "Standby Power Consumption": "electronic device standby power reduction energy efficient design methods",
-    "Incineration of Plastics": "plastic waste management sustainable disposal methods energy recovery techniques",
-    "Specialized e-Waste Processing": "electronic waste recycling sustainable processing methods environmental impact reduction"
+    "Housing Production": "PBT injection molding LCA environmental impact",
+    "Radiator Production": "aluminium die casting energy efficiency optimization",
+    "PCBA Production": "PCB assembly sustainability environmental assessment",
+    "EMC Shield Production": "steel punching LCA energy reduction",
+    "Transportation": "road transport energy efficiency optimization",
+    "ECU Operation": "electronic device energy consumption LCA assessment",
+    "ECU Standby Power": "standby power reduction sustainability optimization",
+    "Metal Recycling": "metal recycling LCA environmental impact assessment",
+    "Plastic Incineration": "plastic incineration energy recovery optimization",
+    "PCBA Recycling": "PCB recycling sustainability environmental assessment"
   },
   "downloaded_papers": {
     "Housing Production": [
+      {
+        "title": "Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form\n  Factors",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2406.09611v1",
+        "published_date": "2024-06-13T22:43:47Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "The environmental value of transport infrastructure in the UK: an\n  EXIOBASE analysis",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2504.20098v1",
+        "published_date": "2025-04-26T11:33:03Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "Space debris through the prism of the environmental performance of space\n  systems: the case of Sentinel-3 redesigned mission",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2207.06306v1",
+        "published_date": "2022-07-13T15:58:25Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Space debris through the prism of the environmental performance of space systems.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "Environmental performance of shared micromobility and personal\n  alternatives using integrated modal LCA",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2103.04464v1",
+        "published_date": "2021-03-07T21:50:31Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Environmental performance of shared micromobility and personal alternatives usin.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "Novel Data Models for Inter-operable LCA Frameworks",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2405.10235v1",
+        "published_date": "2024-05-16T16:36:16Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Novel Data Models for Inter-operable LCA Frameworks.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "Incorporating Sustainability in Electronics Design: Obstacles and\n  Opportunities",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2503.14893v1",
+        "published_date": "2025-03-19T04:37:16Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
       {
         "title": "DRL-Based Injection Molding Process Parameter Optimization for Adaptive\n  and Profitable Production",
         "hotspot_name": "Housing Production",
         "pdf_link": "http://arxiv.org/pdf/2505.10988v1",
         "published_date": "2025-05-16T08:35:31Z",
-        "query": "injection molding process optimization energy efficiency plastic manufacturing",
+        "query": "PBT injection molding LCA environmental impact",
         "filename": "DRL-Based Injection Molding Process Parameter Optimization for Adaptive and Prof.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20process%20optimization%20energy%20efficiency%20plastic%20manufacturing&start=0&max_results=2"
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
       },
       {
-        "title": "Enhancing the Product Quality of the Injection Process Using eXplainable\n  Artificial Intelligence",
+        "title": "Environmentally-Extended Input-Output analyses efficiently sketch\n  large-scale environmental transition plans -- illustration by Canada's road\n  industry",
         "hotspot_name": "Housing Production",
-        "pdf_link": "http://arxiv.org/pdf/2503.02338v1",
-        "published_date": "2025-03-04T06:59:01Z",
-        "query": "injection molding process optimization energy efficiency plastic manufacturing",
-        "filename": "Enhancing the Product Quality of the Injection Process Using eXplainable Artific.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=injection%20molding%20process%20optimization%20energy%20efficiency%20plastic%20manufacturing&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/2301.08302v1",
+        "published_date": "2023-01-19T20:24:29Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "Understanding the environmental impacts of virgin aggregates: critical\n  literature review and primary comprehensive Life Cycle Assessments",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2501.10457v1",
+        "published_date": "2025-01-14T22:16:58Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
+      },
+      {
+        "title": "A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using\n  Sphera LCA and ecoinvent Databases",
+        "hotspot_name": "Housing Production",
+        "pdf_link": "http://arxiv.org/pdf/2401.17512v2",
+        "published_date": "2024-01-31T00:13:31Z",
+        "query": "PBT injection molding LCA environmental impact",
+        "filename": "A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using Sphera LC.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pbt%20injection%20molding%20lca%20environmental%20impact&start=0&max_results=10"
       }
     ],
     "Radiator Production": [
+      {
+        "title": "MEDPNet: Achieving High-Precision Adaptive Registration for Complex Die\n  Castings",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2403.09996v1",
+        "published_date": "2024-03-15T03:42:38Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "MEDPNet_ Achieving High-Precision Adaptive Registration for Complex Die Castings.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "An Innovative Line Balancing for the Aluminium Melting Process",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2504.02857v1",
+        "published_date": "2025-03-29T14:31:33Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "An Innovative Line Balancing for the Aluminium Melting Process.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Optimization of Solidification in Die Casting using Numerical\n  Simulations and Machine Learning",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/1901.02364v2",
+        "published_date": "2019-01-08T15:28:33Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "Optimization of Solidification in Die Casting using Numerical Simulations and Ma.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "A direction preserving discretization for computing phase-space\n  densities",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2106.14506v1",
+        "published_date": "2021-06-28T09:42:17Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "A direction preserving discretization for computing phase-space densities.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Thermofluid topology optimization for cooling channel design",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2302.04745v2",
+        "published_date": "2023-02-09T16:28:47Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "Thermofluid topology optimization for cooling channel design.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Discrete flow mapping: transport of phase space densities on\n  triangulated surfaces",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/1303.4249v2",
+        "published_date": "2013-03-18T13:46:32Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "Discrete flow mapping_ transport of phase space densities on triangulated surfac.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "FADO: Floorplan-Aware Directive Optimization for High-Level Synthesis\n  Designs on Multi-Die FPGAs",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2212.11582v3",
+        "published_date": "2022-12-22T10:18:35Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "FADO_ Floorplan-Aware Directive Optimization for High-Level Synthesis Designs on.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
       {
         "title": "A process planning system with feature based neural network search\n  strategy for aluminum extrusion die manufacturing",
         "hotspot_name": "Radiator Production",
         "pdf_link": "http://arxiv.org/pdf/0907.0611v1",
         "published_date": "2009-07-03T12:08:13Z",
-        "query": "die casting aluminum sustainability energy reduction manufacturing",
+        "query": "aluminium die casting energy efficiency optimization",
         "filename": "A process planning system with feature based neural network search strategy for.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminum%20sustainability%20energy%20reduction%20manufacturing&start=0&max_results=2"
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
       },
       {
-        "title": "Improved iron-tolerance in recycled aluminum alloys via direct strip\n  casting process",
+        "title": "Tracing the phase transition of Al-bearing species from molecules to\n  dust in AGB winds. Constraining the presence of gas-phase (Al2O3)n clusters",
         "hotspot_name": "Radiator Production",
-        "pdf_link": "http://arxiv.org/pdf/2310.06327v1",
-        "published_date": "2023-10-10T05:53:40Z",
-        "query": "die casting aluminum sustainability energy reduction manufacturing",
-        "filename": "Improved iron-tolerance in recycled aluminum alloys via direct strip casting pro.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=die%20casting%20aluminum%20sustainability%20energy%20reduction%20manufacturing&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/1704.05237v2",
+        "published_date": "2017-04-18T08:50:27Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "Tracing the phase transition of Al-bearing species from molecules to dust in AGB.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Fabrication of quantum emitters in aluminium nitride by Al-ion\n  implantation and thermal annealing",
+        "hotspot_name": "Radiator Production",
+        "pdf_link": "http://arxiv.org/pdf/2310.20540v1",
+        "published_date": "2023-10-31T15:21:58Z",
+        "query": "aluminium die casting energy efficiency optimization",
+        "filename": "Fabrication of quantum emitters in aluminium nitride by Al-ion implantation and.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=aluminium%20die%20casting%20energy%20efficiency%20optimization&start=0&max_results=10"
       }
     ],
     "PCBA Production": [
       {
-        "title": "SolderNet: Towards Trustworthy Visual Inspection of Solder Joints in\n  Electronics Manufacturing Using Explainable Artificial Intelligence",
+        "title": "Recyclable vitrimer-based printed circuit board for circular electronics",
         "hotspot_name": "PCBA Production",
-        "pdf_link": "http://arxiv.org/pdf/2211.10274v1",
-        "published_date": "2022-11-18T15:02:59Z",
-        "query": "printed circuit board soldering energy efficient electronics manufacturing",
-        "filename": "SolderNet_ Towards Trustworthy Visual Inspection of Solder Joints in Electronics.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=printed%20circuit%20board%20soldering%20energy%20efficient%20electronics%20manufacturing&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/2308.12496v1",
+        "published_date": "2023-08-24T01:34:50Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Recyclable vitrimer-based printed circuit board for circular electronics.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
       },
       {
-        "title": "Detecting Manufacturing Defects in PCBs via Data-Centric Machine\n  Learning on Solder Paste Inspection Features",
+        "title": "PCB Renewal: Iterative Reuse of PCB Substrates for Sustainable\n  Electronic Making",
         "hotspot_name": "PCBA Production",
-        "pdf_link": "http://arxiv.org/pdf/2309.03113v1",
-        "published_date": "2023-09-06T15:52:55Z",
-        "query": "printed circuit board soldering energy efficient electronics manufacturing",
-        "filename": "Detecting Manufacturing Defects in PCBs via Data-Centric Machine Learning on Sol.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=printed%20circuit%20board%20soldering%20energy%20efficient%20electronics%20manufacturing&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/2502.13255v1",
+        "published_date": "2025-02-18T19:29:09Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "PCB Renewal_ Iterative Reuse of PCB Substrates for Sustainable Electronic Making.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Sustainable bioplastics from amyloid fibril-biodegradable polymer blends",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2105.14287v1",
+        "published_date": "2021-05-29T12:49:57Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Sustainable bioplastics from amyloid fibril-biodegradable polymer blends.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Analysis of Biomass Sustainability Indicators from a Machine Learning\n  Perspective",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2302.00828v1",
+        "published_date": "2023-02-02T02:31:42Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Analysis of Biomass Sustainability Indicators from a Machine Learning Perspectiv.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Observing spin Hall effect of pseudo-thermal light through weak\n  measurement",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/1603.09395v1",
+        "published_date": "2016-03-30T21:48:56Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Observing spin Hall effect of pseudo-thermal light through weak measurement.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Crosswashing in Sustainable Investing: Unveiling Strategic Practices\n  Impacting ESG Scores",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2407.00751v1",
+        "published_date": "2024-03-21T16:51:06Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Crosswashing in Sustainable Investing_ Unveiling Strategic Practices Impacting E.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Domain Analysis of Ethical, Social and Environmental Accounting Methods",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2208.00721v1",
+        "published_date": "2022-08-01T10:12:01Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Domain Analysis of Ethical_ Social and Environmental Accounting Methods.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Magnetic Measurements of HL-LHC AUP Cryo-Assemblies at Fermilab",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2112.07560v1",
+        "published_date": "2021-12-14T17:08:51Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Magnetic Measurements of HL-LHC AUP Cryo-Assemblies at Fermilab.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Multidimensional spatiotemporal clustering -- An application to\n  environmental sustainability scores in Europe",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2405.20191v1",
+        "published_date": "2024-05-30T15:56:06Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Multidimensional spatiotemporal clustering -- An application to environmental su.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Parasitic Circus:On the Feasibility of Golden Free PCB Verification",
+        "hotspot_name": "PCBA Production",
+        "pdf_link": "http://arxiv.org/pdf/2403.12252v1",
+        "published_date": "2024-03-18T21:04:02Z",
+        "query": "PCB assembly sustainability environmental assessment",
+        "filename": "Parasitic Circus_On the Feasibility of Golden Free PCB Verification.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20assembly%20sustainability%20environmental%20assessment&start=0&max_results=10"
       }
     ],
     "EMC Shield Production": [
       {
-        "title": "Power consumption prediction for steel industry",
+        "title": "Fast Privacy-Preserving Punch Cards",
         "hotspot_name": "EMC Shield Production",
-        "pdf_link": "http://arxiv.org/pdf/2307.07597v1",
-        "published_date": "2023-07-14T19:41:53Z",
-        "query": "steel punching and bending process optimization sustainable manufacturing",
-        "filename": "Power consumption prediction for steel industry.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/2006.06079v3",
+        "published_date": "2020-06-10T21:49:15Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "Fast Privacy-Preserving Punch Cards.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
       },
       {
-        "title": "Cold Isostatic Pressing to Improve the Mechanical Performance of\n  Additively Manufactured Metallic Components",
+        "title": "MICZ-Kepler = dynamics on the cone over the rotation group",
         "hotspot_name": "EMC Shield Production",
-        "pdf_link": "http://arxiv.org/pdf/1908.03003v1",
-        "published_date": "2019-08-08T10:28:28Z",
-        "query": "steel punching and bending process optimization sustainable manufacturing",
-        "filename": "Cold Isostatic Pressing to Improve the Mechanical Performance of Additively Manu.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20bending%20process%20optimization%20sustainable%20manufacturing&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/1305.1063v1",
+        "published_date": "2013-05-05T22:56:34Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "MICZ-Kepler _ dynamics on the cone over the rotation group.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "A life cycle model for high-speed rail infrastructure: environmental\n  inventories and assessment of the Tours-Bordeaux railway in France",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/2501.10458v1",
+        "published_date": "2025-01-14T22:34:02Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Anisotropic behaviour law for sheets used in stamping: A comparative\n  study of steel and aluminium",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/0801.3018v1",
+        "published_date": "2008-01-19T07:48:14Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "Anisotropic behaviour law for sheets used in stamping_ A comparative study of st.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Implementing and Benchmarking the Locally Competitive Algorithm on the\n  Loihi 2 Neuromorphic Processor",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/2307.13762v1",
+        "published_date": "2023-07-25T18:43:08Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "Implementing and Benchmarking the Locally Competitive Algorithm on the Loihi 2 N.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Novel Data Models for Inter-operable LCA Frameworks",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/2405.10235v1",
+        "published_date": "2024-05-16T16:36:16Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "Novel Data Models for Inter-operable LCA Frameworks.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "475\u00b0C aging embrittlement of partially recrystallized FeCrAl ODS\n  ferritic steels after simulated tube process",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/2310.13842v2",
+        "published_date": "2023-10-20T22:31:18Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "475_C aging embrittlement of partially recrystallized FeCrAl ODS ferritic steels.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Linear Non-Gaussian Component Analysis via Maximum Likelihood",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/1511.01609v3",
+        "published_date": "2015-11-05T05:12:27Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "Linear Non-Gaussian Component Analysis via Maximum Likelihood.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "Fracture toughness characterization through notched small punch test\n  specimens",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/1711.02406v1",
+        "published_date": "2017-11-07T11:25:47Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "Fracture toughness characterization through notched small punch test specimens.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
+      },
+      {
+        "title": "ViT-LCA: A Neuromorphic Approach for Vision Transformers",
+        "hotspot_name": "EMC Shield Production",
+        "pdf_link": "http://arxiv.org/pdf/2411.00140v2",
+        "published_date": "2024-10-31T18:41:30Z",
+        "query": "steel punching LCA energy reduction",
+        "filename": "ViT-LCA_ A Neuromorphic Approach for Vision Transformers.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=steel%20punching%20lca%20energy%20reduction&start=0&max_results=10"
       }
     ],
     "Transportation": [
+      {
+        "title": "Road Damage Detection Based on Unsupervised Disparity Map Segmentation",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/1910.04988v1",
+        "published_date": "2019-10-11T06:31:28Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Road Damage Detection Based on Unsupervised Disparity Map Segmentation.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Deep Learning Innovations for Energy Efficiency: Advances in\n  Non-Intrusive Load Monitoring and EV Charging Optimization for a Sustainable\n  Grid",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2505.04367v1",
+        "published_date": "2025-05-07T12:36:19Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Deep Learning Innovations for Energy Efficiency_ Advances in Non-Intrusive Load.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
       {
         "title": "Cyber-physical Control of Road Freight Transport",
         "hotspot_name": "Transportation",
         "pdf_link": "http://arxiv.org/pdf/1507.03466v1",
         "published_date": "2015-07-13T14:16:22Z",
-        "query": "road transport logistics optimization fuel efficiency reduction strategies",
+        "query": "road transport energy efficiency optimization",
         "filename": "Cyber-physical Control of Road Freight Transport.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20logistics%20optimization%20fuel%20efficiency%20reduction%20strategies&start=0&max_results=2"
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
       },
       {
-        "title": "Urban Logistics in Amsterdam: A Modal Shift from Roadways to Waterway",
+        "title": "Optimized sensor placement for dependable roadside infrastructures",
         "hotspot_name": "Transportation",
-        "pdf_link": "http://arxiv.org/pdf/2309.00345v1",
-        "published_date": "2023-09-01T09:05:40Z",
-        "query": "road transport logistics optimization fuel efficiency reduction strategies",
-        "filename": "Urban Logistics in Amsterdam_ A Modal Shift from Roadways to Waterway.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20logistics%20optimization%20fuel%20efficiency%20reduction%20strategies&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/1910.05314v1",
+        "published_date": "2019-10-10T13:25:07Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Optimized sensor placement for dependable roadside infrastructures.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Optimized Method for Iranian Road Signs Detection and recognition system",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/1407.5324v1",
+        "published_date": "2014-07-20T18:53:20Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Optimized Method for Iranian Road Signs Detection and recognition system.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Popularity-based Alternative Routing",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2406.05388v1",
+        "published_date": "2024-06-08T07:45:56Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Popularity-based Alternative Routing.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Understanding and Developing Equitable and Fair Transportation Systems",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2209.10589v1",
+        "published_date": "2022-09-21T18:26:19Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Understanding and Developing Equitable and Fair Transportation Systems.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Multiple data sources and domain generalization learning method for road\n  surface defect classification",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2407.10197v1",
+        "published_date": "2024-07-14T13:37:47Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Multiple data sources and domain generalization learning method for road surface.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Automatic Extraction of Relevant Road Infrastructure using Connected\n  vehicle data and Deep Learning Model",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2308.05658v1",
+        "published_date": "2023-08-10T15:57:47Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "Automatic Extraction of Relevant Road Infrastructure using Connected vehicle dat.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "A Two-Stage Stochastic Model for Road-Rail Intermodal Freight\n  Transportation Under Demand and Capacity Uncertainty",
+        "hotspot_name": "Transportation",
+        "pdf_link": "http://arxiv.org/pdf/2503.17510v1",
+        "published_date": "2025-03-21T19:44:13Z",
+        "query": "road transport energy efficiency optimization",
+        "filename": "A Two-Stage Stochastic Model for Road-Rail Intermodal Freight Transportation Und.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=road%20transport%20energy%20efficiency%20optimization&start=0&max_results=10"
       }
     ],
     "ECU Operation": [
       {
-        "title": "12-bit Delta-Sigma ADC operating at a temperature of up to 250C in\n  Standard 0.18 $\u03bc$m SOI CMOS",
+        "title": "Incorporating Sustainability in Electronics Design: Obstacles and\n  Opportunities",
         "hotspot_name": "ECU Operation",
-        "pdf_link": "http://arxiv.org/pdf/2501.00482v1",
-        "published_date": "2024-12-31T15:11:05Z",
-        "query": "automotive electronics low power consumption design optimization techniques",
-        "filename": "12-bit Delta-Sigma ADC operating at a temperature of up to 250C in Standard 0.18.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=automotive%20electronics%20low%20power%20consumption%20design%20optimization%20techniques&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/2503.14893v1",
+        "published_date": "2025-03-19T04:37:16Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
       },
       {
-        "title": "Optimizing RAG Techniques for Automotive Industry PDF Chatbots: A Case\n  Study with Locally Deployed Ollama Models",
+        "title": "A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using\n  Sphera LCA and ecoinvent Databases",
         "hotspot_name": "ECU Operation",
-        "pdf_link": "http://arxiv.org/pdf/2408.05933v1",
-        "published_date": "2024-08-12T06:16:37Z",
-        "query": "automotive electronics low power consumption design optimization techniques",
-        "filename": "Optimizing RAG Techniques for Automotive Industry PDF Chatbots_ A Case Study wit.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=automotive%20electronics%20low%20power%20consumption%20design%20optimization%20techniques&start=0&max_results=2"
+        "pdf_link": "http://arxiv.org/pdf/2401.17512v2",
+        "published_date": "2024-01-31T00:13:31Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "A Cradle-to-Gate Life Cycle Analysis of Bitcoin Mining Equipment Using Sphera LC.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Environmental performance of shared micromobility and personal\n  alternatives using integrated modal LCA",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2103.04464v1",
+        "published_date": "2021-03-07T21:50:31Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Environmental performance of shared micromobility and personal alternatives usin.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Understanding the environmental impacts of virgin aggregates: critical\n  literature review and primary comprehensive Life Cycle Assessments",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2501.10457v1",
+        "published_date": "2025-01-14T22:16:58Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Understanding the environmental impacts of virgin aggregates_ critical literatur.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Life Cycle Assessment of the Athena X-ray Integral Field Unit",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2404.15122v1",
+        "published_date": "2024-04-23T15:23:34Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Life Cycle Assessment of the Athena X-ray Integral Field Unit.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "DeltaLCA: Comparative Life-Cycle Assessment for Electronics Design",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2311.09611v1",
+        "published_date": "2023-11-16T06:45:49Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "DeltaLCA_ Comparative Life-Cycle Assessment for Electronics Design.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Environmentally-Extended Input-Output analyses efficiently sketch\n  large-scale environmental transition plans -- illustration by Canada's road\n  industry",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2301.08302v1",
+        "published_date": "2023-01-19T20:24:29Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Environmentally-Extended Input-Output analyses efficiently sketch large-scale en.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "All you can stream: Investigating the role of user behavior for\n  greenhouse gas intensity of video streaming",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2006.11129v1",
+        "published_date": "2020-06-19T13:38:58Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "All you can stream_ Investigating the role of user behavior for greenhouse gas i.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Challenges and complexities in application of LCA approaches in the case\n  of ICT for a sustainable future",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/1403.2798v3",
+        "published_date": "2014-03-12T03:05:26Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Challenges and complexities in application of LCA approaches in the case of ICT.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Life-Cycle Emissions of AI Hardware: A Cradle-To-Grave Approach and\n  Generational Trends",
+        "hotspot_name": "ECU Operation",
+        "pdf_link": "http://arxiv.org/pdf/2502.01671v1",
+        "published_date": "2025-02-01T17:26:19Z",
+        "query": "electronic device energy consumption LCA assessment",
+        "filename": "Life-Cycle Emissions of AI Hardware_ A Cradle-To-Grave Approach and Generational.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20energy%20consumption%20lca%20assessment&start=0&max_results=10"
       }
     ],
-    "Standby Power Consumption": [
+    "ECU Standby Power": [
       {
-        "title": "Enabling Lower-Power Charge-Domain Nonvolatile In-Memory Computing with\n  Ferroelectric FETs",
-        "hotspot_name": "Standby Power Consumption",
-        "pdf_link": "http://arxiv.org/pdf/2102.01442v1",
-        "published_date": "2021-02-02T11:32:21Z",
-        "query": "electronic device standby power reduction energy efficient design methods",
-        "filename": "Enabling Lower-Power Charge-Domain Nonvolatile In-Memory Computing with Ferroele.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20standby%20power%20reduction%20energy%20efficient%20design%20methods&start=0&max_results=2"
+        "title": "Area-Efficient Selective Multi-Threshold CMOS Design Methodology for\n  Standby Leakage Power Reduction",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/0710.4762v1",
+        "published_date": "2007-10-25T09:55:21Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "Area-Efficient Selective Multi-Threshold CMOS Design Methodology for Standby Lea.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "AR Training App for Energy Optimal Programming of Cobots",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/2210.08015v1",
+        "published_date": "2022-10-14T15:10:43Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "AR Training App for Energy Optimal Programming of Cobots.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Self-Sustaining Multi-Sensor LoRa-Based Activity Monitoring for\n  Community Workout Parks",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/2506.03203v1",
+        "published_date": "2025-06-02T18:52:08Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "Self-Sustaining Multi-Sensor LoRa-Based Activity Monitoring for Community Workou.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
       },
       {
         "title": "Dynamic Power Reduction in a Novel CMOS 5T-SRAM for Low-Power SoC",
-        "hotspot_name": "Standby Power Consumption",
+        "hotspot_name": "ECU Standby Power",
         "pdf_link": "http://arxiv.org/pdf/1302.4464v1",
         "published_date": "2013-02-18T21:24:22Z",
-        "query": "electronic device standby power reduction energy efficient design methods",
+        "query": "standby power reduction sustainability optimization",
         "filename": "Dynamic Power Reduction in a Novel CMOS 5T-SRAM for Low-Power SoC.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20device%20standby%20power%20reduction%20energy%20efficient%20design%20methods&start=0&max_results=2"
-      }
-    ],
-    "Incineration of Plastics": [
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
       {
-        "title": "Impact of high-pressure torsion on hydrogen production from\n  photodegradation of polypropylene plastic wastes",
-        "hotspot_name": "Incineration of Plastics",
-        "pdf_link": "http://arxiv.org/pdf/2408.10579v1",
-        "published_date": "2024-08-20T06:37:01Z",
-        "query": "plastic waste management sustainable disposal methods energy recovery techniques",
-        "filename": "Impact of high-pressure torsion on hydrogen production from photodegradation of.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20waste%20management%20sustainable%20disposal%20methods%20energy%20recovery%20techniques&start=0&max_results=2"
+        "title": "A 28 nm AI microcontroller with tightly coupled zero-standby power\n  weight memory featuring standard logic compatible 4 Mb 4-bits/cell embedded\n  flash technology",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/2503.11660v1",
+        "published_date": "2025-02-13T04:16:34Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "A 28 nm AI microcontroller with tightly coupled zero-standby power weight memory.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Allocations of Cold Standbys to Series and Parallel Systems with\n  Dependent Components",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/1808.02214v4",
+        "published_date": "2018-08-07T05:16:52Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "Allocations of Cold Standbys to Series and Parallel Systems with Dependent Compo.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "An Accurate Process Induced Variability Aware Compact Model-based\n  Circuit Performance Estimation for Design-Technology Co-optimization",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/2109.00849v1",
+        "published_date": "2021-09-02T11:35:45Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "An Accurate Process Induced Variability Aware Compact Model-based Circuit Perfor.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Improving the Efficiency of a Deep Reinforcement Learning-Based Power\n  Management System for HPC Clusters Using Curriculum Learning",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/2502.20348v2",
+        "published_date": "2025-02-27T18:19:22Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "Improving the Efficiency of a Deep Reinforcement Learning-Based Power Management.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Limousine Service Management: Capacity Planning with Predictive\n  Analytics and Optimization",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/2009.05422v1",
+        "published_date": "2020-09-11T13:15:31Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "Limousine Service Management_ Capacity Planning with Predictive Analytics and Op.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "A Novel Low Power Non-Volatile SRAM Cell with Self Write Termination",
+        "hotspot_name": "ECU Standby Power",
+        "pdf_link": "http://arxiv.org/pdf/1910.04683v1",
+        "published_date": "2019-10-01T04:06:24Z",
+        "query": "standby power reduction sustainability optimization",
+        "filename": "A Novel Low Power Non-Volatile SRAM Cell with Self Write Termination.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=standby%20power%20reduction%20sustainability%20optimization&start=0&max_results=10"
       }
     ],
-    "Specialized e-Waste Processing": [
+    "Metal Recycling": [
+      {
+        "title": "Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form\n  Factors",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2406.09611v1",
+        "published_date": "2024-06-13T22:43:47Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Life Cycle Analysis of the GRAND Experiment",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2309.12282v1",
+        "published_date": "2023-09-21T17:43:36Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Life Cycle Analysis of the GRAND Experiment.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "A life cycle model for high-speed rail infrastructure: environmental\n  inventories and assessment of the Tours-Bordeaux railway in France",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2501.10458v1",
+        "published_date": "2025-01-14T22:34:02Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "A life cycle model for high-speed rail infrastructure_ environmental inventories.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Environmental performance of shared micromobility and personal\n  alternatives using integrated modal LCA",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2103.04464v1",
+        "published_date": "2021-03-07T21:50:31Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Environmental performance of shared micromobility and personal alternatives usin.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Space debris through the prism of the environmental performance of space\n  systems: the case of Sentinel-3 redesigned mission",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2207.06306v1",
+        "published_date": "2022-07-13T15:58:25Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Space debris through the prism of the environmental performance of space systems.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "The environmental value of transport infrastructure in the UK: an\n  EXIOBASE analysis",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2504.20098v1",
+        "published_date": "2025-04-26T11:33:03Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "The environmental value of transport infrastructure in the UK_ an EXIOBASE analy.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Planning sustainable carbon neutrality pathways: accounting challenges\n  experienced by organizations and solutions from industrial ecology",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2501.10456v1",
+        "published_date": "2025-01-14T22:00:23Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Planning sustainable carbon neutrality pathways_ accounting challenges experienc.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Novel Data Models for Inter-operable LCA Frameworks",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2405.10235v1",
+        "published_date": "2024-05-16T16:36:16Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Novel Data Models for Inter-operable LCA Frameworks.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Incorporating Sustainability in Electronics Design: Obstacles and\n  Opportunities",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2503.14893v1",
+        "published_date": "2025-03-19T04:37:16Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Incorporating Sustainability in Electronics Design_ Obstacles and Opportunities.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Life Cycle Assessment of the Athena X-ray Integral Field Unit",
+        "hotspot_name": "Metal Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2404.15122v1",
+        "published_date": "2024-04-23T15:23:34Z",
+        "query": "metal recycling LCA environmental impact assessment",
+        "filename": "Life Cycle Assessment of the Athena X-ray Integral Field Unit.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=metal%20recycling%20lca%20environmental%20impact%20assessment&start=0&max_results=10"
+      }
+    ],
+    "Plastic Incineration": [
+      {
+        "title": "Low carbon optimal scheduling of integrated energy system considering\n  waste heat utilization under the coordinated operation of incineration power\n  plant and P2G",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2409.07254v2",
+        "published_date": "2024-09-11T13:22:40Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "Low carbon optimal scheduling of integrated energy system considering waste heat.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Feasibility Study of Magnetism-based Indoor Positioning Methods in an\n  Incineration Plant",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2203.12952v1",
+        "published_date": "2022-03-24T09:29:30Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "Feasibility Study of Magnetism-based Indoor Positioning Methods in an Incinerati.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Detailed Evaluation of Modern Machine Learning Approaches for Optic\n  Plastics Sorting",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2505.16513v1",
+        "published_date": "2025-05-22T10:48:30Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "Detailed Evaluation of Modern Machine Learning Approaches for Optic Plastics Sor.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Closed-loop Identification of a MSW Grate Incinerator using Bayesian\n  Optimization for Selecting Model Inputs and Structure",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2401.05221v1",
+        "published_date": "2024-01-10T15:42:46Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "Closed-loop Identification of a MSW Grate Incinerator using Bayesian Optimizatio.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "A new approach to sustainable solid waste incineration: the concept and\n  generic feasibility study",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2502.20407v1",
+        "published_date": "2025-02-12T09:04:47Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "A new approach to sustainable solid waste incineration_ the concept and generic.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "A plastics hierarchy of fates: sustainable choices for a circular future",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2303.14664v1",
+        "published_date": "2023-03-26T09:19:18Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "A plastics hierarchy of fates_ sustainable choices for a circular future.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "From Plastic Waste to Treasure: Selective Upcycling through Catalytic\n  Technologies",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2309.08354v1",
+        "published_date": "2023-09-15T12:26:49Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "From Plastic Waste to Treasure_ Selective Upcycling through Catalytic Technologi.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "A unified framework for polycrystal plasticity with grain boundary\n  evolution",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/1709.10176v1",
+        "published_date": "2017-09-28T21:31:40Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "A unified framework for polycrystal plasticity with grain boundary evolution.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      },
+      {
+        "title": "Elastic-gap free strain gradient crystal plasticity model that\n  effectively account for plastic slip gradient and grain boundary dissipation",
+        "hotspot_name": "Plastic Incineration",
+        "pdf_link": "http://arxiv.org/pdf/2405.13384v1",
+        "published_date": "2024-05-22T06:38:51Z",
+        "query": "plastic incineration energy recovery optimization",
+        "filename": "Elastic-gap free strain gradient crystal plasticity model that effectively accou.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=plastic%20incineration%20energy%20recovery%20optimization&start=0&max_results=10"
+      }
+    ],
+    "PCBA Recycling": [
+      {
+        "title": "Recyclable vitrimer-based printed circuit board for circular electronics",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2308.12496v1",
+        "published_date": "2023-08-24T01:34:50Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "Recyclable vitrimer-based printed circuit board for circular electronics.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Recy-ctronics: Designing Fully Recyclable Electronics With Varied Form\n  Factors",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2406.09611v1",
+        "published_date": "2024-06-13T22:43:47Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "Recy-ctronics_ Designing Fully Recyclable Electronics With Varied Form Factors.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
       {
         "title": "Technological Progress and Obsolescence: Analyzing the Environmental\n  Economic Impacts of MacBook Pro I/O Devices",
-        "hotspot_name": "Specialized e-Waste Processing",
+        "hotspot_name": "PCBA Recycling",
         "pdf_link": "http://arxiv.org/pdf/2501.14758v1",
         "published_date": "2024-12-23T16:26:01Z",
-        "query": "electronic waste recycling sustainable processing methods environmental impact reduction",
+        "query": "PCB recycling sustainability environmental assessment",
         "filename": "Technological Progress and Obsolescence_ Analyzing the Environmental Economic Im.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20waste%20recycling%20sustainable%20processing%20methods%20environmental%20impact%20reduction&start=0&max_results=2"
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Machine Learning Approaches in Agile Manufacturing with Recycled\n  Materials for Sustainability",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2303.08291v1",
+        "published_date": "2023-03-15T00:39:31Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "Machine Learning Approaches in Agile Manufacturing with Recycled Materials for S.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
       },
       {
         "title": "Powering the Future: Innovations in Electric Vehicle Battery Recycling",
-        "hotspot_name": "Specialized e-Waste Processing",
+        "hotspot_name": "PCBA Recycling",
         "pdf_link": "http://arxiv.org/pdf/2412.20687v1",
         "published_date": "2024-12-30T03:47:05Z",
-        "query": "electronic waste recycling sustainable processing methods environmental impact reduction",
+        "query": "PCB recycling sustainability environmental assessment",
         "filename": "Powering the Future_ Innovations in Electric Vehicle Battery Recycling.pdf",
-        "api_link": "http://export.arxiv.org/api/query?search_query=electronic%20waste%20recycling%20sustainable%20processing%20methods%20environmental%20impact%20reduction&start=0&max_results=2"
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Energy-Sustainable IoT Connectivity: Vision, Technological Enablers,\n  Challenges, and Future Directions",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2306.02444v2",
+        "published_date": "2023-06-04T19:22:20Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "Energy-Sustainable IoT Connectivity_ Vision_ Technological Enablers_ Challenges.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "System Support for Environmentally Sustainable Computing in Data Centers",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2403.12698v1",
+        "published_date": "2024-03-19T12:56:02Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "System Support for Environmentally Sustainable Computing in Data Centers.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Recycled nylon fibers as cement mortar reinforcement",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/1409.7258v4",
+        "published_date": "2014-09-25T13:54:38Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "Recycled nylon fibers as cement mortar reinforcement.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "PCB-Vision: A Multiscene RGB-Hyperspectral Benchmark Dataset of Printed\n  Circuit Boards",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2401.06528v1",
+        "published_date": "2024-01-12T12:00:26Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "PCB-Vision_ A Multiscene RGB-Hyperspectral Benchmark Dataset of Printed Circuit.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
+      },
+      {
+        "title": "Measuring the Recyclability of Electronic Components to Assist Automatic\n  Disassembly and Sorting Waste Printed Circuit Boards",
+        "hotspot_name": "PCBA Recycling",
+        "pdf_link": "http://arxiv.org/pdf/2406.16593v1",
+        "published_date": "2024-06-24T12:33:56Z",
+        "query": "PCB recycling sustainability environmental assessment",
+        "filename": "Measuring the Recyclability of Electronic Components to Assist Automatic Disasse.pdf",
+        "api_link": "http://export.arxiv.org/api/query?search_query=pcb%20recycling%20sustainability%20environmental%20assessment&start=0&max_results=10"
       }
     ]
   },
-  "total_papers": 17,
-  "download_timestamp": "2025-06-22 23:28:05"
+  "total_papers": 99,
+  "download_timestamp": "2025-06-24 23:54:41"
 }
