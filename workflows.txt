@@ -1,0 +1,17 @@
+First approach for the project 
+prepare vector database for the literature papers after making text processing for them and then text analysis 
+RAW input data 
+component analysis for the raw input data
+full lca analyses for the component analyses
+generate one logical search query for the input and then find similar papers from the vector database of the literature papers
+then make sustainability report 
+finally, make visualization for lca and sustainability reports 
+
+
+
+Second approach 
+RAW input data 
+hotspot analysis for the raw input directly
+for every hotspot, generate specific search query 
+for each search query, get papers from arXiv API, make pdf processing for them 
+make the sustainability report based on evidence based for the hotspot analyses and papers got
