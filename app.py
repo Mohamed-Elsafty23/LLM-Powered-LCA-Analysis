@@ -10,7 +10,7 @@ from arxiv_paper_downloader import ArxivPaperDownloader
 from pdf_processor import PDFProcessor
 from sustainable_solutions_generator import HotspotSustainableSolutionsGenerator
 from deep_hotspot_analyzer import DeepHotspotAnalyzer
-from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
+from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL, TAVILY_API_KEY
 import queue
 import threading
 import sys
@@ -77,13 +77,15 @@ class NewLCAWorkflow:
         self.arxiv_downloader = ArxivPaperDownloader(max_results_per_query=10)
         self.pdf_processor = PDFProcessor()
         self.solutions_generator = HotspotSustainableSolutionsGenerator(self.api_configs)
-        self.deep_analyzer = DeepHotspotAnalyzer(self.api_configs, "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")
+        
+        # Import TAVILY_API_KEY from config
+        self.deep_analyzer = DeepHotspotAnalyzer(self.api_configs, TAVILY_API_KEY)
         
         logger.info("Initialized NewLCAWorkflow with all components")
     
     def execute_complete_workflow(self, input_file: str) -> Dict[str, str]:
         """
-        Execute the complete new LCA workflow.
+        Execute the complete new LCA workflow with intelligent step skipping.
         
         Args:
             input_file: Path to the raw input data file
@@ -95,15 +97,52 @@ class NewLCAWorkflow:
             logger.info(f"Starting complete LCA workflow for input file: {input_file}")
             workflow_start_time = time.time()
             
-            # Step 1: Perform hotspot analysis directly on raw input data
+            # Get output folder from input file
+            output_folder = self.hotspot_analyzer.get_output_folder_from_input_file(input_file)
+            
+            # Check existing files to determine which steps to skip
+            file_status = check_existing_files(output_folder)
+            steps_to_run = get_steps_to_run(file_status)
+            
             logger.info("=" * 60)
-            logger.info("STEP 1: HOTSPOT ANALYSIS")
+            logger.info("WORKFLOW STEP ANALYSIS")
             logger.info("=" * 60)
             
-            hotspot_results = self.hotspot_analyzer.analyze_from_raw_input(input_file)
-            hotspot_file = f"{self.hotspot_analyzer.output_folder}/hotspot_lca_analysis.json"
+            # Log which steps will be executed vs skipped
+            steps_to_execute = [step for step, will_run in steps_to_run.items() if will_run]
+            steps_to_skip = [step for step, will_run in steps_to_run.items() if not will_run]
             
-            logger.info(f"[SUCCESS] Hotspot analysis completed. Results saved to: {hotspot_file}")
+            if steps_to_execute:
+                logger.info(f"Steps to execute: {', '.join(steps_to_execute)}")
+            if steps_to_skip:
+                logger.info(f"Steps to skip (already completed): {', '.join(steps_to_skip)}")
+            
+            # Initialize variables for outputs
+            hotspot_results = None
+            hotspot_file = f"{output_folder}/hotspot_lca_analysis.json"
+            search_queries = {}
+            downloaded_papers = {}
+            processed_papers_file = None
+            detailed_solutions_report_file = None
+            solutions_report_file = None
+            
+            # Step 1: Perform hotspot analysis (if needed)
+            if steps_to_run["Hotspot Analysis"]:
+                logger.info("=" * 60)
+                logger.info("STEP 1: HOTSPOT ANALYSIS")
+                logger.info("=" * 60)
+                
+                hotspot_results = self.hotspot_analyzer.analyze_from_raw_input(input_file)
+                logger.info(f"[SUCCESS] Hotspot analysis completed. Results saved to: {hotspot_file}")
+            else:
+                logger.info("=" * 60)
+                logger.info("STEP 1: HOTSPOT ANALYSIS - SKIPPED (already exists)")
+                logger.info("=" * 60)
+                
+                # Load existing hotspot results
+                with open(hotspot_file, 'r') as f:
+                    hotspot_results = json.load(f)
+                logger.info(f"[SKIPPED] Using existing hotspot analysis: {hotspot_file}")
             
             # Step 2: Extract search queries from hotspot analysis
             logger.info("=" * 60)
@@ -115,48 +154,89 @@ class NewLCAWorkflow:
             for hotspot_name, query in search_queries.items():
                 logger.info(f"  - {hotspot_name}: {query}")
             
-            # Step 3: Download ArXiv papers using multi-query strategy
-            logger.info("=" * 60)
-            logger.info("STEP 3: ARXIV PAPER DOWNLOAD")
-            logger.info("=" * 60)
+            # Step 3: Download ArXiv papers (if needed)
+            if steps_to_run["ArXiv Paper Download"]:
+                logger.info("=" * 60)
+                logger.info("STEP 3: ARXIV PAPER DOWNLOAD")
+                logger.info("=" * 60)
+                
+                downloaded_papers = self.arxiv_downloader.search_and_download_papers(
+                    search_queries, output_folder
+                )
+                
+                total_downloaded = sum(len(papers) for papers in downloaded_papers.values())
+                logger.info(f"[SUCCESS] Downloaded {total_downloaded} papers for {len(search_queries)} hotspots")
+            else:
+                logger.info("=" * 60)
+                logger.info("STEP 3: ARXIV PAPER DOWNLOAD - SKIPPED (already exists)")
+                logger.info("=" * 60)
+                
+                # Check what papers were downloaded
+                downloaded_papers_dir = Path(output_folder) / "downloaded_papers"
+                if downloaded_papers_dir.exists():
+                    total_papers = sum(len(list((downloaded_papers_dir / hotspot).glob("*.pdf"))) 
+                                     for hotspot in downloaded_papers_dir.iterdir() 
+                                     if hotspot.is_dir())
+                    logger.info(f"[SKIPPED] Using existing {total_papers} downloaded papers")
+                else:
+                    logger.warning("[SKIPPED] Downloaded papers directory not found")
             
-            downloaded_papers = self.arxiv_downloader.search_and_download_papers(
-                search_queries, self.hotspot_analyzer.output_folder
-            )
+            # Step 4: Process downloaded papers (if needed)
+            if steps_to_run["PDF Processing"]:
+                logger.info("=" * 60)
+                logger.info("STEP 4: PDF PROCESSING")
+                logger.info("=" * 60)
+                
+                processed_papers_file = self.pdf_processor.process_papers_for_project(output_folder)
+                logger.info(f"[SUCCESS] Papers processed and references removed. Results saved to: {processed_papers_file}")
+            else:
+                logger.info("=" * 60)
+                logger.info("STEP 4: PDF PROCESSING - SKIPPED (already exists)")
+                logger.info("=" * 60)
+                
+                processed_papers_file = f"{output_folder}/processed_papers.json"
+                if Path(processed_papers_file).exists():
+                    logger.info(f"[SKIPPED] Using existing processed papers: {processed_papers_file}")
+                else:
+                    logger.warning("[SKIPPED] Processed papers file not found")
             
-            total_downloaded = sum(len(papers) for papers in downloaded_papers.values())
-            logger.info(f"[SUCCESS] Downloaded {total_downloaded} papers for {len(search_queries)} hotspots")
+            # Step 5: Generate comprehensive sustainability report (if needed)
+            if steps_to_run["Detailed Sustainability Report"]:
+                logger.info("=" * 60)
+                logger.info("STEP 5: DETAILED SUSTAINABILITY REPORT GENERATION (NO STORAGE)")
+                logger.info("=" * 60)
+                
+                # Generate the report but don't store the detailed files
+                detailed_solutions_report_file = self.solutions_generator.generate_solutions_from_hotspot_analysis(
+                    hotspot_file, skip_detailed_storage=True
+                )
+                logger.info(f"[SUCCESS] Detailed sustainability analysis completed (detailed files not stored)")
+            else:
+                logger.info("=" * 60)
+                logger.info("STEP 5: DETAILED SUSTAINABILITY REPORT - SKIPPED (already exists)")
+                logger.info("=" * 60)
+                
+                detailed_solutions_report_file = f"{output_folder}/detailed_sustainable_solutions_report.txt"
+                logger.info("[SKIPPED] Detailed sustainability report step not needed")
             
-            # Step 4: Process downloaded papers (extract text and remove references)
-            logger.info("=" * 60)
-            logger.info("STEP 4: PDF PROCESSING")
-            logger.info("=" * 60)
-            
-            processed_papers_file = self.pdf_processor.process_papers_for_project(
-                self.hotspot_analyzer.output_folder
-            )
-            
-            logger.info(f"[SUCCESS] Papers processed and references removed. Results saved to: {processed_papers_file}")
-            
-            # Step 5: Generate comprehensive sustainability report
-            logger.info("=" * 60)
-            logger.info("STEP 5: DETAILED SUSTAINABILITY REPORT GENERATION")
-            logger.info("=" * 60)
-            
-            detailed_solutions_report_file = self.solutions_generator.generate_solutions_from_hotspot_analysis(
-                hotspot_file
-            )
-            
-            logger.info(f"[SUCCESS] Detailed sustainability solutions report generated: {detailed_solutions_report_file}")
-            
-            # Step 6: Generate deep hotspot analysis report
-            logger.info("=" * 60)
-            logger.info("STEP 6: DEEP HOTSPOT ANALYSIS REPORT GENERATION")
-            logger.info("=" * 60)
-            
-            solutions_report_file = self.deep_analyzer.run_deep_analysis(detailed_solutions_report_file)
-            
-            logger.info(f"[SUCCESS] Final sustainability solutions report generated: {solutions_report_file}")
+            # Step 6: Generate deep hotspot analysis report (if needed)
+            if steps_to_run["Deep Hotspot Analysis"]:
+                logger.info("=" * 60)
+                logger.info("STEP 6: DEEP HOTSPOT ANALYSIS REPORT GENERATION")
+                logger.info("=" * 60)
+                
+                solutions_report_file = self.deep_analyzer.run_deep_analysis(detailed_solutions_report_file, input_file)
+                logger.info(f"[SUCCESS] Final sustainability solutions report generated: {solutions_report_file}")
+            else:
+                logger.info("=" * 60)
+                logger.info("STEP 6: DEEP HOTSPOT ANALYSIS - SKIPPED (already exists)")
+                logger.info("=" * 60)
+                
+                solutions_report_file = f"{output_folder}/final_sustainable_solutions_report.txt"
+                if Path(solutions_report_file).exists():
+                    logger.info(f"[SKIPPED] Using existing final sustainability report: {solutions_report_file}")
+                else:
+                    logger.warning("[SKIPPED] Final sustainability report not found")
             
             # Calculate total workflow time
             workflow_time = time.time() - workflow_start_time
@@ -166,19 +246,19 @@ class NewLCAWorkflow:
             
             logger.info(f"[SUCCESS] Total workflow time: {workflow_time:.2f} seconds")
             logger.info(f"[SUCCESS] Input file: {input_file}")
-            logger.info(f"[SUCCESS] Output folder: {self.hotspot_analyzer.output_folder}")
+            logger.info(f"[SUCCESS] Output folder: {output_folder}")
             
             # Return all output file paths
             outputs = {
                 "input_file": input_file,
-                "output_folder": self.hotspot_analyzer.output_folder,
+                "output_folder": output_folder,
                 "hotspot_analysis": hotspot_file,
                 "processed_papers": processed_papers_file,
-                "detailed_sustainability_report": detailed_solutions_report_file,
+                # "detailed_sustainability_report": detailed_solutions_report_file,  # Skip storing detailed reports
                 "sustainability_report": solutions_report_file,
-                "hotspot_lca_analysis_with_papers": f"{self.hotspot_analyzer.output_folder}/hotspot_lca_analysis_with_papers.json",
-                "downloaded_papers_folder": f"{self.hotspot_analyzer.output_folder}/downloaded_papers",
-                "query_mapping": f"{self.hotspot_analyzer.output_folder}/downloaded_papers/query_paper_mapping.json"
+                "hotspot_lca_analysis_with_papers": f"{output_folder}/hotspot_lca_analysis_with_papers.json",
+                "downloaded_papers_folder": f"{output_folder}/downloaded_papers",
+                "query_mapping": f"{output_folder}/downloaded_papers/query_paper_mapping.json"
             }
             
             logger.info("Generated files:")
@@ -343,6 +423,36 @@ def get_output_folder_from_input(input_file: str) -> str:
     Path(output_folder).mkdir(parents=True, exist_ok=True)
     
     return output_folder
+
+def copy_input_file_to_output(file_content: str, input_filename: str, output_folder: str) -> str:
+    """
+    Copy the input raw file into the output folder for reference.
+    
+    Args:
+        file_content: Content of the input file
+        input_filename: Original filename of the input file
+        output_folder: Output folder path
+        
+    Returns:
+        str: Path to the copied input file
+    """
+    try:
+        # Ensure output folder exists
+        Path(output_folder).mkdir(parents=True, exist_ok=True)
+        
+        # Create the input file path in output folder
+        input_file_path = Path(output_folder) / input_filename
+        
+        # Write the content to the file
+        with open(input_file_path, 'w', encoding='utf-8') as f:
+            f.write(file_content)
+        
+        logger.info(f"Input file copied to: {input_file_path}")
+        return str(input_file_path)
+        
+    except Exception as e:
+        logger.error(f"Error copying input file to output folder: {str(e)}")
+        raise
 
 def get_project_name_from_upload(uploaded_file) -> str:
     """
@@ -605,8 +715,9 @@ def check_existing_files(output_folder: str) -> Dict[str, bool]:
         "hotspot_analysis": output_path / "hotspot_lca_analysis.json",
         "downloaded_papers": output_path / "downloaded_papers",
         "processed_papers": output_path / "processed_papers.json", 
-        "detailed_sustainable_solutions": output_path / "detailed_sustainable_solutions_report.txt",
+        # "detailed_sustainable_solutions": output_path / "detailed_sustainable_solutions_report.txt",  # Skip storing detailed reports
         "sustainable_solutions": output_path / "sustainable_solutions_report.txt",
+        "final_sustainable_solutions": output_path / "final_sustainable_solutions_report.txt",
         "lca_visualizations": output_path / "visualizations" / "hotspot_lca",
         "solutions_visualizations": output_path / "visualizations" / "sustainable_solutions"
     }
@@ -643,8 +754,8 @@ def get_steps_to_run(file_status: Dict[str, bool]) -> Dict[str, bool]:
             "Hotspot Analysis": False,
             "ArXiv Paper Download": not file_status["downloaded_papers"],
             "PDF Processing": not file_status["processed_papers"],
-            "Detailed Sustainability Report": not file_status["detailed_sustainable_solutions"],
-            "Deep Hotspot Analysis": not file_status["sustainable_solutions"],
+            "Detailed Sustainability Report": True,  # Always run this step but don't store detailed files
+            "Deep Hotspot Analysis": not file_status["final_sustainable_solutions"],
             # "Visualization Generation": not (file_status["lca_visualizations"] and file_status["solutions_visualizations"])
         }
     else:
@@ -918,6 +1029,13 @@ def main():
                 logger.info(f"Project name: {project_name}")
                 logger.info(f"Output folder: {output_folder}")
                 
+                # Create output folder and copy input file to it for reference
+                Path(output_folder).mkdir(parents=True, exist_ok=True)
+                input_file_path = Path(output_folder) / uploaded_file.name
+                with open(input_file_path, 'w', encoding='utf-8') as f:
+                    f.write(file_content)
+                logger.info(f"Input file copied to: {input_file_path}")
+                
                 # Check existing files
                 file_status = check_existing_files(output_folder)
                 steps_to_run = get_steps_to_run(file_status)
@@ -1015,7 +1133,18 @@ def main():
                         try:
                             hotspot_file = f"{output_folder}/hotspot_lca_analysis.json"
                             if Path(hotspot_file).exists():
-                                workflow_outputs = workflow.execute_workflow_from_hotspot_analysis(hotspot_file)
+                                # Run the complete workflow which will skip completed steps
+                                input_filename = uploaded_file.name if uploaded_file else "automotive_sample_input.txt"
+                                temp_input_file = f"temp/{input_filename}"
+                                Path("temp").mkdir(parents=True, exist_ok=True)
+                                with open(temp_input_file, 'w', encoding='utf-8') as f:
+                                    f.write(file_content)
+                                
+                                # Execute complete workflow (it will skip completed steps)
+                                workflow_outputs = workflow.execute_complete_workflow(temp_input_file)
+                                
+                                # Clean up temp file
+                                Path(temp_input_file).unlink(missing_ok=True)
                                 
                                 # Update step status
                                 steps["Hotspot Analysis"] = True
@@ -1078,9 +1207,17 @@ def main():
                 with tab2:
                     # Load and display sustainable solutions report
                     try:
-                        with open(f"{output_folder}/sustainable_solutions_report.txt", 'r', encoding='utf-8') as f:
-                            solutions_report = f.read()
-                        format_solutions_report(solutions_report)
+                        # Load only the final sustainability report (detailed reports are not stored)
+                        final_report_path = f"{output_folder}/final_sustainable_solutions_report.txt"
+                        
+                        if Path(final_report_path).exists():
+                            with open(final_report_path, 'r', encoding='utf-8') as f:
+                                solutions_report = f.read()
+                            format_solutions_report(solutions_report)
+                        else:
+                            st.error("Final sustainability solutions report not found. Please run the analysis again.")
+                            return
+                            
                     except FileNotFoundError:
                         st.error("Sustainable solutions report file not found. Please run the analysis again.")
                 

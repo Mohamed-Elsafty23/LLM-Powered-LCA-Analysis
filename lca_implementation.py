@@ -232,40 +232,54 @@ Only include hotspots that can be identified from the explicitly provided raw in
     def generate_search_queries_for_hotspots(self, hotspot_analysis: Dict[str, Any], raw_input_data: str) -> Dict[str, str]:
         """Generate optimized search queries for finding relevant LCA and sustainability research papers."""
         try:
-            prompt = f"""Generate optimized search queries to find relevant research papers with quantitative LCA and sustainability data for each hotspot.
+            prompt = f"""Generate optimized search queries to find research papers with quantitative sustainability improvements and solutions for each hotspot.
 
 Raw Input Data: {raw_input_data}
 
 Hotspot Analysis: {json.dumps(hotspot_analysis, indent=2)}
 
-QUERY OPTIMIZATION REQUIREMENTS (based on ArXiv API best practices):
-1. Keep queries SHORT and FOCUSED (maximum 8-10 words)
-2. Use EXACT materials and processes from the input data
-3. Include specific LCA/sustainability terms for better relevance
-4. Prioritize quantitative research papers with measurable results
-5. Avoid overly long OR/AND constructions that reduce relevance
+QUERY DIVERSIFICATION REQUIREMENTS:
+1. Generate DIVERSE queries covering multiple sustainability aspects for each hotspot
+2. Include alternative materials, process optimization, and green solutions
+3. Focus on quantitative improvements and measurable benefits
+4. Keep queries SHORT and FOCUSED (maximum 8-10 words)
+5. Use EXACT materials and processes from the input data
 
-REQUIRED QUERY COMPONENTS:
-- Material name (e.g., "PBT", "aluminium", "steel")
-- Manufacturing process (e.g., "injection molding", "die casting", "assembly")
-- LCA/sustainability keywords: "LCA", "environmental impact", "sustainability", "energy efficiency"
-- Quantitative terms: "optimization", "reduction", "efficiency", "assessment"
+SUSTAINABILITY ASPECTS TO COVER (use GENERAL terms):
+- Sustainable materials and alternatives 
+- Green manufacturing and processes
+- Environmental solutions and methods
+- Circular economy and recycling
+- Eco-friendly approaches and innovations
+- Renewable and bio-based alternatives
+- Clean technology and sustainable design
+- General environmental improvements
 
-QUERY STRUCTURE EXAMPLES:
-✓ GOOD: "PBT injection molding LCA environmental impact"
-✓ GOOD: "aluminum die casting energy efficiency optimization"
-✓ GOOD: "PCB assembly sustainability environmental assessment"
-✗ AVOID: Long queries with multiple OR statements
+QUERY VARIETY EXAMPLES:
+✓ General alternatives: "PBT sustainable alternatives manufacturing"
+✓ Broad improvements: "aluminum die casting green solutions"
+✓ Circular approaches: "PCB recycling circular economy"
+✓ General sustainability: "steel processing sustainable methods"
+✓ Eco-friendly focus: "injection molding environmental solutions"
+✓ Innovation focus: "electronic components sustainable innovations"
+
+QUERY STRUCTURE PRINCIPLES:
+- Use BROAD sustainability terms: "sustainable", "green", "eco-friendly", "environmental"
+- Include GENERAL solution words: "solutions", "alternatives", "methods", "approaches"
+- Add innovation terms: "innovations", "improvements", "advances"
+- Mix with circular economy: "recycling", "circular", "renewable"
+- Avoid overly specific terms like "energy efficiency" or "waste reduction"
 
 OUTPUT FORMAT:
+Generate 1 diverse query per hotspot focusing on solutions and improvements:
 {{
   "hotspot_queries": {{
-    "hotspot_name": "short_focused_query_with_exact_materials_and_LCA_terms",
+    "hotspot_name": "diverse_query_focusing_on_solutions_and_alternatives",
     ...
   }}
 }}
 
-CRITICAL: Generate SHORT, FOCUSED queries that will find relevant LCA/sustainability papers with quantitative data."""
+CRITICAL: Generate BROAD, GENERAL queries using terms like "sustainable solutions", "green alternatives", "environmental methods" rather than specific terms like "energy efficiency" or "waste reduction". Focus on GENERAL sustainability improvements, not narrow technical optimizations."""
 
             messages = [
                 {"role": "system", "content": "You are an expert in generating precise research queries for sustainability solutions. Create targeted queries that will find engineering papers with quantitative process improvements and measurable environmental benefits."},

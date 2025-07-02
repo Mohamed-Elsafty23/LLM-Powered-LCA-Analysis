@@ -4,6 +4,19 @@ Performs focused, quantitative analysis for each ECU hotspot component following
 Generates professional LCA reports with primary data focus and quantitative sustainability metrics.
 """
 
+import os
+import sys
+
+# Configure UTF-8 encoding for console output on Windows
+if sys.platform.startswith('win'):
+    try:
+        # Try to set console to UTF-8 mode
+        os.system('chcp 65001 >nul 2>&1')
+        # Set environment variables for UTF-8
+        os.environ['PYTHONIOENCODING'] = 'utf-8'
+    except:
+        pass
+
 import json
 import logging
 import re
@@ -14,7 +27,6 @@ import time
 import concurrent.futures
 from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
-import sys
 import unicodedata
 from tavily import TavilyClient
 
@@ -38,7 +50,13 @@ def safe_str(text):
                 'γ': 'gamma', 'π': 'pi', 'α': 'alpha', 'β': 'beta', 'δ': 'delta',
                 'ε': 'epsilon', 'θ': 'theta', 'λ': 'lambda', 'μ': 'mu', 'ν': 'nu',
                 'ρ': 'rho', 'σ': 'sigma', 'τ': 'tau', 'φ': 'phi', 'χ': 'chi',
-                'ψ': 'psi', 'ω': 'omega'
+                'ψ': 'psi', 'ω': 'omega', 'η': 'eta', 'ζ': 'zeta', 'κ': 'kappa',
+                'ξ': 'xi', 'ο': 'omicron', 'υ': 'upsilon', 'Γ': 'Gamma', 'Π': 'Pi',
+                'Α': 'Alpha', 'Β': 'Beta', 'Δ': 'Delta', 'Ε': 'Epsilon', 'Θ': 'Theta',
+                'Λ': 'Lambda', 'Μ': 'Mu', 'Ν': 'Nu', 'Ρ': 'Rho', 'Σ': 'Sigma',
+                'Τ': 'Tau', 'Φ': 'Phi', 'Χ': 'Chi', 'Ψ': 'Psi', 'Ω': 'Omega',
+                'Η': 'Eta', 'Ζ': 'Zeta', 'Κ': 'Kappa', 'Ξ': 'Xi', 'Ο': 'Omicron',
+                'Υ': 'Upsilon'
             }
             for unicode_char, replacement in replacements.items():
                 text = text.replace(unicode_char, replacement)
@@ -56,16 +74,50 @@ class UnicodeStreamHandler(logging.StreamHandler):
             if hasattr(record, 'msg') and 'HTTP Request:' in str(record.msg):
                 return
             
+            # Safely convert the log message
             if hasattr(record, 'msg') and isinstance(record.msg, str):
                 record.msg = safe_str(record.msg)
             if hasattr(record, 'args') and record.args:
-                record.args = tuple(safe_str(arg) for arg in record.args)
+                record.args = tuple(safe_str(arg) if isinstance(arg, str) else str(arg) for arg in record.args)
+            
+            # Ensure the formatted message is also safe
+            try:
+                formatted_msg = self.format(record)
+                formatted_msg = safe_str(formatted_msg)
+                # Update the record with safe message
+                record.msg = formatted_msg
+                record.args = ()
+            except Exception as format_error:
+                # If formatting fails, create a simple safe message
+                record.msg = safe_str(f"Log message formatting error: {str(format_error)}")
+                record.args = ()
+            
             super().emit(record)
+            
         except (UnicodeEncodeError, UnicodeDecodeError) as e:
-            raise RuntimeError(f"Unicode encoding error in log message: {e}") from e
+            # Instead of raising an error, log a safe version
+            try:
+                safe_msg = safe_str(f"Unicode encoding error in log message: {str(e)}")
+                fallback_record = logging.LogRecord(
+                    name=record.name,
+                    level=logging.WARNING,
+                    pathname=record.pathname,
+                    lineno=record.lineno,
+                    msg=safe_msg,
+                    args=(),
+                    exc_info=None
+                )
+                super().emit(fallback_record)
+            except Exception:
+                # If even the fallback fails, print to console
+                print(f"Critical logging error: {e}")
         except Exception as e:
             # Handle any other logging errors gracefully
-            print(f"Logging error: {e}")
+            try:
+                safe_msg = safe_str(f"Logging error: {str(e)}")
+                print(safe_msg)
+            except Exception:
+                print("Critical logging system failure")
             return
 
 # Configure logging
@@ -77,7 +129,49 @@ logging.basicConfig(
         UnicodeStreamHandler()
     ]
 )
-logger = logging.getLogger(__name__)
+
+# Create base logger
+_base_logger = logging.getLogger(__name__)
+
+# Create a safe logging wrapper
+class SafeLogger:
+    def __init__(self, base_logger):
+        self.base_logger = base_logger
+    
+    def info(self, msg, *args, **kwargs):
+        try:
+            safe_msg = safe_str(str(msg))
+            safe_args = tuple(safe_str(str(arg)) for arg in args)
+            self.base_logger.info(safe_msg, *safe_args, **kwargs)
+        except Exception as e:
+            print(f"Logging error prevented: {e}")
+    
+    def warning(self, msg, *args, **kwargs):
+        try:
+            safe_msg = safe_str(str(msg))
+            safe_args = tuple(safe_str(str(arg)) for arg in args)
+            self.base_logger.warning(safe_msg, *safe_args, **kwargs)
+        except Exception as e:
+            print(f"Logging warning prevented: {e}")
+    
+    def error(self, msg, *args, **kwargs):
+        try:
+            safe_msg = safe_str(str(msg))
+            safe_args = tuple(safe_str(str(arg)) for arg in args)
+            self.base_logger.error(safe_msg, *safe_args, **kwargs)
+        except Exception as e:
+            print(f"Logging error prevented: {e}")
+    
+    def debug(self, msg, *args, **kwargs):
+        try:
+            safe_msg = safe_str(str(msg))
+            safe_args = tuple(safe_str(str(arg)) for arg in args)
+            self.base_logger.debug(safe_msg, *safe_args, **kwargs)
+        except Exception as e:
+            print(f"Logging debug prevented: {e}")
+
+# Use the safe logger wrapper
+logger = SafeLogger(_base_logger)
 
 class APIClient:
     def __init__(self, api_key: str, base_url: str, model: str):
@@ -136,7 +230,7 @@ class DeepHotspotAnalyzer:
                 logger.info(f"Performing web search (attempt {attempt + 1}/{max_retries}): {search_query}")
                 
                 # Create a fresh client instance for each search to avoid connection issues
-                fresh_client = TavilyClient(api_key="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")
+                fresh_client = TavilyClient(api_key=self.tavily_client.api_key)
                 response = fresh_client.search(search_query)
                 
                 # Debug: Log the raw response
@@ -206,7 +300,7 @@ IMPORTANT: Use these web search results ONLY if they contain relevant quantitati
                 search_metadata["formatted_content"] = formatted_results
                 search_metadata["success"] = True
                 
-                logger.info(f"✅ Web search SUCCESS: Found {len(results)} results for '{search_query}' (total length: {len(formatted_results)} chars)")
+                logger.info(f"[SUCCESS] Web search SUCCESS: Found {len(results)} results for '{search_query}' (total length: {len(formatted_results)} chars)")
                 return search_metadata
                 
             except Exception as e:
@@ -230,25 +324,26 @@ IMPORTANT: Use these web search results ONLY if they contain relevant quantitati
             
             hotspots_data = {}
             
-            # Split content by ### markers  
-            sections = content.split('###')[1:]
+            # Find all hotspot sections using the ### pattern
+            hotspot_pattern = r'### ([A-Za-z_]+(?:\s+[A-Za-z_]+)*)'
+            hotspot_matches = list(re.finditer(hotspot_pattern, content))
             
-            for section in sections:
-                if not section.strip():
-                    continue
-                    
-                # Get the first line as the hotspot name
-                lines = section.strip().split('\n')
-                if not lines:
-                    continue
-                    
-                raw_hotspot_name = lines[0].strip()
+            logger.info(f"Found {len(hotspot_matches)} hotspot sections in report")
+            
+            for i, match in enumerate(hotspot_matches):
+                raw_hotspot_name = match.group(1).strip()
                 hotspot_name = raw_hotspot_name.replace('_', ' ')
-                hotspot_content = section
                 
-                # Debug logging for Housing_Production specifically
-                if 'Housing' in raw_hotspot_name:
-                    logger.info(f"DEBUG: Found Housing section - Raw: '{raw_hotspot_name}', Processed: '{hotspot_name}'")
+                # Get the content for this hotspot (from current match to next match or end)
+                start_pos = match.start()
+                if i + 1 < len(hotspot_matches):
+                    end_pos = hotspot_matches[i + 1].start()
+                    hotspot_content = content[start_pos:end_pos]
+                else:
+                    hotspot_content = content[start_pos:]
+                
+                logger.info(f"Processing hotspot: '{safe_str(raw_hotspot_name)}' -> '{safe_str(hotspot_name)}'")
+                logger.info(f"Content length: {len(hotspot_content)} characters")
                 
                 # Extract ALL papers from this hotspot - let LLM decide which ones are useful
                 papers_with_data = []
@@ -258,37 +353,43 @@ IMPORTANT: Use these web search results ONLY if they contain relevant quantitati
                 paper_pattern = r'\*\*Paper:\*\*\s*(.*?)\s*\(PDF:\s*([^)]+)\)'
                 papers = re.findall(paper_pattern, hotspot_content, re.DOTALL)
                 
-                # Split content by paper sections
-                paper_sections = re.split(r'\*\*Paper:\*\*[^\n]+', hotspot_content)
+                logger.info(f"Found {len(papers)} papers in {safe_str(hotspot_name)} section")
                 
-                for j, (paper_title, pdf_url) in enumerate(papers):
-                    if j + 1 < len(paper_sections):
-                        paper_content = paper_sections[j + 1]
-                        
-                        # Add ALL papers - let LLM decide what's useful
-                        paper_data = {
-                            'title': paper_title.strip(),
-                            'pdf_url': pdf_url.strip(),
-                            'content': paper_content.strip(),
-                            'has_quantitative_data': True  # Will be filtered by LLM later
-                        }
-                        
-                        
-                        papers_with_data.append(paper_data)
-                        
-                        # Debug logging for Housing_Production specifically
-                        if 'Housing' in raw_hotspot_name:
-                            logger.info(f"DEBUG: Housing paper found - '{paper_title.strip()[:50]}...'")
+                # Split content by paper sections to get paper content
+                if papers:
+                    paper_sections = re.split(r'\*\*Paper:\*\*[^\n]+', hotspot_content)
+                    
+                    for j, (paper_title, pdf_url) in enumerate(papers):
+                        if j + 1 < len(paper_sections):
+                            paper_content = paper_sections[j + 1]
+                            
+                            # Clean up paper title and content
+                            cleaned_title = paper_title.strip()
+                            cleaned_content = paper_content.strip()
+                            
+                            # Add ALL papers - let LLM decide what's useful
+                            paper_data = {
+                                'title': cleaned_title,
+                                'pdf_url': pdf_url.strip(),
+                                'content': cleaned_content,
+                                'has_quantitative_data': True  # Will be filtered by LLM later
+                            }
+                            
+                            papers_with_data.append(paper_data)
+                            logger.info(f"Added paper: '{cleaned_title[:60]}...'")
                 
-                hotspots_data[hotspot_name] = {
-                    'papers_with_data': papers_with_data,
-                    'full_content': hotspot_content
-                }
-                
-                # Debug logging
-                logger.info(f"Hotspot '{hotspot_name}': Found {len(papers_with_data)} papers with quantitative data")
+                # Only add hotspot if it has papers
+                if papers_with_data:
+                    hotspots_data[hotspot_name] = {
+                        'papers_with_data': papers_with_data,
+                        'full_content': hotspot_content
+                    }
+                    logger.info(f"[SUCCESS] Hotspot '{safe_str(hotspot_name)}': Added {len(papers_with_data)} papers")
+                else:
+                    logger.warning(f"[SKIPPED] Hotspot '{safe_str(hotspot_name)}': No papers found, skipping")
             
-            logger.info(f"Parsed {len(hotspots_data)} hotspots from existing report")
+            logger.info(f"Successfully parsed {len(hotspots_data)} hotspots from existing report")
+            logger.info(f"Hotspot names: {list(hotspots_data.keys())}")
             return hotspots_data
             
         except Exception as e:
@@ -303,11 +404,11 @@ IMPORTANT: Use these web search results ONLY if they contain relevant quantitati
             all_papers = hotspot_data['papers_with_data']
             
             if not all_papers:
-                logger.warning(f"No papers found for hotspot: {hotspot_name}")
+                logger.warning(f"No papers found for hotspot: {safe_str(hotspot_name)}")
                 return None
             
             # First, let LLM decide if web search is needed
-            search_decision_prompt = f"""You are analyzing the "{hotspot_name}" component for sustainability improvements.
+            search_decision_prompt = f"""You are analyzing the "{safe_str(hotspot_name)}" component for sustainability improvements.
 
 AVAILABLE RESEARCH PAPERS ({len(all_papers)} papers):
 {chr(10).join([f"- {paper['title']}: {paper['content']}..." for paper in all_papers])}
@@ -371,7 +472,7 @@ EXAMPLES OF TARGETED SEARCH QUERIES:
             additional_data = ""
             
             # Debug: Log the LLM's search decision
-            logger.info(f"LLM search decision for {hotspot_name}: {search_decision[:200]}...")
+            logger.info(f"LLM search decision for {safe_str(hotspot_name)}: {safe_str(search_decision)}...")
             
             # Initialize search metadata
             search_metadata = None
@@ -382,7 +483,7 @@ EXAMPLES OF TARGETED SEARCH QUERIES:
                 search_query_match = re.search(r'SEARCH_QUERY:\s*([^\n]+)', search_decision)
                 if search_query_match:
                     search_query = search_query_match.group(1).strip().strip('"')  # Remove quotes if present
-                    logger.info(f"Performing web search for {hotspot_name}: {search_query}")
+                    logger.info(f"Performing web search for {safe_str(hotspot_name)}: {safe_str(search_query)}")
                     search_metadata = self._web_search_for_quantitative_data(search_query)
                     additional_data = search_metadata["formatted_content"]
                     
@@ -398,16 +499,16 @@ EXAMPLES OF TARGETED SEARCH QUERIES:
                     
                     # Debug logging
                     if search_metadata["success"]:
-                        logger.info(f"✅ Web search SUCCESS for {hotspot_name}: Found {len(search_metadata['search_results'])} results")
+                        logger.info(f"[SUCCESS] Web search SUCCESS for {safe_str(hotspot_name)}: Found {len(search_metadata['search_results'])} results")
                     else:
-                        logger.warning(f"❌ Web search failed for {hotspot_name}: {search_metadata.get('error_message', 'Unknown error')}")
+                        logger.warning(f"[FAILED] Web search failed for {safe_str(hotspot_name)}: {search_metadata.get('error_message', 'Unknown error')}")
                 else:
-                    logger.warning(f"SEARCH_NEEDED: YES but no search query found for {hotspot_name}")
+                    logger.warning(f"SEARCH_NEEDED: YES but no search query found for {safe_str(hotspot_name)}")
             else:
-                logger.info(f"No web search performed for {hotspot_name} - LLM decided sufficient data available")
+                logger.info(f"No web search performed for {safe_str(hotspot_name)} - LLM decided sufficient data available")
             
             # Now perform the deep analysis
-            analysis_prompt = f"""You are a senior sustainability researcher conducting a focused, quantitative analysis of the "{hotspot_name}" component.
+            analysis_prompt = f"""You are a senior sustainability researcher conducting a focused, quantitative analysis of the "{safe_str(hotspot_name)}" component.
 
 COMPONENT SPECIFICATION:
 {original_ecu_data}
@@ -418,15 +519,36 @@ ALL AVAILABLE RESEARCH PAPERS ({len(all_papers)} papers):
 ADDITIONAL WEB SEARCH DATA:
 {additional_data if additional_data else "No web search performed - sufficient information available in research papers"}
 
-CRITICAL INSTRUCTIONS FOR WEB SEARCH DATA:
-- Extract ONLY quantitative data with specific numbers from web search results
-- Every web search finding MUST be cited as: [Title] (URL: full_url)
-- If web search lacks specific numbers, percentages, or metrics, ignore it completely
-- Do not use web search for general statements or background information
-- Only integrate web data that provides concrete, measurable sustainability metrics
+**CRITICAL MANDATORY INSTRUCTIONS FOR WEB SEARCH DATA INTEGRATION if the web search results are relevant to the component:**
+1. **EXTRACT ALL NUMERICAL VALUES**: Every number, percentage, formula, calculation method, or metric from web search results MUST be included
+2. **MANDATORY WEB CITATION**: Every web search finding MUST be cited as: [Title] (URL: full_url)
+3. **PRIORITY DATA EXTRACTION**: Web search data often contains baseline values, industry benchmarks, and calculation formulas that papers may lack
+4. **NO WEB DATA IGNORED**: If web search returned results, you MUST find and extract quantitative data from them
+5. Check for relevant data in the web search results and extract it.
+
+**ENHANCED PAPER ANALYSIS INSTRUCTIONS:**
+1. **DEEP SCAN ALL PAPERS**: Read through EVERY paper completely for any numbers, percentages, improvements, or metrics
+2. **EXTRACT HIDDEN QUANTITATIVE DATA**: Look for process parameters, material properties, efficiency gains, cost savings, time reductions
+3. **NO PAPER DISMISSED**: Even if a paper seems unrelated, check for ANY quantitative sustainability data
+4. **SPECIFIC DATA TO EXTRACT**:
+   - Energy consumption values (kWh, MJ, GJ)
+   - Material efficiency percentages (%, ratios)
+   - Process improvements (time reductions, yield increases)
+   - Environmental impact reductions (CO2, waste, water)
+   - Cost savings and economic benefits
+   - Temperature, pressure, speed optimizations
+
+**MANDATORY IMPROVEMENT APPLICATION REQUIREMENTS:**
+1. **APPLY ALL IMPROVEMENT FORMULAS**: When you find improvement formulas, calculations, or measurement methods in papers or web search results, you MUST apply them to this specific component
+2. **COMPONENT-SPECIFIC CALCULATIONS**: Use the exact component specifications to calculate actual improvement values, not generic estimates
+3. **FORMULA APPLICATION**: If research provides formulas (e.g., efficiency = output/input, % improvement = (new-old)/old×100), apply these formulas using available data
+4. **MEASUREMENT APPLICATION**: Apply any measurement protocols or quantification methods found in research to determine current performance and potential improvements
+5. **PRACTICAL IMPLEMENTATION**: Show how improvements would specifically apply to this component's manufacturing, operation, or lifecycle
+6. **DECIDE APPLICABLE METRICS**: Based on available data from papers and web search, determine which metrics and measurements are most relevant for this component
+7. **CALCULATE SPECIFIC IMPROVEMENTS**: When improvement measures are found, calculate their specific application to this component using any formulas or methods provided
 
 ANALYSIS OBJECTIVE:
-Extract and synthesize quantitative sustainability improvements for this specific component. Focus on concrete, measurable impacts that can be implemented. 
+Extract, synthesize, and APPLY quantitative sustainability improvements specifically to this component. You must calculate and demonstrate how improvements would work for this exact component using formulas and methods found in research.
 
 IMPORTANT: Review ALL papers provided and identify which ones contain useful quantitative data. Ignore papers that state "No direct relevance", "no material overlap", "not directly applicable", or "No specific quantitative sustainability improvements".
 
@@ -443,64 +565,70 @@ ANALYSIS APPROACH:
 4. Use specific numbers and methods only - no generic statements
 5. Organize findings by measurable impact
 
+**WEB SEARCH DATA MUST BE INTEGRATED** - If web search was performed and returned results, you MUST extract and include quantitative data from those results with proper URL citations.
+
 OUTPUT STRUCTURE (only include sections with concrete citable data):
 
-## {hotspot_name.upper()} ANALYSIS
+## {safe_str(hotspot_name).upper()} ANALYSIS
 
 ### Component Overview
 [Only if specific environmental data available - state actual component function and quantified concerns]
 
-### Quantitative Findings from Research
+### Quantitative Findings from Research Papers
 [ONLY numerical improvements with full citations - skip if no specific data available]
 
-### Implementation-Ready Solutions
-[ONLY solutions with quantitative benefits and full citations - skip if no concrete data]
+### Quantitative Findings from Web Search  
+[MANDATORY IF WEB SEARCH PERFORMED: ONLY improvements related to the component with URL citations]
 
-### Key Metrics and Targets
-[ONLY specific, citable targets from research - skip if no quantified data available]
+### Applied Improvement Calculations
+[MANDATORY: Apply any improvement formulas, measurement methods, or calculation techniques found in research to this specific component. Show actual calculations and results using component specifications. Include baseline values, improvement formulas, and calculated outcomes.]
+
+### Implementation-Ready Solutions
+[ONLY solutions with quantitative benefits and full citations - include both paper and web sources]
+
+### Key Metrics and Targets with Applied Improvements
+[ONLY specific, citable targets from research AND web search - include baseline values, benchmarks, and calculated improvement targets based on applied formulas]
 
 ### Critical Gaps
-[Only state gaps in quantitative data - skip generic limitations]
+[Only state gaps in quantitative data where neither papers nor web search provided specific metrics]
 
-MANDATORY CITATION RULES:
-- EVERY quantitative finding MUST include citation: [Paper Title] (PDF: [PDF_URL]) OR [Web Source Title] (URL: [FULL_URL])
-- ABSOLUTELY FORBIDDEN: "No direct citation available", "X%", "Target: Reduce by X%", placeholder text
-- DELETE any statement you cannot cite with a specific source
-- If no citable data exists for a section heading, omit that entire section
-- Use format: "15% improvement [Source Title] (PDF: [PDF_URL])" with actual numbers only
-- ZERO tolerance for uncited statements or placeholder metrics
+**ABSOLUTE REQUIREMENTS:**
+1. **ZERO TOLERANCE FOR MISSING WEB DATA**: If web search found results, you MUST extract quantitative data from them
+2. **MANDATORY DUAL CITATION**: Use both paper citations (PDF: URL) AND web citations (URL: URL) 
+3. **NO GENERIC STATEMENTS**: Every claim must have a specific number and source citation
+4. **COMPREHENSIVE EXTRACTION**: Read every paper thoroughly for ANY quantitative sustainability data
+5. **INTEGRATION PRIORITY**: Web search data often provides missing baselines and calculation methods that papers lack
 
-CRITICAL REQUIREMENTS:
-- DELETE statements without citations - do not keep them with disclaimers
-- SKIP entire sections if no quantitative citable data exists
-- NO generic targets like "Reduce energy consumption by X%" 
-- If you cannot provide exact numbers with sources, write nothing for that point
-- Shorter analysis with only facts is better than longer analysis with placeholders
-- ABSOLUTE RULE: Every number, percentage, improvement claim needs a source citation"""
+**FORBIDDEN ACTIONS:**
+- Ignoring web search results that contain numbers or formulas
+- Dismissing papers without thoroughly reading for quantitative data  
+- Using placeholder percentages or generic improvement claims
+- Missing any numerical values from web search results
+- Failing to cite web sources with full URLs"""
 
             # Debug logging to confirm web search data is being passed
             if additional_data and len(additional_data) > 100:  # Check for substantial data
-                logger.info(f"Passing {len(additional_data)} characters of web search data to LLM for {hotspot_name} analysis")
+                logger.info(f"Passing {len(additional_data)} characters of web search data to LLM for {safe_str(hotspot_name)} analysis")
                 # Check if it contains actual search results
                 if "WEB SEARCH RESULT" in additional_data:
-                    logger.info(f"Web search data for {hotspot_name} contains {additional_data.count('WEB SEARCH RESULT')} search results")
+                    logger.info(f"Web search data for {safe_str(hotspot_name)} contains {additional_data.count('WEB SEARCH RESULT')} search results")
                 else:
-                    logger.warning(f"Web search data for {hotspot_name} does not contain expected result format")
+                    logger.warning(f"Web search data for {safe_str(hotspot_name)} does not contain expected result format")
             else:
-                logger.warning(f"No substantial web search data being passed to LLM for {hotspot_name} (data length: {len(additional_data) if additional_data else 0})")
+                logger.warning(f"No substantial web search data being passed to LLM for {safe_str(hotspot_name)} (data length: {len(additional_data) if additional_data else 0})")
                 if additional_data:
-                    logger.info(f"Sample of short web search data: '{additional_data[:200]}...'")
+                    logger.info(f"Sample of short web search data: '{additional_data}...'")
                 else:
                     logger.info(f"Web search data is empty or None")
 
             analysis_response = api_client.client.chat.completions.create(
                 messages=[
-                    {"role": "system", "content": "You are a sustainability researcher who ONLY reports quantitative data with direct citations. ZERO TOLERANCE RULES: 1) NEVER write 'No direct citation available' or 'X%' placeholders 2) DELETE any statement without a citation 3) SKIP entire sections if no quantitative data exists 4) FORBIDDEN: generic targets, template language, or uncited claims 5) Every number/percentage MUST have [Source] (PDF: URL) or [Source] (URL: URL) 6) If you cannot cite a specific source for a claim, do not include that claim at all 7) Shorter analysis with only facts is preferred over longer analysis with placeholders"},
+                    {"role": "system", "content": "You are a sustainability researcher who MUST extract ALL quantitative data from BOTH papers AND web search results AND apply improvement formulas to the specific component. CRITICAL RULES: 1) ZERO TOLERANCE for ignoring web search data - if web search found results, you MUST extract numerical data from them 2) MANDATORY dual citations: [Paper Title] (PDF: URL) AND [Web Title] (URL: URL) 3) DELETE any statement without a citation 4) NO placeholders or generic claims 5) Extract EVERY number, percentage, formula from web search results 6) Web search data contains critical baselines, benchmarks, and calculation methods that papers often lack 7) If web search was performed, it MUST appear in your analysis with URL citations 8) MANDATORY: Apply any improvement formulas or calculation methods found in research to the specific component - show actual calculations and results 9) Use component specifications to calculate real improvement values, not generic estimates 10) Shorter analysis with complete data and applied calculations is better than longer analysis missing web search integration or improvement applications"},
                     {"role": "user", "content": analysis_prompt}
                 ],
                 model=api_client.model,
-                temperature=0.2,
-                max_tokens=4000
+                temperature=0.1,  # Lower temperature for more precise extraction
+                max_tokens=5000   # Increased tokens for more comprehensive analysis
             )
             
             analysis_content = analysis_response.choices[0].message.content
@@ -520,16 +648,35 @@ CRITICAL REQUIREMENTS:
             }
             
         except Exception as e:
-            logger.error(f"Error in deep hotspot analysis for {hotspot_name}: {str(e)}")
+            logger.error(f"Error in deep hotspot analysis for {safe_str(hotspot_name)}: {str(e)}")
             return None
 
     def generate_comprehensive_lca_report(self, hotspot_analyses: List[Dict[str, Any]], 
-                                        original_report_path: str) -> str:
+                                        original_report_path: str, original_input_file: str = None) -> str:
         """Generate a focused sustainability report based on actual analysis results."""
         try:
-            # Read original component data
-            with open('ECU_sample.txt', 'r', encoding='utf-8') as f:
-                component_data = f.read()
+            # Read original component data from the actual input file
+            if original_input_file and Path(original_input_file).exists():
+                with open(original_input_file, 'r', encoding='utf-8') as f:
+                    component_data = f.read()
+            else:
+                # Fallback: try to find the input file in the output folder
+                output_folder = Path(original_report_path).parent
+                input_files = list(output_folder.glob("*.txt"))
+                # Filter out report files and look for the original input file
+                input_files = [f for f in input_files if not any(keyword in f.name.lower() for keyword in 
+                               ['report', 'sustainable', 'hotspot', 'analysis', 'final'])]
+                
+                if input_files:
+                    # Use the first input file found (should be the original uploaded file)
+                    with open(input_files[0], 'r', encoding='utf-8') as f:
+                        component_data = f.read()
+                    logger.info(f"Using input file from output folder: {input_files[0]}")
+                else:
+                    # Last resort: use hardcoded file (should not happen in normal workflow)
+                    logger.warning("No input file found, using fallback ECU_sample.txt")
+                    with open('ECU_sample.txt', 'r', encoding='utf-8') as f:
+                        component_data = f.read()
             
             # Build focused report
             report_sections = []
@@ -583,7 +730,7 @@ CRITICAL REQUIREMENTS:
             logger.error(f"Error generating comprehensive LCA report: {str(e)}")
             raise
 
-    def run_deep_analysis(self, current_report_path: str):
+    def run_deep_analysis(self, current_report_path: str, original_input_file: str = None):
         """Main function to run deep analysis on existing sustainability report."""
         try:
             # Set up output paths
@@ -593,9 +740,29 @@ CRITICAL REQUIREMENTS:
             hotspots_data = self.parse_existing_report(current_report_path)
             logger.info(f"Analyzing existing report: {current_report_path}")
             
-            # Read original ECU data
-            with open('ECU_sample.txt', 'r', encoding='utf-8') as f:
-                original_ecu_data = f.read()
+            # Read original input data from the actual input file
+            if original_input_file and Path(original_input_file).exists():
+                with open(original_input_file, 'r', encoding='utf-8') as f:
+                    original_ecu_data = f.read()
+                logger.info(f"Using original input file: {original_input_file}")
+            else:
+                # Fallback: try to find the input file in the output folder
+                output_folder = Path(current_report_path).parent
+                input_files = list(output_folder.glob("*.txt"))
+                # Filter out report files and look for the original input file
+                input_files = [f for f in input_files if not any(keyword in f.name.lower() for keyword in 
+                               ['report', 'sustainable', 'hotspot', 'analysis', 'final'])]
+                
+                if input_files:
+                    # Use the first input file found (should be the original uploaded file)
+                    with open(input_files[0], 'r', encoding='utf-8') as f:
+                        original_ecu_data = f.read()
+                    logger.info(f"Using input file from output folder: {input_files[0]}")
+                else:
+                    # Last resort: use hardcoded file (should not happen in normal workflow)
+                    logger.warning("No input file found, using fallback ECU_sample.txt")
+                    with open('ECU_sample.txt', 'r', encoding='utf-8') as f:
+                        original_ecu_data = f.read()
             
             # Perform deep analysis for each hotspot using SEQUENTIAL processing to avoid web search rate limiting
             hotspot_analyses = []
@@ -607,7 +774,7 @@ CRITICAL REQUIREMENTS:
                     # Use API clients in round-robin fashion
                     api_client = self.api_clients[i % len(self.api_clients)]
                     
-                    logger.info(f"Starting analysis for hotspot {i+1}/{len(hotspots_data)}: {hotspot_name}")
+                    logger.info(f"Starting analysis for hotspot {i+1}/{len(hotspots_data)}: {safe_str(hotspot_name)}")
                     
                     result = self.perform_deep_hotspot_analysis(
                         hotspot_name,
@@ -618,22 +785,22 @@ CRITICAL REQUIREMENTS:
                     
                     if result:
                         hotspot_analyses.append(result)
-                        logger.info(f"✅ Completed analysis for: {hotspot_name} ({i+1}/{len(hotspots_data)})")
+                        logger.info(f"[SUCCESS] Completed analysis for: {safe_str(hotspot_name)} ({i+1}/{len(hotspots_data)})")
                     else:
-                        logger.warning(f"❌ Analysis failed for: {hotspot_name}")
+                        logger.warning(f"[FAILED] Analysis failed for: {safe_str(hotspot_name)}")
                     
                     # Add delay between hotspot analyses to prevent API overload
                     if i < len(hotspots_data) - 1:  # Don't delay after the last one
                         time.sleep(3)
                         
                 except Exception as e:
-                    logger.error(f"Error analyzing hotspot {hotspot_name}: {str(e)}")
+                    logger.error(f"Error analyzing hotspot {safe_str(hotspot_name)}: {str(e)}")
             
-            # Generate comprehensive LCA report
-            comprehensive_report = self.generate_comprehensive_lca_report(hotspot_analyses, current_report_path)
+            # Generate comprehensive LCA report with original input file
+            comprehensive_report = self.generate_comprehensive_lca_report(hotspot_analyses, current_report_path, original_input_file)
             
             # Save new comprehensive report with unique name
-            new_report_path = f"{self.output_folder}/sustainable_solutions_report.txt"
+            new_report_path = f"{self.output_folder}/final_sustainable_solutions_report.txt"
             with open(new_report_path, 'w', encoding='utf-8') as f:
                 f.write(comprehensive_report)
             
@@ -643,7 +810,7 @@ CRITICAL REQUIREMENTS:
             
             # Generate PDF version
             try:
-                pdf_path = f"{self.output_folder}/sustainable_solutions_report.pdf"
+                pdf_path = f"{self.output_folder}/final_sustainable_solutions_report.pdf"
                 self._generate_professional_pdf(comprehensive_report, pdf_path)
                 logger.info(f"Generated PDF report: {pdf_path}")
             except Exception as e:
@@ -661,7 +828,7 @@ CRITICAL REQUIREMENTS:
             raise
 
     def _generate_professional_pdf(self, report_content: str, pdf_path: str):
-        """Generate a professional PDF report similar to academic papers."""
+        """Generate a professional PDF report with enhanced styling and parsing."""
         try:
             doc = SimpleDocTemplate(
                 pdf_path,
@@ -672,73 +839,352 @@ CRITICAL REQUIREMENTS:
                 bottomMargin=72
             )
             
-            styles = getSampleStyleSheet()
+            # Create enhanced styles
+            styles = self._create_pdf_styles()
             
-            # Custom styles for academic paper format
-            styles.add(ParagraphStyle(
-                name='AcademicTitle',
-                parent=styles['Title'],
-                fontSize=16,
-                spaceAfter=20,
-                alignment=TA_CENTER,
-                textColor=HexColor('#000000'),
-                fontName='Helvetica-Bold'
-            ))
-            
-            styles.add(ParagraphStyle(
-                name='SectionHeader',
-                parent=styles['Heading1'],
-                fontSize=14,
-                spaceAfter=12,
-                spaceBefore=18,
-                textColor=HexColor('#000000'),
-                fontName='Helvetica-Bold'
-            ))
-            
-            styles.add(ParagraphStyle(
-                name='SubsectionHeader',
-                parent=styles['Heading2'],
-                fontSize=12,
-                spaceAfter=8,
-                spaceBefore=12,
-                textColor=HexColor('#000000'),
-                fontName='Helvetica-Bold'
-            ))
-            
-            styles.add(ParagraphStyle(
-                name='BodyText',
-                parent=styles['Normal'],
-                fontSize=10,
-                spaceAfter=6,
-                alignment=TA_JUSTIFY,
-                textColor=HexColor('#000000')
-            ))
-            
-            # Build PDF content
+            # Build story (PDF content)
             story = []
             
-            lines = report_content.split('\n')
-            for line in lines:
-                line = line.strip()
-                if not line:
-                    continue
-                
-                if line.startswith('# '):
-                    story.append(Paragraph(line[2:], styles['AcademicTitle']))
-                elif line.startswith('## '):
-                    story.append(Paragraph(line[3:], styles['SectionHeader']))
-                elif line.startswith('### '):
-                    story.append(Paragraph(line[4:], styles['SubsectionHeader']))
-                elif line.startswith('```'):
-                    continue  # Skip code blocks markers
-                else:
-                    story.append(Paragraph(line, styles['BodyText']))
+            # Add header with better formatting
+            title_text = "FINAL SUSTAINABILITY<br/>ANALYSIS REPORT"
+            story.append(Paragraph(title_text, styles['CustomMainTitle']))
+            story.append(Spacer(1, 0.2*inch))
             
+            # Add generation timestamp
+            timestamp = datetime.now().strftime("%B %d, %Y at %H:%M")
+            story.append(Paragraph(f"Generated on {timestamp}", styles['CustomBodyText']))
+            story.append(Spacer(1, 0.3*inch))
+            
+            # Parse and add content
+            elements = self._parse_report_content(report_content)
+            
+            for element in elements:
+                element_type = element['type']
+                content = element['content']
+                
+                if element_type == 'main_title':
+                    continue  # Already added at the top
+                elif element_type == 'hotspot_title':
+                    # MAIN HEADLINES - largest (## sections)
+                    story.append(Spacer(1, 0.3*inch))
+                    story.append(Paragraph(content, styles['CustomHotspotTitle']))
+                elif element_type == 'section_title':
+                    # Secondary headlines (### sections)
+                    story.append(Spacer(1, 0.2*inch))
+                    story.append(Paragraph(content, styles['CustomSectionTitle']))
+                elif element_type == 'content_subtitle':
+                    # Content subsections
+                    story.append(Spacer(1, 0.1*inch))
+                    story.append(Paragraph(content, styles['CustomContentSubtitle']))
+                elif element_type == 'paper_citation':
+                    # Paper citations with clickable PDF links
+                    story.append(Spacer(1, 0.08*inch))
+                    processed_content = self._process_hyperlinks(content)
+                    story.append(Paragraph(processed_content, styles['CustomPaperTitle']))
+                elif element_type == 'bullet':
+                    story.append(Paragraph(f"• {content}", styles['CustomBulletPoint']))
+                elif element_type == 'numbered':
+                    story.append(Paragraph(content, styles['CustomNumberedItem']))
+                elif element_type == 'indented_detail':
+                    story.append(Paragraph(content, styles['CustomIndentedDetail']))
+                elif element_type == 'divider':
+                    story.append(Spacer(1, 0.15*inch))
+                    # Add a horizontal line
+                    divider_table = Table([['─' * 60]], colWidths=[5*inch])
+                    divider_table.setStyle(TableStyle([
+                        ('TEXTCOLOR', (0, 0), (-1, -1), HexColor('#BDC3C7')),
+                        ('FONTSIZE', (0, 0), (-1, -1), 10),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                    ]))
+                    story.append(divider_table)
+                    story.append(Spacer(1, 0.15*inch))
+                elif element_type == 'code_block':
+                    # Code blocks with monospace font
+                    story.append(Paragraph(content, styles['CustomCodeBlock']))
+                elif element_type == 'body':
+                    story.append(Paragraph(content, styles['CustomBodyText']))
+            
+            # Add footer information
+            story.append(Spacer(1, 0.3*inch))
+            footer_text = """
+            <para align="center">
+            <b>Report Information</b><br/>
+            This report was generated using the Deep Hotspot LCA Analysis System<br/>
+            All quantitative findings include proper citations and web search validation<br/>
+            Analysis combines research papers with real-time web search for quantitative data
+            </para>
+            """
+            story.append(Paragraph(footer_text, styles['CustomBodyText']))
+            
+            # Build PDF
             doc.build(story)
+            
+            logger.info(f"Successfully generated enhanced PDF report: {pdf_path}")
             
         except Exception as e:
             logger.error(f"PDF generation error: {str(e)}")
             raise
+
+    def _create_pdf_styles(self):
+        """Create custom styles for PDF generation."""
+        styles = getSampleStyleSheet()
+        
+        # Custom styles with proper hierarchy
+        styles.add(ParagraphStyle(
+            name='CustomMainTitle',
+            parent=styles['Title'],
+            fontSize=22,
+            spaceAfter=30,
+            alignment=TA_CENTER,
+            textColor=HexColor('#2C3E50'),
+            fontName='Helvetica-Bold',
+            wordWrap='CJK'
+        ))
+        
+        # ## Hotspot sections - Main headlines (largest)
+        styles.add(ParagraphStyle(
+            name='CustomHotspotTitle',
+            parent=styles['Heading1'],
+            fontSize=18,
+            spaceAfter=15,
+            spaceBefore=25,
+            textColor=HexColor('#1A5490'),
+            keepWithNext=1,
+            fontName='Helvetica-Bold'
+        ))
+        
+        # ### sections - Secondary headlines (medium)
+        styles.add(ParagraphStyle(
+            name='CustomSectionTitle',
+            parent=styles['Heading2'],
+            fontSize=15,
+            spaceAfter=10,
+            spaceBefore=15,
+            textColor=HexColor('#34495E'),
+            keepWithNext=1,
+            fontName='Helvetica-Bold'
+        ))
+        
+        # Paper citations - Tertiary headlines (smaller)
+        styles.add(ParagraphStyle(
+            name='CustomPaperTitle',
+            parent=styles['Heading3'],
+            fontSize=13,
+            spaceAfter=6,
+            spaceBefore=8,
+            textColor=HexColor('#2980B9'),
+            keepWithNext=1,
+            fontName='Helvetica-Bold'
+        ))
+        
+        # Content subsections
+        styles.add(ParagraphStyle(
+            name='CustomContentSubtitle',
+            parent=styles['Normal'],
+            fontSize=12,
+            spaceAfter=4,
+            spaceBefore=6,
+            textColor=HexColor('#7F8C8D'),
+            fontName='Helvetica-Bold'
+        ))
+        
+        # Regular body text
+        styles.add(ParagraphStyle(
+            name='CustomBodyText',
+            parent=styles['Normal'],
+            fontSize=11,
+            spaceAfter=4,
+            alignment=TA_JUSTIFY,
+            textColor=HexColor('#2C3E50')
+        ))
+        
+        # Bullet points
+        styles.add(ParagraphStyle(
+            name='CustomBulletPoint',
+            parent=styles['Normal'],
+            fontSize=11,
+            spaceAfter=3,
+            leftIndent=20,
+            bulletIndent=10,
+            textColor=HexColor('#2C3E50')
+        ))
+        
+        # Numbered items
+        styles.add(ParagraphStyle(
+            name='CustomNumberedItem',
+            parent=styles['Normal'],
+            fontSize=11,
+            spaceAfter=3,
+            leftIndent=15,
+            textColor=HexColor('#2C3E50')
+        ))
+        
+        # Indented details
+        styles.add(ParagraphStyle(
+            name='CustomIndentedDetail',
+            parent=styles['Normal'],
+            fontSize=10,
+            spaceAfter=2,
+            leftIndent=40,
+            textColor=HexColor('#555555')
+        ))
+        
+        # Code blocks
+        styles.add(ParagraphStyle(
+            name='CustomCodeBlock',
+            parent=styles['Normal'],
+            fontSize=9,
+            spaceAfter=6,
+            spaceBefore=6,
+            leftIndent=20,
+            rightIndent=20,
+            textColor=HexColor('#2C3E50'),
+            fontName='Courier',
+            backColor=HexColor('#F8F9FA')
+        ))
+        
+        return styles
+
+    def _parse_report_content(self, report_content: str) -> List[Dict[str, Any]]:
+        """Parse the text report content into structured elements for PDF generation."""
+        lines = report_content.split('\n')
+        elements = []
+        in_code_block = False
+        
+        for line in lines:
+            original_line = line
+            line = line.strip()
+            if not line:
+                continue
+                
+            # Handle code blocks
+            if line.startswith('```'):
+                in_code_block = not in_code_block
+                continue
+                
+            if in_code_block:
+                elements.append({'type': 'code_block', 'content': original_line})
+                continue
+                
+            # Main title
+            if line.startswith('# SUSTAINABILITY ANALYSIS REPORT'):
+                elements.append({'type': 'main_title', 'content': line[2:].strip()})
+            # ## Hotspot sections - MAIN HEADLINES (largest)
+            elif line.startswith('## '):
+                hotspot_title = line[3:].strip().replace('_', ' ')
+                elements.append({'type': 'hotspot_title', 'content': hotspot_title})
+            # ### sections - Secondary headlines
+            elif line.startswith('### '):
+                section_title = line[4:].strip()
+                elements.append({'type': 'section_title', 'content': section_title})
+            # Paper citations with clickable links
+            elif '[' in line and '] (PDF:' in line:
+                elements.append({'type': 'paper_citation', 'content': line})
+            elif '[' in line and '] (URL:' in line:
+                elements.append({'type': 'paper_citation', 'content': line})
+            # Content subsections (like "Quantitative Findings")
+            elif (line.startswith('**') and line.endswith('**') and 
+                  ('Finding' in line or 'Overview' in line or 'Calculation' in line or 
+                   'Solution' in line or 'Metric' in line or 'Gap' in line)):
+                subtitle = line.strip('*').strip()
+                elements.append({'type': 'content_subtitle', 'content': subtitle})
+            # Bullet points
+            elif line.startswith('• ') or line.startswith('- ') or line.startswith('* '):
+                bullet_text = line[2:].strip()
+                elements.append({'type': 'bullet', 'content': bullet_text})
+            # Numbered lists
+            elif line and line[0].isdigit() and '. ' in line[:4]:
+                elements.append({'type': 'numbered', 'content': line})
+            # Indented details (lines that start with spaces)
+            elif (original_line.startswith('   ') or original_line.startswith('\t')) and ':' in line:
+                elements.append({'type': 'indented_detail', 'content': line})
+            # Dividers
+            elif line.startswith('---'):
+                elements.append({'type': 'divider', 'content': ''})
+            # Regular text
+            elif line:
+                elements.append({'type': 'body', 'content': line})
+        
+        return elements
+
+    def _process_hyperlinks(self, content: str) -> str:
+        """Process content to convert PDF and web URLs into clickable hyperlinks."""
+        # Pattern to match PDF links like [Title] (PDF: http://arxiv.org/pdf/...)
+        pdf_pattern = r'\[([^\]]+)\] \(PDF:\s*(https?://[^\)]+)\)'
+        
+        def replace_pdf_link(match):
+            title = match.group(1).strip()
+            url = match.group(2).strip()
+            return f'<a href="{url}" color="#0066CC"><u>{title}</u></a> (PDF: <a href="{url}" color="#0066CC"><u>{url}</u></a>)'
+        
+        # Pattern to match web links like [Title] (URL: http://...)
+        url_pattern = r'\[([^\]]+)\] \(URL:\s*(https?://[^\)]+)\)'
+        
+        def replace_url_link(match):
+            title = match.group(1).strip()
+            url = match.group(2).strip()
+            return f'<a href="{url}" color="#0066CC"><u>{title}</u></a> (URL: <a href="{url}" color="#0066CC"><u>{url}</u></a>)'
+        
+        # Replace PDF and URL links with hyperlinks
+        processed_content = re.sub(pdf_pattern, replace_pdf_link, content)
+        processed_content = re.sub(url_pattern, replace_url_link, processed_content)
+        
+        return processed_content
+
+    def _validate_web_search_integration(self, analysis_content: str, search_metadata: Dict[str, Any], hotspot_name: str) -> None:
+        """Validate that web search data was properly integrated into the analysis."""
+        if not search_metadata or not search_metadata.get("success", False):
+            logger.info(f"No web search validation needed for {safe_str(hotspot_name)} - no successful web search performed")
+            return
+            
+        search_results = search_metadata.get("search_results", [])
+        if not search_results:
+            logger.warning(f"Web search successful but no results found for {safe_str(hotspot_name)}")
+            return
+            
+        # Check if web search URLs appear in the analysis content
+        urls_found = []
+        urls_missing = []
+        
+        for result in search_results:
+            url = result.get("url", "")
+            title = result.get("title", "")
+            
+            if url and url in analysis_content:
+                urls_found.append(f"{title} ({url})")
+            else:
+                urls_missing.append(f"{title} ({url})")
+                
+        # Log validation results
+        if urls_found:
+            logger.info(f"[SUCCESS] Web search integration for {safe_str(hotspot_name)}: {len(urls_found)}/{len(search_results)} URLs cited")
+            for url_info in urls_found:
+                logger.info(f"  [CITED] {url_info}")
+        
+        if urls_missing:
+            logger.warning(f"[WARNING] Missing web search integration for {safe_str(hotspot_name)}: {len(urls_missing)}/{len(search_results)} URLs not cited")
+            for url_info in urls_missing:
+                logger.warning(f"  [MISSING] {url_info}")
+                
+        # Check for quantitative data in missed web search results
+        missing_quantitative_data = []
+        for result in search_results:
+            if result.get("url", "") not in analysis_content:
+                content = result.get("content", "")
+                # Look for numbers, percentages, formulas in the content
+                numbers = re.findall(r'\d+\.?\d*\s*%|\d+\.?\d*\s*[A-Za-z]+/[A-Za-z]+|\d+\.?\d*\s*[kKmMgG][A-Za-z]*|\d+\.?\d*', content)
+                if numbers:
+                    missing_quantitative_data.append({
+                        "title": result.get("title", ""),
+                        "url": result.get("url", ""), 
+                        "quantitative_data": numbers[:5]  # First 5 numbers found
+                    })
+                    
+        if missing_quantitative_data:
+            logger.error(f"[CRITICAL] {safe_str(hotspot_name)} missing quantitative data from web search:")
+            for missing in missing_quantitative_data:
+                logger.error(f"  [DATA] {missing['title']}: {missing['quantitative_data']}")
+                logger.error(f"      URL: {missing['url']}")
 
     def _save_search_metadata(self, hotspot_analyses: List[Dict[str, Any]], search_metadata_path: str):
         """Save search metadata to a JSON file."""
@@ -765,7 +1211,7 @@ CRITICAL REQUIREMENTS:
 
 def main():
     """Run the deep hotspot analysis."""
-    from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL
+    from config import PRIMARY_API_KEY, SECONDARY_API_KEY, BASE_URL, TAVILY_API_KEY
     
     # API configurations
     api_configs = [
@@ -773,18 +1219,24 @@ def main():
         {"api_key": SECONDARY_API_KEY, "base_url": BASE_URL, "model": "llama-3.3-70b-instruct"}
     ]
     
-    # Tavily API key for web search
-    TAVILY_API_KEY = "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"
-    
     analyzer = DeepHotspotAnalyzer(api_configs, TAVILY_API_KEY)
     
-    # Run analysis on existing report
-    current_report = "output/automotive_sample_input/sustainable_solutions_report.txt"
+    # Run analysis on existing detailed report (use this as input for deep analysis)
+    current_report = "output/ECU_sample/detailed_sustainable_solutions_report.txt"
+    original_input_file = "ECU_sample.txt"  # Use the actual input file
     if Path(current_report).exists():
-        result = analyzer.run_deep_analysis(current_report)
+        result = analyzer.run_deep_analysis(current_report, original_input_file)
         print(f"Deep analysis completed. New report: {result}")
     else:
         print(f"Report file not found: {current_report}")
+        print("Available report files:")
+        output_dir = Path("output")
+        if output_dir.exists():
+            for subdir in output_dir.iterdir():
+                if subdir.is_dir():
+                    print(f"  {subdir}/")
+                    for file in subdir.glob("*.txt"):
+                        print(f"    {file}")
 
 if __name__ == "__main__":
     main()
